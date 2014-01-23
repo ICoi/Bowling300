@@ -1,24 +1,26 @@
 //
-//  RecordViewController.m
+//  GroupListViewController.m
 //  Bowling300
 //
 //  Created by SDT-1 on 2014. 1. 23..
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "RecordViewController.h"
+#import "GroupListViewController.h"
 
-@interface RecordViewController ()
+@interface GroupListViewController ()
 
 @end
 
-@implementation RecordViewController
+@implementation GroupListViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
+
 
 - (void)viewWillAppear:(BOOL)animated{
     // 네비게이션 바 보이지 않게 한다.

@@ -1,18 +1,18 @@
 //
-//  RecordViewController.m
+//  GraphViewController.m
 //  Bowling300
 //
 //  Created by SDT-1 on 2014. 1. 23..
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "RecordViewController.h"
+#import "GraphViewController.h"
 
-@interface RecordViewController ()
+@interface GraphViewController ()
 
 @end
 
-@implementation RecordViewController
+@implementation GraphViewController
 
 - (void)viewDidLoad
 {
@@ -32,8 +32,11 @@
 }
 
 
-
 - (IBAction)goBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)goCalendar:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

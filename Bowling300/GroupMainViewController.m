@@ -1,18 +1,19 @@
 //
-//  RecordViewController.m
+//  GroupMainViewController.m
 //  Bowling300
 //
 //  Created by SDT-1 on 2014. 1. 23..
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "RecordViewController.h"
+#import "GroupMainViewController.h"
 
-@interface RecordViewController ()
+@interface GroupMainViewController ()
 
 @end
 
-@implementation RecordViewController
+@implementation GroupMainViewController
+
 
 - (void)viewDidLoad
 {
@@ -21,21 +22,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    // 네비게이션 바 보이지 않게 한다.
     [self.navigationController.navigationBar setHidden:YES];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 @end

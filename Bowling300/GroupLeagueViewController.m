@@ -1,18 +1,19 @@
 //
-//  RecordViewController.m
+//  GroupLeagueViewController.m
 //  Bowling300
 //
 //  Created by SDT-1 on 2014. 1. 23..
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "RecordViewController.h"
+#import "GroupLeagueViewController.h"
 
-@interface RecordViewController ()
+@interface GroupLeagueViewController ()
 
 @end
 
-@implementation RecordViewController
+@implementation GroupLeagueViewController
+
 
 - (void)viewDidLoad
 {
@@ -21,10 +22,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    // 네비게이션 바 보이지 않게 한다.
     [self.navigationController.navigationBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:YES];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -32,10 +32,12 @@
 }
 
 
-
-- (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)showBoard:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
 }
 
+- (IBAction)showMember:(id)sender {
+    [self.tabBarController setSelectedIndex:2];
+}
 
 @end

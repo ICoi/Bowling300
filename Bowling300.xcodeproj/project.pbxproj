@@ -86,6 +86,19 @@
 		009CCBFD1890E1A1006DAB6F /* record_search_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 009CCBE71890E1A1006DAB6F /* record_search_btn.png */; };
 		009CCBFE1890E1A1006DAB6F /* record_write_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 009CCBE81890E1A1006DAB6F /* record_write_btn.png */; };
 		009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC011890E41D006DAB6F /* RecordViewController.m */; };
+		009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC041890EAC9006DAB6F /* GraphViewController.m */; };
+		009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC0B1890F188006DAB6F /* GroupListViewController.m */; };
+		009CCC121890FFB6006DAB6F /* GroupMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC111890FFB6006DAB6F /* GroupMainViewController.m */; };
+		009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC14189100A4006DAB6F /* GroupLeagueViewController.m */; };
+		009CCC1818910215006DAB6F /* GroupBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC1718910215006DAB6F /* GroupBoardViewController.m */; };
+		009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC1A18910220006DAB6F /* GroupMemberViewController.m */; };
+		009CCC1E18910542006DAB6F /* GroupWriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC1D18910542006DAB6F /* GroupWriteViewController.m */; };
+		009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC20189106FA006DAB6F /* GroupAddViewController.m */; };
+		009CCC2518910AFC006DAB6F /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC2418910AFC006DAB6F /* MyPageViewController.m */; };
+		009CCC2718910B97006DAB6F /* myPage_myInfo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2618910B97006DAB6F /* myPage_myInfo_btn.png */; };
+		009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC2918910C94006DAB6F /* MyInfoViewController.m */; };
+		009CCC2D18911603006DAB6F /* expansiva.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2C18911594006DAB6F /* expansiva.ttf */; };
+		009CCC2E18911718006DAB6F /* expansiva.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2C18911594006DAB6F /* expansiva.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +198,28 @@
 		009CCBE81890E1A1006DAB6F /* record_write_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_write_btn.png; sourceTree = "<group>"; };
 		009CCC001890E41D006DAB6F /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		009CCC011890E41D006DAB6F /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		009CCC031890EAC9006DAB6F /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		009CCC041890EAC9006DAB6F /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
+		009CCC0A1890F188006DAB6F /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListViewController.h; sourceTree = "<group>"; };
+		009CCC0B1890F188006DAB6F /* GroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListViewController.m; sourceTree = "<group>"; };
+		009CCC101890FFB6006DAB6F /* GroupMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMainViewController.h; sourceTree = "<group>"; };
+		009CCC111890FFB6006DAB6F /* GroupMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMainViewController.m; sourceTree = "<group>"; };
+		009CCC13189100A4006DAB6F /* GroupLeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupLeagueViewController.h; sourceTree = "<group>"; };
+		009CCC14189100A4006DAB6F /* GroupLeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupLeagueViewController.m; sourceTree = "<group>"; };
+		009CCC1618910215006DAB6F /* GroupBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupBoardViewController.h; sourceTree = "<group>"; };
+		009CCC1718910215006DAB6F /* GroupBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBoardViewController.m; sourceTree = "<group>"; };
+		009CCC1918910220006DAB6F /* GroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberViewController.h; sourceTree = "<group>"; };
+		009CCC1A18910220006DAB6F /* GroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberViewController.m; sourceTree = "<group>"; };
+		009CCC1C18910541006DAB6F /* GroupWriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWriteViewController.h; sourceTree = "<group>"; };
+		009CCC1D18910542006DAB6F /* GroupWriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWriteViewController.m; sourceTree = "<group>"; };
+		009CCC1F189106FA006DAB6F /* GroupAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupAddViewController.h; sourceTree = "<group>"; };
+		009CCC20189106FA006DAB6F /* GroupAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupAddViewController.m; sourceTree = "<group>"; };
+		009CCC2318910AFC006DAB6F /* MyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
+		009CCC2418910AFC006DAB6F /* MyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
+		009CCC2618910B97006DAB6F /* myPage_myInfo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myPage_myInfo_btn.png; sourceTree = "<group>"; };
+		009CCC2818910C94006DAB6F /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
+		009CCC2918910C94006DAB6F /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
+		009CCC2C18911594006DAB6F /* expansiva.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = expansiva.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,14 +279,17 @@
 		009CCB4D1890E096006DAB6F /* Bowling300 */ = {
 			isa = PBXGroup;
 			children = (
+				009CCC2B18911574006DAB6F /* font */,
+				009CCC2218910AEE006DAB6F /* MyPage */,
+				009CCC091890F179006DAB6F /* Group */,
+				009CCC071890F0E3006DAB6F /* GroupList */,
+				009CCC061890F09E006DAB6F /* Ranking */,
 				009CCBFF1890E408006DAB6F /* Record */,
 				009CCB801890E14A006DAB6F /* Image */,
 				009CCB7F1890E141006DAB6F /* CutImage */,
 				009CCB561890E096006DAB6F /* AppDelegate.h */,
 				009CCB571890E096006DAB6F /* AppDelegate.m */,
 				009CCB591890E096006DAB6F /* Main.storyboard */,
-				009CCB7C1890E0DC006DAB6F /* RankingViewController.h */,
-				009CCB7D1890E0DC006DAB6F /* RankingViewController.m */,
 				009CCB5C1890E096006DAB6F /* IntroViewController.h */,
 				009CCB5D1890E096006DAB6F /* IntroViewController.m */,
 				009CCB5F1890E096006DAB6F /* Images.xcassets */,
@@ -328,6 +366,7 @@
 		009CCB801890E14A006DAB6F /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				009CCC2618910B97006DAB6F /* myPage_myInfo_btn.png */,
 				009CCB811890E15D006DAB6F /* group_board_post.png */,
 				009CCB821890E15D006DAB6F /* group_board_read.png */,
 				009CCB831890E15D006DAB6F /* group_board_search.png */,
@@ -371,8 +410,66 @@
 			children = (
 				009CCC001890E41D006DAB6F /* RecordViewController.h */,
 				009CCC011890E41D006DAB6F /* RecordViewController.m */,
+				009CCC031890EAC9006DAB6F /* GraphViewController.h */,
+				009CCC041890EAC9006DAB6F /* GraphViewController.m */,
 			);
 			name = Record;
+			sourceTree = "<group>";
+		};
+		009CCC061890F09E006DAB6F /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				009CCB7C1890E0DC006DAB6F /* RankingViewController.h */,
+				009CCB7D1890E0DC006DAB6F /* RankingViewController.m */,
+			);
+			name = Ranking;
+			sourceTree = "<group>";
+		};
+		009CCC071890F0E3006DAB6F /* GroupList */ = {
+			isa = PBXGroup;
+			children = (
+				009CCC0A1890F188006DAB6F /* GroupListViewController.h */,
+				009CCC0B1890F188006DAB6F /* GroupListViewController.m */,
+				009CCC1F189106FA006DAB6F /* GroupAddViewController.h */,
+				009CCC20189106FA006DAB6F /* GroupAddViewController.m */,
+			);
+			name = GroupList;
+			sourceTree = "<group>";
+		};
+		009CCC091890F179006DAB6F /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				009CCC101890FFB6006DAB6F /* GroupMainViewController.h */,
+				009CCC111890FFB6006DAB6F /* GroupMainViewController.m */,
+				009CCC13189100A4006DAB6F /* GroupLeagueViewController.h */,
+				009CCC14189100A4006DAB6F /* GroupLeagueViewController.m */,
+				009CCC1618910215006DAB6F /* GroupBoardViewController.h */,
+				009CCC1718910215006DAB6F /* GroupBoardViewController.m */,
+				009CCC1918910220006DAB6F /* GroupMemberViewController.h */,
+				009CCC1A18910220006DAB6F /* GroupMemberViewController.m */,
+				009CCC1C18910541006DAB6F /* GroupWriteViewController.h */,
+				009CCC1D18910542006DAB6F /* GroupWriteViewController.m */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		009CCC2218910AEE006DAB6F /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				009CCC2318910AFC006DAB6F /* MyPageViewController.h */,
+				009CCC2418910AFC006DAB6F /* MyPageViewController.m */,
+				009CCC2818910C94006DAB6F /* MyInfoViewController.h */,
+				009CCC2918910C94006DAB6F /* MyInfoViewController.m */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		009CCC2B18911574006DAB6F /* font */ = {
+			isa = PBXGroup;
+			children = (
+				009CCC2C18911594006DAB6F /* expansiva.ttf */,
+			);
+			name = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009CCC2E18911718006DAB6F /* expansiva.ttf in Resources */,
 				009CCBA51890E15D006DAB6F /* group_board_search.png in Resources */,
 				009CCBB51890E15D006DAB6F /* myPage_myInfo2.png in Resources */,
 				009CCBCD1890E191006DAB6F /* group_group_btn.png in Resources */,
@@ -459,6 +557,7 @@
 				009CCBEF1890E1A1006DAB6F /* record_calendar 오후 1.59.53.png in Resources */,
 				009CCBBD1890E15D006DAB6F /* record_main.png in Resources */,
 				009CCBF71890E1A1006DAB6F /* record_menu_mypage_btn.png in Resources */,
+				009CCC2718910B97006DAB6F /* myPage_myInfo_btn.png in Resources */,
 				009CCBF11890E1A1006DAB6F /* record_calendar.png in Resources */,
 				009CCBAD1890E15D006DAB6F /* groupNew_image.png in Resources */,
 				009CCBCE1890E191006DAB6F /* group_menu_board_btn.png in Resources */,
@@ -524,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009CCC2D18911603006DAB6F /* expansiva.ttf in Resources */,
 				009CCB711890E096006DAB6F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,11 +635,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009CCC1E18910542006DAB6F /* GroupWriteViewController.m in Sources */,
 				009CCB5E1890E096006DAB6F /* IntroViewController.m in Sources */,
+				009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */,
+				009CCC2518910AFC006DAB6F /* MyPageViewController.m in Sources */,
+				009CCC1818910215006DAB6F /* GroupBoardViewController.m in Sources */,
 				009CCB581890E096006DAB6F /* AppDelegate.m in Sources */,
 				009CCB541890E096006DAB6F /* main.m in Sources */,
+				009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */,
 				009CCB7E1890E0DC006DAB6F /* RankingViewController.m in Sources */,
 				009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */,
+				009CCC121890FFB6006DAB6F /* GroupMainViewController.m in Sources */,
+				009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */,
+				009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */,
+				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
+				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

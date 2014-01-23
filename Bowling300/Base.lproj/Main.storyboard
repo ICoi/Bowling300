@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Intro View Controller-->
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-Uy-NM8">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-Uy-NM8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -350,6 +350,22 @@
                                     <action selector="goCalendar:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="ELJ-MX-Vb8"/>
                                 </connections>
                             </button>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VH9-nW-tGt">
+                                <rect key="frame" x="0.0" y="137" width="320" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="5hS-nv-QAy" kind="embed" id="5Fp-Ul-0Ra"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSl-36-u5m">
+                                <rect key="frame" x="0.0" y="300" width="320" height="268"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="sLc-MP-ag2" kind="embed" id="bgi-xZ-IVC"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -404,7 +420,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xK-Js-6ES">
-                                <rect key="frame" x="9" y="72" width="36" height="40"/>
+                                <rect key="frame" x="9" y="70" width="36" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="record_graph_btn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -435,7 +451,7 @@
                                             <!--2014-01-24 06:36:45 +0000-->
                                         </date>
                                         <timeZone key="timeZone" name="America/Los_Angeles">
-                                            <mutableData key="data">
+                                            <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -453,7 +469,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                         </timeZone>
                                     </datePicker>
                                 </subviews>
@@ -870,6 +886,56 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="880" y="845"/>
         </scene>
+        <!--Circle Graph View Controller-->
+        <scene sceneID="YaO-MO-Yu2">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5hS-nv-QAy" customClass="CircleGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MyM-ki-kfs"/>
+                        <viewControllerLayoutGuide type="bottom" id="GvC-Bu-TCn"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="an5-x6-B3q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recordMain_graph.png" translatesAutoresizingMaskIntoConstraints="NO" id="QJz-nd-sTi">
+                                <rect key="frame" x="0.0" y="-139" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIL-yl-TTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376" y="-110"/>
+        </scene>
+        <!--Line Bar View Controller-->
+        <scene sceneID="zpZ-12-3Ai">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="sLc-MP-ag2" customClass="LineBarViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Nd-QY-k0I"/>
+                        <viewControllerLayoutGuide type="bottom" id="qAK-cx-jT6"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZLt-za-quw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="268"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recordMain_graph.png" translatesAutoresizingMaskIntoConstraints="NO" id="hYj-5A-Pcg">
+                                <rect key="frame" x="0.0" y="-300" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s4J-p1-sJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376" y="831"/>
+        </scene>
     </scenes>
     <resources>
         <image name="groupMain.png" width="720" height="1280"/>
@@ -879,13 +945,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
-        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
-        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
@@ -896,21 +958,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="ranking_group_btn.png" width="80" height="74"/>
         <image name="ranking_record_btn.png" width="85" height="76"/>
         <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
         <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
         <image name="record_menu_mypage_btn.png" width="93" height="114"/>

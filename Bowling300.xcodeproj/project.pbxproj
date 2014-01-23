@@ -108,6 +108,8 @@
 		009CCC2D18911603006DAB6F /* expansiva.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2C18911594006DAB6F /* expansiva.ttf */; };
 		009CCC2E18911718006DAB6F /* expansiva.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2C18911594006DAB6F /* expansiva.ttf */; };
 		00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarViewController.m */; };
+		7049E39418914EA400DF1063 /* CircleGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39318914EA400DF1063 /* CircleGraphViewController.m */; };
+		7049E39718914ED300DF1063 /* LineBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39618914ED300DF1063 /* LineBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +242,10 @@
 		009CCC2C18911594006DAB6F /* expansiva.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = expansiva.ttf; sourceTree = "<group>"; };
 		00E8D6D31891EFBD0069A79A /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		00E8D6D41891EFBE0069A79A /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		7049E39218914EA400DF1063 /* CircleGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGraphViewController.h; sourceTree = "<group>"; };
+		7049E39318914EA400DF1063 /* CircleGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGraphViewController.m; sourceTree = "<group>"; };
+		7049E39518914ED300DF1063 /* LineBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineBarViewController.h; sourceTree = "<group>"; };
+		7049E39618914ED300DF1063 /* LineBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +449,10 @@
 				00E8D6D41891EFBE0069A79A /* CalendarViewController.m */,
 				0044488F1892027200ED684E /* BarGraphViewController.h */,
 				004448901892027200ED684E /* BarGraphViewController.m */,
+				7049E39218914EA400DF1063 /* CircleGraphViewController.h */,
+				7049E39318914EA400DF1063 /* CircleGraphViewController.m */,
+				7049E39518914ED300DF1063 /* LineBarViewController.h */,
+				7049E39618914ED300DF1063 /* LineBarViewController.m */,
 			);
 			name = Record;
 			sourceTree = "<group>";
@@ -673,9 +683,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7049E39718914ED300DF1063 /* LineBarViewController.m in Sources */,
 				009CCC1E18910542006DAB6F /* GroupWriteViewController.m in Sources */,
 				009CCB5E1890E096006DAB6F /* IntroViewController.m in Sources */,
 				009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */,
+				7049E39418914EA400DF1063 /* CircleGraphViewController.m in Sources */,
 				009CCC2518910AFC006DAB6F /* MyPageViewController.m in Sources */,
 				009CCC1818910215006DAB6F /* GroupBoardViewController.m in Sources */,
 				009CCB581890E096006DAB6F /* AppDelegate.m in Sources */,

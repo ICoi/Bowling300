@@ -6,13 +6,13 @@
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "IntroViewController.h"
 
-@interface ViewController ()
+@interface IntroViewController ()
 
 @end
 
-@implementation ViewController
+@implementation IntroViewController
 
 - (void)viewDidLoad
 {

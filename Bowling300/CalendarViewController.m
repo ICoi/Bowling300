@@ -18,7 +18,6 @@
     NSInteger month;
     NSInteger startDate;
 }
-@property (weak, nonatomic) IBOutlet UILabel *yearAndMonthButtonLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 @property (weak, nonatomic) IBOutlet UILabel *monthLabel;
@@ -104,8 +103,24 @@
     NSInteger clickedDate = [tmpString integerValue];
     [self calculateDayWithYear:year withMonth:month withDate:clickedDate];
     NSLog(@"day is %@",tmpString);
+    
+    // Notification을 보냅니다. -> 일 데이터에 따른걸로
+    NSDictionary *sendDic = @{@"averageScore":[NSString stringWithFormat:@"%d",100],
+                              @"highScore":[NSString stringWithFormat:@"%d",170],
+                              @"lowScore":[NSString stringWithFormat:@"%d",30]};
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"BarChartNoti"
+     object:nil userInfo:sendDic];
+    NSLog(@"Send notification : %@",sendDic);
 }
 
+/*
+ [NSDictionary dictionaryWithObjectsAndKeys:
+ [NSNumber numberWithInt:13], @"Mercedes-Benz SLK250",
+ [NSNumber numberWithInt:22], @"Mercedes-Benz E350",
+ [NSNumber numberWithInt:19], @"BMW M3 Coupe",
+ [NSNumber numberWithInt:16], @"BMW X6", nil];
+ */
 // 이전 달로 이동하는 버튼 누른 경우
 - (IBAction)clickedBeforeButton:(id)sender {
     month--;
@@ -117,6 +132,9 @@
     
     [self setYear:year setMonth:month];
     [self.collection reloadData];
+    
+    // 해당 월에 해당하는 Notification을 보냅니다.
+    // TODO
 }
 
 // 이 다음 달로 이동하는 버튼 누른 경우
@@ -128,6 +146,10 @@
     }
     [self setYear:year setMonth:month];
     [self.collection reloadData];
+    
+    
+    // 해당 월에 해당하는 Notification을 보냅니다.
+    // TODO
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{

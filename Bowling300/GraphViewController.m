@@ -23,6 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     // 네비게이션 바 보이지 않게 한다.
     [self.navigationController.navigationBar setHidden:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

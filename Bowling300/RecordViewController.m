@@ -37,5 +37,50 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)showDatePicker:(id)sender {
+    NSLog(@"search button clicked!");
+    UIView *pickerView = [self.view viewWithTag:20];
+    NSLog(@"pickerview : %@",pickerView);
+    
+    if(pickerView.hidden == YES){
+        // 숨겨진 상태인경우 등장시키기
+        [pickerView setHidden:NO];
+    
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options: UIViewAnimationCurveEaseOut
+                         animations:^
+         {
+             CGRect frame = pickerView.frame;
+             frame.origin.y = 50;
+             frame.origin.x = 0;
+             pickerView.frame = frame;
+         }
+                         completion:^(BOOL finished)
+         {
+             [pickerView setHidden:NO];
+             
+         }];
+    }
+    else{
+        // 등장해 잇는경우 다시 숨기기
+        
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options: UIViewAnimationCurveEaseOut
+                         animations:^
+         {
+             CGRect frame = pickerView.frame;
+             frame.origin.y = -110;
+             frame.origin.x = 0;
+             pickerView.frame = frame;
+         }
+                         completion:^(BOOL finished)
+         {
+             [pickerView setHidden:YES];
+             
+         }];
+    }
+}
 
 @end

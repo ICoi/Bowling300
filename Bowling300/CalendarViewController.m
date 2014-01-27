@@ -195,6 +195,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"draw collectionView");
     if((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12 )){
         return 7 + startDate + 31;
     }
@@ -221,7 +222,8 @@
     [self setYear:year setMonth:month];
 	// Do any additional setup after loading the view, typically from a nib.
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+}
 
 - (void)didReceiveMemoryWarning
 {

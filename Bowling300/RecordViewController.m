@@ -64,12 +64,9 @@
          }];
     }
     else{
-        
-        // 먼저 데이터 피커에 저장된 값 가져오기
-        // 여기서 calendar 리로드 하도록 명령한다.!
-        // TODO
-        // 등장해 잇는경우 다시 숨기기
-        
+        // 일단 달력 reload 하기!
+        UIViewController *subViewController = (UIViewController *)self.childViewControllers[0];
+        [subViewController.view.subviews[1] reloadData];
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options: UIViewAnimationCurveEaseOut
@@ -119,7 +116,7 @@
 // 사용자 선택시
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSString *item = [self pickerView:pickerView titleForRow:row forComponent:component];
-    // 이거 정보 저장하기!! ㅋㅋㅋㅋ
+    // 이거 정보 저장하고 여기 밑에꺼는 버튼 다시 눌렀을때 하기!!!
     // TODO
     NSLog(@"selected components : %d row %d text %@",component,row,item);
 }

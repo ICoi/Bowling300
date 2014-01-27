@@ -57,4 +57,12 @@
     [self.tabBarController setSelectedIndex:2];
 }
 
+
+- (void)showLeague{
+    // League를 보여줌
+}
+
+- (void)drawPersonWithScore:(NSInteger)score{
+    
+}
 @end

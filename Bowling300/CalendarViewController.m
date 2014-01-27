@@ -68,11 +68,10 @@
     startDate = [self calculateDayWithYear:year withMonth:month withDate:1];
     //  startDate++;
     startDate %= 7;
-    NSLog(@"%d - %d - %d ",year,month,
-          (int)startDate);
+    NSLog(@"%d - %d - %d ",(int)year,(int)month, (int)startDate);
     
-    self.yearLabel.text = [NSString stringWithFormat:@"%d",year];
-    self.monthLabel.text = [NSString stringWithFormat:@"%02d",month];
+    self.yearLabel.text = [NSString stringWithFormat:@"%d",(int)year];
+    self.monthLabel.text = [NSString stringWithFormat:@"%02d",(int)month];
     
     // 폰트 변경하기
     // TODO

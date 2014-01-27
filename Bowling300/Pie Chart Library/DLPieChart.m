@@ -18,6 +18,8 @@
 @property (nonatomic, assign) double    endAngle;
 @property (nonatomic, assign) BOOL      isSelected;
 @property (nonatomic, strong) NSString  *text;
+
+
 - (void)createArcAnimationForKey:(NSString *)key fromValue:(NSNumber *)from toValue:(NSNumber *)to Delegate:(id)delegate;
 @end
 
@@ -143,6 +145,10 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         _showLabel = YES;
         _showPercentage = YES;
+        
+        
+        
+        
     }
     return self;
 }
@@ -802,6 +808,15 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 #pragma mark - DLPieChart Delegate
 - (void)pieChart:(DLPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
+    if(self.groupLabel == nil){
+        self.groupLabel = [[UILabel alloc]init];
+        self.groupLabel.textColor = [UIColor whiteColor];
+        self.groupLabel.frame = CGRectMake(150, 50, 100, 100);
+        [self addSubview:self.groupLabel];
+    }
+        self.groupLabel.text = [NSString stringWithFormat:@"Group : %d",index];
+    
+    
     NSLog(@"did select slice at index %d",index);
 }
 @end

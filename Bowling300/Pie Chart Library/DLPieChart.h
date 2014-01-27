@@ -63,4 +63,8 @@
 @property (nonatomic, retain) NSMutableArray *DLColorsArray;
 @property (nonatomic, retain) DLPieChart *DLPieChartView;
 
+
+
+// 이거 그룹 구별하는 라벨 할려고 내가 만든거
+@property (nonatomic, strong) UILabel *groupLabel;
 @end;

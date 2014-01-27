@@ -116,9 +116,8 @@
 		00DB21DD18962AD10011FDBE /* person4.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DB21D718962AD10011FDBE /* person4.png */; };
 		00DB21DE18962AD10011FDBE /* person5.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DB21D818962AD10011FDBE /* person5.png */; };
 		00DB21DF18962AD10011FDBE /* person6.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DB21D918962AD10011FDBE /* person6.png */; };
+		00DB21E2189634630011FDBE /* CircleGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21E1189634630011FDBE /* CircleGraphViewController.m */; };
 		00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarViewController.m */; };
-		7049E39418914EA400DF1063 /* CircleGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39318914EA400DF1063 /* CircleGraphViewController.m */; };
-		7049E39718914ED300DF1063 /* LineBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39618914ED300DF1063 /* LineBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,12 +259,10 @@
 		00DB21D718962AD10011FDBE /* person4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person4.png; sourceTree = "<group>"; };
 		00DB21D818962AD10011FDBE /* person5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person5.png; sourceTree = "<group>"; };
 		00DB21D918962AD10011FDBE /* person6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person6.png; sourceTree = "<group>"; };
+		00DB21E0189634630011FDBE /* CircleGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGraphViewController.h; sourceTree = "<group>"; };
+		00DB21E1189634630011FDBE /* CircleGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGraphViewController.m; sourceTree = "<group>"; };
 		00E8D6D31891EFBD0069A79A /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		00E8D6D41891EFBE0069A79A /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
-		7049E39218914EA400DF1063 /* CircleGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGraphViewController.h; sourceTree = "<group>"; };
-		7049E39318914EA400DF1063 /* CircleGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGraphViewController.m; sourceTree = "<group>"; };
-		7049E39518914ED300DF1063 /* LineBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineBarViewController.h; sourceTree = "<group>"; };
-		7049E39618914ED300DF1063 /* LineBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +464,8 @@
 		009CCBFF1890E408006DAB6F /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				00DB21E0189634630011FDBE /* CircleGraphViewController.h */,
+				00DB21E1189634630011FDBE /* CircleGraphViewController.m */,
 				009CCC001890E41D006DAB6F /* RecordViewController.h */,
 				009CCC011890E41D006DAB6F /* RecordViewController.m */,
 				009CCC031890EAC9006DAB6F /* GraphViewController.h */,
@@ -475,10 +474,6 @@
 				00E8D6D41891EFBE0069A79A /* CalendarViewController.m */,
 				0044488F1892027200ED684E /* BarGraphViewController.h */,
 				004448901892027200ED684E /* BarGraphViewController.m */,
-				7049E39218914EA400DF1063 /* CircleGraphViewController.h */,
-				7049E39318914EA400DF1063 /* CircleGraphViewController.m */,
-				7049E39518914ED300DF1063 /* LineBarViewController.h */,
-				7049E39618914ED300DF1063 /* LineBarViewController.m */,
 			);
 			name = Record;
 			sourceTree = "<group>";
@@ -754,11 +749,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */,
-				7049E39718914ED300DF1063 /* LineBarViewController.m in Sources */,
+				00DB21E2189634630011FDBE /* CircleGraphViewController.m in Sources */,
 				009CCC1E18910542006DAB6F /* GroupWriteViewController.m in Sources */,
 				009CCB5E1890E096006DAB6F /* IntroViewController.m in Sources */,
 				009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */,
-				7049E39418914EA400DF1063 /* CircleGraphViewController.m in Sources */,
 				00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */,
 				009CCC2518910AFC006DAB6F /* MyPageViewController.m in Sources */,
 				009CCC1818910215006DAB6F /* GroupBoardViewController.m in Sources */,

@@ -18,6 +18,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    NSMutableArray *dataArr = [[NSMutableArray alloc] init];
+    for(int i = 0 ; i < 5 ; i++){
+        NSMutableArray *dataArr = [[NSMutableArray alloc]init];
+        
+        for(int i = 0 ; i < 5 ; i++){
+            NSNumber *number = [NSNumber numberWithInteger:rand()%60+20];
+            
+            // add number to array
+            [dataArr addObject:number];
+        }
+        
+        [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{

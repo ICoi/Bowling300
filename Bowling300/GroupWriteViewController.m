@@ -9,6 +9,8 @@
 #import "GroupWriteViewController.h"
 
 @interface GroupWriteViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
 
 @end
 
@@ -41,7 +43,21 @@
     imagePicker.delegate = self;
     imagePicker.allowsEditing = YES;
     imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
+    // 편집된 이미지가 있으면 사용, 없으면 원본으로 사용
+    UIImage *usingImage = (nil == editedImage) ? originalImage : editedImage;
+    self.imageView.image = usingImage;
+    
+    // 피커 감추기
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // button도 감추기
+    [self.cameraBtn setHidden:YES];
 }
 
 @end

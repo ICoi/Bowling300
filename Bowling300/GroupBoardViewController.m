@@ -8,12 +8,11 @@
 
 #import "GroupBoardViewController.h"
 
-@interface GroupBoardViewController ()
+@interface GroupBoardViewController () <UICollectionViewDataSource>
 
 @end
 
 @implementation GroupBoardViewController
-
 
 - (void)viewDidLoad
 {
@@ -41,4 +40,14 @@
     [self.tabBarController setSelectedIndex:2];
 }
 
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GROUP_CELL" forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 30;
+}
 @end

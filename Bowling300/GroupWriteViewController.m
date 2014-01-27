@@ -29,5 +29,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)takePhoto:(id)sender {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+     // 카메라 기능이 없는 기종의 경우 에러처리함
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"is there no camera" delegate:Nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
+        return ;
+    }
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+}
 
 @end

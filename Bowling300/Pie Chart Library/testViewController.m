@@ -1,21 +1,18 @@
 //
-//  LineBarViewController.m
+//  testViewController.m
 //  Bowling300
 //
-//  Created by ico on 14. 1. 23..
+//  Created by SDT-1 on 2014. 1. 27..
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "LineBarViewController.h"
+#import "testViewController.h"
 
-
-
-
-@interface LineBarViewController ()
+@interface testViewController ()
 
 @end
 
-@implementation LineBarViewController
+@implementation testViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,12 +26,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    NSMutableArray *dataArr = [[NSMutableArray alloc]init];
+    
+    for(int i = 0 ; i < 5 ; i++){
+        NSNumber *number = [NSNumber numberWithInteger:rand()%60+20];
+        
+        // add number to array
+        [dataArr addObject:number];
+    }
+    
+    [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

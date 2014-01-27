@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DLPieChart.h"
 @interface CircleGraphViewController : UIViewController
-
+@property (nonatomic,retain) IBOutlet DLPieChart *pieChartView;
 @end

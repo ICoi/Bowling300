@@ -107,6 +107,10 @@
 		009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009CCC2918910C94006DAB6F /* MyInfoViewController.m */; };
 		009CCC2D18911603006DAB6F /* expansiva.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2C18911594006DAB6F /* expansiva.ttf */; };
 		009CCC2E18911718006DAB6F /* expansiva.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009CCC2C18911594006DAB6F /* expansiva.ttf */; };
+		00DB21A61895F0E90011FDBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DB21A51895F0E90011FDBE /* QuartzCore.framework */; };
+		00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21B41895F64D0011FDBE /* DLPieChart.m */; };
+		00DB21B81895F6740011FDBE /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21B71895F6740011FDBE /* testViewController.m */; };
+		00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21BB1896088A0011FDBE /* BarLineChart.m */; };
 		00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarViewController.m */; };
 		7049E39418914EA400DF1063 /* CircleGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39318914EA400DF1063 /* CircleGraphViewController.m */; };
 		7049E39718914ED300DF1063 /* LineBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39618914ED300DF1063 /* LineBarViewController.m */; };
@@ -240,6 +244,13 @@
 		009CCC2818910C94006DAB6F /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
 		009CCC2918910C94006DAB6F /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
 		009CCC2C18911594006DAB6F /* expansiva.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = expansiva.ttf; sourceTree = "<group>"; };
+		00DB21A51895F0E90011FDBE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		00DB21B31895F64D0011FDBE /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
+		00DB21B41895F64D0011FDBE /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
+		00DB21B61895F6740011FDBE /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		00DB21B71895F6740011FDBE /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		00DB21BA1896088A0011FDBE /* BarLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarLineChart.h; sourceTree = "<group>"; };
+		00DB21BB1896088A0011FDBE /* BarLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarLineChart.m; sourceTree = "<group>"; };
 		00E8D6D31891EFBD0069A79A /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		00E8D6D41891EFBE0069A79A /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		7049E39218914EA400DF1063 /* CircleGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGraphViewController.h; sourceTree = "<group>"; };
@@ -253,6 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DB21A61895F0E90011FDBE /* QuartzCore.framework in Frameworks */,
 				009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */,
 				009CCB4C1890E096006DAB6F /* UIKit.framework in Frameworks */,
 				009CCB481890E096006DAB6F /* Foundation.framework in Frameworks */,
@@ -294,6 +306,7 @@
 		009CCB461890E096006DAB6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00DB21A51895F0E90011FDBE /* QuartzCore.framework */,
 				009CCB471890E096006DAB6F /* Foundation.framework */,
 				009CCB491890E096006DAB6F /* CoreGraphics.framework */,
 				009CCB4B1890E096006DAB6F /* UIKit.framework */,
@@ -305,6 +318,8 @@
 		009CCB4D1890E096006DAB6F /* Bowling300 */ = {
 			isa = PBXGroup;
 			children = (
+				00DB21B9189608740011FDBE /* Bar Chart */,
+				00DB21B21895F64D0011FDBE /* Pie Chart Library */,
 				009CCC2B18911574006DAB6F /* font */,
 				009CCC2218910AEE006DAB6F /* MyPage */,
 				009CCC091890F179006DAB6F /* Group */,
@@ -513,6 +528,26 @@
 			name = font;
 			sourceTree = "<group>";
 		};
+		00DB21B21895F64D0011FDBE /* Pie Chart Library */ = {
+			isa = PBXGroup;
+			children = (
+				00DB21B31895F64D0011FDBE /* DLPieChart.h */,
+				00DB21B41895F64D0011FDBE /* DLPieChart.m */,
+				00DB21B61895F6740011FDBE /* testViewController.h */,
+				00DB21B71895F6740011FDBE /* testViewController.m */,
+			);
+			path = "Pie Chart Library";
+			sourceTree = "<group>";
+		};
+		00DB21B9189608740011FDBE /* Bar Chart */ = {
+			isa = PBXGroup;
+			children = (
+				00DB21BA1896088A0011FDBE /* BarLineChart.h */,
+				00DB21BB1896088A0011FDBE /* BarLineChart.m */,
+			);
+			name = "Bar Chart";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -683,16 +718,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */,
 				7049E39718914ED300DF1063 /* LineBarViewController.m in Sources */,
 				009CCC1E18910542006DAB6F /* GroupWriteViewController.m in Sources */,
 				009CCB5E1890E096006DAB6F /* IntroViewController.m in Sources */,
 				009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */,
 				7049E39418914EA400DF1063 /* CircleGraphViewController.m in Sources */,
+				00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */,
 				009CCC2518910AFC006DAB6F /* MyPageViewController.m in Sources */,
 				009CCC1818910215006DAB6F /* GroupBoardViewController.m in Sources */,
 				009CCB581890E096006DAB6F /* AppDelegate.m in Sources */,
 				009CCB541890E096006DAB6F /* main.m in Sources */,
 				009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */,
+				00DB21B81895F6740011FDBE /* testViewController.m in Sources */,
 				009CCB7E1890E0DC006DAB6F /* RankingViewController.m in Sources */,
 				004448911892027200ED684E /* BarGraphViewController.m in Sources */,
 				009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */,

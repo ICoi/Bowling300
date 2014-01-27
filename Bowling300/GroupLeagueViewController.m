@@ -7,8 +7,9 @@
 //
 
 #import "GroupLeagueViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface GroupLeagueViewController ()
+
 
 @end
 
@@ -19,11 +20,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // 이부분이 이미지 둥글게 만들 수 잇는 부분임.
+    UIImage *image = [UIImage imageNamed:@"bg.png"];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    imageView.frame = CGRectMake(20, 20, 200, 200);
+    imageView.layer.masksToBounds = YES;
+    imageView.layer.cornerRadius = 100.0f;
+    [self.view addSubview:imageView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
+
+    
 }
 - (void)didReceiveMemoryWarning
 {

@@ -75,7 +75,7 @@
     
         [UIView animateWithDuration:0.5
                               delay:0.0
-                            options: UIViewAnimationCurveEaseOut
+                            options: UIViewAnimationOptionCurveEaseOut
                          animations:^
          {
              CGRect frame = pickerView.frame;
@@ -99,7 +99,7 @@
 
         [UIView animateWithDuration:0.5
                               delay:0.0
-                            options: UIViewAnimationCurveEaseOut
+                            options: UIViewAnimationOptionCurveEaseOut
                          animations:^
          {
              CGRect frame = pickerView.frame;

@@ -9,6 +9,7 @@
 #import "GraphViewController.h"
 
 @interface GraphViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *barScrollView;
 
 @end
 
@@ -32,6 +33,9 @@
     
     [self.barChartView init];
     
+    // 이거 스크롤 가능하게 하는거
+    [self.barScrollView setScrollEnabled:YES];
+    [self.barScrollView setContentSize:CGSizeMake(400, 220)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

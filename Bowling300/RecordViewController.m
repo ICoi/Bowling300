@@ -7,9 +7,14 @@
 //
 
 #import "RecordViewController.h"
+#define START_YEAR 2000
 
-@interface RecordViewController ()
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@interface RecordViewController (){
+    NSString *searchYear;
+    NSString *searchMonth;
+}
+
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end
 
@@ -22,11 +27,16 @@
     
     
     
+    searchYear = [NSString stringWithFormat:@""];
+    searchMonth = [NSString stringWithFormat:@""];
+    
 }
+
 
 - (void)viewWillAppear:(BOOL)animated{
     // 네비게이션 바 보이지 않게 한다.
     [self.navigationController.navigationBar setHidden:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +57,20 @@
 //    NSLog(@"pickerview : %@",pickerView);
     
     if(pickerView.hidden == YES){
-        // 숨겨진 상태인경우 등장시키기
+        // 숨겨진 상태인 경우 등장하기
+        
+        // 일단 현재의 년도와 월 가져오기
+        UIViewController *subViewController = (UIViewController *)self.childViewControllers[0];
+        UILabel *year = subViewController.view.subviews[2];
+        UILabel *month = subViewController.view.subviews[3];
+        
+        searchYear = year.text;
+        searchMonth = month.text;
+        
+        // 일단 처음에 보여질 칸부터 설정하기
+        // 이걸로 시작지점 설정!!!
+        [self.pickerView selectRow:([searchYear integerValue] - START_YEAR) inComponent:0 animated:NO];
+        [self.pickerView selectRow:([searchMonth integerValue] - 1) inComponent:1 animated:NO];
         [pickerView setHidden:NO];
     
         [UIView animateWithDuration:0.5
@@ -67,9 +90,13 @@
          }];
     }
     else{
-        // 일단 달력 reload 하기!
-        UIViewController *subViewController = (UIViewController *)self.childViewControllers[0];
-        [subViewController.view.subviews[1] reloadData];
+        // 다시 picker접는 경우
+        // 달력에 바뀐 년도와 월을 전달한다.
+        NSMutableDictionary *sendUserInfo = [[NSMutableDictionary alloc]init];
+        [sendUserInfo setObject:searchYear forKey:@"year"];
+        [sendUserInfo setObject:searchMonth forKey:@"month"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CalendarSearchNoti" object:nil userInfo:sendUserInfo];
+
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options: UIViewAnimationCurveEaseOut
@@ -87,6 +114,7 @@
          }];
     }
 }
+
 
 
 // 컴포넌트 갯수
@@ -109,7 +137,7 @@
 {
     if (component == 0 ){
         // 연도
-        return [NSString stringWithFormat:@"%d",(int)row+2012];
+        return [NSString stringWithFormat:@"%d",(int)row+2000];
         
     }else{
         return [NSString stringWithFormat:@"%d",(int)row+1 ];
@@ -119,8 +147,16 @@
 // 사용자 선택시
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSString *item = [self pickerView:pickerView titleForRow:row forComponent:component];
-    // 이거 정보 저장하고 여기 밑에꺼는 버튼 다시 눌렀을때 하기!!!
-    // TODO
+   // searchYear = row;
+   // searchMonth = item];
+    if(component == 0){
+        // year을 바꿈
+        searchYear = item;
+    }
+    else if ( component == 1){
+        // month를 바꿈
+        searchMonth = item;
+    }
     NSLog(@"selected components : %d row %d text %@",component,row,item);
 }
 @end

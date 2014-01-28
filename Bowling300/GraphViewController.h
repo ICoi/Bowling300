@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "DLPieChart.h"
+#import "BarLineChart.h"
 @interface GraphViewController : UIViewController
 @property (nonatomic, retain) IBOutlet DLPieChart *pieChartView;
+@property (nonatomic, retain) IBOutlet BarLineChart *barChartView;
 @end

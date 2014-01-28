@@ -29,6 +29,52 @@
 @implementation CalendarViewController
 
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    year = 2014;
+    month = 1;
+    [self setYear:year setMonth:month];
+    
+    
+    // 돋보기 기능을 위한 Notification 등록
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvCalNoti:) name:@"CalendarSearchNoti" object:nil];
+}
+- (void)viewWillAppear:(BOOL)animated{
+}
+
+
+
+// notification
+
+- (void)recvCalNoti:(NSNotification*)notification{
+    if ([[notification name] isEqualToString:@"CalendarSearchNoti"]){
+        NSDictionary *userInfo = notification.userInfo;
+        NSString *tmpYear = [userInfo objectForKey:@"year"];
+        NSString *tmpMonth = [userInfo objectForKey:@"month"];
+        
+        NSInteger setYear;
+        NSInteger setMonth;
+        if( tmpYear != nil) {
+            NSLog(@"yearyear %@",tmpYear);
+            setYear = [tmpYear integerValue];
+        }else{
+            setYear = year;
+        }
+        if( tmpMonth != nil){
+            NSLog(@"monthmonth %@",tmpMonth);
+            setMonth = [tmpMonth integerValue];
+        }else{
+            setMonth = month;
+        }
+        
+        [self setYear:setYear setMonth:setMonth];
+        [self.collection reloadData];
+    }
+}
+
+
 // 해당 숫자에 맞는 요일을 리턴해주는 함수
 // 0 : 일요일 1: 월요일 2: 화요일 3: 수요일 4: 목요일 5: 금요일 6: 토요일
 - (NSString *)showDayString:(NSInteger)inNum{
@@ -65,6 +111,9 @@
 - (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth{
     
     // 새로 1일의 시작 날자 설정
+    NSLog(@"haha year : %d month : %d",(int)year,(int)month );
+    year = inYear;
+    month = inMonth;
     startDate = [self calculateDayWithYear:year withMonth:month withDate:1];
     //  startDate++;
     startDate %= 7;
@@ -195,7 +244,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSLog(@"draw collectionView");
+    NSLog(@"draw collectionView %d %d",year, month);
     if((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12 )){
         return 7 + startDate + 31;
     }
@@ -213,17 +262,6 @@
     return 0;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    year = 2014;
-    month = 1;
-    [self setYear:year setMonth:month];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-- (void)viewWillAppear:(BOOL)animated{
-}
 
 - (void)didReceiveMemoryWarning
 {

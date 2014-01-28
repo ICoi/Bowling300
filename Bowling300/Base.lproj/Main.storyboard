@@ -74,15 +74,44 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9n-Wc-eEk">
-                                <rect key="frame" x="239" y="502" width="53" height="61"/>
+                                <rect key="frame" x="230" y="507" width="58" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="record_menu_mypage_btn.png">
+                                <state key="normal" image="ranking_mypage_btn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="TaC-bB-wGu" kind="push" id="Iiu-dV-8o9"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qvf-p2-WoI">
+                                <rect key="frame" x="0.0" y="385" width="320" height="108"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GLOBAL_RANKING_CELL" rowHeight="55" id="jcf-Ev-8mV">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jcf-Ev-8mV" id="wJg-l7-gQ9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ranking_table.png" translatesAutoresizingMaskIntoConstraints="NO" id="FU4-Dw-7su">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="drI-8x-Pyq" id="4IC-OS-Kgp"/>
+                                    <outlet property="delegate" destination="drI-8x-Pyq" id="cyH-si-ByS"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -379,6 +408,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="barChartView" destination="NRM-xp-l0v" id="gUv-rf-Ydc"/>
                         <outlet property="pieChartView" destination="QBK-vf-KBm" id="Oqp-nW-gLS"/>
                     </connections>
                 </viewController>
@@ -468,6 +498,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QXo-wu-y5n"/>
+                    <connections>
+                        <outlet property="pickerView" destination="xKP-xb-bnj" id="0FP-id-pRi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebA-od-UNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -921,10 +954,17 @@
                                     <outlet property="delegate" destination="o7O-c2-hoP" id="1ps-C8-LBH"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vX-M4-9NS">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vX-M4-9NS">
                                 <rect key="frame" x="212" y="8" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="26" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-bT-ifS">
+                                <rect key="frame" x="249" y="12" width="39" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -948,13 +988,6 @@
                                     <action selector="clickedBeforeButton:" destination="o7O-c2-hoP" eventType="touchUpInside" id="i0V-Me-x6H"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-bT-ifS">
-                                <rect key="frame" x="249" y="12" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1027,8 +1060,10 @@
         <image name="person3.png" width="79" height="77"/>
         <image name="person6.png" width="86" height="78"/>
         <image name="ranking.png" width="720" height="1280"/>
-        <image name="ranking_group_btn.png" width="80" height="74"/>
-        <image name="ranking_record_btn.png" width="85" height="76"/>
+        <image name="ranking_group_btn.png" width="76" height="71"/>
+        <image name="ranking_mypage_btn.png" width="89" height="82"/>
+        <image name="ranking_record_btn.png" width="71" height="68"/>
+        <image name="ranking_table.png" width="460" height="80"/>
         <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
@@ -1037,7 +1072,6 @@
         <image name="record_calendar_btn.png" width="52" height="52"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
-        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
         <image name="record_search_btn.png" width="38" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

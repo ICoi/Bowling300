@@ -289,20 +289,29 @@
                                     <segue destination="ZCX-Nx-sB2" kind="push" id="eMb-LP-ngV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DJR-kw-8xZ">
-                                <rect key="frame" x="231" y="404" width="74" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="group_addGroup_btn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="zlG-NN-Tjs" kind="push" id="cei-np-mHI"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" id="lEV-HG-tcT">
+                                <rect key="frame" x="0.0" y="374" width="320" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DJR-kw-8xZ">
+                                        <rect key="frame" x="231" y="27" width="74" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="group_addGroup_btn.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="zlG-NN-Tjs" kind="push" id="cei-np-mHI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yCE-um-bKF"/>
+                    <connections>
+                        <outlet property="groupListScrollView" destination="lEV-HG-tcT" id="BBa-Vu-Xtl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIr-Wn-JdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -432,15 +441,42 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ITo-gW-4Ig">
-                                <rect key="frame" x="-1" y="302" width="321" height="228"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsVerticalScrollIndicator="NO" id="ITo-gW-4Ig">
+                                <rect key="frame" x="0.0" y="302" width="321" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="NRM-xp-l0v" customClass="BarLineChart">
-                                        <rect key="frame" x="0.0" y="0.0" width="321" height="228"/>
+                                        <rect key="frame" x="20" y="20" width="321" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                </subviews>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsVerticalScrollIndicator="NO" id="Yli-ET-P9k">
+                                <rect key="frame" x="0.0" y="529" width="320" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nsO-C3-Jvb">
+                                        <rect key="frame" x="30" y="5" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oQF-w4-OAl">
+                                        <rect key="frame" x="132" y="5" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QiJ-lc-Xb9">
+                                        <rect key="frame" x="240" y="5" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -452,6 +488,7 @@
                     <connections>
                         <outlet property="barChartView" destination="NRM-xp-l0v" id="gUv-rf-Ydc"/>
                         <outlet property="barScrollView" destination="ITo-gW-4Ig" id="URs-J0-dxl"/>
+                        <outlet property="groupSelectScrollView" destination="Yli-ET-P9k" id="ndN-eC-hSU"/>
                         <outlet property="pieChartView" destination="QBK-vf-KBm" id="Oqp-nW-gLS"/>
                     </connections>
                 </viewController>
@@ -1045,10 +1082,33 @@
                                 <rect key="frame" x="73" y="83" width="170" height="11"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hGV-vW-oBE">
+                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iJs-0h-o16">
+                                        <rect key="frame" x="29" y="7" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fyu-gj-xTK">
+                                        <rect key="frame" x="131" y="7" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="groupSelectScrollView" destination="hGV-vW-oBE" id="ccX-Bi-oEE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPV-E7-Mf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1063,13 +1123,9 @@
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
-        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
-        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
@@ -1089,21 +1145,11 @@
         <image name="ranking_table_group.png" width="458" height="80"/>
         <image name="ranking_table_local.png" width="457" height="79"/>
         <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
         <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
         <image name="record_search_btn.png" width="38" height="39"/>

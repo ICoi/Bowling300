@@ -26,6 +26,7 @@
 @property UIImageView *highCircle;
 @property UIImageView *lowCircle;
 @property UIImage *circle;
+@property (weak, nonatomic) IBOutlet UIScrollView *groupSelectScrollView;
 
 @end
 
@@ -53,6 +54,11 @@
     [self.view addSubview:self.averageCircle];
     [self.view addSubview:self.highCircle];
     [self.view addSubview:self.lowCircle];
+    
+    
+    // scrollView
+    [self.groupSelectScrollView setScrollEnabled:YES];
+    [self.groupSelectScrollView setContentSize:CGSizeMake(500, 44)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

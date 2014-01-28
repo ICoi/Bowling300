@@ -9,6 +9,7 @@
 #import "GroupListViewController.h"
 
 @interface GroupListViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *groupListScrollView;
 
 @end
 
@@ -19,6 +20,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // scrollView
+    [self.groupListScrollView setScrollEnabled:YES];
+    self.groupListScrollView.alwaysBounceVertical = NO;
+    [self.groupListScrollView setContentSize:CGSizeMake(400, 130)];
 }
 
 

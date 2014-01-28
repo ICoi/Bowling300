@@ -10,6 +10,7 @@
 
 @interface GraphViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *barScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *groupSelectScrollView;
 
 @end
 
@@ -36,6 +37,8 @@
     // 이거 스크롤 가능하게 하는거
     [self.barScrollView setScrollEnabled:YES];
     [self.barScrollView setContentSize:CGSizeMake(400, 220)];
+    [self.groupSelectScrollView setScrollEnabled:YES];
+    [self.groupSelectScrollView setContentSize:CGSizeMake(400, 40)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

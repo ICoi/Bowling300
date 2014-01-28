@@ -570,17 +570,50 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" id="Bsr-6G-9GY">
+                                <rect key="frame" x="0.0" y="8" width="320" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_menu.png" id="qen-3I-oGf">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fjZ-eL-OxA">
+                                        <rect key="frame" x="20" y="14" width="74" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="record_menu_ranking_btn.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cbn-rN-zyY">
+                                        <rect key="frame" x="165" y="18" width="66" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="record_menu_group_btn.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="boj-Uf-CCV">
+                                        <rect key="frame" x="233" y="17" width="73" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="record_menu_mypage_btn.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QXo-wu-y5n"/>
                     <connections>
                         <outlet property="pickerView" destination="xKP-xb-bnj" id="0FP-id-pRi"/>
+                        <outlet property="viewPicker" destination="NoR-vK-6Ai" id="kqC-aK-91M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebA-od-UNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="177"/>
+            <point key="canvasLocation" x="880" y="201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uRl-bX-Sc2">
@@ -1123,9 +1156,13 @@
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
+        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
+        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
+        <image name="group_menu_league_btn.png" width="97" height="40"/>
+        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
@@ -1145,13 +1182,27 @@
         <image name="ranking_table_group.png" width="458" height="80"/>
         <image name="ranking_table_local.png" width="457" height="79"/>
         <image name="recordMain.png" width="720" height="1280"/>
+        <image name="recordMain.png" width="720" height="1280"/>
+        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
+        <image name="record_bar.png" width="244" height="14"/>
+        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
+        <image name="record_menu.png" width="457" height="153"/>
+        <image name="record_menu_group_btn.png" width="90" height="109"/>
+        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
+        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
         <image name="record_search_btn.png" width="38" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

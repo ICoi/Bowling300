@@ -14,6 +14,7 @@
     NSString *searchMonth;
 }
 
+@property (weak, nonatomic) IBOutlet UIView *viewPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end
@@ -53,7 +54,7 @@
 
 - (IBAction)showDatePicker:(id)sender {
 //    NSLog(@"search button clicked!");
-    UIView *pickerView = [self.view viewWithTag:20];
+    UIView *pickerView = self.viewPicker;
 //    NSLog(@"pickerview : %@",pickerView);
     
     if(pickerView.hidden == YES){

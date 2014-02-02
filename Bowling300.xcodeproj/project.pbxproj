@@ -120,6 +120,10 @@
 		00DB21DF18962AD10011FDBE /* person6.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DB21D918962AD10011FDBE /* person6.png */; };
 		00DB21E2189634630011FDBE /* CircleGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21E1189634630011FDBE /* CircleGraphViewController.m */; };
 		00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarViewController.m */; };
+		7049E39A18919D4600DF1063 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7049E39918919D4600DF1063 /* db.sqlite */; };
+		7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7049E39B18919D6B00DF1063 /* libsqlite3.dylib */; };
+		7049E39F18919DA500DF1063 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39E18919DA500DF1063 /* DB.m */; };
+		7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -267,6 +271,12 @@
 		00DB21E1189634630011FDBE /* CircleGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGraphViewController.m; sourceTree = "<group>"; };
 		00E8D6D31891EFBD0069A79A /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		00E8D6D41891EFBE0069A79A /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		7049E39918919D4600DF1063 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
+		7049E39B18919D6B00DF1063 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7049E39D18919DA500DF1063 /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB.h; sourceTree = "<group>"; };
+		7049E39E18919DA500DF1063 /* DB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DB.m; sourceTree = "<group>"; };
+		7049E3A018919E7C00DF1063 /* DBPersonnalRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPersonnalRecordManager.h; sourceTree = "<group>"; };
+		7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPersonnalRecordManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */,
 				00DB21A61895F0E90011FDBE /* QuartzCore.framework in Frameworks */,
 				009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */,
 				009CCB4C1890E096006DAB6F /* UIKit.framework in Frameworks */,
@@ -316,6 +327,7 @@
 		009CCB461890E096006DAB6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7049E39B18919D6B00DF1063 /* libsqlite3.dylib */,
 				00DB21A51895F0E90011FDBE /* QuartzCore.framework */,
 				009CCB471890E096006DAB6F /* Foundation.framework */,
 				009CCB491890E096006DAB6F /* CoreGraphics.framework */,
@@ -328,14 +340,12 @@
 		009CCB4D1890E096006DAB6F /* Bowling300 */ = {
 			isa = PBXGroup;
 			children = (
+				7049E3A4189E91FF00DF1063 /* Model */,
+				7049E3A3189E91D900DF1063 /* VC */,
+				7049E39818919D2400DF1063 /* DB */,
 				00DB21B9189608740011FDBE /* Bar Chart */,
 				00DB21B21895F64D0011FDBE /* Pie Chart Library */,
 				009CCC2B18911574006DAB6F /* font */,
-				009CCC2218910AEE006DAB6F /* MyPage */,
-				009CCC091890F179006DAB6F /* Group */,
-				009CCC071890F0E3006DAB6F /* GroupList */,
-				009CCC061890F09E006DAB6F /* Ranking */,
-				009CCBFF1890E408006DAB6F /* Record */,
 				009CCB801890E14A006DAB6F /* Image */,
 				009CCB7F1890E141006DAB6F /* CutImage */,
 				009CCB561890E096006DAB6F /* AppDelegate.h */,
@@ -570,6 +580,45 @@
 			name = People;
 			sourceTree = "<group>";
 		};
+		7049E39818919D2400DF1063 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				7049E39918919D4600DF1063 /* db.sqlite */,
+				7049E39D18919DA500DF1063 /* DB.h */,
+				7049E39E18919DA500DF1063 /* DB.m */,
+				7049E3A018919E7C00DF1063 /* DBPersonnalRecordManager.h */,
+				7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */,
+			);
+			name = DB;
+			sourceTree = "<group>";
+		};
+		7049E3A3189E91D900DF1063 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				009CCC2218910AEE006DAB6F /* MyPage */,
+				009CCC091890F179006DAB6F /* Group */,
+				009CCC071890F0E3006DAB6F /* GroupList */,
+				009CCC061890F09E006DAB6F /* Ranking */,
+				009CCBFF1890E408006DAB6F /* Record */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		7049E3A4189E91FF00DF1063 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7049E3A5189E920B00DF1063 /* Record */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7049E3A5189E920B00DF1063 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Record;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -689,6 +738,7 @@
 				004448DF1892197A00ED684E /* record_NextMonth_btn.png in Resources */,
 				004448D6189218E500ED684E /* recordMain_Daily.png in Resources */,
 				004448D9189218E500ED684E /* recordMain_graph_edu.png in Resources */,
+				7049E39A18919D4600DF1063 /* db.sqlite in Resources */,
 				00A6F5A818976A7C005E2549 /* ranking_globalRanking_btn.png in Resources */,
 				009CCB601890E096006DAB6F /* Images.xcassets in Resources */,
 				00DB21DE18962AD10011FDBE /* person5.png in Resources */,
@@ -767,7 +817,9 @@
 				00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */,
 				009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */,
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
+				7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */,
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
+				7049E39F18919DA500DF1063 /* DB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

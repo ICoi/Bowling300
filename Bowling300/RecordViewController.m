@@ -7,6 +7,7 @@
 //
 
 #import "RecordViewController.h"
+#import "DBPersonnalRecordManager.h"
 #define START_YEAR 2000
 
 @interface RecordViewController (){
@@ -23,7 +24,9 @@
 
 @end
 
-@implementation RecordViewController
+@implementation RecordViewController{
+    DBPersonnalRecordManager *dbPRManager;
+}
 
 - (void)viewDidLoad
 {
@@ -34,6 +37,8 @@
     
     searchYear = [NSString stringWithFormat:@""];
     searchMonth = [NSString stringWithFormat:@""];
+    
+    dbPRManager = [DBPersonnalRecordManager sharedModeManager];
     
 }
 
@@ -217,4 +222,16 @@
     }
     NSLog(@"selected components : %d row %d text %@",component,row,item);
 }
+
+
+
+// 이 다음은 테스트 용으로 해둔거
+- (IBAction)tmpWrite:(id)sender {
+    [dbPRManager insertDataWithDate:@"20140101" withGroupNum:1 withScore:@"11,23,13,13" withTotalScore:120];
+    
+}
+- (IBAction)tmpShow:(id)sender {
+    [dbPRManager showAllData];
+}
+
 @end

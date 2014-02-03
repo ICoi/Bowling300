@@ -9,5 +9,7 @@
 #import "DB.h"
 
 @interface DBPersonnalRecordManager : DB
-
++ (id)sharedModeManager;
+- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withTotalScore:(NSInteger)inTotalScore;
+- (void)showAllData;
 @end

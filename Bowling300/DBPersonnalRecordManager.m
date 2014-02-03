@@ -43,7 +43,10 @@ static DBPersonnalRecordManager *_instance = nil;
     NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s", ret, sqlite3_errmsg(db));
     //모든 행의 정보를 얻어온다.
     while(SQLITE_ROW == sqlite3_step(stmt)){
-        NSLog(@"%@",stmt);
+        char *date = (char *)sqlite3_column_text(stmt, 0);
+        
+        NSString *nsDate = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
+        NSLog(@"date : %@",nsDate);
     }
     
 }

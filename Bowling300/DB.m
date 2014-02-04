@@ -18,8 +18,8 @@ static DB *_instance = nil;
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *dbFilePath = [docPath stringByAppendingPathComponent:@"db.sqlite"];
     
-    NSLog(@"docPath : %@",docPath);
-    NSLog(@"filePath : %@",dbFilePath);
+//    NSLog(@"docPath : %@",docPath);
+ //   NSLog(@"filePath : %@",dbFilePath);
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL existFileFlag = [fileManager fileExistsAtPath:dbFilePath];
     

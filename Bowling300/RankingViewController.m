@@ -84,7 +84,7 @@
     // TODO
     //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
     NSLog(@"test %@",indexPath);
-    NSLog(@"now selected ranking : %d",selectedRanking);
+    NSLog(@"now selected ranking : %d",(int)selectedRanking);
     UITableViewCell *cell;
     if(selectedRanking == GLOBAL_RANKING){
         NSLog(@"This is global");

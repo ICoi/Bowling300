@@ -21,11 +21,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *hamRankingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamGroupBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
+@property (weak, nonatomic) IBOutlet UIButton *writeBtn;
+@property (weak, nonatomic) IBOutlet UIView *writeContainerView;
 
 @end
 
 @implementation RecordViewController{
     DBPersonnalRecordManager *dbPRManager;
+    NSInteger nowDate;
+    NSInteger nowYear;
+    NSInteger nowMonth;
 }
 
 - (void)viewDidLoad
@@ -39,6 +44,15 @@
     searchMonth = [NSString stringWithFormat:@""];
     
     dbPRManager = [DBPersonnalRecordManager sharedModeManager];
+    
+    // Notification등록하기. 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveWriteButtonNotification:) name:@"WriteBtnNoti" object:nil];
+    
+    // Notification등록하기.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveWriteNotification:) name:@"WriteNoti" object:nil];
+    
+    // Notification등록하기.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDateNotification:) name:@"DateNoti" object:nil];
     
 }
 
@@ -56,7 +70,58 @@
 }
 
 
+// Notification전달 받을 함수입니다.
+- (void)receiveWriteButtonNotification:(NSNotification *)notification{
+    if([[notification name] isEqualToString:@"WriteBtnNoti"]){
+        NSLog(@"Successfully received the notification!");
+        
+        NSDictionary *userInfo = notification.userInfo;
+        
+        NSString *visibility = [userInfo objectForKey:@"visibility"];
+        
+        if([visibility isEqualToString:@"YES"]){
+            [self.writeBtn setHidden:NO];
+        }
+        else{
+            [self.writeBtn setHidden:YES];
+        }
+        
+    }
+}
 
+// Notification전달 받을 함수입니다.
+- (void)receiveWriteNotification:(NSNotification *)notification{
+    if([[notification name] isEqualToString:@"WriteNoti"]){
+        NSLog(@"Successfully received the notification!");
+        NSDictionary *userInfo = notification.userInfo;
+        
+        NSInteger totalScore = [[userInfo objectForKey:@"totalScore"] integerValue];
+        NSString *dateStr = [NSString stringWithFormat:@"%04d%02d%02d",(int)nowYear,(int)nowMonth,(int)nowDate];
+        NSLog(@"data string : %@",dateStr);
+        
+        // TODO 그룹 번호 바꿔야됨!
+        [dbPRManager insertDataWithDate:dateStr withGroupNum:2 withScore:@"" withTotalScore:totalScore];
+        
+        [self.writeContainerView setHidden:YES];
+        
+        // 여기서 데이터 리로드 하도록 해야할거 같은데..
+        
+    }
+}
+
+// Notification전달 받을 함수입니다.
+- (void)receiveDateNotification:(NSNotification *)notification{
+    if([[notification name] isEqualToString:@"DateNoti"]){
+        NSLog(@"Successfully received the notification!");
+        NSDictionary *userInfo = notification.userInfo;
+        
+            nowYear = [[userInfo objectForKey:@"year"] integerValue];
+        nowMonth = [[userInfo objectForKey:@"month"] integerValue];
+        nowDate = [[userInfo objectForKey:@"date"]integerValue];
+        // TODO
+        
+    }
+}
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -122,6 +187,18 @@
              [pickerView setHidden:YES];
              
          }];
+        
+        
+        
+        // Notification을 보냅니다.
+        // Notification을 보냅니다. -> 일 데이터에 따른걸로
+        NSDictionary *sendDic = @{@"type":@"Monthly", @"averageScore":[NSString stringWithFormat:@"%d",100],
+                                  @"highScore":[NSString stringWithFormat:@"%d",170],
+                                  @"lowScore":[NSString stringWithFormat:@"%d",30]};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"BarChartNoti"
+         object:nil userInfo:sendDic];
+
     }
 }
 
@@ -179,6 +256,9 @@
     
 }
 
+- (IBAction)showWritePage:(id)sender {
+    [self.writeContainerView setHidden:NO];
+}
 
 // 컴포넌트 갯수
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -220,18 +300,10 @@
         // month를 바꿈
         searchMonth = item;
     }
-    NSLog(@"selected components : %d row %d text %@",component,row,item);
+    NSLog(@"selected components : %d row %d text %@",(int)component,(int)row,item);
 }
 
 
 
-// 이 다음은 테스트 용으로 해둔거
-- (IBAction)tmpWrite:(id)sender {
-    [dbPRManager insertDataWithDate:@"20140101" withGroupNum:1 withScore:@"11,23,13,13" withTotalScore:120];
-    
-}
-- (IBAction)tmpShow:(id)sender {
-    [dbPRManager showAllData];
-}
 
 @end

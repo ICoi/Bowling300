@@ -7,9 +7,9 @@
 //
 
 #import "DB.h"
-
+#import "MonthScore.h"
 @interface DBPersonnalRecordManager : DB
 + (id)sharedModeManager;
 - (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withTotalScore:(NSInteger)inTotalScore;
-- (void)showAllData;
+- (MonthScore *)showDataWithMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 @end

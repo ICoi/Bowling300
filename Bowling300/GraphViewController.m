@@ -7,7 +7,7 @@
 //
 
 #import "GraphViewController.h"
-
+#import "DBGraphManager.h"
 @interface GraphViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *barScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *groupSelectScrollView;
@@ -18,22 +18,20 @@
 
 @end
 
-@implementation GraphViewController
+@implementation GraphViewController{
+    DBGraphManager *dbGManager;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    dbGManager = [DBGraphManager sharedModeManager];
 	// Do any additional setup after loading the view.
     
     NSMutableArray *dataArr = [[NSMutableArray alloc] init];
    
-        for(int i = 0 ; i < 5 ; i++){
-            NSNumber *number = [NSNumber numberWithInteger:rand()%60+20];
-            
-            // add number to array
-            [dataArr addObject:number];
-        }
-        
+    // TODO
+    dataArr = [dbGManager arrayForCircleGraphWithYear:2014];
         [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
     
     [self.barChartView init];

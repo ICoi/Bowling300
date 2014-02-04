@@ -745,7 +745,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     
     CGFloat legendX,legendY,legendWidth, legendHeight;
     
-    NSLog(@"hosting:%@ centre:%@ radius:%f",NSStringFromCGRect(layerHostingView.frame),NSStringFromCGPoint(layerHostingView.pieCenter),(layerHostingView.pieRadius));
+//    NSLog(@"hosting:%@ centre:%@ radius:%f",NSStringFromCGRect(layerHostingView.frame),NSStringFromCGPoint(layerHostingView.pieCenter),(layerHostingView.pieRadius));
     legendX = layerHostingView.pieCenter.x+layerHostingView.pieRadius+OFFSET*2;
     legendY = OFFSET*2;
     legendWidth = layerHostingView.frame.size.width - OFFSET*4 - (layerHostingView.pieRadius*2);
@@ -817,6 +817,6 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         self.groupLabel.text = [NSString stringWithFormat:@"Group : %d",index];
     
     
-    NSLog(@"did select slice at index %d",index);
+//    NSLog(@"did select slice at index %d",index);
 }
 @end

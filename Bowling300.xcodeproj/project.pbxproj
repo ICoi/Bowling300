@@ -115,6 +115,8 @@
 		00BD7AA418A0997F00F35DF3 /* WriteRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7AA318A0997F00F35DF3 /* WriteRecordViewController.m */; };
 		00BD7AA718A0D3EF00F35DF3 /* DBGraphManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */; };
 		00D979CD18A1ECEF0078B24C /* BLGraphScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D979CC18A1ECEF0078B24C /* BLGraphScore.m */; };
+		00D979D018A1EDBB0078B24C /* BLGraphMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D979CF18A1EDBB0078B24C /* BLGraphMonth.m */; };
+		00D979D318A1EFFB0078B24C /* BLGraphYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D979D218A1EFFB0078B24C /* BLGraphYear.m */; };
 		00DB21A61895F0E90011FDBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DB21A51895F0E90011FDBE /* QuartzCore.framework */; };
 		00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21B41895F64D0011FDBE /* DLPieChart.m */; };
 		00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21BB1896088A0011FDBE /* BarLineChart.m */; };
@@ -273,6 +275,10 @@
 		00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGraphManager.m; sourceTree = "<group>"; };
 		00D979CB18A1ECEF0078B24C /* BLGraphScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGraphScore.h; sourceTree = "<group>"; };
 		00D979CC18A1ECEF0078B24C /* BLGraphScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGraphScore.m; sourceTree = "<group>"; };
+		00D979CE18A1EDBB0078B24C /* BLGraphMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGraphMonth.h; sourceTree = "<group>"; };
+		00D979CF18A1EDBB0078B24C /* BLGraphMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGraphMonth.m; sourceTree = "<group>"; };
+		00D979D118A1EFFB0078B24C /* BLGraphYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGraphYear.h; sourceTree = "<group>"; };
+		00D979D218A1EFFB0078B24C /* BLGraphYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGraphYear.m; sourceTree = "<group>"; };
 		00DB21A51895F0E90011FDBE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		00DB21B31895F64D0011FDBE /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
 		00DB21B41895F64D0011FDBE /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
@@ -569,6 +575,10 @@
 			children = (
 				00D979CB18A1ECEF0078B24C /* BLGraphScore.h */,
 				00D979CC18A1ECEF0078B24C /* BLGraphScore.m */,
+				00D979CE18A1EDBB0078B24C /* BLGraphMonth.h */,
+				00D979CF18A1EDBB0078B24C /* BLGraphMonth.m */,
+				00D979D118A1EFFB0078B24C /* BLGraphYear.h */,
+				00D979D218A1EFFB0078B24C /* BLGraphYear.m */,
 			);
 			name = BarLineGraph;
 			sourceTree = "<group>";
@@ -846,6 +856,7 @@
 				009CCB541890E096006DAB6F /* main.m in Sources */,
 				009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */,
 				00BD7AA418A0997F00F35DF3 /* WriteRecordViewController.m in Sources */,
+				00D979D018A1EDBB0078B24C /* BLGraphMonth.m in Sources */,
 				009CCB7E1890E0DC006DAB6F /* RankingViewController.m in Sources */,
 				004448911892027200ED684E /* BarGraphViewController.m in Sources */,
 				009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */,
@@ -853,6 +864,7 @@
 				009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */,
 				00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */,
 				009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */,
+				00D979D318A1EFFB0078B24C /* BLGraphYear.m in Sources */,
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
 				7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */,
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,

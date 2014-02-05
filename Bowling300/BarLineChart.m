@@ -7,7 +7,8 @@
 //
 
 #import "BarLineChart.h"
-
+#import "BLGraphYear.h"
+#import "DBGraphManager.h"
 #define BARGRAPE_X 30
 #define BARGRAPE_Y 200
 #define BARGRAPE_HEIGHT 200
@@ -21,7 +22,10 @@
 @property NSMutableArray *cumDataArr;
 
 @end
-@implementation BarLineChart
+@implementation BarLineChart{
+    BLGraphYear *thisYearData;
+    DBGraphManager *dbManager;
+}
 - (id)init
 {
     self = [super init];
@@ -30,18 +34,9 @@
         // Initialization code
         self.averageDataArr = [[NSMutableArray alloc]init];
         self.cumDataArr = [[NSMutableArray alloc]init];
-        
-        // 일단은 여기서 데이터를 넣음
-        for(int i = 0 ; i < 5 ; i++){
-            //make dummy data
-            NSNumber *number = [NSNumber numberWithInteger:(rand() %100 + 50)];
-            [self.averageDataArr addObject:number];
-        }
-        
-        for(int i = 0 ; i < 5 ; i++){
-            NSNumber *number = [NSNumber numberWithInteger:(rand() % 100 + 50)];
-            [self.cumDataArr addObject:number];
-        }
+        thisYearData = [[BLGraphYear alloc] init];
+        dbManager = [DBGraphManager sharedModeManager];
+        thisYearData = [dbManager arrayForBarLineGraphWithYear:2014];
     }
     return self;
 }
@@ -57,18 +52,40 @@
     return self;
 }
 
-// initialize data
-- (void)initAverageDataWithArray:(NSArray *)inAverageData{
-    [self.averageDataArr addObjectsFromArray:inAverageData];
+- (void)setDataForBarLineChar{
+    NSString *monthStr;
+    self.averageDataArr = [[NSMutableArray alloc]init];
+    for(int i = 1 ; i < 13 ; i++){
+        monthStr = [NSString stringWithFormat:@"%02d",i];
+        BLGraphMonth *nowMonth = thisYearData.months[monthStr];
+        NSInteger totalScore = nowMonth.totalScore;
+        NSInteger totalCnt = nowMonth.totalGameCnt;
+        NSInteger totalAver;
+        if(totalCnt == 0){
+            totalAver = 0;
+        }
+        else {
+            totalAver = totalScore / totalCnt;
+        }
+        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+    }
 }
-- (void)initMaxDataWithArray:(NSArray *)inMaxData{
-    [self.cumDataArr addObjectsFromArray:inMaxData];
+- (void)setDataForBarLineCharWithGroupNum:(NSInteger)inGroupNum{
+    NSString *monthStr;
+    NSString *groupStr;
+    self.averageDataArr = [[NSMutableArray alloc]init];
+    for(int i = 1 ; i < 13 ; i++){
+        monthStr = [NSString stringWithFormat:@"%02d",i];
+        BLGraphMonth *nowMonth = thisYearData.months[monthStr];
+        groupStr = [NSString stringWithFormat:@"%d",inGroupNum];
+        BLGraphScore *nowScore = nowMonth.scores[groupStr];
+        
+        NSInteger totalScore = nowScore.score;
+        NSInteger totalCnt = nowScore.gameCnt;
+        NSInteger totalAver = totalScore / totalCnt;
+        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+    }
 }
-- (void)addDataWithAverage:(NSNumber *)averageNum withMax:(NSNumber*)maxNum{
-    [self.averageDataArr addObject:averageNum];
-    [self.cumDataArr addObject:maxNum];
-}
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -81,7 +98,9 @@
     for(int i = 0 ; i < [self.averageDataArr count]; i++){
         // 제일 처음 막대 그래프를 그린다.
         UIBezierPath *path;
-        path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), [[self.averageDataArr objectAtIndex:i] integerValue], BAR_WIDTH, BARGRAPE_Y)];
+        // 여기서 길이 수정하기!!!
+        path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), 10, 30, [[self.averageDataArr objectAtIndex:i]integerValue])];
+       // path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), [[self.averageDataArr objectAtIndex:i] integerValue], BAR_WIDTH, BARGRAPE_Y)];
         [[UIColor colorWithWhite:1.0 alpha:1.0 ] setStroke];
         [[UIColor colorWithWhite:1.0 alpha:0.7] setFill];
         [path fill];

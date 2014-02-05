@@ -7,9 +7,10 @@
 //
 
 #import "DB.h"
-
+#import "BLGraphYear.h"
 @interface DBGraphManager : DB
 + (id)sharedModeManager;
 
-- (NSMutableArray *)arrayForCircleGraphWithYear:(NSInteger)inYear;
+- (BLGraphYear *)arrayForCircleGraphWithYear:(NSInteger)inYear;
+- (BLGraphYear *)arrayForBarLineGraphWithYear:(NSInteger)inYear;
 @end

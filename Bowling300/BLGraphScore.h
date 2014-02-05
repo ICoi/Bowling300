@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface blGraphScore : NSObject
+@interface BLGraphScore : NSObject
 @property (nonatomic) NSInteger score;
 @property (nonatomic) NSInteger gameCnt;
 @end

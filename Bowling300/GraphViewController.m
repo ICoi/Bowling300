@@ -39,7 +39,6 @@
    
     [self drawGraphsWithYear:nowYear];
     
-    [self.barChartView init];
     
     // 이거 스크롤 가능하게 하는거
     [self.barScrollView setScrollEnabled:YES];
@@ -66,6 +65,12 @@
     NSMutableArray *dataArr = [[NSMutableArray alloc] init];
     dataArr = [dbGManager arrayForCircleGraphWithYear:inYear];
     [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
+    
+    // barline그래프 그리는거
+    
+    [self.barChartView init];
+    [self.barChartView setDataForBarLineChar];
+    
 }
 
 

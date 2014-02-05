@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BarLineChart : UIView
-- (void)initAverageDataWithArray:(NSArray *)inAverageData;
-- (void)initMaxDataWithArray:(NSArray *)inMaxData;
-
+- (void)setDataForBarLineChar;
+- (void)setDataForBarLineCharWithGroupNum:(NSInteger)inGroupNum;
 - (void)addDataWithAverage:(NSNumber *)averageNum withMax:(NSNumber *)maxNum;
 @end

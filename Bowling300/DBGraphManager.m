@@ -8,6 +8,7 @@
 
 #import "DBGraphManager.h"
 #import <sqlite3.h>
+#import "BLGraphYear.h"
 #define GROUPCNT 3
 
 @implementation DBGraphManager
@@ -49,9 +50,9 @@ static DBGraphManager *_instance = nil;
     }
     return returnArr;
 }
-- (NSMutableDictionary *)arrayForBarLineGraphWithYear:(NSInteger)inYear{
-    NSInteger scoreArr[12] = {0};
-    NSInteger countArr[12] = {0};
+- (BLGraphYear *)arrayForBarLineGraphWithYear:(NSInteger)inYear{
+    
+    BLGraphYear *returnBLGYear = [[BLGraphYear alloc]init];
     
     NSString *queryStr = @"SELECT Date, TotalScore, GroupNum FROM personnalRecord";
     sqlite3_stmt *stmt;
@@ -65,29 +66,12 @@ static DBGraphManager *_instance = nil;
         int totalScore = (int)sqlite3_column_int(stmt, 1);
         int groupNum = (int)sqlite3_column_int(stmt, 2);
         
-        
-        // TODO
-        NSString *nsDate = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
-        
-        NSString *nsYear = [nsDate substringWithRange:NSMakeRange(0, 4)];
-        
-        if ([nsYear isEqualToString:[NSString stringWithFormat:@"%d",(int)inYear]]){
-            NSInteger nsMonth = [[nsDate substringWithRange:NSMakeRange(4, 2)] integerValue];
-            
-            NSLog(@"year : %@ month : %d",nsYear,nsMonth);
-            
-            scoreArr[nsMonth-1] += totalScore;
-            countArr[nsMonth-1]++;
-            
-            NSLog(@"score : %d new : %d",totalScore,scoreArr[nsMonth-1]);
-            
-        }
-        
+        NSString *nsDateStr = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
+        NSString *month = [nsDateStr substringWithRange:NSMakeRange(4, 2)];
+        [returnBLGYear addDataWithMonth:month withGroup:groupNum withScore:totalScore];
     }
     
     // 저장한 값을 바탕으로 리턴할 어레이 만듬.
-    
-    
-    return nil;
+    return returnBLGYear;
 }
 @end

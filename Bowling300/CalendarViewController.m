@@ -43,6 +43,8 @@
     
     // 돋보기 기능을 위한 Notification 등록
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvCalNoti:) name:@"CalendarSearchNoti" object:nil];
+    // Notificatione등록하기.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recieveReloadNotification:) name:@"reloadNoti" object:nil];
 }
 - (void)viewWillAppear:(BOOL)animated{
     NSLog(@"Show!!! Showshow!!");
@@ -78,6 +80,12 @@
     }
 }
 
+//Notification전달 받을 함수입니다.
+- (void)recieveReloadNotification:(NSNotification *)notification{
+    if([[notification name] isEqualToString:@"reloadNoti"]){
+        [self setCalendarSetting];
+    }
+}
 
 // 해당 숫자에 맞는 요일을 리턴해주는 함수
 // 0 : 일요일 1: 월요일 2: 화요일 3: 수요일 4: 목요일 5: 금요일 6: 토요일
@@ -147,7 +155,7 @@
     NSLog(@"Month test : %@",nowMonthScoreData);
     
     // Bar chart의 위치 설정
-    // Notification을 보냅니다. -> 일 데이터에 따른걸로
+    // Notification을 보냅니다. -> 월 데이터에 따른걸로
     NSInteger averageScore = [nowMonthScoreData getMonthlyAverageScore];
     NSInteger highScore = [nowMonthScoreData getMonthlyHighScore];
     NSInteger lowScore = [nowMonthScoreData getMonthlyLowScore];

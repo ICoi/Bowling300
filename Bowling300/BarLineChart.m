@@ -52,10 +52,7 @@
         // Initialization code
         self.averageDataArr = [[NSMutableArray alloc]init];
         self.cumDataArr = [[NSMutableArray alloc]init];
-        
-        
-        
-        
+
     }
     return self;
 }
@@ -79,17 +76,6 @@
  
  - (void)drawRect:(CGRect)rect
 {
-    /*
-    NSMutableArray *dataArr = [[NSMutableArray alloc]init];
-    
-    for (int i = 0 ; i < 5 ; i++){
-        // make dummy data
-        NSNumber *number = [NSNumber numberWithInteger:(rand()%100 + 50)];
-        [dataArr addObject:number];
-        NSLog(@"Make data : %@",number);
-    }
-     */
-    
    
     CGFloat beforeX = BARGRAPE_X;
     for(int i = 0 ; i < [self.averageDataArr count]; i++){
@@ -133,27 +119,6 @@
         beforeX = beforeX + BAR_SPACE;
     }
     
-    
-    // Drawing code
-    
-    /*
-    // 선그리기
-    UIBezierPath *path;
-    path = [UIBezierPath bezierPath];
-    [path setLineWidth:3.0];
-    [path moveToPoint:CGPointMake(20,20)];
-    [path setLineCapStyle:kCGLineCapRound];
-    [path addLineToPoint:CGPointMake(280, 80)];
-    [path stroke];
-    
-    
-    // 사각형 그리기
-    path = [UIBezierPath bezierPathWithRect:CGRectMake(30,40,80,90)];
-    [[UIColor magentaColor] setStroke];
-    [[UIColor orangeColor] setFill];
-    [path fill];
-    [path stroke];
-     */
 }
 
 

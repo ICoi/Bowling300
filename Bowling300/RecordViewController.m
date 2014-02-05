@@ -54,6 +54,7 @@
     // Notification등록하기.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDateNotification:) name:@"DateNoti" object:nil];
     
+    
 }
 
 
@@ -90,21 +91,26 @@
 }
 
 // Notification전달 받을 함수입니다.
+// Write가 끝낫음을 알려주는 거임!!
 - (void)receiveWriteNotification:(NSNotification *)notification{
     if([[notification name] isEqualToString:@"WriteNoti"]){
         NSLog(@"Successfully received the notification!");
         NSDictionary *userInfo = notification.userInfo;
         
+        NSInteger handy = [[userInfo objectForKey:@"handy"] integerValue];
         NSInteger totalScore = [[userInfo objectForKey:@"totalScore"] integerValue];
         NSString *dateStr = [NSString stringWithFormat:@"%04d%02d%02d",(int)nowYear,(int)nowMonth,(int)nowDate];
         NSLog(@"data string : %@",dateStr);
         
         // TODO 그룹 번호 바꿔야됨!
-        [dbPRManager insertDataWithDate:dateStr withGroupNum:2 withScore:@"" withTotalScore:totalScore];
+        [dbPRManager insertDataWithDate:dateStr withGroupNum:2 withScore:@"" withHandy:handy withTotalScore:totalScore];
         
         [self.writeContainerView setHidden:YES];
         
-        // 여기서 데이터 리로드 하도록 해야할거 같은데..
+        // 데이터 reload하라는 신호를 보냄
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"reloadNoti"
+         object:nil userInfo:nil];
         
     }
 }
@@ -122,6 +128,7 @@
         
     }
 }
+
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -135,7 +142,7 @@
         // 숨겨진 상태인 경우 등장하기
         
         // 일단 현재의 년도와 월 가져오기
-        UIViewController *subViewController = (UIViewController *)self.childViewControllers[0];
+        UIViewController *subViewController = (UIViewController *)self.childViewControllers[1];
         UILabel *year = subViewController.view.subviews[2];
         UILabel *month = subViewController.view.subviews[3];
         

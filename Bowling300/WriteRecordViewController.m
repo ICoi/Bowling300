@@ -39,11 +39,10 @@
 
 // 점수 기록한거를 저장함과 동시에 서버로 보내야함
 - (IBAction)clickSaveBtn:(id)sender {
-    
     NSInteger totalScore = [self.handyLabel.text integerValue] + [self.scoreLabel.text integerValue];
     
     // 화면 없에라는 notification보낸다
-    NSDictionary *sendDic = @{@"totalScore":[NSString stringWithFormat:@"%d",(int)totalScore]};    [[NSNotificationCenter defaultCenter]postNotificationName:@"WriteNoti" object:nil userInfo:sendDic];
+    NSDictionary *sendDic = @{@"totalScore":[NSString stringWithFormat:@"%d",(int)totalScore], @"handy":self.handyLabel.text};    [[NSNotificationCenter defaultCenter]postNotificationName:@"WriteNoti" object:nil userInfo:sendDic];
 
 }
 

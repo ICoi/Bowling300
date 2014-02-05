@@ -29,7 +29,7 @@ static DB *_instance = nil;
         return NO;
     
     if(existFileFlag == NO){
-        char *createQuery_MODE = "CREATE TABLE IF NOT EXISTS personnalRecord (Date Text, GroupNum Integer, Score Text, TotalScore Integer)";
+        char *createQuery_MODE = "CREATE TABLE IF NOT EXISTS personnalRecord (User Integer, Date Text, GroupNum Integer, Score Text, Handy Integer, TotalScore Integer)";
         char *errorMsg ;
         
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);

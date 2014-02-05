@@ -10,6 +10,6 @@
 #import "MonthScore.h"
 @interface DBPersonnalRecordManager : DB
 + (id)sharedModeManager;
-- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withTotalScore:(NSInteger)inTotalScore;
+- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore;
 - (MonthScore *)showDataWithMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 @end

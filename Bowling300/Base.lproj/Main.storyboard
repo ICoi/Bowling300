@@ -744,7 +744,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMc-xT-dpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="140"/>
+            <point key="canvasLocation" x="1452" y="-107"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="Dq6-nR-gZ0">
@@ -886,6 +886,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lhm-GS-Lwm">
+                                <rect key="frame" x="59" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Join">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="W9S-Ib-Upb" kind="push" id="oE5-cO-4VQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1223,6 +1233,95 @@
             </objects>
             <point key="canvasLocation" x="2574" y="1916"/>
         </scene>
+        <!--Join View Controller-->
+        <scene sceneID="iqH-ze-8qB">
+            <objects>
+                <viewController id="W9S-Ib-Upb" customClass="JoinViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jky-TF-qBk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join.png" id="fmt-Qw-cJc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="6X0-D5-cv9">
+                                <rect key="frame" x="99" y="49" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="WAd-Xm-vXX">
+                                <rect key="frame" x="99" y="156" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="jM1-ai-bWn">
+                                <rect key="frame" x="99" y="212" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qT3-Hc-Yxo">
+                                <rect key="frame" x="254" y="524" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressSaveButton:" destination="W9S-Ib-Upb" eventType="touchUpInside" id="Obe-rG-2g6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YIq-xr-1zR">
+                                <rect key="frame" x="223" y="35" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DtY-Lp-yHm">
+                                <rect key="frame" x="254" y="56" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="rzP-KI-Isk">
+                                <rect key="frame" x="99" y="103" width="164" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9NC-Vp-idL">
+                                <rect key="frame" x="122" y="255" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Left">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wOE-aD-xg1">
+                                <rect key="frame" x="223" y="255" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Right">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4yr-Zv-9T5"/>
+                    <connections>
+                        <outlet property="countryField" destination="rzP-KI-Isk" id="ZWn-bX-pPs"/>
+                        <outlet property="emailField" destination="WAd-Xm-vXX" id="tV1-np-W7E"/>
+                        <outlet property="nameField" destination="6X0-D5-cv9" id="LPO-DF-s36"/>
+                        <outlet property="passwordField" destination="jM1-ai-bWn" id="YhW-BR-JkS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z46-wy-iCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="574"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KyV-v9-CVp">
             <objects>
@@ -1515,7 +1614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RvD-ud-ObF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1369" y="-512"/>
+            <point key="canvasLocation" x="1445" y="-759"/>
         </scene>
     </scenes>
     <resources>
@@ -1526,16 +1625,13 @@
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
-        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
-        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
+        <image name="join.png" width="720" height="1280"/>
         <image name="myPage.png" width="720" height="1280"/>
         <image name="myPage_myInfo1.png" width="720" height="1280"/>
         <image name="myPage_myInfo_btn.png" width="99" height="28"/>
@@ -1552,43 +1648,19 @@
         <image name="ranking_table_group.png" width="458" height="80"/>
         <image name="ranking_table_local.png" width="457" height="79"/>
         <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_Daily_insert.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
         <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
         <image name="record_list_btn.png" width="32" height="32"/>
-        <image name="record_list_btn.png" width="32" height="32"/>
-        <image name="record_list_btn.png" width="32" height="32"/>
-        <image name="record_list_btn.png" width="32" height="32"/>
-        <image name="record_menu.png" width="457" height="153"/>
-        <image name="record_menu.png" width="457" height="153"/>
-        <image name="record_menu.png" width="457" height="153"/>
         <image name="record_menu.png" width="457" height="153"/>
         <image name="record_menu_group_btn.png" width="90" height="109"/>
-        <image name="record_menu_group_btn.png" width="90" height="109"/>
-        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
-        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
-        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
         <image name="record_menu_mypage_btn.png" width="93" height="114"/>
         <image name="record_menu_ranking_btn.png" width="93" height="111"/>
-        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
-        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
-        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
-        <image name="record_menu_record_btn.png" width="90" height="111"/>
         <image name="record_menu_record_btn.png" width="90" height="111"/>
         <image name="record_search_btn.png" width="38" height="39"/>
     </resources>

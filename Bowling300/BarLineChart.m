@@ -92,6 +92,9 @@
 - (void)setDataForBarLineCharWithGroupNum:(NSInteger)inGroupNum{
     NSString *monthStr;
     NSString *groupStr;
+    
+    NSInteger allCnt = 0;
+    NSInteger allScore = 0;
     self.averageDataArr = [[NSMutableArray alloc]init];
     for(int i = 1 ; i < 13 ; i++){
         monthStr = [NSString stringWithFormat:@"%02d",i];
@@ -110,6 +113,18 @@
         }
         
         [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+        
+        
+        allScore += totalScore;
+        allCnt += totalCnt;
+        NSInteger allAver;
+        if (allCnt == 0){
+            allAver = 0;
+        }
+        else{
+            allAver = allScore / allCnt;
+        }
+        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",allAver]];
     }
 }
 /*

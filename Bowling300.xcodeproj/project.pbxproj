@@ -52,6 +52,7 @@
 		004448E518921B9600ED684E /* record_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 004448E418921B9600ED684E /* record_bar.png */; };
 		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
 		009807AF18A31EDA0012ED66 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807AE18A31EDA0012ED66 /* Group.m */; };
+		009807B618A35BD10012ED66 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807B518A35BD10012ED66 /* JoinViewController.m */; };
 		009CCB481890E096006DAB6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB471890E096006DAB6F /* Foundation.framework */; };
 		009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB491890E096006DAB6F /* CoreGraphics.framework */; };
 		009CCB4C1890E096006DAB6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB4B1890E096006DAB6F /* UIKit.framework */; };
@@ -194,6 +195,8 @@
 		006A3D6A18A20A3100276BE0 /* DBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGroupManager.m; sourceTree = "<group>"; };
 		009807AD18A31EDA0012ED66 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		009807AE18A31EDA0012ED66 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		009807B418A35BD10012ED66 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
+		009807B518A35BD10012ED66 /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		009CCB441890E096006DAB6F /* Bowling300.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowling300.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CCB471890E096006DAB6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		009CCB491890E096006DAB6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -332,6 +335,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009807B318A35BC10012ED66 /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				009807B418A35BD10012ED66 /* JoinViewController.h */,
+				009807B518A35BD10012ED66 /* JoinViewController.m */,
+			);
+			name = Join;
+			sourceTree = "<group>";
+		};
 		009CCB3B1890E096006DAB6F = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +651,7 @@
 		7049E3A3189E91D900DF1063 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				009807B318A35BC10012ED66 /* Join */,
 				009CCC2218910AEE006DAB6F /* MyPage */,
 				009CCC091890F179006DAB6F /* Group */,
 				009CCC071890F0E3006DAB6F /* GroupList */,
@@ -881,6 +894,7 @@
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
 				009807AF18A31EDA0012ED66 /* Group.m in Sources */,
 				7049E39F18919DA500DF1063 /* DB.m in Sources */,
+				009807B618A35BD10012ED66 /* JoinViewController.m in Sources */,
 				00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

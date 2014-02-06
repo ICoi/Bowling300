@@ -95,9 +95,9 @@
 
 - (void)pressGroupName:(id)sender{
     UIButton *pressBtn = (UIButton *)sender;
-    NSInteger pressRowID = pressBtn.tag - 10000;
-    NSLog(@"rowID : %d",pressRowID);
-    
+    NSInteger pressGroupID = pressBtn.tag - 10000;
+    NSLog(@"rowID : %d",pressGroupID);
+    [self drawGraphsWithYear:nowYear withGroupNum:pressGroupID];
     
     // 화면 새로고침하기
 }
@@ -118,7 +118,22 @@
     [self.barChartView setDataForBarLineChar];
     
 }
-
+- (void)drawGraphsWithYear:(NSInteger)inYear withGroupNum:(NSInteger)inGroupNum{
+    // TODO
+    
+    
+    // 파이차트 그리기
+    NSMutableArray *dataArr = [[NSMutableArray alloc] init];
+    dataArr = [dbGManager arrayForCircleGraphWithYear:inYear];
+    
+    [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
+    
+    
+    // barline그래프 그리는거
+    
+    [self.barChartView init];
+    [self.barChartView setDataForBarLineCharWithGroupNum:inGroupNum];
+}
 
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

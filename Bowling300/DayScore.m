@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         self.todayScores = [[NSMutableArray alloc] init];
+        self.groupScores = [[NSMutableDictionary alloc]init];
         self.gameCnt = 0;
         self.highScore = 0;
         self.lowScore = 300;
@@ -35,6 +36,15 @@
 - (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID{
     Score *oneScore = [[Score alloc] initWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID];
     [self.todayScores addObject:oneScore];
+
+    NSString *key = [NSString stringWithFormat:@"%d",inGroupNum];
+    NSString *groupScore = self.groupScores[key];
+    if(groupScore == nil){
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",inTotalScore] forKey:key];
+    }else{
+        NSInteger tmp = ([groupScore integerValue] + inTotalScore);
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",tmp] forKey:key];
+    }
     
     if(self.highScore < inTotalScore){
         self.highScore = inTotalScore;
@@ -42,6 +52,7 @@
     if(self.lowScore > inTotalScore){
         self.lowScore = inTotalScore;
     }
+
     
     NSInteger beforeTotal = self.averageScore * self.gameCnt;
     self.gameCnt++;

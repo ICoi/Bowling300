@@ -12,6 +12,7 @@
 - (id)init;
 - (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID;
 @property (nonatomic) NSMutableArray *todayScores;
+@property (nonatomic) NSMutableDictionary *groupScores;
 @property (nonatomic) NSInteger gameCnt;
 @property (nonatomic) NSInteger highScore;
 @property (nonatomic) NSInteger lowScore;

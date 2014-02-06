@@ -96,7 +96,7 @@
     NSInteger totalScore = [self.handyLabel.text integerValue] + [self.scoreLabel.text integerValue];
     NSInteger handy = [self.handyLabel.text integerValue];
     NSString *dateStr = [NSString stringWithFormat:@"%04d%02d%02d",(int)self.nowYear,(int)self.nowMonth,(int)self.nowDate];
-    NSInteger groupNum = [self.handyLabel.text integerValue];
+    NSInteger groupNum = [self.groupLabel.text integerValue];
     NSLog(@"data string : %@",dateStr);
     
     

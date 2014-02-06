@@ -50,6 +50,7 @@
 		004448E11892198D00ED684E /* record_beforeMonth_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 004448E01892198D00ED684E /* record_beforeMonth_btn.png */; };
 		004448E318921B8500ED684E /* record_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 004448E218921B8500ED684E /* record_circle.png */; };
 		004448E518921B9600ED684E /* record_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 004448E418921B9600ED684E /* record_bar.png */; };
+		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
 		009CCB481890E096006DAB6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB471890E096006DAB6F /* Foundation.framework */; };
 		009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB491890E096006DAB6F /* CoreGraphics.framework */; };
 		009CCB4C1890E096006DAB6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB4B1890E096006DAB6F /* UIKit.framework */; };
@@ -188,6 +189,8 @@
 		004448E01892198D00ED684E /* record_beforeMonth_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_beforeMonth_btn.png; sourceTree = "<group>"; };
 		004448E218921B8500ED684E /* record_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_circle.png; sourceTree = "<group>"; };
 		004448E418921B9600ED684E /* record_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_bar.png; sourceTree = "<group>"; };
+		006A3D6918A20A3100276BE0 /* DBGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGroupManager.h; sourceTree = "<group>"; };
+		006A3D6A18A20A3100276BE0 /* DBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGroupManager.m; sourceTree = "<group>"; };
 		009CCB441890E096006DAB6F /* Bowling300.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowling300.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CCB471890E096006DAB6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		009CCB491890E096006DAB6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -624,6 +627,8 @@
 				7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */,
 				00BD7AA518A0D3EF00F35DF3 /* DBGraphManager.h */,
 				00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */,
+				006A3D6918A20A3100276BE0 /* DBGroupManager.h */,
+				006A3D6A18A20A3100276BE0 /* DBGroupManager.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -860,6 +865,7 @@
 				009CCB7E1890E0DC006DAB6F /* RankingViewController.m in Sources */,
 				004448911892027200ED684E /* BarGraphViewController.m in Sources */,
 				009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */,
+				006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */,
 				009CCC121890FFB6006DAB6F /* GroupMainViewController.m in Sources */,
 				009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */,
 				00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */,

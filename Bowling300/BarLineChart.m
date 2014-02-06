@@ -11,10 +11,10 @@
 #import "DBGraphManager.h"
 #define BARGRAPE_X 30
 #define BARGRAPE_Y 200
-#define BARGRAPE_HEIGHT 200
+#define BARGRAPE_HEIGHT 170
 #define BAR_SPACE 30
-#define BAR_WIDTH 20
-
+#define BAR_WIDTH 15
+#define LINEGRAPE_HEIGHT 250
 #define CIRCLE_RADIUS 4
 
 @interface BarLineChart ()
@@ -54,6 +54,10 @@
 
 - (void)setDataForBarLineChar{
     NSString *monthStr;
+    
+    NSInteger allCnt = 0;
+    NSInteger allScore = 0;
+    
     self.averageDataArr = [[NSMutableArray alloc]init];
     for(int i = 1 ; i < 13 ; i++){
         monthStr = [NSString stringWithFormat:@"%02d",i];
@@ -61,6 +65,8 @@
         NSInteger totalScore = nowMonth.totalScore;
         NSInteger totalCnt = nowMonth.totalGameCnt;
         NSInteger totalAver;
+        
+        
         if(totalCnt == 0){
             totalAver = 0;
         }
@@ -68,6 +74,19 @@
             totalAver = totalScore / totalCnt;
         }
         [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+        
+        
+        allScore += totalScore;
+        allCnt += totalCnt;
+        NSInteger allAver;
+        if (allCnt == 0){
+            allAver = 0;
+        }
+        else{
+            allAver = allScore / allCnt;
+        }
+        NSLog(@"all aver : %d",allAver);
+        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",allAver]];
     }
 }
 - (void)setDataForBarLineCharWithGroupNum:(NSInteger)inGroupNum{
@@ -82,7 +101,14 @@
         
         NSInteger totalScore = nowScore.score;
         NSInteger totalCnt = nowScore.gameCnt;
-        NSInteger totalAver = totalScore / totalCnt;
+        NSInteger totalAver;
+        if(totalCnt == 0){
+            totalAver = 0;
+        }
+        else {
+            totalAver = totalScore / totalCnt;
+        }
+        
         [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
     }
 }
@@ -99,7 +125,9 @@
         // 제일 처음 막대 그래프를 그린다.
         UIBezierPath *path;
         // 여기서 길이 수정하기!!!
-        path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), 10, 30, [[self.averageDataArr objectAtIndex:i]integerValue])];
+        NSInteger barHeight = [[self.averageDataArr objectAtIndex:i]integerValue] * BARGRAPE_HEIGHT / 300 ;
+       // NSLog(@"bar : %d",barHeight);
+        path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), BARGRAPE_HEIGHT - barHeight, BAR_WIDTH, barHeight)];
        // path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), [[self.averageDataArr objectAtIndex:i] integerValue], BAR_WIDTH, BARGRAPE_Y)];
         [[UIColor colorWithWhite:1.0 alpha:1.0 ] setStroke];
         [[UIColor colorWithWhite:1.0 alpha:0.7] setFill];
@@ -116,10 +144,10 @@
         UIBezierPath *path;
         path = [UIBezierPath bezierPath];
         [path setLineWidth:2.0];
-        [path moveToPoint:CGPointMake(beforeX, [[self.cumDataArr objectAtIndex:i-1] integerValue])];
+        [path moveToPoint:CGPointMake(beforeX, LINEGRAPE_HEIGHT - [[self.cumDataArr objectAtIndex:i-1] integerValue])];
         [path setLineCapStyle:kCGLineCapRound];
         beforeX = beforeX + BAR_SPACE;
-        [path addLineToPoint:CGPointMake(beforeX, [[self.cumDataArr objectAtIndex:i] integerValue])];
+        [path addLineToPoint:CGPointMake(beforeX, LINEGRAPE_HEIGHT - [[self.cumDataArr objectAtIndex:i] integerValue])];
         [path stroke];
                             
     }
@@ -128,7 +156,7 @@
     for(int i = 0 ; i < [self.cumDataArr count]; i++){
         // 그다음 해당 선에 해당하는 곳에 동그라미 점 찍음
         UIBezierPath *path;
-        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(beforeX - (CIRCLE_RADIUS/2), [[self.cumDataArr objectAtIndex:i] integerValue] - (CIRCLE_RADIUS/2),CIRCLE_RADIUS, CIRCLE_RADIUS)];
+        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(beforeX - (CIRCLE_RADIUS/2), LINEGRAPE_HEIGHT - (CIRCLE_RADIUS/2)- [[self.cumDataArr objectAtIndex:i] integerValue],CIRCLE_RADIUS, CIRCLE_RADIUS)];
         [[UIColor colorWithWhite:1.0 alpha:1.0] setStroke];
         [[UIColor colorWithWhite:0.5 alpha:1.0] setFill];
         [path setLineWidth:3.0];

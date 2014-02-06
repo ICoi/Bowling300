@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WriteRecordViewController : UIViewController
+@property NSInteger nowYear;
+@property NSInteger nowMonth;
+@property NSInteger nowDate;
 
 @end

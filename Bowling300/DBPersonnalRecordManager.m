@@ -56,7 +56,7 @@ static DBPersonnalRecordManager *_instance = nil;
         
         NSString *nsDate = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
         
-        NSLog(@"showTest : %@ %d %d",nsDate, groupNum, score);
+       // NSLog(@"showTest : %@ %d %d",nsDate, groupNum, score);
         // NSString *nsDate = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
         
         // 년도와 월을 비교해서 저장할 정보만 걸러낸다
@@ -72,5 +72,37 @@ static DBPersonnalRecordManager *_instance = nil;
         }
     }
     return  tmpMonthScore;
+}
+
+- (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear{
+    DayScore *tmpDayScore = [[DayScore alloc]init];
+    
+    NSString *queryStr = @"SELECT Date, GroupNum, TotalScore FROM personnalRecord";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data  : %s", ret, sqlite3_errmsg(db));
+    
+    //모든 행의 정보를 얻어온다.
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        char *date = (char *)sqlite3_column_text(stmt,0);
+        int groupNum = (int)sqlite3_column_int(stmt, 1);
+        int score = (int)sqlite3_column_int(stmt, 2);
+        
+        NSString *nsDate = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
+        NSString *searchDate = [NSString stringWithFormat:@"%04d%02d%02d",inYear,inMonth,inDate];
+        
+        if([searchDate isEqualToString:nsDate]){
+            [tmpDayScore addDataWithGroupNum:groupNum withTotalScore:score];
+        }
+    }
+    return  tmpDayScore;
+    
+}
+
+
+- (BOOL)deleteDateWithTotalScore:(NSInteger)inTotalScore withGroupNum:(NSInteger)inGroupNum{
+    //여기 지우는거 구현하기
+    return false;
 }
 @end

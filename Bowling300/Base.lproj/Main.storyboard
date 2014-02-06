@@ -849,16 +849,13 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showWritePage:" destination="Iha-O5-bdz" eventType="touchUpInside" id="b17-Sb-jCO"/>
+                                    <segue destination="e2V-jM-orf" kind="push" identifier="WRITE_SEGUE" id="WcT-91-3A7"/>
                                 </connections>
                             </button>
                             <containerView hidden="YES" contentMode="scaleToFill" id="YJq-ay-GpP">
                                 <rect key="frame" x="0.0" y="59" width="320" height="508"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="e2V-jM-orf" kind="embed" id="iU9-fH-Uj9"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1322,7 +1319,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QwZ-D0-zeT">
-                                <rect key="frame" x="290" y="11" width="19" height="21"/>
+                                <rect key="frame" x="278" y="11" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="record_NextMonth_btn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1332,7 +1329,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Xc-uc-eCL">
-                                <rect key="frame" x="189" y="14" width="19" height="18"/>
+                                <rect key="frame" x="177" y="14" width="31" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="record_beforeMonth_btn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1441,15 +1438,15 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="e2V-jM-orf" customClass="WriteRecordViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Klg-Io-evs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recordMain_Daily_insert.png" id="6qW-yf-Bgn">
-                                <rect key="frame" x="0.0" y="-65" width="320" height="573"/>
+                                <rect key="frame" x="0.0" y="-65" width="320" height="633"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="bFb-NJ-bAE">
-                                <rect key="frame" x="83" y="86" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Handy" minimumFontSize="17" id="bFb-NJ-bAE">
+                                <rect key="frame" x="83" y="103" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -1468,7 +1465,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Die-6I-r8P">
-                                <rect key="frame" x="83" y="141" width="97" height="30"/>
+                                <rect key="frame" x="83" y="163" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
@@ -1476,11 +1473,29 @@
                                     <outlet property="delegate" destination="e2V-jM-orf" id="YBh-zh-CI0"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GroupNum" minimumFontSize="17" id="SMg-ao-ePP">
+                                <rect key="frame" x="203" y="163" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lAh-Nw-K3N">
+                                <rect key="frame" x="179" y="179" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addData:" destination="e2V-jM-orf" eventType="touchUpInside" id="Si9-v6-Uso"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ExM-yr-Urq"/>
                     <connections>
+                        <outlet property="groupLabel" destination="SMg-ao-ePP" id="plq-yN-kIj"/>
                         <outlet property="handyLabel" destination="bFb-NJ-bAE" id="drK-z5-7Wh"/>
                         <outlet property="scoreLabel" destination="Die-6I-r8P" id="1bX-fl-XUl"/>
                     </connections>

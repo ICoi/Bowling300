@@ -8,6 +8,7 @@
 
 #import "RecordViewController.h"
 #import "DBPersonnalRecordManager.h"
+#import "WriteRecordViewController.h"
 #define START_YEAR 2000
 
 @interface RecordViewController (){
@@ -48,8 +49,6 @@
     // Notification등록하기. 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveWriteButtonNotification:) name:@"WriteBtnNoti" object:nil];
     
-    // Notification등록하기.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveWriteNotification:) name:@"WriteNoti" object:nil];
     
     // Notification등록하기.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDateNotification:) name:@"DateNoti" object:nil];
@@ -91,37 +90,12 @@
 }
 
 // Notification전달 받을 함수입니다.
-// Write가 끝낫음을 알려주는 거임!!
-- (void)receiveWriteNotification:(NSNotification *)notification{
-    if([[notification name] isEqualToString:@"WriteNoti"]){
-        NSLog(@"Successfully received the notification!");
-        NSDictionary *userInfo = notification.userInfo;
-        
-        NSInteger handy = [[userInfo objectForKey:@"handy"] integerValue];
-        NSInteger totalScore = [[userInfo objectForKey:@"totalScore"] integerValue];
-        NSString *dateStr = [NSString stringWithFormat:@"%04d%02d%02d",(int)nowYear,(int)nowMonth,(int)nowDate];
-        NSLog(@"data string : %@",dateStr);
-        
-        // TODO 그룹 번호 바꿔야됨!
-        [dbPRManager insertDataWithDate:dateStr withGroupNum:2 withScore:@"" withHandy:handy withTotalScore:totalScore];
-        
-        [self.writeContainerView setHidden:YES];
-        
-        // 데이터 reload하라는 신호를 보냄
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"reloadNoti"
-         object:nil userInfo:nil];
-        
-    }
-}
-
-// Notification전달 받을 함수입니다.
 - (void)receiveDateNotification:(NSNotification *)notification{
     if([[notification name] isEqualToString:@"DateNoti"]){
         NSLog(@"Successfully received the notification!");
         NSDictionary *userInfo = notification.userInfo;
         
-            nowYear = [[userInfo objectForKey:@"year"] integerValue];
+        nowYear = [[userInfo objectForKey:@"year"] integerValue];
         nowMonth = [[userInfo objectForKey:@"month"] integerValue];
         nowDate = [[userInfo objectForKey:@"date"]integerValue];
         // TODO
@@ -262,10 +236,19 @@
     [self.navigationController pushViewController:controller animated:YES];
     
 }
-
-- (IBAction)showWritePage:(id)sender {
-    [self.writeContainerView setHidden:NO];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"WRITE_SEGUE"])
+    {
+        WriteRecordViewController *nextVC = (WriteRecordViewController *)segue.destinationViewController;
+        nextVC.nowYear = nowYear;
+        nextVC.nowMonth = nowMonth;
+        nextVC.nowDate = nowDate;
+    }
+    
+    
 }
+
 
 // 컴포넌트 갯수
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{

@@ -9,5 +9,10 @@
 #import "DB.h"
 
 @interface DBGroupManager : DB
-
++ (id)sharedModeManager;
+- (BOOL)addDataInGroupTableWithGroupIdx:(NSInteger)inIdx withGroupName:(NSString *)inGroupName withGroupRedColor:(NSInteger)inRed withGroupGreenColor:(NSInteger)inGreen withGroupBlueColor:(NSInteger)inBlue;
+- (NSMutableArray *)showAllGroups;
+- (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups;
+- (NSMutableArray *)showGroupIdxWithGroupsArray:(NSMutableArray *)inGroups;
+- (NSMutableArray *)showGroupColorWithGroupsArray:(NSMutableArray *)inGroups;
 @end

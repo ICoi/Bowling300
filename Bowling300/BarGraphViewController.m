@@ -7,8 +7,8 @@
 //
 
 #import "BarGraphViewController.h"
-
-
+#import "Group.h"
+#import "DBGroupManager.h"
 #define AVERAGESCORE 150
 #define HIGHSCORE 300
 #define LOWSCORE 0
@@ -23,6 +23,8 @@
 
 #define Monthly @"Monthly"
 #define Daily @"Daily"
+
+#define GROUPWIDTH 70
 
 @interface BarGraphViewController ()
 @property UIImageView *averageCircle;
@@ -40,6 +42,9 @@
 
 @implementation BarGraphViewController{
     NSString *monthlyOrDaily;
+    NSMutableArray *groups;
+    UIButton *button;
+    DBGroupManager *dbManager;
 }
 
 
@@ -47,6 +52,7 @@
 {
     [super viewDidLoad];
     
+    groups = [[NSMutableArray alloc]init];
     monthlyOrDaily = Monthly;
     
     // Notification등록하기. 값이 변하면 그래프가 자동으로 변하도록 해야한다.
@@ -68,15 +74,35 @@
     [self.view addSubview:self.lowCircle];
     
     
-    // scrollView
-    [self.groupSelectScrollView setScrollEnabled:YES];
-    [self.groupSelectScrollView setContentSize:CGSizeMake(500, 44)];
+    dbManager = [DBGroupManager sharedModeManager];
+    groups = [dbManager showAllGroups];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self showGroupList];
 }
 
-
+- (void)showGroupList{
+    
+    NSInteger groupCnt = groups.count;
+    // scrollView
+    [self.groupSelectScrollView setScrollEnabled:YES];
+    [self.groupSelectScrollView setContentSize:CGSizeMake(groupCnt * GROUPWIDTH, 44)];
+    
+    for(int i = 0 ; i < groupCnt ; i++){
+        
+        Group *nowGroup = [groups objectAtIndex:i];
+        
+        button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(GROUPWIDTH * i, 0, 50, 30);
+        [button setTitle:nowGroup.name forState:UIControlStateNormal];
+        NSLog(@"name : %@",nowGroup.name);
+        [self.groupSelectScrollView addSubview:button];
+    }
+    
+}
 
 // Bar 그래프를 그리는 함수입니다.
 - (void)drawBarGraphWithAverage:(NSInteger)averageScore withHighScore:(NSInteger)highScore withLowScore:(NSInteger)lowScore{

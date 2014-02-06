@@ -51,6 +51,7 @@
 		004448E318921B8500ED684E /* record_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 004448E218921B8500ED684E /* record_circle.png */; };
 		004448E518921B9600ED684E /* record_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 004448E418921B9600ED684E /* record_bar.png */; };
 		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
+		009807AF18A31EDA0012ED66 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807AE18A31EDA0012ED66 /* Group.m */; };
 		009CCB481890E096006DAB6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB471890E096006DAB6F /* Foundation.framework */; };
 		009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB491890E096006DAB6F /* CoreGraphics.framework */; };
 		009CCB4C1890E096006DAB6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB4B1890E096006DAB6F /* UIKit.framework */; };
@@ -191,6 +192,8 @@
 		004448E418921B9600ED684E /* record_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_bar.png; sourceTree = "<group>"; };
 		006A3D6918A20A3100276BE0 /* DBGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGroupManager.h; sourceTree = "<group>"; };
 		006A3D6A18A20A3100276BE0 /* DBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGroupManager.m; sourceTree = "<group>"; };
+		009807AD18A31EDA0012ED66 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		009807AE18A31EDA0012ED66 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		009CCB441890E096006DAB6F /* Bowling300.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowling300.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CCB471890E096006DAB6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		009CCB491890E096006DAB6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -650,6 +653,8 @@
 			children = (
 				00D979CA18A1ECC80078B24C /* BarLineGraph */,
 				7049E3A5189E920B00DF1063 /* Record */,
+				009807AD18A31EDA0012ED66 /* Group.h */,
+				009807AE18A31EDA0012ED66 /* Group.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -874,6 +879,7 @@
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
 				7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */,
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
+				009807AF18A31EDA0012ED66 /* Group.m in Sources */,
 				7049E39F18919DA500DF1063 /* DB.m in Sources */,
 				00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */,
 			);

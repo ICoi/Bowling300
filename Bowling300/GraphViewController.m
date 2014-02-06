@@ -8,7 +8,11 @@
 
 #import "GraphViewController.h"
 #import "DBGraphManager.h"
+#import "DBGroupManager.h"
+#import "Group.h"
+
 #define START_YEAR 2000
+#define GROUPWIDTH 70
 @interface GraphViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *barScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *groupSelectScrollView;
@@ -25,13 +29,21 @@
 
 @implementation GraphViewController{
     DBGraphManager *dbGManager;
+    DBGroupManager *dbGroupManager;
+    NSMutableArray *groups;
     NSInteger nowYear;
+    UIButton *button;
+    
+    NSMutableArray *pieDataArr;
+    NSMutableArray *pieGroupIdxArr;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     dbGManager = [DBGraphManager sharedModeManager];
+    dbGroupManager = [DBGroupManager sharedModeManager];
+    groups = [dbGroupManager showAllGroups];
     nowYear = 2014;
     self.yearLabel.text = [NSString stringWithFormat:@"%d",nowYear];
 	// Do any additional setup after loading the view.
@@ -43,13 +55,12 @@
     // 이거 스크롤 가능하게 하는거
     [self.barScrollView setScrollEnabled:YES];
     [self.barScrollView setContentSize:CGSizeMake(400, 220)];
-    [self.groupSelectScrollView setScrollEnabled:YES];
-    [self.groupSelectScrollView setContentSize:CGSizeMake(400, 40)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     // 네비게이션 바 보이지 않게 한다.
     [self.navigationController.navigationBar setHidden:YES];
+    [self showGroupList];
     
 }
 
@@ -59,12 +70,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showGroupList{
+    
+    NSInteger groupCnt = groups.count;
+    // scrollView
+    [self.groupSelectScrollView setScrollEnabled:YES];
+    [self.groupSelectScrollView setContentSize:CGSizeMake(groupCnt * GROUPWIDTH, 44)];
+    
+    for(int i = 0 ; i < groupCnt ; i++){
+        
+        Group *nowGroup = [groups objectAtIndex:i];
+        
+        button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(GROUPWIDTH * i, 0, 50, 30);
+        [button setTitle:nowGroup.name forState:UIControlStateNormal];
+        [button setTag:(10000+nowGroup.idx)];
+        
+        [button addTarget:self action:@selector(pressGroupName:) forControlEvents:UIControlEventTouchUpInside];
+        NSLog(@"name : %@",nowGroup.name);
+        [self.groupSelectScrollView addSubview:button];
+    }
+    
+}
+
+- (void)pressGroupName:(id)sender{
+    UIButton *pressBtn = (UIButton *)sender;
+    NSInteger pressRowID = pressBtn.tag - 10000;
+    NSLog(@"rowID : %d",pressRowID);
+    
+    
+    // 화면 새로고침하기
+}
 - (void)drawGraphsWithYear:(NSInteger)inYear{
     // TODO
     
+    
+    // 파이차트 그리기
     NSMutableArray *dataArr = [[NSMutableArray alloc] init];
     dataArr = [dbGManager arrayForCircleGraphWithYear:inYear];
+    
     [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
+    
     
     // barline그래프 그리는거
     

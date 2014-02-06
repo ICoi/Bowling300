@@ -10,7 +10,7 @@
 
 @interface DayScore : NSObject
 - (id)init;
-- (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore;
+- (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID;
 @property (nonatomic) NSMutableArray *todayScores;
 @property (nonatomic) NSInteger gameCnt;
 @property (nonatomic) NSInteger highScore;

@@ -10,7 +10,8 @@
 
 @interface MonthScore : NSObject
 - (id)init;
-- (void)addDataWithScore:(NSInteger)inTotalScore withDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum;
+- (void)addDataWithScore:(NSInteger)inTotalScore withDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withRowID:(NSInteger)inRowID;
+
 - (NSInteger)getDailyHighScoreWithDate:(NSString *)inDate;
 - (NSInteger)getDailyLowScoreWithDate:(NSString *)inDate;
 - (NSInteger)getDailyAverageScoreWithDate:(NSString *)inDate;

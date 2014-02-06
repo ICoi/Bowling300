@@ -21,8 +21,7 @@ static DBGraphManager *_instance = nil;
     return _instance;
 }
 - (NSMutableArray *)arrayForCircleGraphWithYear:(NSInteger)inYear{
-    NSMutableArray *returnArr = [[NSMutableArray alloc]init];
-    int groupCnt[GROUPCNT] = {0};
+    NSMutableDictionary *dataTmpDic = [[NSMutableDictionary alloc]init];
     
     NSString *queryStr = @"SELECT Date, GroupNum FROM personnalRecord";
     sqlite3_stmt *stmt;
@@ -41,14 +40,45 @@ static DBGraphManager *_instance = nil;
      //   NSLog(@"sub : %@",stmtYear);
         
         if([nowYear isEqualToString:stmtYear]){
-            groupCnt[groupNum]++;
+            NSString *dateKey = [NSString stringWithFormat:@"%d",groupNum];
+            NSString *nowCnt = dataTmpDic[dateKey];
+            if(nowCnt == nil){
+                [dataTmpDic setObject:@"1" forKey:dateKey];
+            }else{
+                int cnt = [nowCnt integerValue];
+                cnt++;
+                [dataTmpDic setObject:[NSString stringWithFormat:@"%d",cnt] forKey:dateKey];
+            }
         }
     }
     
-    for(int i = 0 ; i < GROUPCNT; i++){
-        [returnArr addObject:[NSNumber numberWithInt:groupCnt[i]]];
+    
+    // 저장한 Dictionary에서 Array추출함.
+    NSMutableArray *datas = [dataTmpDic allValues];
+    return datas;
+}
+- (NSString *)showNameWithGroupCount:(NSInteger)inNum{
+    //DB에 저장된 그룹의 순서 번호를 가지고 해당 그룹명 알려줌
+ 
+    int checkNum = 0;
+    
+    NSString *queryStr = @"SELECT groupName FROM myGroup";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s",ret,sqlite3_errmsg(db));
+    // 모든 행의 정보를 얻어온다.
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        if(checkNum == inNum){
+            char *name = (char *)sqlite3_column_text(stmt,0);
+        
+            NSString *nsName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+            return nsName;
+        }
+        
     }
-    return returnArr;
+
+    return nil;
 }
 - (BLGraphYear *)arrayForBarLineGraphWithYear:(NSInteger)inYear{
     

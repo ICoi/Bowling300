@@ -10,8 +10,9 @@
 
 @interface Score : NSObject
 - (id)init;
-- (id)initWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore;
+- (id)initWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID;
 @property NSInteger groupNum;
 @property NSString *score;
 @property NSInteger totalScore;
+@property NSInteger rowID;
 @end

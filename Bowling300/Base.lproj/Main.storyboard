@@ -361,6 +361,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yCE-um-bKF"/>
                     <connections>
+                        <outlet property="addGroupBtn" destination="DJR-kw-8xZ" id="pwa-Za-kix"/>
                         <outlet property="groupListScrollView" destination="lEV-HG-tcT" id="BBa-Vu-Xtl"/>
                         <outlet property="hamMyPageBtn" destination="bto-Qp-c9Q" id="6Jv-Yv-kgK"/>
                         <outlet property="hamRankingBtn" destination="3iU-IE-58e" id="ZLe-4C-ukr"/>
@@ -500,6 +501,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GroupIdx" minimumFontSize="17" id="MVz-Xz-esp">
+                                <rect key="frame" x="121" y="188" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Red" minimumFontSize="17" id="fA4-Wg-FtL">
+                                <rect key="frame" x="121" y="226" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Green" minimumFontSize="17" id="A0k-4V-1Xl">
+                                <rect key="frame" x="121" y="264" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Blue" minimumFontSize="17" id="2fZ-RK-xRX">
+                                <rect key="frame" x="121" y="302" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aQv-3w-i3m">
+                                <rect key="frame" x="58" y="530" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveData:" destination="zlG-NN-Tjs" eventType="touchUpInside" id="de7-xY-EPl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -507,6 +542,14 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="groupBlueLabel" destination="2fZ-RK-xRX" id="cyY-LQ-BAx"/>
+                        <outlet property="groupGreenLabel" destination="A0k-4V-1Xl" id="WPm-ta-gTC"/>
+                        <outlet property="groupIdxLabel" destination="MVz-Xz-esp" id="sQG-qN-AHJ"/>
+                        <outlet property="groupNameLabel" destination="c6v-YD-BuG" id="16f-io-v6Z"/>
+                        <outlet property="groupRedLabel" destination="fA4-Wg-FtL" id="zKL-Cs-0ZW"/>
+                        <outlet property="passwordLabel" destination="iDy-oh-Dc9" id="SFb-Wu-BKW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhw-CR-sb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,20 +608,6 @@
                                 <rect key="frame" x="0.0" y="529" width="320" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nsO-C3-Jvb">
-                                        <rect key="frame" x="30" y="5" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oQF-w4-OAl">
-                                        <rect key="frame" x="132" y="5" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QiJ-lc-Xb9">
                                         <rect key="frame" x="240" y="5" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1379,22 +1408,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hGV-vW-oBE">
                                 <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iJs-0h-o16">
-                                        <rect key="frame" x="29" y="7" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fyu-gj-xTK">
-                                        <rect key="frame" x="131" y="7" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ptx-cL-uA0">
                                 <rect key="frame" x="246" y="34" width="42" height="21"/>
@@ -1513,9 +1526,13 @@
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
+        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
+        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
+        <image name="group_menu_league_btn.png" width="97" height="40"/>
+        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
@@ -1535,19 +1552,43 @@
         <image name="ranking_table_group.png" width="458" height="80"/>
         <image name="ranking_table_local.png" width="457" height="79"/>
         <image name="recordMain.png" width="720" height="1280"/>
+        <image name="recordMain.png" width="720" height="1280"/>
+        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_Daily_insert.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
         <image name="record_bar.png" width="244" height="14"/>
+        <image name="record_bar.png" width="244" height="14"/>
+        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
         <image name="record_list_btn.png" width="32" height="32"/>
+        <image name="record_list_btn.png" width="32" height="32"/>
+        <image name="record_list_btn.png" width="32" height="32"/>
+        <image name="record_list_btn.png" width="32" height="32"/>
+        <image name="record_menu.png" width="457" height="153"/>
+        <image name="record_menu.png" width="457" height="153"/>
+        <image name="record_menu.png" width="457" height="153"/>
         <image name="record_menu.png" width="457" height="153"/>
         <image name="record_menu_group_btn.png" width="90" height="109"/>
+        <image name="record_menu_group_btn.png" width="90" height="109"/>
+        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
+        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
+        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
         <image name="record_menu_mypage_btn.png" width="93" height="114"/>
         <image name="record_menu_ranking_btn.png" width="93" height="111"/>
+        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
+        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
+        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
+        <image name="record_menu_record_btn.png" width="90" height="111"/>
         <image name="record_menu_record_btn.png" width="90" height="111"/>
         <image name="record_search_btn.png" width="38" height="39"/>
     </resources>

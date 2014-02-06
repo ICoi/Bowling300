@@ -8,6 +8,7 @@
 
 #import "WriteRecordViewController.h"
 #import "DBPersonnalRecordManager.h"
+#import "DBGroupManager.h"
 #import "DayScore.h"
 #import "Score.h"
 @interface WriteRecordViewController ()
@@ -20,8 +21,12 @@
 @end
 
 @implementation WriteRecordViewController{
+    NSMutableArray *buttons;
     DBPersonnalRecordManager *dbPRManager;
+    DBGroupManager *dbGManager;
     DayScore *scores;
+    NSMutableArray *groupNames;
+    NSMutableArray *groupIdes;
 }
 
 - (void)viewDidLoad
@@ -31,6 +36,11 @@
 	// Do any additional setup after loading the view.
     scores = [[NSMutableArray alloc]init];
     [self drawScores];
+    
+    dbGManager = [DBGroupManager sharedModeManager];
+    NSMutableArray *groups = [dbGManager showAllGroups];
+    groupNames = [dbGManager showGroupNameWithGroupsArray:groups];
+    groupIdes = [dbGManager showGroupIdxWithGroupsArray:groups];
     
 }
 
@@ -59,21 +69,26 @@
         [self.button setTitle:[NSString stringWithFormat:@"%d",one.totalScore] forState:UIControlStateNormal];
         [self.button addTarget:self action:@selector(pressScoreButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        // 여기 Tag로 그룹 정보 전달하기
-        self.button.tag = (10000 + one.groupNum);
+        // 여기 Tag로 해당 것의rowID 전달.
+        self.button.tag = (10000 + one.rowID);
         [self.view addSubview:self.button];
         
         
     }
 }
+
+
 - (void)pressScoreButton:(id)sender{
     UIButton *pressBtn = (UIButton *)sender;
-    NSInteger pressGroupNum = pressBtn.tag - 10000;
-    NSInteger pressScore = [pressBtn.titleLabel.text integerValue];
-    NSLog(@"group : %d score : %d",pressGroupNum,pressScore);
+    NSInteger pressRowID = pressBtn.tag - 10000;
+    NSLog(@"rowID : %d",pressRowID);
     
     
-    [dbPRManager deleteDateWithTotalScore:pressScore withGroupNum:pressGroupNum];
+    [dbPRManager deleteDateWithRowID:pressRowID];
+    UIView *parent = self.view.superview;
+    [self.view removeFromSuperview];
+    self.view = nil; // unloads the view
+    [parent addSubview:self.view];
 }
 
 

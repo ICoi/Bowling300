@@ -35,20 +35,20 @@
  @property (nonatomic) NSMutableDictionary *days;
  */
 
-- (void)addDataWithScore:(NSInteger)inTotalScore withDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum{
+- (void)addDataWithScore:(NSInteger)inTotalScore withDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withRowID:(NSInteger)inRowID{
     // Dictionary에 해당 요일에 데이터가 잇는지 확인한다.
     DayScore *tmpDayScore;
     tmpDayScore = self.days[inDate];
     if(tmpDayScore == nil){
         // 해당 요일에 데이터가 없으면 키를 만들고 추가한다.
         tmpDayScore = [[DayScore alloc] init];
-        [tmpDayScore addDataWithGroupNum:inGroupNum withTotalScore:inTotalScore];
+        [tmpDayScore addDataWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID];
         [self.days setObject:tmpDayScore forKey:inDate];
         
     }
     else{
         // 해당 요일에 데이터가 있으면 그냥 추가한다.
-        [tmpDayScore addDataWithGroupNum:inGroupNum withTotalScore:inTotalScore];
+        [tmpDayScore addDataWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID];
     }
     //
     

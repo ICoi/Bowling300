@@ -32,8 +32,8 @@
 }
 
 
-- (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore{
-    Score *oneScore = [[Score alloc] initWithGroupNum:inGroupNum withTotalScore:inTotalScore];
+- (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID{
+    Score *oneScore = [[Score alloc] initWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID];
     [self.todayScores addObject:oneScore];
     
     if(self.highScore < inTotalScore){

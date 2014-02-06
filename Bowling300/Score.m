@@ -21,12 +21,13 @@
 }
 
 
-- (id)initWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore{
+- (id)initWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID{
     self = [super init];
     if(self){
         
         self.groupNum = inGroupNum;
         self.totalScore = inTotalScore;
+        self.rowID = inRowID;
     }
     return self;
 }

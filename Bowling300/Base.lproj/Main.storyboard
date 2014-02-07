@@ -305,57 +305,6 @@
                                     </button>
                                 </subviews>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" id="QMS-FT-KPX">
-                                <rect key="frame" x="0.0" y="-97" width="320" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_menu.png" id="7Wu-F0-sm5">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3iU-IE-58e">
-                                        <rect key="frame" x="20" y="13" width="66" height="93"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_ranking_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="mj0-T1-nYj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpi-6x-QiQ">
-                                        <rect key="frame" x="94" y="17" width="68" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_record_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="Lph-OT-cmg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bto-Qp-c9Q">
-                                        <rect key="frame" x="231" y="13" width="74" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_mypage_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="Ux5-a8-lq1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ldz-a5-Dsz">
-                                <rect key="frame" x="286" y="37" width="25" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="record_list_btn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showHamburgerList:" destination="KNE-7K-9YA" eventType="touchUpInside" id="7KD-Vl-pCt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -363,10 +312,6 @@
                     <connections>
                         <outlet property="addGroupBtn" destination="DJR-kw-8xZ" id="pwa-Za-kix"/>
                         <outlet property="groupListScrollView" destination="lEV-HG-tcT" id="BBa-Vu-Xtl"/>
-                        <outlet property="hamMyPageBtn" destination="bto-Qp-c9Q" id="6Jv-Yv-kgK"/>
-                        <outlet property="hamRankingBtn" destination="3iU-IE-58e" id="ZLe-4C-ukr"/>
-                        <outlet property="hamRecordBtn" destination="dpi-6x-QiQ" id="X4U-rx-vXB"/>
-                        <outlet property="hamburgerView" destination="QMS-FT-KPX" id="Oww-Rl-69y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIr-Wn-JdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,64 +349,10 @@
                                     <segue destination="R8g-Ep-SjH" kind="embed" id="iwm-kc-nxS"/>
                                 </connections>
                             </containerView>
-                            <view hidden="YES" contentMode="scaleToFill" id="Bbe-OA-exl">
-                                <rect key="frame" x="0.0" y="-97" width="320" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_menu.png" id="lxS-dW-9iq">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qgI-4r-YyC">
-                                        <rect key="frame" x="20" y="15" width="68" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_ranking_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="ZCX-Nx-sB2" eventType="touchUpInside" id="BOL-0b-59n"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P7Q-mc-zyU">
-                                        <rect key="frame" x="91" y="12" width="63" height="93"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_record_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="ZCX-Nx-sB2" eventType="touchUpInside" id="o3g-iH-mck"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MCr-jr-aF7">
-                                        <rect key="frame" x="230" y="12" width="70" height="94"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_mypage_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="ZCX-Nx-sB2" eventType="touchUpInside" id="mGH-Gk-NK7"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FeI-Ed-jLY">
-                                <rect key="frame" x="281" y="31" width="39" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="record_list_btn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="YKL-H6-QuH"/>
-                    <connections>
-                        <outlet property="hamMyPageBtn" destination="MCr-jr-aF7" id="EnN-OW-2Kb"/>
-                        <outlet property="hamRankingBtn" destination="qgI-4r-YyC" id="a0U-ON-4o9"/>
-                        <outlet property="hamRecordBtn" destination="P7Q-mc-zyU" id="tCf-b0-IL3"/>
-                        <outlet property="hamburgerView" destination="Bbe-OA-exl" id="TBc-kQ-2NK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nz-wr-UjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -617,57 +508,6 @@
                                     </button>
                                 </subviews>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" id="J8e-Id-4Ix">
-                                <rect key="frame" x="0.0" y="-97" width="320" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_menu.png" id="WnJ-Rv-Pbk">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZuR-72-7hN">
-                                        <rect key="frame" x="25" y="15" width="66" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_ranking_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="8R8-ud-cIc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RzT-i1-IaL">
-                                        <rect key="frame" x="160" y="12" width="67" height="94"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_group_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="CQB-L4-r4J"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J27-OA-uW0">
-                                        <rect key="frame" x="235" y="13" width="65" height="92"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_mypage_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="mqa-5o-bYY"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="flV-xk-odQ">
-                                <rect key="frame" x="283" y="29" width="30" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="record_list_btn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showHamburgerList:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="Drk-Bj-Yjn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wpu-9q-Dkz">
                                 <rect key="frame" x="166" y="76" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -732,10 +572,6 @@
                         <outlet property="barChartView" destination="NRM-xp-l0v" id="gUv-rf-Ydc"/>
                         <outlet property="barScrollView" destination="ITo-gW-4Ig" id="URs-J0-dxl"/>
                         <outlet property="groupSelectScrollView" destination="Yli-ET-P9k" id="ndN-eC-hSU"/>
-                        <outlet property="hamGroupBtn" destination="RzT-i1-IaL" id="QPW-eh-6Ta"/>
-                        <outlet property="hamMyPageBtn" destination="J27-OA-uW0" id="O2W-0K-q5p"/>
-                        <outlet property="hamRankingBtn" destination="ZuR-72-7hN" id="Je4-Ga-rqm"/>
-                        <outlet property="hamburgerView" destination="J8e-Id-4Ix" id="ydr-8t-wAr"/>
                         <outlet property="picker" destination="Kb1-0x-AA9" id="jmt-F8-fVs"/>
                         <outlet property="pieChartView" destination="QBK-vf-KBm" id="Oqp-nW-gLS"/>
                         <outlet property="viewPicker" destination="vPR-oH-tBt" id="8sL-vb-ueH"/>
@@ -820,57 +656,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="Bsr-6G-9GY">
-                                <rect key="frame" x="0.0" y="-97" width="320" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_menu.png" id="qen-3I-oGf">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fjZ-eL-OxA">
-                                        <rect key="frame" x="20" y="14" width="74" height="92"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_ranking_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="DES-rW-sUO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cbn-rN-zyY">
-                                        <rect key="frame" x="165" y="18" width="66" height="85"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_group_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="Nsk-Ps-KTg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="boj-Uf-CCV">
-                                        <rect key="frame" x="233" y="17" width="73" height="86"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="record_menu_mypage_btn.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="lKw-Ai-tAb"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D5Q-ke-pUn">
-                                <rect key="frame" x="279" y="26" width="41" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="record_list_btn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showHamburgerList:" destination="Iha-O5-bdz" eventType="touchUpInside" id="8Pj-rK-nhx"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7oK-9f-CTn">
                                 <rect key="frame" x="250" y="420" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -921,10 +706,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="QXo-wu-y5n"/>
                     <connections>
-                        <outlet property="hamGroupBtn" destination="Cbn-rN-zyY" id="H4g-Zt-BEX"/>
-                        <outlet property="hamMyPageBtn" destination="boj-Uf-CCV" id="Diq-qA-1b0"/>
-                        <outlet property="hamRankingBtn" destination="fjZ-eL-OxA" id="85w-Js-HFj"/>
-                        <outlet property="hamburgerView" destination="Bsr-6G-9GY" id="oNH-2r-iPY"/>
                         <outlet property="pickerView" destination="xKP-xb-bnj" id="0FP-id-pRi"/>
                         <outlet property="viewPicker" destination="NoR-vK-6Ai" id="kqC-aK-91M"/>
                         <outlet property="writeBtn" destination="7oK-9f-CTn" id="9ep-E5-pHs"/>
@@ -1645,9 +1426,13 @@
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
+        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
+        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
+        <image name="group_menu_league_btn.png" width="97" height="40"/>
+        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
@@ -1668,20 +1453,24 @@
         <image name="ranking_table_group.png" width="458" height="80"/>
         <image name="ranking_table_local.png" width="457" height="79"/>
         <image name="recordMain.png" width="720" height="1280"/>
+        <image name="recordMain.png" width="720" height="1280"/>
+        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_Daily_insert.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
         <image name="record_bar.png" width="244" height="14"/>
+        <image name="record_bar.png" width="244" height="14"/>
+        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
+        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
-        <image name="record_list_btn.png" width="32" height="32"/>
-        <image name="record_menu.png" width="457" height="153"/>
-        <image name="record_menu_group_btn.png" width="90" height="109"/>
-        <image name="record_menu_mypage_btn.png" width="93" height="114"/>
-        <image name="record_menu_ranking_btn.png" width="93" height="111"/>
-        <image name="record_menu_record_btn.png" width="90" height="111"/>
         <image name="record_search_btn.png" width="38" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -105,6 +105,9 @@
 }
 
 - (IBAction)clickSaveBtn:(id)sender {
+    
+    // TODO
+    // 여기서 서버에 점수 저장함!! 올림!! ㅋㅋ
     [self.navigationController popViewControllerAnimated:YES];
    
 }

@@ -18,8 +18,8 @@ static DB *_instance = nil;
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *dbFilePath = [docPath stringByAppendingPathComponent:@"db.sqlite"];
     
-//    NSLog(@"docPath : %@",docPath);
- //   NSLog(@"filePath : %@",dbFilePath);
+    NSLog(@"docPath : %@",docPath);
+    NSLog(@"filePath : %@",dbFilePath);
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL existFileFlag = [fileManager fileExistsAtPath:dbFilePath];
     
@@ -37,28 +37,28 @@ static DB *_instance = nil;
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);
         if( ret != SQLITE_OK){
             [fileManager removeItemAtPath:dbFilePath error:nil];
-            NSLog(@"create MODE TABLE fail : %s", errorMsg);
+            NSLog(@"create personnalRecord TABLE fail : %s", errorMsg);
             return NO;
         }
         
         
         // 개인정보 저장하는 DB 만들기
-        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myInfo (Name Text, Gender BOOL, Country Text, Email Text, Password Text, Hand BOOL, Image Text, From Integer, Ball Integer, 800Series BOOL, Step Integer, Style Text)";
+        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myInfo (MyIdx Integer, Name Text, Gender BOOL, Country Text, Email Text, Password Text, Hand BOOL, Image Text, FromYear Integer, Ball Integer, Series800 BOOL, Step Integer, Style Text)";
         
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);
         if( ret != SQLITE_OK){
             [fileManager removeItemAtPath:dbFilePath error:nil];
-            NSLog(@"create MODE TABLE fail : %s", errorMsg);
+            NSLog(@"create myInfo TABLE fail : %s", errorMsg);
             return NO;
         }
         
         // 그룹정보 저장하는 DB 만들기
-        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myGroup (groupIdx Integer, groupName Text, groupRColor Integer, groupGColor Integer, groupBColor Integer)";
+        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myGroup(groupIdx Integer, groupName Text, groupRColor Integer, groupGColor Integer, groupBColor Integer)";
         
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);
         if( ret != SQLITE_OK){
             [fileManager removeItemAtPath:dbFilePath error:nil];
-            NSLog(@"create MODE TABLE fail : %s", errorMsg);
+            NSLog(@"create myGroup TABLE fail : %s", errorMsg);
             return NO;
         }
     }

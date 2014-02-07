@@ -9,6 +9,7 @@
 #import "RecordViewController.h"
 #import "DBPersonnalRecordManager.h"
 #import "WriteRecordViewController.h"
+#import "DBMyInfoManager.h"
 #define START_YEAR 2000
 
 @interface RecordViewController (){
@@ -29,6 +30,7 @@
 
 @implementation RecordViewController{
     DBPersonnalRecordManager *dbPRManager;
+    DBMyInfoManager *dbInfoManager;
     NSInteger nowDate;
     NSInteger nowYear;
     NSInteger nowMonth;
@@ -45,6 +47,7 @@
     searchMonth = [NSString stringWithFormat:@""];
     
     dbPRManager = [DBPersonnalRecordManager sharedModeManager];
+    dbInfoManager = [DBMyInfoManager sharedModeManager];
     
     // Notification등록하기. 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveWriteButtonNotification:) name:@"WriteBtnNoti" object:nil];
@@ -231,8 +234,22 @@
     
     // 화면 전환하기
     [self.navigationController pushViewController:controller animated:YES];
-    
 }
+- (IBAction)tmpLoginCheck:(id)sender {
+    if([dbInfoManager isLoggined]){
+        NSLog(@"You already logined!");
+    }else{
+        NSLog(@"You are not logined!");
+    }
+}
+
+- (IBAction)tmpLogout:(id)sender {
+    if([dbInfoManager logOut]){
+        NSLog(@"You log out successs!");
+    }
+}
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"WRITE_SEGUE"])

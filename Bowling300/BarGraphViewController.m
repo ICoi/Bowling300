@@ -52,6 +52,8 @@
 {
     [super viewDidLoad];
     
+    dbManager = [DBGroupManager sharedModeManager];
+    groups = [dbManager showAllGroups];
     groups = [[NSMutableArray alloc]init];
     monthlyOrDaily = Monthly;
     
@@ -74,8 +76,6 @@
     [self.view addSubview:self.lowCircle];
     
     
-    dbManager = [DBGroupManager sharedModeManager];
-    groups = [dbManager showAllGroups];
     
     
 }

@@ -42,7 +42,7 @@ static DBGroupManager *_instance = nil;
     sqlite3_stmt *stmt;
     int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
     
-    NSAssert2(SQLITE_OK == ret, @"RROR(%d) on resolving data : %s",ret,sqlite3_errmsg(db));
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s",ret,sqlite3_errmsg(db));
     
     //모든 행의 정보를 얻어온다.
     while(SQLITE_ROW == sqlite3_step(stmt)){

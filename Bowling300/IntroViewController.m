@@ -7,7 +7,7 @@
 //
 
 #import "IntroViewController.h"
-
+#import "DB.h"
 @interface IntroViewController ()
 @end
 
@@ -22,7 +22,8 @@
     //self.dateLabel.font = [UIFont fontWithName:@"Nanum Pen Script OTF" size:self.dateLabel.font.pointSize];
     
 //    self.test.font = [UIFont fontWithName:@"Expansiva"  size:self.test.font.pointSize];
-    
+    DB *newDB = [[DB alloc]init];
+    [newDB openDB];
     
     
 }

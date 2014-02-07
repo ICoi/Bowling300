@@ -131,11 +131,11 @@
 		00DB21DE18962AD10011FDBE /* person5.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DB21D818962AD10011FDBE /* person5.png */; };
 		00DB21DF18962AD10011FDBE /* person6.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DB21D918962AD10011FDBE /* person6.png */; };
 		00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarViewController.m */; };
+		00EFB2C818A4953500B090B7 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 00EFB2C718A4953500B090B7 /* db.sqlite */; };
 		327198422D2344A6A0D94B01 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BF10027DEB48AF917E7CC3 /* libPods.a */; };
 		7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7049E39B18919D6B00DF1063 /* libsqlite3.dylib */; };
 		7049E39F18919DA500DF1063 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39E18919DA500DF1063 /* DB.m */; };
 		7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */; };
-		7049E3A8189FD78000DF1063 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7049E3A7189FD78000DF1063 /* db.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,13 +305,13 @@
 		00DB21D918962AD10011FDBE /* person6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person6.png; sourceTree = "<group>"; };
 		00E8D6D31891EFBD0069A79A /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		00E8D6D41891EFBE0069A79A /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		00EFB2C718A4953500B090B7 /* db.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.sqlite; sourceTree = "<group>"; };
 		321C41A4F4564FC4A0ADAAD5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7049E39B18919D6B00DF1063 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		7049E39D18919DA500DF1063 /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB.h; sourceTree = "<group>"; };
 		7049E39E18919DA500DF1063 /* DB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DB.m; sourceTree = "<group>"; };
 		7049E3A018919E7C00DF1063 /* DBPersonnalRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPersonnalRecordManager.h; sourceTree = "<group>"; };
 		7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPersonnalRecordManager.m; sourceTree = "<group>"; };
-		7049E3A7189FD78000DF1063 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 		76BF10027DEB48AF917E7CC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -644,7 +644,7 @@
 		7049E39818919D2400DF1063 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				7049E3A7189FD78000DF1063 /* db.sqlite */,
+				00EFB2C718A4953500B090B7 /* db.sqlite */,
 				7049E39D18919DA500DF1063 /* DB.h */,
 				7049E39E18919DA500DF1063 /* DB.m */,
 				7049E3A018919E7C00DF1063 /* DBPersonnalRecordManager.h */,
@@ -817,7 +817,7 @@
 				004448DF1892197A00ED684E /* record_NextMonth_btn.png in Resources */,
 				004448D6189218E500ED684E /* recordMain_Daily.png in Resources */,
 				004448D9189218E500ED684E /* recordMain_graph_edu.png in Resources */,
-				7049E3A8189FD78000DF1063 /* db.sqlite in Resources */,
+				00EFB2C818A4953500B090B7 /* db.sqlite in Resources */,
 				00A6F5A818976A7C005E2549 /* ranking_globalRanking_btn.png in Resources */,
 				009CCB601890E096006DAB6F /* Images.xcassets in Resources */,
 				00DB21DE18962AD10011FDBE /* person5.png in Resources */,

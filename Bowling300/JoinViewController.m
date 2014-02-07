@@ -8,7 +8,7 @@
 
 #import "JoinViewController.h"
 #import <AFNetworking.h>
-
+#import "DBMyInfoManager.h"
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/sign"
 
 
@@ -20,12 +20,15 @@
 
 @end
 
-@implementation JoinViewController
+@implementation JoinViewController{
+    DBMyInfoManager *dbInfoManager;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    dbInfoManager = [DBMyInfoManager sharedModeManager];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,10 +40,16 @@
     [self.view endEditing:YES];
 }
 - (IBAction)pressSaveButton:(id)sender {
-    
+    NSString *name = self.nameField.text;
+    NSString *email = self.emailField.text;
+    BOOL gender = TRUE;
+    NSString *country = self.countryField.text;
+    NSString *password = self.passwordField.text;
+    BOOL hand = TRUE;
+    NSString *image = @"imagelink";
     // 데이터 통신함
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"email": @"daun144@naver.com",@"name":@"Joung Daun2",@"pwd":@"merong"};
+    NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password};
     [manager POST:URLLINK parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
@@ -51,6 +60,9 @@
             NSLog(@"result is fail");
         }else{
             NSLog(@"result is success");
+            NSInteger idx = [responseObject[@"aidx"] integerValue];
+            [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:image];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

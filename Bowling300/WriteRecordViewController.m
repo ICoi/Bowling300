@@ -11,6 +11,9 @@
 #import "DBGroupManager.h"
 #import "DayScore.h"
 #import "Score.h"
+#import <AFNetworking.h>
+
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/score"
 @interface WriteRecordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *handyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *scoreLabel;
@@ -108,6 +111,48 @@
     
     // TODO
     // 여기서 서버에 점수 저장함!! 올림!! ㅋㅋ
+    NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140111"];
+    NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
+    NSString *myIdx = @"50";
+    [sendDic setObject:myIdx forKey:@"aidx"];
+    
+    NSArray *keys = [dataDic allKeys];
+    /*
+    for(int i = 0 ; i < keys.count ; i++){
+        NSDictionary *oneData = dataDic[[keys objectAtIndex:i]];
+        // 원래  @"type":[keys objectAtIndexi]
+        NSDictionary *oneDic = @{@"type":@"solo",
+                                 @"allScore":oneData[@"score"],
+                                 @"allGame":oneData[@"cnt"]};
+        [datas addObject:oneDic];
+    }
+    */
+    NSDictionary *oneDic = @{@"type":@"solo",
+                             @"allScore":@"120",
+                             @"allgame":@"10"};
+    [sendDic setObject:@[oneDic] forKey:@"data"];
+    NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:self.writingOptions error:error];
+    NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",stringdata);
+    
+    // 데이터 보냄
+    // 데이터 통신함
+   
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        
+        
+        // TODO
+        // 여기서 응답 온거 가지고 처리해야한다!!!
+        NSString *value = responseObject[@"aidx"];
+        NSLog(@"result : %@",value);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+*/
+    
     [self.navigationController popViewControllerAnimated:YES];
    
 }

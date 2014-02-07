@@ -11,5 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *rankingYear;
+@property (strong, nonatomic) NSString *rankingMonth;
+@property (strong, nonatomic) NSString *rankingDay;
 
 @end

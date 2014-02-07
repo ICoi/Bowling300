@@ -15,4 +15,6 @@
 - (MonthScore *)showDataWithMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 - (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 - (BOOL)deleteDateWithRowID:(NSInteger)inRowID;
+- (NSMutableDictionary *)shownByGroupRecordWithStartDate:(NSString *)startDate withEndDate:(NSString *)endDate;
+
 @end

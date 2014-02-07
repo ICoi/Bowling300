@@ -1426,13 +1426,9 @@
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_group_btn.png" width="195" height="196"/>
         <image name="group_league.png" width="720" height="1280"/>
-        <image name="group_league.png" width="720" height="1280"/>
         <image name="group_member .png" width="720" height="1280"/>
         <image name="group_menu_board_btn.png" width="91" height="38"/>
-        <image name="group_menu_board_btn.png" width="91" height="38"/>
         <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_league_btn.png" width="97" height="40"/>
-        <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_menu_member_btn.png" width="94" height="31"/>
         <image name="group_post_btn.png" width="64" height="32"/>
         <image name="intro_720_1280.png" width="720" height="1280"/>
@@ -1453,22 +1449,12 @@
         <image name="ranking_table_group.png" width="458" height="80"/>
         <image name="ranking_table_local.png" width="457" height="79"/>
         <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
-        <image name="recordMain.png" width="720" height="1280"/>
         <image name="recordMain_Daily_insert.png" width="720" height="1280"/>
         <image name="recordMain_graph.png" width="720" height="1280"/>
         <image name="record_NextMonth_btn.png" width="24" height="28"/>
         <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
-        <image name="record_bar.png" width="244" height="14"/>
         <image name="record_beforeMonth_btn.png" width="24" height="25"/>
         <image name="record_calendar_btn.png" width="52" height="52"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
-        <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_goback_btn.png" width="30" height="33"/>
         <image name="record_graph_btn.png" width="51" height="61"/>
         <image name="record_search_btn.png" width="38" height="39"/>

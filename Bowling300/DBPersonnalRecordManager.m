@@ -62,12 +62,12 @@ static DBPersonnalRecordManager *_instance = nil;
         // 년도와 월을 비교해서 저장할 정보만 걸러낸다
         NSString *nowYearAndMonth = [NSString stringWithFormat:@"%04d%02d",(int)inYear,(int)inMonth];
         NSString *stmtYearAndMonth = [nsDate substringWithRange:NSMakeRange(0, 6)];
-        NSLog(@"sub : %@",stmtYearAndMonth);
+        //NSLog(@"sub : %@",stmtYearAndMonth);
         
         if([nowYearAndMonth isEqualToString:stmtYearAndMonth]){
             // TODO
             NSString *date = [nsDate substringWithRange:NSMakeRange(6, 2)];
-            NSLog(@"date : %@",date);
+            //NSLog(@"date : %@",date);
             [tmpMonthScore addDataWithScore:score withDate:date withGroupNum:groupNum withRowID:rowID];
         }
     }
@@ -114,5 +114,56 @@ static DBPersonnalRecordManager *_instance = nil;
         NSLog(@"Error(%d) on deleting data : %s",ret,errMsg);
     }
     return false;
+}
+
+
+- (NSMutableDictionary *)shownByGroupRecordWithStartDate:(NSString *)startDate withEndDate:(NSString *)endDate{
+    NSMutableDictionary *returnDic = [[NSMutableDictionary alloc]init];
+    
+    NSString *queryStr = @"SELECT Date, GroupNum, TotalScore FROM personnalRecord";
+    
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s'", ret, sqlite3_errmsg(db));
+    
+    //모든 행의 정보를 얻어온다.
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        char *date = (char *)sqlite3_column_text(stmt, 0);
+        int groupNum = (int)sqlite3_column_int(stmt, 1);
+        int totalScore = (int)sqlite3_column_int(stmt, 2);
+        
+        NSInteger dateInt = [[NSString stringWithCString:date encoding:NSUTF8StringEncoding] integerValue];
+        NSInteger startD = [startDate integerValue];
+        NSInteger endD = [endDate integerValue];
+        
+        if((dateInt >= startD) && (dateInt <= endD)){
+            NSLog(@"%d 기간 안에 들은 값이지롱!!",dateInt);
+            NSString *groupKey = [NSString stringWithFormat:@"%d",groupNum];
+            NSMutableDictionary *tmpDic = returnDic[groupKey];
+            if(tmpDic == nil){
+                tmpDic = [[NSMutableDictionary alloc]init];
+                [tmpDic setObject:[NSString stringWithFormat:@"%d",totalScore] forKey:@"score"];
+                [tmpDic setObject:@"1" forKey:@"cnt"];
+                
+                [returnDic setObject:tmpDic forKey:groupKey];
+            }
+            else{
+                NSInteger nowTotalScore = [tmpDic[@"score"] integerValue];
+                NSInteger nowCnt = [tmpDic[@"cnt"] integerValue];
+                
+                nowTotalScore += totalScore;
+                nowCnt++;
+                
+                [tmpDic setObject:[NSString stringWithFormat:@"%d",nowTotalScore] forKey:@"score"];
+                [tmpDic setObject:[NSString stringWithFormat:@"%d",nowCnt] forKey:@"cnt"];
+                
+                [returnDic setObject:tmpDic forKey:groupKey];
+            }
+        }
+    }
+    
+    return returnDic;
+    
 }
 @end

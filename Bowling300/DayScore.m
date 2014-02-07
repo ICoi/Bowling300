@@ -58,7 +58,7 @@
     self.gameCnt++;
     self.averageScore = (beforeTotal + inTotalScore)/self.gameCnt;
     
-    NSLog(@"최고점 : %d 최소점 : %d 평균 : %d 게임수 : %d",(int)self.highScore, (int)self.lowScore, (int)self.averageScore, (int)self.gameCnt);
+  //  NSLog(@"최고점 : %d 최소점 : %d 평균 : %d 게임수 : %d",(int)self.highScore, (int)self.lowScore, (int)self.averageScore, (int)self.gameCnt);
     
     
 }

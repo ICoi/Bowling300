@@ -98,7 +98,7 @@
         button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.frame = CGRectMake(GROUPWIDTH * i, 0, 50, 30);
         [button setTitle:nowGroup.name forState:UIControlStateNormal];
-        NSLog(@"name : %@",nowGroup.name);
+       // NSLog(@"name : %@",nowGroup.name);
         [self.groupSelectScrollView addSubview:button];
     }
     

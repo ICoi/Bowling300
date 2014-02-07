@@ -45,7 +45,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvCalNoti:) name:@"CalendarSearchNoti" object:nil];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    NSLog(@"Show!!! Showshow!!");
     [self setCalendarSetting];
 }
 
@@ -145,7 +144,7 @@
     }
     nowMonthScoreData = [dbPRManager showDataWithMonth:month withYear:year];
     
-    NSLog(@"Month test : %@",nowMonthScoreData);
+    //NSLog(@"Month test : %@",nowMonthScoreData);
     
     // Bar chart의 위치 설정
     // Notification을 보냅니다. -> 월 데이터에 따른걸로

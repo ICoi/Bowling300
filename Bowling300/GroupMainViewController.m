@@ -64,7 +64,7 @@
 }
 
 - (IBAction)clickedHamListBtn:(id)sender {
-    NSLog(@"Ham list button clicked!");
+   // NSLog(@"Ham list button clicked!");
     UIButton *clickedButton = (UIButton *)sender;
     
     UIViewController *controller;

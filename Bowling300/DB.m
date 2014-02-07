@@ -43,7 +43,14 @@ static DB *_instance = nil;
         
         
         // 개인정보 저장하는 DB 만들기
+        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myInfo (Name Text, Gender BOOL, Country Text, Email Text, Password Text, Hand BOOL, Image Text, From Integer, Ball Integer, 800Series BOOL, Step Integer, Style Text)";
         
+        ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);
+        if( ret != SQLITE_OK){
+            [fileManager removeItemAtPath:dbFilePath error:nil];
+            NSLog(@"create MODE TABLE fail : %s", errorMsg);
+            return NO;
+        }
         
         // 그룹정보 저장하는 DB 만들기
         createQuery_MODE = "CREATE TABLE IF NOT EXISTS myGroup (groupIdx Integer, groupName Text, groupRColor Integer, groupGColor Integer, groupBColor Integer)";

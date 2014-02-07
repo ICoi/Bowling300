@@ -83,19 +83,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // TODO
     //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
-    NSLog(@"test %@",indexPath);
-    NSLog(@"now selected ranking : %d",(int)selectedRanking);
     UITableViewCell *cell;
     if(selectedRanking == GLOBAL_RANKING){
-        NSLog(@"This is global");
         cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
     }
     else if(selectedRanking == LOCAL_RANKING){
-        NSLog(@"This is Local");
             cell = [tableView dequeueReusableCellWithIdentifier:@"LOCAL_RANKING_CELL" forIndexPath:indexPath];
     }
     else if(selectedRanking == GROUP_RANKING ) {
-        NSLog(@"This is group");
         cell = [tableView dequeueReusableCellWithIdentifier:@"GROUP_RANKING_CELL" forIndexPath:indexPath];
     }
     return cell;

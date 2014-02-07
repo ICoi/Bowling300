@@ -73,7 +73,6 @@
 // Notification전달 받을 함수입니다.
 - (void)receiveWriteButtonNotification:(NSNotification *)notification{
     if([[notification name] isEqualToString:@"WriteBtnNoti"]){
-        NSLog(@"Successfully received the notification!");
         
         NSDictionary *userInfo = notification.userInfo;
         
@@ -92,7 +91,6 @@
 // Notification전달 받을 함수입니다.
 - (void)receiveDateNotification:(NSNotification *)notification{
     if([[notification name] isEqualToString:@"DateNoti"]){
-        NSLog(@"Successfully received the notification!");
         NSDictionary *userInfo = notification.userInfo;
         
         nowYear = [[userInfo objectForKey:@"year"] integerValue];
@@ -208,7 +206,6 @@
 }
 
 - (IBAction)clickedHamListBtn:(id)sender {
-    NSLog(@"Ham list button clicked!");
     UIButton *clickedButton = (UIButton *)sender;
     
     UIViewController *controller;

@@ -7,6 +7,10 @@
 //
 
 #import "JoinViewController.h"
+#import <AFNetworking.h>
+
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/sign"
+
 
 @interface JoinViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -33,46 +37,27 @@
     [self.view endEditing:YES];
 }
 - (IBAction)pressSaveButton:(id)sender {
-    //build an info object and convert to json
-    NSURL *url = [NSURL URLWithString:@"http://bowling.pineoc.cloulu.com/user/sign"];
-    NSDictionary *newDatasetInfo = @{@"email": @"i_co1022@naver.com",@"name":@"Joung Daun",@"pwd":@"merong",@"proPhoto":@"",@"ballPhoto":@""};
-    NSError *error;
-    //convert object to data
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:newDatasetInfo options:kNilOptions error:&error];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setHTTPBody:jsonData];
+    // 데이터 통신함
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"email": @"daun144@naver.com",@"name":@"Joung Daun2",@"pwd":@"merong"};
+    [manager POST:URLLINK parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        
+        // TODO
+        // 여기서 응답 온거 가지고 처리해야한다!!!
+       NSString *result = responseObject[@"result"];
+        if([result isEqualToString:@"FAIL"]){
+            NSLog(@"result is fail");
+        }else{
+            NSLog(@"result is success");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        // 실패한경우...
+        NSLog(@"Error: %@", error);
+    }];
     
-    // print json:
-    NSLog(@"JSON summary: %@", [[NSString alloc] initWithData:jsonData
-                                                     encoding:NSUTF8StringEncoding]);
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
-    /*
-    //정보를 보낸다
-    NSURL *url = [NSURL URLWithString:@"http://bowling.pineoc.cloulu.com/user/sign"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forKey:@"Content-Type"];
-    
-    NSDictionary *sendDic = @{@"email": @"i_co1022@naver.com",@"name":@"Joung Daun",@"pwd":@"merong",@"proPhoto":@"",@"ballPhoto":@""};
-    
-    __autoreleasing NSError *error;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:sendDic options:NSJSONWritingPrettyPrinted error:&error];
-    NSLog(@"JSON : %@",postData);
-    
-    [request setHTTPBody:postData];
-    
-    NSURLResponse *resp = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:nil];
-
-    */
-    
- //   [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

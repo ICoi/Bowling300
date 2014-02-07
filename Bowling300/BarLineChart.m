@@ -85,7 +85,7 @@
         else{
             allAver = allScore / allCnt;
         }
-        NSLog(@"all aver : %d",allAver);
+       // NSLog(@"all aver : %d",allAver);
         [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",allAver]];
     }
 }

@@ -53,8 +53,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    // 네비게이션 바 보이지 않게 한다.
-    [self.navigationController.navigationBar setHidden:YES];
     [self showGroupList];
     
 }
@@ -131,11 +129,9 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)goCalendar:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

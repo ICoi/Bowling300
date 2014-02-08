@@ -62,7 +62,6 @@
             NSLog(@"result is success");
             NSInteger idx = [responseObject[@"aidx"] integerValue];
             [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:image];
-            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

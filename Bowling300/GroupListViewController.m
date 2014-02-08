@@ -41,8 +41,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    // 네비게이션 바 보이지 않게 한다.
-    [self.navigationController.navigationBar setHidden:YES];
     
     
     //그룹 리스트 초기화
@@ -55,6 +53,8 @@
     
     //group list를 보여준다.
     [self showGroupList];
+    
+    [self.navigationController.navigationBar setHidden:YES];
     
 }
 
@@ -88,7 +88,7 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.tabBarController setSelectedIndex:0];
 }
 
 
@@ -142,8 +142,6 @@
     self.hamburgerView.frame = frame;
     [self.hamburgerView setHidden:YES];
     
-    // 화면 전환하기
-    [self.navigationController pushViewController:controller animated:YES];
     
 }
 

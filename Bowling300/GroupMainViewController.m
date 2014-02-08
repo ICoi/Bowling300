@@ -22,7 +22,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar setHidden:YES];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -31,7 +30,7 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

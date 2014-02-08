@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *rankingTable;
 
 
-
 @end
 
 @implementation RankingViewController
@@ -35,8 +34,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    // 네비게이션 바 보이지 않게 한다.
-    [self.navigationController.navigationBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,6 +77,22 @@
         // 여기서 table reload도 해야하고 사진도 바꿔야됨
     }
 }
+
+
+
+// 여기 아래는 탭 버튼 누르는거
+- (IBAction)goRecordPage:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
+}
+- (IBAction)goGroupPage:(id)sender {
+    [self.tabBarController setSelectedIndex:2];
+}
+- (IBAction)goMyPage:(id)sender {
+    [self.tabBarController setSelectedIndex:3];
+}
+
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // TODO

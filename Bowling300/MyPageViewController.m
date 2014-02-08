@@ -30,6 +30,6 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.tabBarController setSelectedIndex:0];
 }
 @end

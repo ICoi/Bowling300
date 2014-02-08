@@ -32,7 +32,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar setHidden:YES];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -51,10 +50,9 @@
     NSInteger blueColor = [self.groupBlueLabel.text integerValue];
     
      [dbManager addDataInGroupTableWithGroupIdx:groupIdx withGroupName:groupName withGroupRedColor:redColor withGroupGreenColor:greenColor withGroupBlueColor:blueColor];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

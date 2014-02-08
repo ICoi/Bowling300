@@ -57,8 +57,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    // 네비게이션 바 보이지 않게 한다.
-    [self.navigationController.navigationBar setHidden:YES];
     
 }
 
@@ -101,7 +99,7 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.tabBarController setSelectedIndex:0];
 }
 
 - (IBAction)showDatePicker:(id)sender {

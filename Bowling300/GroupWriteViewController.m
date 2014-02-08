@@ -24,7 +24,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.tabBarController.tabBar setHidden:YES];
-    [self.navigationController.navigationBar setHidden:YES];
 }
 - (void)didReceiveMemoryWarning
 {

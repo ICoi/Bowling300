@@ -130,14 +130,15 @@
     NSDictionary *oneDic = @{@"type":@"solo",
                              @"allScore":@"120",
                              @"allgame":@"10"};
-    [sendDic setObject:@[oneDic] forKey:@"data"];
-    NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:self.writingOptions error:error];
+    [sendDic setObject:@[oneDic,oneDic] forKey:@"data"];
+    __autoreleasing NSError *error;
+    NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
     NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
     NSLog(@"%@",stringdata);
     
     // 데이터 보냄
-    // 데이터 통신함
+    // 데이터 통신함®
    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -151,9 +152,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-*/
+
     
-    [self.navigationController popViewControllerAnimated:YES];
    
 }
 

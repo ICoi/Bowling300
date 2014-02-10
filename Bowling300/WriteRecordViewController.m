@@ -114,7 +114,7 @@
     
     NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140111"];
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
-    NSString *myIdx = @"50";
+    NSString *myIdx = @"67";
     [sendDic setObject:myIdx forKey:@"aidx"];
     
     NSArray *keys = [dataDic allKeys];
@@ -131,7 +131,7 @@
     
     // TODO여기 기간에 맞는거랑 그룹별 등등 해야할듯.. 일단 정보전달은 잘 되는걸로~
     NSDictionary *oneDic = @{@"type":@"-1",
-                             @"allScore":@"130",
+                             @"allScore":@"280",
                              @"allGame":@"10"};
     [sendDic setObject:@[oneDic] forKey:@"data"];
     

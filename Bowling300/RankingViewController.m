@@ -269,7 +269,15 @@
         UIImageView *profileImage = [self.view viewWithTag:42];
         UILabel *scoreLabel= [self.view viewWithTag:43];
         UILabel *nameLabel = [self.view viewWithTag:44];
+        
+        //일단 초기화를 시켜야할듯
+        rankingNum.text = nil;
+        profileImage.image = nil;
+        scoreLabel.text = nil;
+        nameLabel.text = nil;
+        if(cell == nil){
         cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
+        }
         //indexPath.row
         NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
         //이미지얻어옴
@@ -287,6 +295,7 @@
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Image error: %@", error);
+            profileImage.image = nil;
         }];
         [postOperation start];
         nameLabel.text = one[@"name"];

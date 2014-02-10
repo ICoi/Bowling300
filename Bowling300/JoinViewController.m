@@ -31,6 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     dbInfoManager = [DBMyInfoManager sharedModeManager];
+    [self.navigationController.navigationBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +85,7 @@
             NSInteger idx = [responseObject[@"aidx"] integerValue];
             NSString *imageLink = @"";
             [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:imageLink];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);

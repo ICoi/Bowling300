@@ -56,6 +56,8 @@
     
     [self.navigationController.navigationBar setHidden:YES];
     
+    [self.tabBarController.tabBar setHidden:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

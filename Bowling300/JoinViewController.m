@@ -64,34 +64,30 @@
     NSString *country = self.countryField.text;
     NSString *password = self.passwordField.text;
     BOOL hand = TRUE;
-    NSString *image = @"imagelink";
     
-    UIImage *profileImage = usingImage;
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
+    
     NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
-    // 데이터 통신함
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":@"0",@"country":@"KOR",@"hand":@"0"};
-    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/imge.png"];
-    [manager POST:URLLINK parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFormData:imageData name:@"image"];  }success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        
+    NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":@"0",@"country":country,@"hand":@"0"};
+    AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //do not put image inside parameters dictionary as I did, but append it!
+        [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:@"proPhoto.PNG" mimeType:@"multipart/form-data"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // TODO
         // 여기서 응답 온거 가지고 처리해야한다!!!
-       NSString *result = responseObject[@"result"];
+        NSString *result = responseObject[@"result"];
         if([result isEqualToString:@"FAIL"]){
             NSLog(@"result is fail");
         }else{
             NSLog(@"result is success");
             NSInteger idx = [responseObject[@"aidx"] integerValue];
-            [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:image];
+            NSString *imageLink = @"";
+            [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:imageLink];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        // 실패한경우...
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
     }];
+    [op start];
     
 }
 - (IBAction)clickCamera:(id)sender {

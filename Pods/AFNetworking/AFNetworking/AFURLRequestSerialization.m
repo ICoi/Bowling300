@@ -331,6 +331,7 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
                                withParameters:(id)parameters
                                         error:(NSError *__autoreleasing *)error
 {
+    //여기는 어디야..
     NSParameterAssert(request);
 
     NSMutableURLRequest *mutableRequest = [request mutableCopy];
@@ -1048,6 +1049,7 @@ typedef enum {
                                withParameters:(id)parameters
                                         error:(NSError *__autoreleasing *)error
 {
+    //JSON
     NSParameterAssert(request);
 
     if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) {

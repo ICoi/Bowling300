@@ -37,7 +37,7 @@
     [super viewDidLoad];
     dbPRManager = [DBPersonnalRecordManager sharedModeManager];
 	// Do any additional setup after loading the view.
-    scores = [[NSMutableArray alloc]init];
+    scores.todayScores = [[NSMutableArray alloc]init];
     [self drawScores];
     
     dbGManager = [DBGroupManager sharedModeManager];
@@ -80,6 +80,9 @@
     }
 }
 
+- (IBAction)goBack:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (void)pressScoreButton:(id)sender{
     UIButton *pressBtn = (UIButton *)sender;
@@ -109,8 +112,6 @@
 
 - (IBAction)clickSaveBtn:(id)sender {
     
-    // TODO
-    // 여기서 서버에 점수 저장함!! 올림!! ㅋㅋ
     NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140111"];
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     NSString *myIdx = @"50";
@@ -127,10 +128,14 @@
         [datas addObject:oneDic];
     }
     */
-    NSDictionary *oneDic = @{@"type":@"solo",
-                             @"allScore":@"120",
-                             @"allgame":@"10"};
-    [sendDic setObject:@[oneDic,oneDic] forKey:@"data"];
+    
+    // TODO여기 기간에 맞는거랑 그룹별 등등 해야할듯.. 일단 정보전달은 잘 되는걸로~
+    NSDictionary *oneDic = @{@"type":@"-1",
+                             @"allScore":@"130",
+                             @"allGame":@"10"};
+    [sendDic setObject:@[oneDic] forKey:@"data"];
+    
+    // 여기 부분은 에러 체크용..
     __autoreleasing NSError *error;
     NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
     NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
@@ -138,17 +143,26 @@
     NSLog(@"%@",stringdata);
     
     // 데이터 보냄
-    // 데이터 통신함®
-   
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+       AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
     [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sendDic : %@",sendDic);
         NSLog(@"JSON: %@", responseObject);
-        
         
         // TODO
         // 여기서 응답 온거 가지고 처리해야한다!!!
+        /*
         NSString *value = responseObject[@"aidx"];
         NSLog(@"result : %@",value);
+         */
+        NSString *result = responseObject[@"result"];
+        if([result isEqualToString:@"SUCCESS"]){
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else{
+            NSLog(@"Save ERROR!");
+        }
+    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

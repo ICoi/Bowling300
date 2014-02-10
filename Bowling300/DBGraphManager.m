@@ -54,7 +54,7 @@ static DBGraphManager *_instance = nil;
     
     
     // 저장한 Dictionary에서 Array추출함.
-    NSMutableArray *datas = [dataTmpDic allValues];
+    NSMutableArray *datas = [[NSMutableArray alloc]initWithArray:[dataTmpDic allValues]];
     return datas;
 }
 - (NSString *)showNameWithGroupCount:(NSInteger)inNum{

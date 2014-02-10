@@ -12,16 +12,18 @@
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/sign"
 
 
-@interface JoinViewController ()
+@interface JoinViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIImageView *ProfileImageView;
 
 @end
 
 @implementation JoinViewController{
     DBMyInfoManager *dbInfoManager;
+    UIImage *usingImage;
 }
 
 - (void)viewDidLoad
@@ -39,6 +41,22 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+
+/*
+ 
+ UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+ NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+ AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+ NSDictionary *parameters = @{@"foo": @"bar"};
+ NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
+ [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+ [formData appendPartWithFileData:imageData name:@"image" error:nil];
+ } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+ NSLog(@"Success: %@", responseObject);
+ } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+ NSLog(@"Error: %@", error);
+ }];
+ */
 - (IBAction)pressSaveButton:(id)sender {
     NSString *name = self.nameField.text;
     NSString *email = self.emailField.text;
@@ -47,10 +65,16 @@
     NSString *password = self.passwordField.text;
     BOOL hand = TRUE;
     NSString *image = @"imagelink";
+    
+    UIImage *profileImage = usingImage;
+    NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
     // 데이터 통신함
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password};
-    [manager POST:URLLINK parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":@"0",@"country":@"KOR",@"hand":@"0"};
+    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/imge.png"];
+    [manager POST:URLLINK parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFormData:imageData name:@"image"];  }success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         // TODO
@@ -68,6 +92,57 @@
         // 실패한경우...
         NSLog(@"Error: %@", error);
     }];
+    
+}
+- (IBAction)clickCamera:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Profile" message:@"Select" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Take picture",@"Alberm", nil];
+    [alert show];
+}
+
+//alertView 선택시
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == alertView.firstOtherButtonIndex){
+        [self takePicture];
+    }else{
+        //앨범에서 가져오는거
+        [self getImage];
+    }
+}
+
+-(void)takePicture{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        //에러처리
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"카메라가 지원되지 않는 기종입니다." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
+        return ;
+    }
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+-(void)getImage{
+    //앨범에서 가져오는거
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    //편집된 이미지가 있으면 사용, 없으면 원본으로 사용
+    usingImage = (nil == editedImage) ? originalImage : editedImage;
+    self.ProfileImageView.image = usingImage;
+    
+    //피커 감추기
+    [picker dismissViewControllerAnimated:YES completion:nil];
     
 }
 

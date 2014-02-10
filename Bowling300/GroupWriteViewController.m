@@ -8,7 +8,7 @@
 
 #import "GroupWriteViewController.h"
 
-@interface GroupWriteViewController ()
+@interface GroupWriteViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
 

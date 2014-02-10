@@ -128,10 +128,8 @@
     [self.barChartView setDataForBarLineCharWithGroupNum:inGroupNum];
 }
 
-- (IBAction)goBack:(id)sender {
-}
-
 - (IBAction)goCalendar:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

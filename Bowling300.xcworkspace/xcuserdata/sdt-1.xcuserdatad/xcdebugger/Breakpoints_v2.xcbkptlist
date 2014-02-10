@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bowling300/JoinViewController.m"
-            timestampString = "413446677.997091"
+            filePath = "Bowling300/Pie Chart Library/DLPieChart.m"
+            timestampString = "413696182.463607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-pressSaveButton:"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "-setShowPercentage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bowling300/WriteRecordViewController.m"
-            timestampString = "413455329.485063"
+            filePath = "Bowling300/JoinViewController.m"
+            timestampString = "413711485.135748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "-clickSaveBtn:"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-pressSaveButton:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bowling300/JoinViewController.m"
+            timestampString = "413712877.587581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-pressSaveButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -52,6 +52,8 @@
     // Notification등록하기.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDateNotification:) name:@"DateNoti" object:nil];
     
+    [self.navigationController.navigationBar setHidden:YES];
+    
     
 }
 

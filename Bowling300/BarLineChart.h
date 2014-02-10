@@ -11,5 +11,4 @@
 @interface BarLineChart : UIView
 - (void)setDataForBarLineChar;
 - (void)setDataForBarLineCharWithGroupNum:(NSInteger)inGroupNum;
-- (void)addDataWithAverage:(NSNumber *)averageNum withMax:(NSNumber *)maxNum;
 @end

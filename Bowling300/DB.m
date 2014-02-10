@@ -43,7 +43,7 @@ static DB *_instance = nil;
         
         
         // 개인정보 저장하는 DB 만들기
-        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myInfo (MyIdx Integer, Name Text, Gender BOOL, Country Text, Email Text, Password Text, Hand BOOL, Image Text, FromYear Integer, Ball Integer, Series800 BOOL, Step Integer, Style Text)";
+        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myInfo (MyIdx Integer, Name Text, Gender Integer, Country Text, Email Text, Password Text, Hand Integer, Image Text, FromYear Integer, Ball Integer, Series300 Integer, Series800 Integer, Step Integer, Style Integer)";
         
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);
         if( ret != SQLITE_OK){

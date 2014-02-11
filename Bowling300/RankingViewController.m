@@ -8,8 +8,8 @@
 
 #import "RankingViewController.h"
 #import <AFNetworking.h>
-
-
+#import "LoginViewController.h"
+#import "DBMyInfoManager.h"
 #define GLOBAL_RANKING 0
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
@@ -46,6 +46,8 @@
 
 @implementation RankingViewController{
     NSMutableArray *rankingDataArr;
+    DBMyInfoManager *dbInfoManager;
+    
 }
 
 
@@ -55,10 +57,12 @@
 	// Do any additional setup after loading the view.
     selectedRanking = GLOBAL_RANKING;
     rankingDataArr = [[NSMutableArray alloc]init];
+    dbInfoManager = [DBMyInfoManager sharedModeManager];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController.navigationBar setHidden:YES];
     
     [self getRankingFromServerWithType:GLOBAL_RANKING];
 }
@@ -169,7 +173,14 @@
 
 // 여기 아래는 탭 버튼 누르는거
 - (IBAction)goRecordPage:(id)sender {
-    [self.tabBarController setSelectedIndex:1];
+    if([dbInfoManager isLoggined]){
+        [self.tabBarController setSelectedIndex:1];
+    }else{
+        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
+        [self.navigationController pushViewController:uiVC   animated:YES];
+        
+    }
+    //
 }
 - (IBAction)goGroupPage:(id)sender {
     [self.tabBarController setSelectedIndex:2];
@@ -261,7 +272,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"test %d",indexPath.row);
     // TODO
     //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
     UITableViewCell *cell;
@@ -276,16 +286,13 @@
         profileImage.image = nil;
         scoreLabel.text = nil;
         nameLabel.text = nil;
-        if(cell == nil){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
-        }
+        cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
         //indexPath.row
         NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
         //이미지얻어옴
         NSString *photourl = one[@"proPhoto"];
         NSURL *imageURL = [NSURL URLWithString:one[@"proPhoto"]];
         NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
-        
         AFHTTPRequestOperation *postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         postOperation.responseSerializer = [AFImageResponseSerializer serializer];
         [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -293,6 +300,7 @@
             
             profileImage.layer.masksToBounds = YES;
             profileImage.layer.cornerRadius = 10.0f;
+            NSLog(@"%d",indexPath.row);
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Image error: %@", error);
@@ -301,9 +309,9 @@
         [postOperation start];
         nameLabel.text = one[@"name"];
         scoreLabel.text = [NSString stringWithFormat:@"%f", [one[@"avg"] floatValue]];
-        rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+4)];
+        rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+3)];
         
-        NSLog(@"%@ %@ %@",nameLabel.text,scoreLabel.text,rankingNum.text);
+        
         
     }
     else if(selectedRanking == LOCAL_RANKING){

@@ -51,60 +51,49 @@
     [self.view endEditing:YES];
 }
 - (IBAction)saveData:(id)sender {
-    /*
-    NSInteger groupIdx = [self.groupIdxLabel.text integerValue];
-    NSString *groupName = self.groupNameLabel.text;
-    NSInteger redColor = [self.groupRedLabel.text integerValue];
-    NSInteger greenColor = [self.groupGreenLabel.text integerValue];
-    NSInteger blueColor = [self.groupBlueLabel.text integerValue];
-    
-    
-     [dbManager addDataInGroupTableWithGroupIdx:groupIdx withGroupName:groupName withGroupRedColor:redColor withGroupGreenColor:greenColor withGroupBlueColor:blueColor];
-      */
-    
-    //여기   Save버튼 누르면 그룹 디비에도 저장하고 서버로도 보내야되1!1
-    // TODO
-    
     NSInteger myIdx = ad.myIDX;
     NSLog(@"my idx : %d",myIdx);
     
+    NSString *groupName = self.groupNameLabel.text;
+    NSString *groupPassword = self.passwordLabel.text;
+    NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
     // 그룹의 색상을 임의로 정함
     NSInteger redColor = rand()%255;
     NSInteger greenColor = rand()%255;
     NSInteger blueColor = rand()%255;
     
     NSLog(@"NEW GROUP name : %@ idx: %d red : %d green : %d blue : %d",@"",10,redColor,greenColor,blueColor);
+    if ((myIdx == 0) || ([groupName isEqualToString:@""]) || ([groupPassword isEqualToString:@""]) || ( imageData == nil)) {
+        NSLog(@"Null Error");
+    }
+    else{
     
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
-    
-    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
-    NSDictionary *parameters = @{@"aidx": [NSString stringWithFormat:@"%d",myIdx],@"gname":self.groupNameLabel.text,@"gpwd":self.passwordLabel.text};
-    AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        //do not put image inside parameters dictionary as I did, but append it!
-        [formData appendPartWithFileData:imageData name:@"grpPhoto" fileName:@"grpPhoto.png" mimeType:@"multipart/form-data"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // TODO
-        // 여기서 응답 온거 가지고 처리해야한다!!!
-        NSLog(@"%@",responseObject);
-        NSString *result = responseObject[@"result"];
-        if([result isEqualToString:@"FAIL"]){
-            NSLog(@"result is fail");
-        }else{
-            NSLog(@"result is success");
-            NSInteger groupIdx = [responseObject[@"aidx"] integerValue];
-            NSString *imageLink = @"";
+        [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+        NSDictionary *parameters = @{@"aidx": [NSString stringWithFormat:@"%d",myIdx],@"gname":groupName,@"gpwd":groupPassword};
+        AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            //do not put image inside parameters dictionary as I did, but append it!
+            [formData appendPartWithFileData:imageData name:@"grpPhoto" fileName:@"grpPhoto.png" mimeType:@"multipart/form-data"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            NSString *result = responseObject[@"result"];
+            if([result isEqualToString:@"FAIL"]){
+                NSLog(@"result is fail");
+            }else{
+                NSLog(@"result is success");
+                NSInteger groupIdx = [responseObject[@"aidx"] integerValue];
+                NSString *imageLink = @"";
             
-            [dbManager addDataInGroupTableWithGroupIdx:groupIdx withGroupName:@"groupTest" withGroupRedColor:redColor withGroupGreenColor:greenColor withGroupBlueColor:blueColor];
+                [dbManager addDataInGroupTableWithGroupIdx:groupIdx withGroupName:@"groupTest" withGroupRedColor:redColor withGroupGreenColor:greenColor withGroupBlueColor:blueColor];
             
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
-    }];
-    [op start];
-
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+        }];
+        [op start];
+    }
     
 }
 - (IBAction)takePhoto:(id)sender {

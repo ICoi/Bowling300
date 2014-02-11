@@ -70,33 +70,41 @@
     NSString *country = self.countryField.text;
     NSString *password = self.passwordField.text;
     BOOL hand = TRUE;
-    
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
-    
     NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
-    NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":@"0",@"country":country,@"hand":@"0"};
-    AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        //do not put image inside parameters dictionary as I did, but append it!
-        [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:@"proPhoto.PNG" mimeType:@"multipart/form-data"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // TODO
-        // 여기서 응답 온거 가지고 처리해야한다!!!
-        NSString *result = responseObject[@"result"];
-        if([result isEqualToString:@"FAIL"]){
-            NSLog(@"result is fail");
-        }else{
-            NSLog(@"result is success");
-            NSInteger idx = [responseObject[@"aidx"] integerValue];
-            NSString *imageLink = @"";
-            [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:imageLink];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            ad.myIDX = idx;
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
-    }];
-    [op start];
     
+    if (([name isEqualToString:@""]) || ([email isEqualToString:@""]) || ([country isEqualToString:@""]) || ([password isEqualToString:@""]) || ( imageData == nil)) {
+        // 한개라도 null이 들어가면 서버에 전송하지 않음!!
+        NSLog(@"Null Error");
+    }
+    else{
+    
+    
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
+        
+        NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":@"0",@"country":country,@"hand":@"0"};
+        AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            //do not put image inside parameters dictionary as I did, but append it!
+            [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:@"proPhoto.PNG" mimeType:@"multipart/form-data"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // TODO
+            // 여기서 응답 온거 가지고 처리해야한다!!!
+            NSString *result = responseObject[@"result"];
+            if([result isEqualToString:@"FAIL"]){
+                NSLog(@"%@",responseObject);
+                NSLog(@"result is fail");
+            }else{
+                NSLog(@"result is success");
+                NSInteger idx = [responseObject[@"aidx"] integerValue];
+                NSString *imageLink = @"";
+                [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:imageLink];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                ad.myIDX = idx;
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+        }];
+        [op start];
+    }
 }
 - (IBAction)clickCamera:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Profile" message:@"Select" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Take picture",@"Alberm", nil];

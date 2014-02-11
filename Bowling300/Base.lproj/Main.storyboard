@@ -31,7 +31,7 @@
             </objects>
             <point key="canvasLocation" x="91" y="384"/>
         </scene>
-        <!--Ranking View Controller - Item-->
+        <!--Ranking View Controller-->
         <scene sceneID="Jkr-be-adp">
             <objects>
                 <viewController storyboardIdentifier="RANKINGVC" extendedLayoutIncludesOpaqueBars="YES" id="drI-8x-Pyq" customClass="RankingViewController" sceneMemberID="viewController">
@@ -55,28 +55,6 @@
                                 <rect key="frame" x="0.0" y="491" width="320" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="swC-76-0Rh">
-                                <rect key="frame" x="40" y="504" width="40" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="ranking_menu_record.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goRecordPage:" destination="drI-8x-Pyq" eventType="touchUpInside" id="fJH-2O-e0o"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="46O-eV-xQ6">
-                                <rect key="frame" x="127" y="505" width="66" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="ranking_menu_group.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goGroupPage:" destination="drI-8x-Pyq" eventType="touchUpInside" id="gQw-kh-sEb"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K9n-Wc-eEk">
                                 <rect key="frame" x="238" y="504" width="47" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -88,12 +66,12 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="qvf-p2-WoI">
-                                <rect key="frame" x="0.0" y="385" width="320" height="108"/>
+                                <rect key="frame" x="-1" y="312" width="320" height="171"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GLOBAL_RANKING_CELL" rowHeight="55" id="jcf-Ev-8mV">
                                         <rect key="frame" x="0.0" y="22" width="320" height="55"/>
@@ -114,7 +92,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="43" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="294" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nmy-Tv-HbX">
-                                                    <rect key="frame" x="100" y="13" width="49" height="21"/>
+                                                    <rect key="frame" x="100" y="14" width="49" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.93436243080000003" blue="0.92093942470000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,6 +161,28 @@
                                     <outlet property="delegate" destination="drI-8x-Pyq" id="cyH-si-ByS"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="swC-76-0Rh">
+                                <rect key="frame" x="40" y="504" width="40" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="ranking_menu_record.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goRecordPage:" destination="drI-8x-Pyq" eventType="touchUpInside" id="fJH-2O-e0o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="46O-eV-xQ6">
+                                <rect key="frame" x="127" y="505" width="66" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="ranking_menu_group.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goGroupPage:" destination="drI-8x-Pyq" eventType="touchUpInside" id="gQw-kh-sEb"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pru-Q3-yoE">
                                 <rect key="frame" x="21" y="68" width="65" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -312,7 +312,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="NxO-Lj-jMw"/>
                     <navigationItem key="navigationItem" id="04O-il-tj0"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -335,7 +334,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43Y-bq-ixC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1523" y="-1077"/>
+            <point key="canvasLocation" x="1950" y="-1092"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="C9w-0G-O8O">
+            <objects>
+                <viewController storyboardIdentifier="LOGIN_BOARD" extendedLayoutIncludesOpaqueBars="YES" id="uWu-qu-C67" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e7B-J1-4iB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" id="I8Q-ta-Kk6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gzd-AZ-nDe">
+                                <rect key="frame" x="84" y="415" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gGt-1j-DKq">
+                                <rect key="frame" x="182" y="415" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="W9S-Ib-Upb" kind="push" id="fPL-9A-MJZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EcQ-3B-XKW"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n9j-5R-4Ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2891" y="-1092"/>
         </scene>
         <!--My Info View Controller-->
         <scene sceneID="JVb-6m-kH5">
@@ -797,6 +837,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logout:" destination="TaC-bB-wGu" eventType="touchUpInside" id="X4h-rt-3KX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sxU-Z8-l4e">
                                 <rect key="frame" x="120" y="336" width="92" height="29"/>
@@ -1406,9 +1449,6 @@
                                 <state key="normal" title="Join">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="W9S-Ib-Upb" kind="push" id="Rhg-fV-Q6k"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cYS-3j-1OH">
                                 <rect key="frame" x="86" y="27" width="82" height="30"/>
@@ -2047,7 +2087,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z46-wy-iCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2538" y="475"/>
+            <point key="canvasLocation" x="3261" y="-1092"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KyV-v9-CVp">
@@ -2205,7 +2245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyX-2H-iWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="-438"/>
+            <point key="canvasLocation" x="1950" y="-424"/>
         </scene>
         <!--Bar Graph View Controller-->
         <scene sceneID="tFO-cH-2of">
@@ -2447,7 +2487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RvD-ud-ObF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557" y="-887"/>
+            <point key="canvasLocation" x="3609" y="-887"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JCp-fx-TwF">
@@ -2461,7 +2501,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="drI-8x-Pyq" kind="relationship" relationship="viewControllers" id="3qr-Ws-139"/>
+                        <segue destination="Mrs-ei-NNM" kind="relationship" relationship="viewControllers" id="3qr-Ws-139"/>
                         <segue destination="N4b-xA-cUY" kind="relationship" relationship="viewControllers" id="I2m-Xu-xOi"/>
                         <segue destination="aGS-rv-OWz" kind="relationship" relationship="viewControllers" id="8eH-mn-Akc"/>
                         <segue destination="MK9-mD-oIc" kind="relationship" relationship="viewControllers" id="IM2-gs-iqQ"/>
@@ -2533,6 +2573,43 @@
             </objects>
             <point key="canvasLocation" x="1417" y="28"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="DAy-Fo-i3t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mrs-ei-NNM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="NxO-Lj-jMw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g19-pS-gJs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="drI-8x-Pyq" kind="relationship" relationship="rootViewController" id="KNR-Ku-C97"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mIC-D6-dan" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1523" y="-1077"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nIc-YG-pNs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jOc-88-ZE3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HNY-QX-oEs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uWu-qu-C67" kind="relationship" relationship="rootViewController" id="8ZL-Vp-xOF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K96-pX-NdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2509" y="-1100"/>
+        </scene>
     </scenes>
     <resources>
         <image name="average_bg.png" width="527" height="81"/>
@@ -2572,6 +2649,7 @@
         <image name="join_man_check.png" width="40" height="47"/>
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman_check.png" width="39" height="47"/>
+        <image name="login.png" width="640" height="1136"/>
         <image name="mypage.png" width="640" height="1136"/>
         <image name="mypage_a_icon.png" width="42" height="42"/>
         <image name="mypage_g_icon.png" width="41" height="42"/>

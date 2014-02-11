@@ -74,6 +74,7 @@ static DBGraphManager *_instance = nil;
             char *name = (char *)sqlite3_column_text(stmt,0);
         
             NSString *nsName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+            sqlite3_finalize(stmt);
             return nsName;
         }
         

@@ -40,6 +40,7 @@ static DBMyInfoManager *_instance = nil;
     NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s",ret, sqlite3_errmsg(db));
     //모든 행의 정보를 얻어온다
     while(SQLITE_ROW == sqlite3_step(stmt)){
+        sqlite3_finalize(stmt);
         return  YES;
     }
     sqlite3_finalize(stmt);
@@ -53,9 +54,11 @@ static DBMyInfoManager *_instance = nil;
     sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
     if (sqlite3_step(stmt) == SQLITE_DONE)
     {
+        sqlite3_finalize(stmt);
         return  YES;
         
     } else {
+        sqlite3_finalize(stmt);
         return  NO;
     }
     sqlite3_finalize(stmt);
@@ -71,6 +74,7 @@ static DBMyInfoManager *_instance = nil;
     
     while(SQLITE_ROW == sqlite3_step(stmt)){
         int idx = (int)sqlite3_column_int(stmt, 0);
+        sqlite3_finalize(stmt);
         return idx;
     }
     sqlite3_finalize(stmt);

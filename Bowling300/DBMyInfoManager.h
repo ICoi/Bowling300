@@ -13,4 +13,5 @@
 - (BOOL)isLoggined;
 - (BOOL)joinMemberWithIdx:(NSInteger)inIdx WithName:(NSString *)inName withGender:(BOOL)inGender withCountry:(NSString *)inCountry withEmail:(NSString *)inEmail withPwd:(NSString *)inPwd withHand:(BOOL)inHand withImage:(NSString *)inImage;
 - (BOOL)logOut;
+-(NSInteger)showMyIdx;
 @end

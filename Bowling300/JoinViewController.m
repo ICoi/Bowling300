@@ -9,7 +9,9 @@
 #import "JoinViewController.h"
 #import <AFNetworking.h>
 #import "DBMyInfoManager.h"
+#import "AppDelegate.h"
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/sign"
+#define IMAGESIZE 300
 
 
 @interface JoinViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -24,6 +26,7 @@
 @implementation JoinViewController{
     DBMyInfoManager *dbInfoManager;
     UIImage *usingImage;
+    AppDelegate *ad;
 }
 
 - (void)viewDidLoad
@@ -33,6 +36,7 @@
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +90,7 @@
             NSString *imageLink = @"";
             [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:imageLink];
             [self.navigationController popToRootViewControllerAnimated:YES];
+            ad.myIDX = idx;
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
@@ -140,9 +145,26 @@
     usingImage = (nil == editedImage) ? originalImage : editedImage;
     self.ProfileImageView.image = usingImage;
     
+    CGSize size = CGSizeMake(IMAGESIZE, IMAGESIZE);
+    UIImage *resizeImage = [self imageWithImage:usingImage scaledToSize:size];
+    
+    
+    usingImage = resizeImage;
+    
     //피커 감추기
     [picker dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+- (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContext( newSize );
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 
 @end

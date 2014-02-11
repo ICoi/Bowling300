@@ -15,4 +15,5 @@
 @property (strong, nonatomic) NSString *rankingMonth;
 @property (strong, nonatomic) NSString *rankingDay;
 
+@property (nonatomic) NSInteger myIDX;
 @end

@@ -61,4 +61,17 @@ static DBMyInfoManager *_instance = nil;
     return NO;
     
 }
+-(NSInteger)showMyIdx{
+    NSString *queryStr = @"SELECT MyIdx FROM myInfo";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s",ret,sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        int idx = (int)sqlite3_column_int(stmt, 0);
+        return idx;
+    }
+    return 0;
+}
 @end

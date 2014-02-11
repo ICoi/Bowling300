@@ -7,11 +7,16 @@
 //
 
 #import "AppDelegate.h"
-
-@implementation AppDelegate
+#import "DBMyInfoManager.h"
+@implementation AppDelegate{
+    DBMyInfoManager *dbInfoManager;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    dbInfoManager = [DBMyInfoManager sharedModeManager];
+    
+    self.myIDX = [dbInfoManager showMyIdx];
     // Override point for customization after application launch.
     return YES;
 }

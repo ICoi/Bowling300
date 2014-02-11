@@ -53,7 +53,7 @@ static DB *_instance = nil;
         }
         
         // 그룹정보 저장하는 DB 만들기
-        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myGroup(groupIdx Integer, groupName Text, groupRColor Integer, groupGColor Integer, groupBColor Integer)";
+        createQuery_MODE = "CREATE TABLE IF NOT EXISTS myGroup(groupIdx Integer, groupName Text, groupRColor Integer, groupGColor Integer, groupBColor Integer, Represent BOOL)";
         
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);
         if( ret != SQLITE_OK){

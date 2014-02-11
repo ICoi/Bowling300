@@ -42,6 +42,7 @@ static DBMyInfoManager *_instance = nil;
     while(SQLITE_ROW == sqlite3_step(stmt)){
         return  YES;
     }
+    sqlite3_finalize(stmt);
     
     return NO;
 }
@@ -72,6 +73,7 @@ static DBMyInfoManager *_instance = nil;
         int idx = (int)sqlite3_column_int(stmt, 0);
         return idx;
     }
+    sqlite3_finalize(stmt);
     return 0;
 }
 @end

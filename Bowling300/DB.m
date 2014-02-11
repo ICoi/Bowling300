@@ -11,10 +11,6 @@
 @implementation DB
 static DB *_instance = nil;
 - (BOOL)openDB{
-    if (nil == _instance) {
-        _instance = [[DB alloc] init];
-        [_instance openDB];
-    }
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *dbFilePath = [docPath stringByAppendingPathComponent:@"db.sqlite"];
     
@@ -66,4 +62,8 @@ static DB *_instance = nil;
     return YES;
 }
 
+- (BOOL)closeDB{
+    return  YES;
+    
+}
 @end

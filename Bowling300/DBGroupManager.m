@@ -61,6 +61,7 @@ static DBGroupManager *_instance = nil;
         
         [groups addObject:one];
     }
+    sqlite3_finalize(stmt);
     
     
     return  groups;

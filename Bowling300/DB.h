@@ -12,5 +12,5 @@
     sqlite3 *db;
 }
 - (BOOL)openDB;
-
+- (BOOL)closeDB;
 @end

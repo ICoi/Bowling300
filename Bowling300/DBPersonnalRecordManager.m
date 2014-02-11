@@ -71,6 +71,7 @@ static DBPersonnalRecordManager *_instance = nil;
             [tmpMonthScore addDataWithScore:score withDate:date withGroupNum:groupNum withRowID:rowID];
         }
     }
+    sqlite3_finalize(stmt);
     return  tmpMonthScore;
 }
 
@@ -97,6 +98,7 @@ static DBPersonnalRecordManager *_instance = nil;
             [tmpDayScore addDataWithGroupNum:groupNum withTotalScore:score withRowID:rowID];
         }
     }
+    sqlite3_finalize(stmt);
     return  tmpDayScore;
     
 }
@@ -162,6 +164,7 @@ static DBPersonnalRecordManager *_instance = nil;
             }
         }
     }
+    sqlite3_finalize(stmt);
     
     return returnDic;
     

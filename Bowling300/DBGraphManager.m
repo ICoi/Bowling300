@@ -53,6 +53,7 @@ static DBGraphManager *_instance = nil;
     }
     
     
+    sqlite3_finalize(stmt);
     // 저장한 Dictionary에서 Array추출함.
     NSMutableArray *datas = [[NSMutableArray alloc]initWithArray:[dataTmpDic allValues]];
     return datas;
@@ -77,7 +78,8 @@ static DBGraphManager *_instance = nil;
         }
         
     }
-
+    
+    sqlite3_finalize(stmt);
     return nil;
 }
 - (BLGraphYear *)arrayForBarLineGraphWithYear:(NSInteger)inYear{
@@ -101,6 +103,7 @@ static DBGraphManager *_instance = nil;
         [returnBLGYear addDataWithMonth:month withGroup:groupNum withScore:totalScore];
     }
     
+    sqlite3_finalize(stmt);
     // 저장한 값을 바탕으로 리턴할 어레이 만듬.
     return returnBLGYear;
 }

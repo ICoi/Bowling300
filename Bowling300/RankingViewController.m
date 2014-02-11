@@ -261,6 +261,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"test %d",indexPath.row);
     // TODO
     //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
     UITableViewCell *cell;
@@ -276,7 +277,7 @@
         scoreLabel.text = nil;
         nameLabel.text = nil;
         if(cell == nil){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
         }
         //indexPath.row
         NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
@@ -284,10 +285,10 @@
         NSString *photourl = one[@"proPhoto"];
         NSURL *imageURL = [NSURL URLWithString:one[@"proPhoto"]];
         NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+        
         AFHTTPRequestOperation *postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         postOperation.responseSerializer = [AFImageResponseSerializer serializer];
         [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Response: %@", responseObject);
             profileImage.image = responseObject;
             
             profileImage.layer.masksToBounds = YES;
@@ -300,7 +301,9 @@
         [postOperation start];
         nameLabel.text = one[@"name"];
         scoreLabel.text = [NSString stringWithFormat:@"%f", [one[@"avg"] floatValue]];
-        rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+3)];
+        rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+4)];
+        
+        NSLog(@"%@ %@ %@",nameLabel.text,scoreLabel.text,rankingNum.text);
         
     }
     else if(selectedRanking == LOCAL_RANKING){

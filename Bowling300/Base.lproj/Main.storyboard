@@ -2617,31 +2617,8 @@
     </scenes>
     <resources>
         <image name="average_bg.png" width="527" height="81"/>
-        <image name="average_bg.png" width="527" height="81"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
         <image name="back_foot.png" width="640" height="101"/>
         <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
         <image name="bg.png" width="640" height="1136"/>
         <image name="group_board2.png" width="640" height="1136"/>
         <image name="group_board_post.png" width="720" height="1280"/>
@@ -2650,7 +2627,6 @@
         <image name="group_layout.png" width="312" height="313"/>
         <image name="group_layout_plus.png" width="169" height="170"/>
         <image name="group_leage_cloud.png" width="640" height="814"/>
-        <image name="group_league.png" width="640" height="1136"/>
         <image name="group_league.png" width="640" height="1136"/>
         <image name="group_league_left.png" width="42" height="851"/>
         <image name="group_league_para.png" width="118" height="180"/>
@@ -2664,7 +2640,6 @@
         <image name="group_new_img1.png" width="94" height="94"/>
         <image name="group_new_img_bg.png" width="640" height="167"/>
         <image name="group_new_img_camera.png" width="95" height="71"/>
-        <image name="group_new_img_camera.png" width="95" height="71"/>
         <image name="group_recentgroup.png" width="631" height="49"/>
         <image name="intro_720_1280.png" width="640" height="1136"/>
         <image name="invite_kakao.png" width="63" height="63"/>
@@ -2676,24 +2651,13 @@
         <image name="join_img4.png" width="80" height="80"/>
         <image name="join_man.png" width="40" height="47"/>
         <image name="join_man_check.png" width="40" height="47"/>
-        <image name="join_man_check.png" width="40" height="47"/>
-        <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman_check.png" width="39" height="47"/>
         <image name="login.png" width="640" height="1136"/>
         <image name="mypage.png" width="640" height="1136"/>
         <image name="mypage_a_icon.png" width="42" height="42"/>
-        <image name="mypage_a_icon.png" width="42" height="42"/>
-        <image name="mypage_g_icon.png" width="41" height="42"/>
         <image name="mypage_g_icon.png" width="41" height="42"/>
         <image name="mypage_h_icon.png" width="41" height="42"/>
-        <image name="mypage_h_icon.png" width="41" height="42"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
         <image name="mypage_img_layout.png" width="390" height="391"/>
         <image name="mypage_myinfo12.png" width="640" height="1136"/>
         <image name="mypage_myinfo1_ball.png" width="185" height="177"/>
@@ -2708,14 +2672,10 @@
         <image name="ranking_300icon.png" width="91" height="90"/>
         <image name="ranking_800icon.png" width="80" height="80"/>
         <image name="ranking_me_bg.png" width="640" height="108"/>
-        <image name="ranking_me_bg.png" width="640" height="108"/>
-        <image name="ranking_me_bg.png" width="640" height="108"/>
         <image name="ranking_menu_group.png" width="131" height="101"/>
         <image name="ranking_menu_mypage.png" width="93" height="101"/>
         <image name="ranking_menu_record.png" width="82" height="101"/>
         <image name="record_cal_next.png" width="21" height="27"/>
-        <image name="record_cal_next.png" width="21" height="27"/>
-        <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_calicon.png" width="86" height="89"/>
         <image name="record_chart_distribution.png" width="631" height="49"/>
@@ -2725,14 +2685,9 @@
         <image name="record_charticon.png" width="86" height="89"/>
         <image name="record_daily_insert2.png" width="720" height="1280"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
-        <image name="record_footer_chart_bg.png" width="337" height="29"/>
-        <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_graph_total.png" width="640" height="1136"/>
         <image name="record_insert_groupicon.png" width="84" height="44"/>
         <image name="record_monthly_cra.png" width="640" height="1136"/>
-        <image name="record_monthly_cra.png" width="640" height="1136"/>
-        <image name="record_monthly_cra.png" width="640" height="1136"/>
-        <image name="search_icon.png" width="69" height="72"/>
         <image name="search_icon.png" width="69" height="72"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

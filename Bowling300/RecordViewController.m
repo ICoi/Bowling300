@@ -181,20 +181,6 @@
 }
 
 
-- (IBAction)tmpLoginCheck:(id)sender {
-    if([dbInfoManager isLoggined]){
-        NSLog(@"You already logined!");
-    }else{
-        NSLog(@"You are not logined!");
-    }
-}
-
-- (IBAction)tmpLogout:(id)sender {
-    if([dbInfoManager logOut]){
-        NSLog(@"You log out successs!");
-    }
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     // Make sure your segue name in storyboard is the same as this line

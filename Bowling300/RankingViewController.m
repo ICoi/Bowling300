@@ -212,8 +212,6 @@
         NSLog(@"Response: %@", responseObject);
         self.imageFirst.image = responseObject;
         
-        self.imageFirst.layer.masksToBounds = YES;
-        self.imageFirst.layer.cornerRadius = 50.0f;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Image error: %@", error);

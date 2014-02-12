@@ -18,6 +18,8 @@
     
     self.myIDX = [dbInfoManager showMyIdx];
     // Override point for customization after application launch.
+    self.rankingStartDate = @"";
+    self.rankingEndDate = @"";
     return YES;
 }
 							

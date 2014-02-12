@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import "LoginViewController.h"
 #import "DBMyInfoManager.h"
+#import "AppDelegate.h"
 #define GLOBAL_RANKING 0
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
@@ -47,6 +48,7 @@
 @implementation RankingViewController{
     NSMutableArray *rankingDataArr;
     DBMyInfoManager *dbInfoManager;
+    AppDelegate *ad;
     
 }
 
@@ -63,6 +65,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self.tabBarController.tabBar setHidden:YES];
     [self.navigationController.navigationBar setHidden:YES];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     [self getRankingFromServerWithType:GLOBAL_RANKING];
 }
@@ -77,8 +80,7 @@
 - (void)getRankingFromServerWithType:(NSInteger)inType{
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     if( inType == GLOBAL_RANKING){
-        [sendDic setObject:@"12" forKey:@"allgame"];
-        [sendDic setObject:@"120" forKey:@"allscore"];
+        [sendDic setObject:[NSString stringWithFormat:@"%d", ad.myIDX]forKey:@"aidx"];
         [sendDic setObject:@"world" forKey:@"type"];
         [sendDic setObject:@"0" forKey:@"limit"];
         

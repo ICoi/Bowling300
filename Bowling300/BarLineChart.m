@@ -140,6 +140,16 @@
    
     CGFloat beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     for(int i = 0 ; i < [self.averageDataArr count]; i++){
+        
+        UIColor * secondaryTextColor = nil;
+        UIFont * secondaryFont = [UIFont systemFontOfSize:10];
+        
+        //mainTextColor = [UIColor blackColor];
+        secondaryTextColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor whiteColor];
+        
+       
+        
         // 제일 처음 막대 그래프를 그린다.
         UIBezierPath *path;
         // 여기서 길이 수정하기!!!
@@ -148,9 +158,26 @@
         path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y - barHeight, BAR_WIDTH, barHeight)];
        // path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), [[self.averageDataArr objectAtIndex:i] integerValue], BAR_WIDTH, BARGRAPE_Y)];
         [[UIColor colorWithWhite:1.0 alpha:1.0 ] setStroke];
-        [[UIColor colorWithWhite:1.0 alpha:0.7] setFill];
+        [[UIColor colorWithWhite:1.0 alpha:0.5] setFill];
         [path fill];
         [path stroke];
+        
+        
+        
+        // 여기 아래는 점수 텍스트 적는ㄴ부분
+        UIFont *font = [UIFont fontWithName:@"Courier" size:10];
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        /// Set line break mode
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        /// Set text alignment
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        NSString *test = [self.averageDataArr objectAtIndex:i];
+        CGPoint temp = CGPointMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y - 10);
+        [test drawAtPoint:temp withAttributes:@{ NSFontAttributeName: font,
+                                                 NSParagraphStyleAttributeName: paragraphStyle }];
+        
         
      
         
@@ -158,33 +185,39 @@
     }
     
     
-    beforeX = BARGRAPE_X;
+    beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     
     for(int i = 1 ; i < [self.cumDataArr count] ; i++){
         // 그다음 선을 그림..
         UIBezierPath *path;
+        NSInteger barHeight1 = LINEGRAPE_HEIGHT * ([[self.cumDataArr objectAtIndex:i-1] floatValue]/300);
+        NSInteger barHeight2 = LINEGRAPE_HEIGHT * ([[self.cumDataArr objectAtIndex:i]floatValue]/300);
         path = [UIBezierPath bezierPath];
+        [[UIColor colorWithWhite:1.0 alpha:1.0] setStroke];
+        [[UIColor colorWithWhite:0.5 alpha:1.0] setFill];
         [path setLineWidth:2.0];
-        [path moveToPoint:CGPointMake(beforeX, LINEGRAPE_HEIGHT - [[self.cumDataArr objectAtIndex:i-1] integerValue])];
+        [path fillWithBlendMode:kCGBlendModeScreen alpha:1.0 ];
+        [path strokeWithBlendMode:kCGBlendModePlusDarker alpha:0.9];
+        [path moveToPoint:CGPointMake(beforeX, LINEGRAPE_HEIGHT - barHeight1)];
         [path setLineCapStyle:kCGLineCapRound];
-        beforeX = beforeX + BAR_SPACE;
-        [path addLineToPoint:CGPointMake(beforeX, LINEGRAPE_HEIGHT - [[self.cumDataArr objectAtIndex:i] integerValue])];
+        beforeX = beforeX + BAR_SPACE + BAR_WIDTH;
+        [path addLineToPoint:CGPointMake(beforeX, LINEGRAPE_HEIGHT - barHeight2)];
         [path stroke];
-                            
     }
     
-    beforeX = BARGRAPE_X;
+    beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     for(int i = 0 ; i < [self.cumDataArr count]; i++){
         // 그다음 해당 선에 해당하는 곳에 동그라미 점 찍음
         UIBezierPath *path;
-        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(beforeX - (CIRCLE_RADIUS/2), LINEGRAPE_HEIGHT - (CIRCLE_RADIUS/2)- [[self.cumDataArr objectAtIndex:i] integerValue],CIRCLE_RADIUS, CIRCLE_RADIUS)];
+        NSInteger barHeight = LINEGRAPE_HEIGHT * ([[self.cumDataArr objectAtIndex:i] floatValue]/300);
+        path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(beforeX - (CIRCLE_RADIUS/2), LINEGRAPE_HEIGHT - (CIRCLE_RADIUS/2)- barHeight,CIRCLE_RADIUS, CIRCLE_RADIUS)];
         [[UIColor colorWithWhite:1.0 alpha:1.0] setStroke];
         [[UIColor colorWithWhite:0.5 alpha:1.0] setFill];
         [path setLineWidth:3.0];
         [path fillWithBlendMode:kCGBlendModeScreen alpha:1.0 ];
         [path strokeWithBlendMode:kCGBlendModePlusDarker alpha:0.9];
         
-        beforeX = beforeX + BAR_SPACE;
+        beforeX = beforeX + BAR_SPACE + BAR_WIDTH;;
     }
     
 }

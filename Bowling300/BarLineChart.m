@@ -9,12 +9,15 @@
 #import "BarLineChart.h"
 #import "BLGraphYear.h"
 #import "DBGraphManager.h"
-#define BARGRAPE_X 30
+
+
+#define BARGRAPE_X 18
 #define BARGRAPE_Y 200
-#define BARGRAPE_HEIGHT 170
-#define BAR_SPACE 30
-#define BAR_WIDTH 15
-#define LINEGRAPE_HEIGHT 250
+#define BARGRAPE_HEIGHT 187
+#define BAR_FIRST_SPACE 15
+#define BAR_SPACE 18
+#define BAR_WIDTH 22
+#define LINEGRAPE_HEIGHT 187
 #define CIRCLE_RADIUS 4
 
 @interface BarLineChart ()
@@ -135,20 +138,23 @@
  - (void)drawRect:(CGRect)rect
 {
    
-    CGFloat beforeX = BARGRAPE_X;
+    CGFloat beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     for(int i = 0 ; i < [self.averageDataArr count]; i++){
         // 제일 처음 막대 그래프를 그린다.
         UIBezierPath *path;
         // 여기서 길이 수정하기!!!
         NSInteger barHeight = [[self.averageDataArr objectAtIndex:i]integerValue] * BARGRAPE_HEIGHT / 300 ;
        // NSLog(@"bar : %d",barHeight);
-        path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), BARGRAPE_HEIGHT - barHeight, BAR_WIDTH, barHeight)];
+        path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y - barHeight, BAR_WIDTH, barHeight)];
        // path = [UIBezierPath bezierPathWithRect:CGRectMake(beforeX - (BAR_WIDTH/2), [[self.averageDataArr objectAtIndex:i] integerValue], BAR_WIDTH, BARGRAPE_Y)];
         [[UIColor colorWithWhite:1.0 alpha:1.0 ] setStroke];
         [[UIColor colorWithWhite:1.0 alpha:0.7] setFill];
         [path fill];
         [path stroke];
-        beforeX = beforeX + BAR_SPACE;
+        
+     
+        
+        beforeX = beforeX + BAR_SPACE + BAR_WIDTH;
     }
     
     

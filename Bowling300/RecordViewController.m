@@ -22,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *writeBtn;
 @property (weak, nonatomic) IBOutlet UIView *writeContainerView;
 
+@property (weak, nonatomic) IBOutlet UIView *hamburgerView;
+@property (weak, nonatomic) IBOutlet UIButton *hamRankingBtn;
+@property (weak, nonatomic) IBOutlet UIButton *hamGroupBtn;
+@property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
+
 @end
 
 @implementation RecordViewController{
@@ -191,6 +196,55 @@
         nextVC.nowMonth = nowMonth;
         nextVC.nowDate = nowDate;
     }
+    
+    
+}
+
+- (IBAction)showHamburgerList:(id)sender {
+    UIView *hamView = self.hamburgerView;
+    // 숨겨진 상태인 경우 등장하기
+    
+    [hamView setHidden:NO];
+    
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^
+     {
+         CGRect frame = hamView.frame;
+         frame.origin.y = 70;
+         frame.origin.x = 0;
+         hamView.frame = frame;
+     }
+                     completion:^(BOOL finished)
+     {
+         [hamView setHidden:NO];
+         
+     }];
+    
+}
+
+- (IBAction)clickedHamListBtn:(id)sender {
+    NSLog(@"Ham list button clicked!");
+    UIButton *clickedButton = (UIButton *)sender;
+    if(clickedButton == self.hamRankingBtn){
+        [self.tabBarController setSelectedIndex:0];
+    }
+    else if(clickedButton == self.hamGroupBtn){
+        [self.tabBarController setSelectedIndex:2];
+        
+    }
+    else if(clickedButton == self.hamMyPageBtn){
+        [self.tabBarController setSelectedIndex:3];
+        
+    }
+    
+    // 햄버거 메뉴 숨기기
+    CGRect frame = self.hamburgerView.frame;
+    frame.origin.y = -162;
+    frame.origin.x = 0;
+    self.hamburgerView.frame = frame;
+    [self.hamburgerView setHidden:YES];
     
     
 }

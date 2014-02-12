@@ -438,7 +438,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/RankingViewController.m"
@@ -451,13 +451,13 @@
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[RankingViewController getRankingFromServerWithType:]"
                   moduleName = "Bowling300"
                   urlString = "file:///Users/sdt-1/Documents/Projects/Bowling300/Bowling300/RankingViewController.m"
-                  timestampString = "413879056.37312"
+                  timestampString = "413881355.367171"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -465,13 +465,13 @@
                   offsetFromSymbolStart = "1315">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__54-[RankingViewController getRankingFromServerWithType:]_block_invoke"
                   moduleName = "Bowling300"
                   urlString = "file:///Users/sdt-1/Documents/Projects/Bowling300/Bowling300/RankingViewController.m"
-                  timestampString = "413879056.373555"
+                  timestampString = "413881355.367603"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -484,7 +484,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/RankingViewController.m"
@@ -622,7 +622,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/RankingViewController.m"

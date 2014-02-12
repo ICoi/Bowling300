@@ -220,7 +220,9 @@
     }];
     [postOperation start];
     self.nameFirst.text = one[@"name"];
-    self.scoreFirst.text = [NSString stringWithFormat:@"%f", [one[@"avg"] floatValue]];
+    self.scoreFirst.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
+    self.scoreFirst.font = [UIFont fontWithName:@"Expansiva" size:self.scoreFirst.font.pointSize];
+    
     
     // 2등 보여줌
     one = [rankingDataArr objectAtIndex:1];
@@ -242,7 +244,8 @@
     }];
     [postOperation start];
     self.nameSecond.text = one[@"name"];
-    self.scoreSecond.text = [NSString stringWithFormat:@"%f", [one[@"avg"] floatValue]];
+    self.scoreSecond.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
+    self.scoreSecond.font = [UIFont fontWithName:@"Expansiva" size:self.scoreSecond.font.pointSize];
     
     // 3등 보여줌
     one = [rankingDataArr objectAtIndex:2];
@@ -264,7 +267,9 @@
         NSLog(@"Image error: %@", error);
     }];
     [postOperation start];
-    self.scoreThrid.text = [NSString stringWithFormat:@"%f", [one[@"avg"] floatValue]];
+    self.scoreThrid.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
+    self.scoreThrid.font = [UIFont fontWithName:@"Expansiva" size:self.scoreThrid.font.pointSize] ;
+
     
     //4등이후는 table이용해서 보여지도록 ㅋㅋ
     [self.rankingTable reloadData];
@@ -308,7 +313,7 @@
         }];
         [postOperation start];
         nameLabel.text = one[@"name"];
-        scoreLabel.text = [NSString stringWithFormat:@"%f", [one[@"avg"] floatValue]];
+        scoreLabel.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
         rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+3)];
         
         

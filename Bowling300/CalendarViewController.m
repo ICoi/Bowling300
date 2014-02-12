@@ -11,7 +11,7 @@
 #define DAY_CELL_TAG_NUM 21             // 요일 적는 부분 태그
 #define DATE_CELL_TAG_NUM 22            // 날짜 적는 부분 태그
 
-#define NUMBER_FONT @"Expansiva"
+#define NUMBER_FONT @"Roboto-Medium"
 
 @interface CalendarViewController ()<UICollectionViewDataSource>{
     NSInteger year;
@@ -288,7 +288,7 @@
             dateLabel.text = writeDateStr;
             
             // 폰트 바꾸기
-            dateLabel.font = [UIFont fontWithName:NUMBER_FONT size:dateLabel.font.pointSize];
+            dateLabel.font = [UIFont fontWithName:NUMBER_FONT size:20];
             
             return cell;
         }

@@ -122,18 +122,15 @@
 - (IBAction)clickedHamListBtn:(id)sender {
     NSLog(@"Ham list button clicked!");
     UIButton *clickedButton = (UIButton *)sender;
-    
-    UIViewController *controller;
-    
     if(clickedButton == self.hamRankingBtn){
-        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RANKINGVC"];
+        [self.tabBarController setSelectedIndex:0];
     }
     else if(clickedButton == self.hamRecordBtn){
-        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RECORDVC"];
+        [self.tabBarController setSelectedIndex:1];
         
     }
     else if(clickedButton == self.hamMyPageBtn){
-        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MYPAGEVC"];
+        [self.tabBarController setSelectedIndex:3];
         
     }
     

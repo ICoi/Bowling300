@@ -8,7 +8,7 @@
 
 #import "GroupWriteViewController.h"
 
-@interface GroupWriteViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface GroupWriteViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
 
@@ -59,4 +59,11 @@
     [self.cameraBtn setHidden:YES];
 }
 
+// 키보드에 return키 누르면 들어가게 하는거
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 @end

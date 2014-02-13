@@ -190,6 +190,7 @@
 		00A483AB18AC56AA006B6707 /* record_monthly_edu.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A4838218AC56AA006B6707 /* record_monthly_edu.png */; };
 		00A483AE18AC5C72006B6707 /* CalendarDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483AD18AC5C72006B6707 /* CalendarDateCell.m */; };
 		00A483B118AC5FB5006B6707 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483B018AC5FB5006B6707 /* CalendarDayCell.m */; };
+		00A483B518AC8D0E006B6707 /* hamListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483B418AC8D0E006B6707 /* hamListView.m */; };
 		00B193A718A4778F0037150A /* DBMyInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B193A618A4778F0037150A /* DBMyInfoManager.m */; };
 		00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9718A077BD00F35DF3 /* DayScore.m */; };
 		00BD7A9B18A077C900F35DF3 /* MonthScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9A18A077C900F35DF3 /* MonthScore.m */; };
@@ -429,6 +430,8 @@
 		00A483AD18AC5C72006B6707 /* CalendarDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDateCell.m; sourceTree = "<group>"; };
 		00A483AF18AC5FB5006B6707 /* CalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayCell.h; sourceTree = "<group>"; };
 		00A483B018AC5FB5006B6707 /* CalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayCell.m; sourceTree = "<group>"; };
+		00A483B318AC8D0E006B6707 /* hamListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hamListView.h; path = Customs/hamListView.h; sourceTree = "<group>"; };
+		00A483B418AC8D0E006B6707 /* hamListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = hamListView.m; path = Customs/hamListView.m; sourceTree = "<group>"; };
 		00B193A518A4778F0037150A /* DBMyInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMyInfoManager.h; sourceTree = "<group>"; };
 		00B193A618A4778F0037150A /* DBMyInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMyInfoManager.m; sourceTree = "<group>"; };
 		00BD7A9618A077BD00F35DF3 /* DayScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayScore.h; sourceTree = "<group>"; };
@@ -542,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				00A4835918AC56AA006B6707 /* Image */,
+				00A483B218AC8CAF006B6707 /* Custom */,
 				00A4829218AC56A1006B6707 /* CutImage */,
 				00A4829118AC557D006B6707 /* Cell */,
 				7049E3A4189E91FF00DF1063 /* Model */,
@@ -837,6 +841,15 @@
 			);
 			name = Image;
 			path = VC/Images/Image;
+			sourceTree = "<group>";
+		};
+		00A483B218AC8CAF006B6707 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				00A483B318AC8D0E006B6707 /* hamListView.h */,
+				00A483B418AC8D0E006B6707 /* hamListView.m */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		00D979CA18A1ECC80078B24C /* BarLineGraph */ = {
@@ -1256,6 +1269,7 @@
 				00D979D318A1EFFB0078B24C /* BLGraphYear.m in Sources */,
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
 				7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */,
+				00A483B518AC8D0E006B6707 /* hamListView.m in Sources */,
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
 				009807AF18A31EDA0012ED66 /* Group.m in Sources */,
 				00A483B118AC5FB5006B6707 /* CalendarDayCell.m in Sources */,

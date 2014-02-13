@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIImageView *ProfileImageView;
+@property (weak, nonatomic) IBOutlet UIButton *maleButton;
+@property (weak, nonatomic) IBOutlet UIButton *femaleButton;
+
+
 
 @end
 
@@ -27,18 +31,23 @@
     DBMyInfoManager *dbInfoManager;
     UIImage *usingImage;
     AppDelegate *ad;
+    NSInteger hander;
+    NSInteger gender;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.maleButton setSelected:YES];
 	// Do any additional setup after loading the view.
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    hander = 0;
+    gender = 0;
+    
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -47,29 +56,29 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+- (IBAction)ClickMaleButton:(id)sender {
+    gender = 0;
+    [self.maleButton setSelected:YES];
+    [self.femaleButton setSelected:NO];
+}
+- (IBAction)clickFemaleButton:(id)sender {
+    gender = 1;
+    [self.maleButton setSelected:NO];
+    [self.femaleButton setSelected:YES];
+}
 
-/*
- 
- UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
- NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
- AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
- NSDictionary *parameters = @{@"foo": @"bar"};
- NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
- [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
- [formData appendPartWithFileData:imageData name:@"image" error:nil];
- } success:^(AFHTTPRequestOperation *operation, id responseObject) {
- NSLog(@"Success: %@", responseObject);
- } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
- NSLog(@"Error: %@", error);
- }];
- */
+- (IBAction)selectHanderSegmentedControl:(id)sender {
+    UISegmentedControl *control = (UISegmentedControl *)sender;
+    
+    hander = control.selectedSegmentIndex;
+    NSLog(@"selected %d",hander);
+}
+
 - (IBAction)pressSaveButton:(id)sender {
     NSString *name = self.nameField.text;
     NSString *email = self.emailField.text;
-    BOOL gender = TRUE;
     NSString *country = self.countryField.text;
     NSString *password = self.passwordField.text;
-    BOOL hand = TRUE;
     NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
     
     if (([name isEqualToString:@""]) || ([email isEqualToString:@""]) || ([country isEqualToString:@""]) || ([password isEqualToString:@""]) || ( imageData == nil)) {
@@ -81,7 +90,8 @@
     
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
         
-        NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":@"0",@"country":country,@"hand":@"0"};
+        NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":[NSString stringWithFormat:@"%d",gender],@"country":country,@"hand":[NSString stringWithFormat:@"%d",hander]};
+        NSLog(@"%@",parameters);
         AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             //do not put image inside parameters dictionary as I did, but append it!
             [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:@"proPhoto.PNG" mimeType:@"multipart/form-data"];
@@ -96,7 +106,7 @@
                 NSLog(@"result is success");
                 NSInteger idx = [responseObject[@"aidx"] integerValue];
                 NSString *imageLink = @"";
-                [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hand withImage:imageLink];
+                [dbInfoManager joinMemberWithIdx:idx WithName:name withGender:gender withCountry:country withEmail:email withPwd:password withHand:hander withImage:imageLink];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 ad.myIDX = idx;
             }
@@ -110,6 +120,15 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Profile" message:@"Select" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Take picture",@"Alberm", nil];
     [alert show];
 }
+
+- (IBAction)selectFaceIcon:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    
+    usingImage = button.imageView.image;
+    self.ProfileImageView.image = usingImage;
+}
+
+
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -177,5 +196,11 @@
     return newImage;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 @end

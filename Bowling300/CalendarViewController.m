@@ -8,8 +8,9 @@
 
 #import "CalendarViewController.h"
 #import "DBPersonnalRecordManager.h"
-#define DAY_CELL_TAG_NUM 21             // 요일 적는 부분 태그
-#define DATE_CELL_TAG_NUM 22            // 날짜 적는 부분 태그
+#import "CalendarDateCell.h"
+#import "CalendarDayCell.h"
+
 
 #define NUMBER_FONT @"Roboto-Medium"
 
@@ -17,6 +18,7 @@
     NSInteger year;
     NSInteger month;
     NSInteger startDate;
+    NSInteger clickedDate;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
@@ -29,6 +31,7 @@
 @implementation CalendarViewController{
     DBPersonnalRecordManager *dbPRManager;
     MonthScore *nowMonthScoreData;
+    UIButton *beforeClicked;
 }
 
 
@@ -46,6 +49,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self setCalendarSetting];
+    
+    clickedDate = 10;
 }
 
 
@@ -78,38 +83,6 @@
     }
 }
 
-
-// 해당 숫자에 맞는 요일을 리턴해주는 함수
-// 0 : 일요일 1: 월요일 2: 화요일 3: 수요일 4: 목요일 5: 금요일 6: 토요일
-- (NSString *)showDayString:(NSInteger)inNum{
-    NSString *tmpString = [NSString stringWithFormat:@""];
-    switch ((int)inNum) {
-        case 0:
-            tmpString = [tmpString stringByAppendingString:@"S"];
-            break;
-        case 1:
-            tmpString = [tmpString stringByAppendingString:@"M"];
-            break;
-        case 2:
-            tmpString = [tmpString stringByAppendingString:@"T"];
-            break;
-        case 3:
-            tmpString = [tmpString stringByAppendingString:@"W"];
-            break;
-        case 4:
-            tmpString = [tmpString stringByAppendingString:@"T"];
-            break;
-        case 5:
-            tmpString = [tmpString stringByAppendingString:@"F"];
-            break;
-        case 6:
-            tmpString = [tmpString stringByAppendingString:@"S"];
-            break;
-        default:
-            break;
-    }
-    return tmpString;
-}
 
 // bar에 년도와 요일 표시하는 부분의 글씨 편집하는 함수.
 - (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth{
@@ -182,6 +155,14 @@
 
 // 달력 내부에 요일부분 버튼 누른경우
 - (IBAction)clickedButton:(id)sender {
+    
+    beforeClicked.backgroundColor = [UIColor clearColor];
+    beforeClicked = (UIButton *)sender;
+    beforeClicked.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
+    
+    
+    // TODO
+    
     UIButton *tmp = [UIButton alloc];
     tmp = sender;
     NSString *tmpString = [NSString alloc];
@@ -217,13 +198,7 @@
     
 }
 
-/*
- [NSDictionary dictionaryWithObjectsAndKeys:
- [NSNumber numberWithInt:13], @"Mercedes-Benz SLK250",
- [NSNumber numberWithInt:22], @"Mercedes-Benz E350",
- [NSNumber numberWithInt:19], @"BMW M3 Coupe",
- [NSNumber numberWithInt:16], @"BMW X6", nil];
- */
+
 // 이전 달로 이동하는 버튼 누른 경우
 - (IBAction)clickedBeforeButton:(id)sender {
     month--;
@@ -258,9 +233,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if((int)indexPath.row < 7){
         // 요일 이름 적을 부분
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DAY_CELL" forIndexPath:indexPath];
-        UILabel *dayLabel = (UILabel *)[cell viewWithTag:DAY_CELL_TAG_NUM];
-        dayLabel.text = [self showDayString:indexPath.row];
+        CalendarDayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DAY_CELL" forIndexPath:indexPath];
+        [cell setValueWithDay:indexPath.row];
         return cell;
     }
     else{
@@ -279,16 +253,17 @@
             return cell;
         }
         else{
-            UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DATE_CELL" forIndexPath:indexPath];
-            UILabel *dateLabel = (UILabel *)[cell viewWithTag:DATE_CELL_TAG_NUM];
-            
-            
-            
+            CalendarDateCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DATE_CELL" forIndexPath:indexPath];
             writeDateStr = [NSString stringWithFormat:@"%d",(int)writeDate];
-            dateLabel.text = writeDateStr;
             
-            // 폰트 바꾸기
-            dateLabel.font = [UIFont fontWithName:NUMBER_FONT size:20];
+            
+            //dateLabel.font = [UIFont fontWithName:NUMBER_FONT size:20];
+            if ([writeDateStr isEqualToString:[NSString stringWithFormat:@"%d",clickedDate]]){
+                [cell setValueWithDate:writeDateStr withClicked:YES withDay:(indexPath.row % 7)];
+                beforeClicked = cell.backgroundButton;
+            }else{
+                [cell setValueWithDate:writeDateStr withClicked:NO withDay:(indexPath.row % 7)];
+            }
             
             return cell;
         }

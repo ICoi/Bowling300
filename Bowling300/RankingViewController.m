@@ -11,6 +11,8 @@
 #import "LoginViewController.h"
 #import "DBMyInfoManager.h"
 #import "AppDelegate.h"
+#import "GlobalRankingCell.h"
+#import <UIImageView+AFNetworking.h>
 #define GLOBAL_RANKING 0
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
@@ -279,8 +281,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // TODO
     //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
-    UITableViewCell *cell;
     if(selectedRanking == GLOBAL_RANKING){
+        /*
+        PlayListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PLAYLIST_CELL" forIndexPath:indexPath];
+        NSInteger musicID = [_DBManager getKeyValueInListWithKey:@"musicID" index:indexPath.row];
+        Music *music = [_DBManager getMusicWithMusicID:musicID];
+         */
+        NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
+        NSURL *imageURL = [NSURL URLWithString:one[@"proPhoto"]];
+        
+        GlobalRankingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
+        
+        [cell setValueWithRankingNum:(indexPath.row+4) withName:one[@"name"] withScore:one[@"avg"] withProfileImageURL:imageURL];
+        /*
         UILabel *rankingNum = [self.view viewWithTag:41];
         UIImageView *profileImage = [self.view viewWithTag:42];
         UILabel *scoreLabel= [self.view viewWithTag:43];
@@ -316,20 +329,19 @@
         scoreLabel.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
         rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+3)];
         
-        
+        */
+        return  cell;
         
     }
     else if(selectedRanking == LOCAL_RANKING){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"LOCAL_RANKING_CELL" forIndexPath:indexPath];
     }
     else if(selectedRanking == GROUP_RANKING ) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"GROUP_RANKING_CELL" forIndexPath:indexPath];
     }
     
     
     
     
-    return cell;
+    return nil;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return ([rankingDataArr count]-3);

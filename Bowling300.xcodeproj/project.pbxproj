@@ -188,6 +188,8 @@
 		00A483A918AC56AA006B6707 /* record_monthly2_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A4838018AC56AA006B6707 /* record_monthly2_search.png */; };
 		00A483AA18AC56AA006B6707 /* record_monthly_cra.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A4838118AC56AA006B6707 /* record_monthly_cra.png */; };
 		00A483AB18AC56AA006B6707 /* record_monthly_edu.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A4838218AC56AA006B6707 /* record_monthly_edu.png */; };
+		00A483AE18AC5C72006B6707 /* CalendarDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483AD18AC5C72006B6707 /* CalendarDateCell.m */; };
+		00A483B118AC5FB5006B6707 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483B018AC5FB5006B6707 /* CalendarDayCell.m */; };
 		00B193A718A4778F0037150A /* DBMyInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B193A618A4778F0037150A /* DBMyInfoManager.m */; };
 		00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9718A077BD00F35DF3 /* DayScore.m */; };
 		00BD7A9B18A077C900F35DF3 /* MonthScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9A18A077C900F35DF3 /* MonthScore.m */; };
@@ -423,6 +425,10 @@
 		00A4838018AC56AA006B6707 /* record_monthly2_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_monthly2_search.png; sourceTree = "<group>"; };
 		00A4838118AC56AA006B6707 /* record_monthly_cra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_monthly_cra.png; sourceTree = "<group>"; };
 		00A4838218AC56AA006B6707 /* record_monthly_edu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record_monthly_edu.png; sourceTree = "<group>"; };
+		00A483AC18AC5C72006B6707 /* CalendarDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDateCell.h; sourceTree = "<group>"; };
+		00A483AD18AC5C72006B6707 /* CalendarDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDateCell.m; sourceTree = "<group>"; };
+		00A483AF18AC5FB5006B6707 /* CalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayCell.h; sourceTree = "<group>"; };
+		00A483B018AC5FB5006B6707 /* CalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayCell.m; sourceTree = "<group>"; };
 		00B193A518A4778F0037150A /* DBMyInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMyInfoManager.h; sourceTree = "<group>"; };
 		00B193A618A4778F0037150A /* DBMyInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMyInfoManager.m; sourceTree = "<group>"; };
 		00BD7A9618A077BD00F35DF3 /* DayScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayScore.h; sourceTree = "<group>"; };
@@ -669,6 +675,10 @@
 			children = (
 				00A4828E18AC5574006B6707 /* GlobalRankingCell.h */,
 				00A4828F18AC5574006B6707 /* GlobalRankingCell.m */,
+				00A483AC18AC5C72006B6707 /* CalendarDateCell.h */,
+				00A483AD18AC5C72006B6707 /* CalendarDateCell.m */,
+				00A483AF18AC5FB5006B6707 /* CalendarDayCell.h */,
+				00A483B018AC5FB5006B6707 /* CalendarDayCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -974,6 +984,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = T;
 				TargetAttributes = {
+					009CCB431890E096006DAB6F = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					009CCB641890E096006DAB6F = {
 						TestTargetID = 009CCB431890E096006DAB6F;
 					};
@@ -1235,11 +1252,13 @@
 				009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */,
 				00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */,
 				009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */,
+				00A483AE18AC5C72006B6707 /* CalendarDateCell.m in Sources */,
 				00D979D318A1EFFB0078B24C /* BLGraphYear.m in Sources */,
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
 				7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */,
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
 				009807AF18A31EDA0012ED66 /* Group.m in Sources */,
+				00A483B118AC5FB5006B6707 /* CalendarDayCell.m in Sources */,
 				7049E39F18919DA500DF1063 /* DB.m in Sources */,
 				009807B618A35BD10012ED66 /* JoinViewController.m in Sources */,
 				00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */,

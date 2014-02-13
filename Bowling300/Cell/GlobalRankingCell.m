@@ -7,6 +7,7 @@
 //
 
 #import "GlobalRankingCell.h"
+#import <UIImageView+AFNetworking.h>
 @interface GlobalRankingCell()
 @property (weak, nonatomic) IBOutlet UILabel *rankingNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -25,6 +26,14 @@
     return self;
 }
 
+- (void)setValueWithRankingNum:(NSInteger)inRankingNum withName:(NSString *)inName withScore:(NSString *)inScore withProfileImageURL:(NSURL*)inImageURL{
+    self.rankingNumLabel.text = [NSString stringWithFormat:@"%d",inRankingNum];
+    self.scoreLabel.text = inScore;
+    self.nameLabel.text = inName;
+    
+    
+    [self.profileImageView setImageWithURL:inImageURL];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

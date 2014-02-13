@@ -89,6 +89,11 @@
     self.addGroupBtn.frame = CGRectMake(GROUPWIDTH * groupCnt, 10, self.addGroupBtn.frame.size.width, self.addGroupBtn.frame.size.height);
 }
 
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"Touched!!");
+}
 - (IBAction)goBack:(id)sender {
     [self.tabBarController setSelectedIndex:0];
 }

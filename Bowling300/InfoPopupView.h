@@ -1,5 +1,5 @@
 //
-//  hamListView.h
+//  InfoPopupView.h
 //  Bowling300
 //
 //  Created by SDT-1 on 2014. 2. 13..
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface hamListView : UIView
-
+@interface InfoPopupView : UIView
+- (void)setDataWithDictionary:(NSDictionary *)inDic;
 @end

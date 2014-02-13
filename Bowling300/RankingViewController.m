@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "GlobalRankingCell.h"
 #import <UIImageView+AFNetworking.h>
+#import "InfoPopupView.h"
 #define GLOBAL_RANKING 0
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
@@ -42,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameThird;
 
 
+@property (weak, nonatomic) IBOutlet InfoPopupView *popUpView;
 
 
 
@@ -207,20 +209,8 @@
     //1등부터 일단 보여줌
     one = [rankingDataArr objectAtIndex:0];
     //이미지얻어옴
-    photourl = one[@"proPhoto"];
     imageURL = [NSURL URLWithString:one[@"proPhoto"]];
-    request = [NSURLRequest requestWithURL:imageURL];
-    postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    postOperation.responseSerializer = [AFImageResponseSerializer serializer];
-    [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@", responseObject);
-        self.imageFirst.image = responseObject;
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Image error: %@", error);
-    }];
-    [postOperation start];
+    [self.imageFirst setImageWithURL:imageURL];
     self.nameFirst.text = one[@"name"];
     self.scoreFirst.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
     self.scoreFirst.font = [UIFont fontWithName:@"Expansiva" size:self.scoreFirst.font.pointSize];
@@ -229,22 +219,8 @@
     // 2등 보여줌
     one = [rankingDataArr objectAtIndex:1];
     //이미지얻어옴
-    photourl = one[@"proPhoto"];
     imageURL = [NSURL URLWithString:one[@"proPhoto"]];
-    request = [NSURLRequest requestWithURL:imageURL];
-    postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    postOperation.responseSerializer = [AFImageResponseSerializer serializer];
-    [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@", responseObject);
-        self.imageSecond.image = responseObject;
-        
-        self.imageSecond.layer.masksToBounds = YES;
-        self.imageSecond.layer.cornerRadius = 50.0f;
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Image error: %@", error);
-    }];
-    [postOperation start];
+    [self.imageSecond  setImageWithURL:imageURL];
     self.nameSecond.text = one[@"name"];
     self.scoreSecond.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
     self.scoreSecond.font = [UIFont fontWithName:@"Expansiva" size:self.scoreSecond.font.pointSize];
@@ -253,22 +229,8 @@
     one = [rankingDataArr objectAtIndex:2];
     self.nameThird.text = one[@"name"];
     //이미지얻어옴
-    photourl = one[@"proPhoto"];
     imageURL = [NSURL URLWithString:one[@"proPhoto"]];
-    request = [NSURLRequest requestWithURL:imageURL];
-    postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    postOperation.responseSerializer = [AFImageResponseSerializer serializer];
-    [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@", responseObject);
-        self.imageThird.image = responseObject;
-        
-        self.imageThird.layer.masksToBounds = YES;
-        self.imageThird.layer.cornerRadius = 50.0f;
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Image error: %@", error);
-    }];
-    [postOperation start];
+    [self.imageThird setImageWithURL:imageURL];
     self.scoreThrid.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
     self.scoreThrid.font = [UIFont fontWithName:@"Expansiva" size:self.scoreThrid.font.pointSize] ;
 
@@ -293,49 +255,16 @@
         GlobalRankingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
         
         [cell setValueWithRankingNum:(indexPath.row+4) withName:one[@"name"] withScore:one[@"avg"] withProfileImageURL:imageURL];
-        /*
-        UILabel *rankingNum = [self.view viewWithTag:41];
-        UIImageView *profileImage = [self.view viewWithTag:42];
-        UILabel *scoreLabel= [self.view viewWithTag:43];
-        UILabel *nameLabel = [self.view viewWithTag:44];
-        
-        //일단 초기화를 시켜야할듯
-        rankingNum.text = nil;
-        profileImage.image = nil;
-        scoreLabel.text = nil;
-        nameLabel.text = nil;
-        cell = [tableView dequeueReusableCellWithIdentifier:@"GLOBAL_RANKING_CELL" forIndexPath:indexPath];
-        //indexPath.row
-        NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
-        //이미지얻어옴
-        NSString *photourl = one[@"proPhoto"];
-        NSURL *imageURL = [NSURL URLWithString:one[@"proPhoto"]];
-        NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
-        AFHTTPRequestOperation *postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        postOperation.responseSerializer = [AFImageResponseSerializer serializer];
-        [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            profileImage.image = responseObject;
-            
-            profileImage.layer.masksToBounds = YES;
-            profileImage.layer.cornerRadius = 10.0f;
-            NSLog(@"%d",indexPath.row);
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Image error: %@", error);
-            profileImage.image = nil;
-        }];
-        [postOperation start];
-        nameLabel.text = one[@"name"];
-        scoreLabel.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
-        rankingNum.text = [NSString stringWithFormat:@"%d",(indexPath.row+3)];
-        
-        */
-        return  cell;
+                return  cell;
         
     }
     else if(selectedRanking == LOCAL_RANKING){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LOCAL_RANKING_CELL" forIndexPath:indexPath];
+        return cell;
     }
     else if(selectedRanking == GROUP_RANKING ) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GROUP_RANKING_CELL" forIndexPath:indexPath];
+        return  cell;
     }
     
     
@@ -345,5 +274,15 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return ([rankingDataArr count]-3);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *one = rankingDataArr[indexPath.row+3];
+    [self.popUpView setDataWithDictionary:one];
+    
+    [self.popUpView setHidden:NO];
+    
+    
+    
 }
 @end

@@ -124,7 +124,11 @@
 - (IBAction)selectFaceIcon:(id)sender {
     UIButton *button = (UIButton *)sender;
     
-    usingImage = button.imageView.image;
+    CGSize size = CGSizeMake(IMAGESIZE, IMAGESIZE);
+    UIImage *resizeImage = [self imageWithImage:button.imageView.image scaledToSize:size];
+    
+    
+    usingImage = resizeImage;
     self.ProfileImageView.image = usingImage;
 }
 

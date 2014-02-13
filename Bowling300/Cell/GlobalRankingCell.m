@@ -33,6 +33,8 @@
     
     
     [self.profileImageView setImageWithURL:inImageURL];
+    self.profileImageView.layer.masksToBounds = YES;
+    self.profileImageView.layer.cornerRadius = 20.0f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -137,7 +137,6 @@
  
  - (void)drawRect:(CGRect)rect
 {
-   
     CGFloat beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     for(int i = 0 ; i < [self.averageDataArr count]; i++){
         

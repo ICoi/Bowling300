@@ -30,6 +30,8 @@
     }else if(inDay== 0){
         //일요일인경우
         self.dateLabel.textColor = [UIColor redColor];
+    }else{
+        self.dateLabel.textColor = [UIColor whiteColor];
     }
     if(inCK){
         self.backgroundButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];

@@ -9,6 +9,7 @@
 #import "GroupListViewController.h"
 #import "DBGroupManager.h"
 #import "Group.h"
+#import "GroupView.h"
 #define GROUPWIDTH 100
 
 @interface GroupListViewController ()
@@ -71,11 +72,9 @@
         
         Group *nowGroup = [groups objectAtIndex:i];
         
-        button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(GROUPWIDTH * i, 30, 50, 30);
-        [button setTitle:nowGroup.name forState:UIControlStateNormal];
-        NSLog(@"name : %@",nowGroup.name);
-        [self.groupListScrollView addSubview:button];
+        
+        GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(GROUPWIDTH * i, 10, 50, 50)];
+        [self.groupListScrollView addSubview:gv];
     }
     
     /*

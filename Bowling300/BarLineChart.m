@@ -145,7 +145,7 @@
         
         //mainTextColor = [UIColor blackColor];
         secondaryTextColor = [UIColor blackColor];
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         
        
         

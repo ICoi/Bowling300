@@ -11,6 +11,7 @@
 #import "DBGroupManager.h"
 #import "DayScore.h"
 #import "Score.h"
+#import "AppDelegate.h"
 #import <AFNetworking.h>
 
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/score"
@@ -31,6 +32,7 @@
     DayScore *scores;
     NSMutableArray *groupNames;
     NSMutableArray *groupIdes;
+    AppDelegate *ad;
 }
 
 - (void)viewDidLoad
@@ -45,6 +47,7 @@
     NSMutableArray *groups = [dbGManager showAllGroups];
     groupNames = [dbGManager showGroupNameWithGroupsArray:groups];
     groupIdes = [dbGManager showGroupIdxWithGroupsArray:groups];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -119,7 +122,7 @@
     
     NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140111"];
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
-    NSString *myIdx = @"67";
+    NSString *myIdx = [NSString stringWithFormat:@"%d",ad.myIDX];
     [sendDic setObject:myIdx forKey:@"aidx"];
     
     NSArray *keys = [dataDic allKeys];
@@ -137,7 +140,7 @@
     // TODO여기 기간에 맞는거랑 그룹별 등등 해야할듯.. 일단 정보전달은 잘 되는걸로~
     NSDictionary *oneDic = @{@"type":@"-1",
                              @"allScore":@"280",
-                             @"allGame":@"10"};
+                             @"allGame":@"2"};
     [sendDic setObject:@[oneDic] forKey:@"myscoredata"];
     
     // 여기 부분은 에러 체크용..

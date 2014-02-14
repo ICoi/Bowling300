@@ -16,7 +16,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Button" image="intro_720_1280.png">
+                                <state key="normal" title="Button" image="bg.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -42,10 +42,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="lIW-6N-w00">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_pop.png" id="hIe-Ab-rbq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oDZ-ls-hHM">
                                 <rect key="frame" x="0.0" y="20" width="320" height="41"/>
@@ -90,7 +86,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="294" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nmy-Tv-HbX">
-                                                    <rect key="frame" x="100" y="14" width="49" height="20"/>
+                                                    <rect key="frame" x="100" y="12" width="61" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.93436243080000003" blue="0.92093942470000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -498,10 +494,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" id="I8Q-ta-Kk6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gzd-AZ-nDe">
                                 <rect key="frame" x="84" y="415" width="43" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -542,10 +534,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="bwD-oz-FEf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_myinfo12.png" id="kA9-Zk-j3T">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_foot.png" id="Djr-8b-MdF">
                                 <rect key="frame" x="0.0" y="440" width="320" height="70"/>
@@ -746,10 +734,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_myinfo22.png" id="LFz-zA-98h">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lx3-fv-Hgb">
                                 <rect key="frame" x="0.0" y="25" width="34" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -899,10 +883,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage.png" id="8Wa-Fc-x0X">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kp4-cK-Fuq">
                                 <rect key="frame" x="65" y="450" width="69" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1018,10 +998,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="Anz-5a-rEM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_main.png" id="0yf-VY-tGC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dnx-Gg-5rI">
                                 <rect key="frame" x="1" y="23" width="31" height="40"/>
@@ -1224,10 +1200,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_league.png" id="rc2-gA-Mca">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7qU-6B-Pbp">
                                 <rect key="frame" x="1" y="24" width="34" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1277,10 +1249,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="XS1-hs-Bk0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_invite.png" id="BdP-dX-8Ji">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GROUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FeF-JP-TTs">
                                 <rect key="frame" x="125" y="35" width="88" height="21"/>
@@ -1395,10 +1363,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="fPi-73-mtP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_new2.png" id="Lhg-1f-BPR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_foot.png" id="Ne0-PP-hzV">
                                 <rect key="frame" x="1" y="517" width="319" height="51"/>
@@ -1571,10 +1535,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_graph_total.png" id="Meh-ed-gho">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rTI-hX-A4T">
                                 <rect key="frame" x="9" y="72" width="42" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1727,10 +1687,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="wHw-lf-IBT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="590"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_daily.png" id="0XH-iW-hjm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ngk-Ev-Kdp">
                                 <rect key="frame" x="2" y="25" width="32" height="37"/>
@@ -1905,10 +1861,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_league.png" id="qke-kh-fp6">
-                                <rect key="frame" x="0.0" y="-71" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_leage_cloud.png" id="Mil-YO-8S2">
                                 <rect key="frame" x="2" y="56" width="320" height="407"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2004,10 +1956,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_member.png" id="atK-l0-d1V">
-                                <rect key="frame" x="0.0" y="-70" width="320" height="567"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bar.png" id="pOA-5f-TiF">
                                 <rect key="frame" x="215" y="2" width="1" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2153,10 +2101,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_board2.png" id="6x6-5V-OFZ">
-                                <rect key="frame" x="0.0" y="-71" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bar.png" id="PCi-GS-TG7">
                                 <rect key="frame" x="215" y="2" width="1" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2297,10 +2241,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_board_post.png" id="qJc-0W-Juw">
-                                <rect key="frame" x="0.0" y="-1" width="320" height="569"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="h7V-43-JOM">
                                 <rect key="frame" x="109" y="408" width="96" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2357,10 +2297,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="bqT-JH-Udg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join2.png" id="fmt-Qw-cJc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_foot.png" id="MFO-Y9-vba">
                                 <rect key="frame" x="0.0" y="451" width="320" height="73"/>
@@ -2623,10 +2559,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="354"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_monthly_cra.png" id="jb6-dM-0ci">
-                                <rect key="frame" x="0.0" y="-61" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Okq-RA-blE">
                                 <rect key="frame" x="9" y="55" width="302" height="299"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2766,10 +2698,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_monthly_cra.png" id="1jb-Zv-Ald">
-                                <rect key="frame" x="0.0" y="-397" width="320" height="551"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_foot.png" id="V9W-Lw-uow">
                                 <rect key="frame" x="0.0" y="-1" width="320" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2866,7 +2794,6 @@
                         <outlet property="MonthlyDailyLabel" destination="Vo8-c9-Hde" id="z0D-F4-YCN"/>
                         <outlet property="averageBar" destination="6qE-Bx-cYE" id="Qcs-p4-Cax"/>
                         <outlet property="averageLabel" destination="ptx-cL-uA0" id="CeH-HR-tAR"/>
-                        <outlet property="backgroundImage" destination="1jb-Zv-Ald" id="tG2-Nl-edb"/>
                         <outlet property="groupSelectScrollView" destination="hGV-vW-oBE" id="ccX-Bi-oEE"/>
                         <outlet property="highBar" destination="ZAF-vH-isV" id="Gow-Fd-wwE"/>
                         <outlet property="highLabel" destination="Taz-j1-UMY" id="yqK-kH-hKZ"/>
@@ -2889,10 +2816,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="Uyn-72-ZtE">
                                 <rect key="frame" x="-4" y="-1" width="324" height="569"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_daily_insert2.png" id="6qW-yf-Bgn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_foot.png" id="C4O-Xn-iPv">
                                 <rect key="frame" x="0.0" y="517" width="320" height="51"/>
@@ -3175,38 +3098,29 @@
         <image name="bg.png" width="640" height="1136"/>
         <image name="bg.png" width="640" height="1136"/>
         <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
         <image name="board_profile.png" width="55" height="54"/>
-        <image name="group_board2.png" width="640" height="1136"/>
-        <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_edit_delete_icon.png" width="41" height="41"/>
         <image name="group_edit_icon.png" width="51" height="51"/>
         <image name="group_edit_icon.png" width="51" height="51"/>
-        <image name="group_invite.png" width="640" height="1136"/>
         <image name="group_joinedgroup.png" width="631" height="49"/>
         <image name="group_joinedgroup_bg.png" width="640" height="257"/>
         <image name="group_layout.png" width="312" height="313"/>
         <image name="group_layout_plus.png" width="169" height="170"/>
         <image name="group_leage_cloud.png" width="640" height="814"/>
-        <image name="group_league.png" width="640" height="1136"/>
-        <image name="group_league.png" width="640" height="1136"/>
         <image name="group_league_left.png" width="42" height="851"/>
         <image name="group_league_para.png" width="118" height="180"/>
         <image name="group_league_para_200.png" width="118" height="181"/>
         <image name="group_league_para_me.png" width="117" height="177"/>
-        <image name="group_main.png" width="640" height="1136"/>
-        <image name="group_member.png" width="640" height="1136"/>
         <image name="group_member_plus.png" width="57" height="65"/>
-        <image name="group_new2.png" width="640" height="1136"/>
         <image name="group_new_img.png" width="197" height="188"/>
         <image name="group_new_img1.png" width="94" height="94"/>
         <image name="group_new_img_bg.png" width="640" height="167"/>
         <image name="group_new_img_camera.png" width="95" height="71"/>
         <image name="group_new_img_camera.png" width="95" height="71"/>
         <image name="group_recentgroup.png" width="631" height="49"/>
-        <image name="intro_720_1280.png" width="640" height="1136"/>
         <image name="invite_kakao.png" width="63" height="63"/>
         <image name="invite_message.png" width="63" height="63"/>
-        <image name="join2.png" width="640" height="1136"/>
         <image name="join_female_check.png" width="40" height="47"/>
         <image name="join_img1.png" width="80" height="80"/>
         <image name="join_img2.png" width="79" height="80"/>
@@ -3219,7 +3133,6 @@
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman_check.png" width="39" height="47"/>
-        <image name="login.png" width="640" height="1136"/>
         <image name="menu_bar.png" width="2" height="45"/>
         <image name="menu_bar.png" width="2" height="45"/>
         <image name="menu_bar.png" width="2" height="45"/>
@@ -3239,7 +3152,6 @@
         <image name="menu_ranking.png" width="111" height="141"/>
         <image name="menu_record.png" width="106" height="140"/>
         <image name="menu_record2.png" width="104" height="139"/>
-        <image name="mypage.png" width="640" height="1136"/>
         <image name="mypage_a_icon.png" width="42" height="42"/>
         <image name="mypage_a_icon.png" width="42" height="42"/>
         <image name="mypage_g_icon.png" width="41" height="42"/>
@@ -3254,14 +3166,12 @@
         <image name="mypage_img_layout.png" width="390" height="391"/>
         <image name="mypage_img_layout.png" width="390" height="391"/>
         <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_myinfo12.png" width="640" height="1136"/>
         <image name="mypage_myinfo1_ball.png" width="185" height="177"/>
         <image name="mypage_myinfo1_ball1.png" width="81" height="81"/>
         <image name="mypage_myinfo1_ball2.png" width="81" height="81"/>
         <image name="mypage_myinfo1_ball3.png" width="82" height="81"/>
         <image name="mypage_myinfo1_ball4.png" width="81" height="81"/>
         <image name="mypage_myinfo1_profile.png" width="185" height="176"/>
-        <image name="mypage_myinfo22.png" width="640" height="1136"/>
         <image name="ranking_123_re.png" width="640" height="416"/>
         <image name="ranking_300icon_over.png" width="91" height="90"/>
         <image name="ranking_800icon_over.png" width="90" height="90"/>
@@ -3280,7 +3190,6 @@
         <image name="ranking_menu_record.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
-        <image name="ranking_pop.png" width="640" height="1136"/>
         <image name="record_cal_next.png" width="21" height="27"/>
         <image name="record_cal_next.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
@@ -3291,18 +3200,13 @@
         <image name="record_chart_scoreinfo.png" width="631" height="50"/>
         <image name="record_chart_topicon.png" width="40" height="37"/>
         <image name="record_charticon.png" width="86" height="89"/>
-        <image name="record_daily.png" width="640" height="1136"/>
-        <image name="record_daily_insert2.png" width="720" height="1280"/>
         <image name="record_footer_chart_bar.png" width="335" height="27"/>
         <image name="record_footer_chart_bar.png" width="335" height="27"/>
         <image name="record_footer_chart_bar.png" width="335" height="27"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
-        <image name="record_graph_total.png" width="640" height="1136"/>
         <image name="record_insert_groupicon.png" width="84" height="44"/>
-        <image name="record_monthly_cra.png" width="640" height="1136"/>
-        <image name="record_monthly_cra.png" width="640" height="1136"/>
         <image name="search_icon.png" width="69" height="72"/>
         <image name="search_icon.png" width="69" height="72"/>
         <image name="search_icon.png" width="69" height="72"/>

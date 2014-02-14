@@ -196,6 +196,9 @@
 		00A483C018ACBA10006B6707 /* record_chart_graphline.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A483BC18ACBA10006B6707 /* record_chart_graphline.png */; };
 		00A483C318ACBBBF006B6707 /* GroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483C218ACBBBF006B6707 /* GroupView.m */; };
 		00B193A718A4778F0037150A /* DBMyInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B193A618A4778F0037150A /* DBMyInfoManager.m */; };
+		00BA3A9218AD9E7F00A2DFC0 /* group_invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 00BA3A9118AD9E7F00A2DFC0 /* group_invite.png */; };
+		00BA3A9518AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BA3A9418AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m */; };
+		00BA3A9818ADA2FB00A2DFC0 /* GroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BA3A9718ADA2FB00A2DFC0 /* GroupListCell.m */; };
 		00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9718A077BD00F35DF3 /* DayScore.m */; };
 		00BD7A9B18A077C900F35DF3 /* MonthScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9A18A077C900F35DF3 /* MonthScore.m */; };
 		00BD7A9E18A078E300F35DF3 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9D18A078E300F35DF3 /* Score.m */; };
@@ -443,6 +446,11 @@
 		00A483C218ACBBBF006B6707 /* GroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupView.m; sourceTree = "<group>"; };
 		00B193A518A4778F0037150A /* DBMyInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMyInfoManager.h; sourceTree = "<group>"; };
 		00B193A618A4778F0037150A /* DBMyInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMyInfoManager.m; sourceTree = "<group>"; };
+		00BA3A9118AD9E7F00A2DFC0 /* group_invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group_invite.png; sourceTree = "<group>"; };
+		00BA3A9318AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSearchAndJoinViewController.h; sourceTree = "<group>"; };
+		00BA3A9418AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSearchAndJoinViewController.m; sourceTree = "<group>"; };
+		00BA3A9618ADA2FB00A2DFC0 /* GroupListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListCell.h; sourceTree = "<group>"; };
+		00BA3A9718ADA2FB00A2DFC0 /* GroupListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListCell.m; sourceTree = "<group>"; };
 		00BD7A9618A077BD00F35DF3 /* DayScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayScore.h; sourceTree = "<group>"; };
 		00BD7A9718A077BD00F35DF3 /* DayScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayScore.m; sourceTree = "<group>"; };
 		00BD7A9918A077C900F35DF3 /* MonthScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthScore.h; sourceTree = "<group>"; };
@@ -636,6 +644,8 @@
 				009CCC0B1890F188006DAB6F /* GroupListViewController.m */,
 				009CCC1F189106FA006DAB6F /* GroupAddViewController.h */,
 				009CCC20189106FA006DAB6F /* GroupAddViewController.m */,
+				00BA3A9318AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.h */,
+				00BA3A9418AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m */,
 			);
 			name = GroupList;
 			sourceTree = "<group>";
@@ -692,6 +702,8 @@
 				00A483AD18AC5C72006B6707 /* CalendarDateCell.m */,
 				00A483AF18AC5FB5006B6707 /* CalendarDayCell.h */,
 				00A483B018AC5FB5006B6707 /* CalendarDayCell.m */,
+				00BA3A9618ADA2FB00A2DFC0 /* GroupListCell.h */,
+				00BA3A9718ADA2FB00A2DFC0 /* GroupListCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -815,6 +827,7 @@
 				00A4835D18AC56AA006B6707 /* group_board_post2.png */,
 				00A4835E18AC56AA006B6707 /* group_board_read.png */,
 				00A4835F18AC56AA006B6707 /* group_edit2.png */,
+				00BA3A9118AD9E7F00A2DFC0 /* group_invite.png */,
 				00A4836018AC56AA006B6707 /* group_league.png */,
 				00A4836118AC56AA006B6707 /* group_league_noscore.png */,
 				00A4836218AC56AA006B6707 /* group_main.png */,
@@ -1193,6 +1206,7 @@
 				00A483C018ACBA10006B6707 /* record_chart_graphline.png in Resources */,
 				00A483BF18ACBA10006B6707 /* ranking_top_bg.png in Resources */,
 				00A4831C18AC56A1006B6707 /* join_img4.png in Resources */,
+				00BA3A9218AD9E7F00A2DFC0 /* group_invite.png in Resources */,
 				00A4833A18AC56A1006B6707 /* ranking_800icon.png in Resources */,
 				00A4839518AC56AA006B6707 /* login_pop.png in Resources */,
 				00A4833918AC56A1006B6707 /* ranking_300icon_over.png in Resources */,
@@ -1259,6 +1273,7 @@
 				009CCB5E1890E096006DAB6F /* IntroViewController.m in Sources */,
 				009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */,
 				00406A4618AA45CD004AA546 /* LoginViewController.m in Sources */,
+				00BA3A9518AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m in Sources */,
 				00DAAF1B18A894880000B724 /* Person.m in Sources */,
 				00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */,
 				009CCC2518910AFC006DAB6F /* MyPageViewController.m in Sources */,
@@ -1284,6 +1299,7 @@
 				009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */,
 				00A483B818AC93D9006B6707 /* InfoPopupView.m in Sources */,
 				00A483AE18AC5C72006B6707 /* CalendarDateCell.m in Sources */,
+				00BA3A9818ADA2FB00A2DFC0 /* GroupListCell.m in Sources */,
 				00A483C318ACBBBF006B6707 /* GroupView.m in Sources */,
 				00D979D318A1EFFB0078B24C /* BLGraphYear.m in Sources */,
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,

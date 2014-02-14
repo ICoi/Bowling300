@@ -60,6 +60,22 @@
     ad.myIDX = [dbInfoManager showMyIdx];
     
     
+    
+    
+    // 화면 전환하기
+    [UIView animateWithDuration:1.0
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.view.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RankingViewController"];
+                         [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+                         
+                         [self presentModalViewController:vc animated:YES];
+                     }];
+    
 }
 
 - (void)didReceiveMemoryWarning

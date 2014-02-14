@@ -133,7 +133,7 @@
     NSDictionary *oneDic = @{@"type":@"-1",
                              @"allScore":@"280",
                              @"allGame":@"10"};
-    [sendDic setObject:@[oneDic] forKey:@"data"];
+    [sendDic setObject:@[oneDic] forKey:@"myscoredata"];
     
     // 여기 부분은 에러 체크용..
     __autoreleasing NSError *error;

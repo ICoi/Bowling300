@@ -1041,43 +1041,6 @@
                                             <segue destination="zlG-NN-Tjs" kind="push" id="cei-np-mHI"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" id="zPX-J7-h0f" customClass="GroupView">
-                                        <rect key="frame" x="20" y="18" width="90" height="90"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_layout.png" id="QYB-ja-uUL">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_new_img1.png" id="Q0w-5E-3FR">
-                                                <rect key="frame" x="12" y="13" width="77" height="77"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_new_img_bg.png" id="r9p-2l-XOy">
-                                                <rect key="frame" x="12" y="60" width="77" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t7s-Th-VEZ">
-                                                <rect key="frame" x="14" y="54" width="86" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2012.01.12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jlK-vt-1iw">
-                                                <rect key="frame" x="14" y="67" width="57" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_edit_delete_icon.png" id="AcF-qP-9GL">
-                                                <rect key="frame" x="0.0" y="3" width="20" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" id="bYD-20-Wsb">
@@ -1207,6 +1170,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3E6-7M-Vrw">
+                                <rect key="frame" x="241" y="21" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="search_icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ESB-Zv-Pnd" kind="push" id="Zkf-BX-bgW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1220,6 +1193,7 @@
                         <outlet property="hamRankingBtn" destination="Ffx-V9-1ZA" id="SZU-r6-Flp"/>
                         <outlet property="hamRecordBtn" destination="g1J-bA-hOr" id="IZ2-MX-ynx"/>
                         <outlet property="hamburgerView" destination="bIl-Ao-Dzq" id="bZu-3F-6mw"/>
+                        <outlet property="scrollViewBackground" destination="d0J-oD-CVu" id="fAj-Yg-aWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIr-Wn-JdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1276,6 +1250,127 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nz-wr-UjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2353" y="1225"/>
+        </scene>
+        <!--Group Search And Join View Controller-->
+        <scene sceneID="V3p-0j-eXb">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="ESB-Zv-Pnd" customClass="GroupSearchAndJoinViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IE1-Te-hlY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="XS1-hs-Bk0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_invite.png" id="BdP-dX-8Ji">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <searchBar contentMode="redraw" id="bpZ-W3-z3p">
+                                <rect key="frame" x="38" y="78" width="215" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GROUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FeF-JP-TTs">
+                                <rect key="frame" x="125" y="35" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aV1-Eh-vD1">
+                                <rect key="frame" x="0.0" y="21" width="37" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back_icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="cXd-d2-UrY">
+                                <rect key="frame" x="0.0" y="139" width="320" height="369"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GROUP_LIST_CELL" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GROUP_LIST_CELL" rowHeight="64" id="oya-mh-8fU" customClass="GroupListCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oya-mh-8fU" id="hb1-b5-f2c">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grouop name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X7x-gy-MoI">
+                                                    <rect key="frame" x="79" y="20" width="181" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wfj-Ni-TIs">
+                                                    <rect key="frame" x="19" y="19" width="52" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_line.png" id="8F6-nX-SQw">
+                                                    <rect key="frame" x="72" y="15" width="1" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cKj-ny-5fa">
+                                                    <rect key="frame" x="268" y="15" width="34" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="group_member_invite_check.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="group_member_invite_check_check.png"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="groupNameLabel" destination="X7x-gy-MoI" id="kC1-t7-cpT"/>
+                                            <outlet property="nameLabel" destination="wfj-Ni-TIs" id="Ifu-zu-KCI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ESB-Zv-Pnd" id="0qt-5R-KgP"/>
+                                    <outlet property="delegate" destination="ESB-Zv-Pnd" id="vaR-rv-KlZ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lDl-RT-gOk">
+                                <rect key="frame" x="249" y="79" width="32" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="search_icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchGroup:" destination="ESB-Zv-Pnd" eventType="touchUpInside" id="XsN-M2-poy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ec6-8w-NA5">
+                                <rect key="frame" x="110" y="520" width="101" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Join group">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FMs-DA-LRs"/>
+                    <connections>
+                        <outlet property="groupSearchBar" destination="bpZ-W3-z3p" id="wJ6-0Z-aQk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPF-R8-c13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782" y="2061"/>
         </scene>
         <!--Group Add View Controller-->
         <scene sceneID="eCj-cV-IoH">
@@ -2901,10 +2996,10 @@
             </objects>
             <point key="canvasLocation" x="3633" y="-677"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller - RankingViewController-->
         <scene sceneID="JCp-fx-TwF">
             <objects>
-                <tabBarController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="gXq-jU-xqJ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RankingViewController" title="RankingViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="gXq-jU-xqJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ApV-pN-43j"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -3025,48 +3120,20 @@
     </scenes>
     <resources>
         <image name="average_bg.png" width="527" height="81"/>
-        <image name="average_bg.png" width="527" height="81"/>
         <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_foot.png" width="640" height="101"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
-        <image name="back_icon.png" width="68" height="80"/>
         <image name="back_icon.png" width="68" height="80"/>
         <image name="bar_ver.png" width="2" height="45"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
-        <image name="bg.png" width="640" height="1136"/>
         <image name="bg.png" width="640" height="1136"/>
         <image name="board_profile.png" width="55" height="54"/>
         <image name="group_board2.png" width="640" height="1136"/>
         <image name="group_board_post.png" width="720" height="1280"/>
         <image name="group_edit_delete_icon.png" width="41" height="41"/>
-        <image name="group_edit_delete_icon.png" width="41" height="41"/>
         <image name="group_edit_icon.png" width="51" height="51"/>
-        <image name="group_edit_icon.png" width="51" height="51"/>
+        <image name="group_invite.png" width="640" height="1136"/>
         <image name="group_joinedgroup.png" width="631" height="49"/>
-        <image name="group_layout.png" width="312" height="313"/>
         <image name="group_layout.png" width="312" height="313"/>
         <image name="group_layout_plus.png" width="169" height="170"/>
         <image name="group_leage_cloud.png" width="640" height="814"/>
-        <image name="group_league.png" width="640" height="1136"/>
         <image name="group_league.png" width="640" height="1136"/>
         <image name="group_league_left.png" width="42" height="851"/>
         <image name="group_league_para.png" width="118" height="180"/>
@@ -3074,14 +3141,13 @@
         <image name="group_league_para_me.png" width="117" height="177"/>
         <image name="group_main.png" width="640" height="1136"/>
         <image name="group_member.png" width="640" height="1136"/>
+        <image name="group_member_invite_check.png" width="44" height="43"/>
+        <image name="group_member_invite_check_check.png" width="42" height="42"/>
         <image name="group_member_plus.png" width="57" height="65"/>
         <image name="group_new2.png" width="640" height="1136"/>
         <image name="group_new_img.png" width="197" height="188"/>
         <image name="group_new_img1.png" width="94" height="94"/>
-        <image name="group_new_img1.png" width="94" height="94"/>
         <image name="group_new_img_bg.png" width="640" height="167"/>
-        <image name="group_new_img_bg.png" width="640" height="167"/>
-        <image name="group_new_img_camera.png" width="95" height="71"/>
         <image name="group_new_img_camera.png" width="95" height="71"/>
         <image name="group_recentgroup.png" width="631" height="49"/>
         <image name="intro_720_1280.png" width="640" height="1136"/>
@@ -3095,45 +3161,22 @@
         <image name="join_img4.png" width="80" height="80"/>
         <image name="join_male_check.png" width="39" height="47"/>
         <image name="join_man.png" width="40" height="47"/>
-        <image name="join_man.png" width="40" height="47"/>
         <image name="join_man_check.png" width="40" height="47"/>
-        <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman_check.png" width="39" height="47"/>
         <image name="login.png" width="640" height="1136"/>
         <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
-        <image name="menu_bar.png" width="2" height="45"/>
         <image name="menu_group.png" width="106" height="138"/>
         <image name="menu_group2.png" width="104" height="137"/>
         <image name="menu_icon.png" width="80" height="81"/>
-        <image name="menu_icon.png" width="80" height="81"/>
         <image name="menu_mypage.png" width="112" height="139"/>
-        <image name="menu_mypage.png" width="112" height="139"/>
-        <image name="menu_ranking.png" width="111" height="141"/>
         <image name="menu_ranking.png" width="111" height="141"/>
         <image name="menu_record.png" width="106" height="140"/>
         <image name="menu_record2.png" width="104" height="139"/>
         <image name="mypage.png" width="640" height="1136"/>
         <image name="mypage_a_icon.png" width="42" height="42"/>
-        <image name="mypage_a_icon.png" width="42" height="42"/>
-        <image name="mypage_g_icon.png" width="41" height="42"/>
         <image name="mypage_g_icon.png" width="41" height="42"/>
         <image name="mypage_h_icon.png" width="41" height="42"/>
-        <image name="mypage_h_icon.png" width="41" height="42"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
         <image name="mypage_img_layout.png" width="390" height="391"/>
         <image name="mypage_myinfo12.png" width="640" height="1136"/>
         <image name="mypage_myinfo1_ball.png" width="185" height="177"/>
@@ -3148,24 +3191,16 @@
         <image name="ranking_800icon_over.png" width="90" height="90"/>
         <image name="ranking_ballimg.png" width="42" height="43"/>
         <image name="ranking_flag_bg.png" width="104" height="104"/>
-        <image name="ranking_flag_bg.png" width="104" height="104"/>
         <image name="ranking_hander_r.png" width="61" height="66"/>
-        <image name="ranking_me_bg.png" width="640" height="108"/>
-        <image name="ranking_me_bg.png" width="640" height="108"/>
-        <image name="ranking_me_bg.png" width="640" height="108"/>
         <image name="ranking_me_bg.png" width="640" height="108"/>
         <image name="ranking_menu_group.png" width="131" height="101"/>
         <image name="ranking_menu_group_over.png" width="131" height="99"/>
         <image name="ranking_menu_mypage.png" width="93" height="101"/>
         <image name="ranking_menu_mypage_over.png" width="93" height="96"/>
-        <image name="ranking_menu_mypage_over.png" width="93" height="96"/>
         <image name="ranking_menu_record.png" width="82" height="101"/>
-        <image name="ranking_menu_record_over.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
         <image name="ranking_pop.png" width="640" height="1136"/>
         <image name="record_cal_next.png" width="21" height="27"/>
-        <image name="record_cal_next.png" width="21" height="27"/>
-        <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_calicon.png" width="86" height="89"/>
         <image name="record_chart_distribution.png" width="631" height="49"/>
@@ -3175,21 +3210,11 @@
         <image name="record_charticon.png" width="86" height="89"/>
         <image name="record_daily_insert2.png" width="720" height="1280"/>
         <image name="record_footer_chart_bar.png" width="335" height="27"/>
-        <image name="record_footer_chart_bar.png" width="335" height="27"/>
-        <image name="record_footer_chart_bar.png" width="335" height="27"/>
-        <image name="record_footer_chart_bg.png" width="337" height="29"/>
-        <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_graph_total.png" width="640" height="1136"/>
         <image name="record_insert_groupicon.png" width="84" height="44"/>
         <image name="record_monthly_cra.png" width="640" height="1136"/>
-        <image name="record_monthly_cra.png" width="640" height="1136"/>
-        <image name="record_monthly_cra.png" width="640" height="1136"/>
         <image name="search_icon.png" width="69" height="72"/>
-        <image name="search_icon.png" width="69" height="72"/>
-        <image name="white_line.png" width="640" height="2"/>
-        <image name="white_line.png" width="640" height="2"/>
-        <image name="white_line.png" width="640" height="2"/>
         <image name="white_line.png" width="640" height="2"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hamRecordBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
 
+@property (weak, nonatomic) IBOutlet UIImageView *scrollViewBackground;
 @property (weak, nonatomic) IBOutlet UIButton *addGroupBtn;
 @end
 
@@ -71,21 +72,23 @@
     for(int i = 0 ; i < groupCnt ; i++){
         
         Group *nowGroup = [groups objectAtIndex:i];
-        
-        
-        GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(GROUPWIDTH * i, 10, 50, 50)];
+        GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(GROUPWIDTH * i, 20, 90, 90)];
         [self.groupListScrollView addSubview:gv];
+        [self.groupListScrollView reloadInputViews];
     }
     
+    self.addGroupBtn.frame = CGRectMake(GROUPWIDTH* groupCnt, 20, 90, 90);
+    
+    self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
     /*
-    elf.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.button.frame = CGRectMake(70*(i%4) + 30, 250 + 50 *(i/4), 50, 40);
     self.button.backgroundColor = [UIColor yellowColor];
     [self.button setTitle:[NSString stringWithFormat:@"%d",one.totalScore] forState:UIControlStateNormal];
     [self.button addTarget:self action:@selector(pressScoreButton:) forControlEvents:UIControlEventTouchUpInside];
      */
     
-    self.addGroupBtn.frame = CGRectMake(GROUPWIDTH * groupCnt, 10, self.addGroupBtn.frame.size.width, self.addGroupBtn.frame.size.height);
+    
 }
 
 

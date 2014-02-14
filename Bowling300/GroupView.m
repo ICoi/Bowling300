@@ -7,14 +7,59 @@
 //
 
 #import "GroupView.h"
+#import <UIImageView+AFNetworking.h>
+@interface GroupView()
 
-@implementation GroupView
+@end
+
+
+@implementation GroupView{
+    UIImageView *backgroundImageView;
+    UIImageView *groupImageView;
+    UIImageView *labelImageView;
+    UILabel *groupNameLabel;
+    UILabel *dateLabel;
+}
+
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        UIImage *backgroundImage = [UIImage imageNamed:@"group_layout.png"];
+        
+        backgroundImageView = [[UIImageView alloc]initWithImage:backgroundImage];
+        backgroundImageView.frame = CGRectMake(0, 0, 90, 90);
+        
+        
+        UIImage *groupImage = [UIImage imageNamed:@"group_new_img1.png"];
+        groupImageView = [[UIImageView alloc]initWithImage:groupImage];
+        groupImageView.frame = CGRectMake(12, 13, 77, 77);
+        
+        
+        UIImage *labelImage = [UIImage imageNamed:@"group_new_img_bg.png"];
+        labelImageView = [[UIImageView alloc]initWithImage:labelImage];
+        labelImageView.frame = CGRectMake(12, 60, 77, 30);
+        
+        groupNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(14, 54, 86, 22)];
+        groupNameLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+        groupNameLabel.font = [UIFont systemFontOfSize:9.0];
+        groupNameLabel.text = @"groupName";
+        
+        dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(14, 67, 52, 21)];
+        dateLabel.font = [UIFont systemFontOfSize:8.0];
+        dateLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+        dateLabel.text = @"2014.01.01";
+        
+        
+        
+        [self addSubview:backgroundImageView];
+        [self addSubview:groupImageView];
+        [self addSubview:labelImageView];
+        [self addSubview:groupNameLabel];
+        [self addSubview:dateLabel];
     }
     return self;
 }
@@ -22,6 +67,14 @@
     NSLog(@"touches??");
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu" message:@"What do you want to do?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Represent Group",@"Setting", nil];
     [alert show];
+}
+
+- (void)setValueWithGroupIdx:(NSInteger)idx withGroupName:(NSString *)inGroupName withDate:(NSString *)inDate withImageLink:(NSString *)inImageLink{
+    self.groupIdx = idx;
+    groupNameLabel.text = inGroupName;
+    dateLabel.text = inDate;
+    NSURL *imageURL = [NSURL URLWithString:inImageLink];
+    [groupImageView setImageWithURL:imageURL];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

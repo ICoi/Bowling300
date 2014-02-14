@@ -42,6 +42,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameSecond;
 @property (weak, nonatomic) IBOutlet UILabel *nameThird;
 
+@property (weak, nonatomic) IBOutlet UIImageView *myImageView;
+@property (weak, nonatomic) IBOutlet UILabel *myScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *myNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *myRankingLabel;
 
 @property (weak, nonatomic) IBOutlet InfoPopupView *popUpView;
 
@@ -72,6 +76,7 @@
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     [self getRankingFromServerWithType:GLOBAL_RANKING];
+    self.myScoreLabel.font = [UIFont fontWithName:@"expansiva" size:17];
 }
 
 - (void)didReceiveMemoryWarning

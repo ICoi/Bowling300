@@ -67,6 +67,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self showGroupList];
+    self.averageLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+    self.highLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+    self.lowLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
 }
 
 - (void)showGroupList{

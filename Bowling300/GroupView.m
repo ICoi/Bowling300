@@ -55,11 +55,11 @@
         
         
         
-        [self addSubview:backgroundImageView];
         [self addSubview:groupImageView];
         [self addSubview:labelImageView];
         [self addSubview:groupNameLabel];
         [self addSubview:dateLabel];
+        [self addSubview:backgroundImageView];
     }
     return self;
 }

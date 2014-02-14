@@ -9,6 +9,7 @@
 #import "MyInfoViewController.h"
 
 @interface MyInfoViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -21,6 +22,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
 }
 - (void)didReceiveMemoryWarning
 {

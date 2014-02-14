@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *scrollViewBackground;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addGroupBtn;
 @end
 
@@ -59,6 +60,7 @@
     [self.navigationController.navigationBar setHidden:YES];
     
     [self.tabBarController.tabBar setHidden:YES];
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
     
 }
 

@@ -7,9 +7,11 @@
 //
 
 #import "GroupListCell.h"
+#import <UIImageView+AFNetworking.h>
 @interface GroupListCell()
 @property (weak,nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak,nonatomic) IBOutlet UILabel *groupNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *groupImage;
 @end
 
 @implementation GroupListCell
@@ -30,8 +32,11 @@
     // Configure the view for the selected state
 }
 
--(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName{
+-(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName withGroupImageURL:(NSString *)inImageURL{
+    
     self.nameLabel.text = inName;
     self.groupNameLabel.text = inGroupName;
+    NSURL *imageURL = [NSURL URLWithString:inImageURL];
+    [self.groupImage setImageWithURL:imageURL];
 }
 @end

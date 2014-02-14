@@ -49,7 +49,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self setCalendarSetting];
-    
+    self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
     clickedDate = 10;
 }
 
@@ -101,8 +101,6 @@
     
     // 폰트 변경하기
     // TODO
-    self.yearLabel.font = [UIFont fontWithName:NUMBER_FONT size:self.yearLabel.font.pointSize];
-    self.monthLabel.font = [UIFont fontWithName:NUMBER_FONT size:self.monthLabel.font.pointSize];
     
     [self setCalendarSetting];
   
@@ -258,6 +256,7 @@
             
             
             //dateLabel.font = [UIFont fontWithName:NUMBER_FONT size:20];
+        
             if ([writeDateStr isEqualToString:[NSString stringWithFormat:@"%d",clickedDate]]){
                 [cell setValueWithDate:writeDateStr withClicked:YES withDay:(indexPath.row % 7)];
                 beforeClicked = cell.backgroundButton;

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *handyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *scoreLabel;
 @property (weak, nonatomic) IBOutlet UITextField *groupLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 
 @property (strong) UIButton *button;
@@ -45,6 +46,10 @@
     groupNames = [dbGManager showGroupNameWithGroupsArray:groups];
     groupIdes = [dbGManager showGroupIdxWithGroupsArray:groups];
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
 }
 
 - (void)didReceiveMemoryWarning

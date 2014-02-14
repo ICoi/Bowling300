@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupListCell : UITableViewCell
--(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName;
+-(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName withGroupImageURL:(NSString *)inImageURL;
 @end

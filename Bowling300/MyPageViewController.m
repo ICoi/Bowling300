@@ -10,6 +10,7 @@
 #import "DBMyInfoManager.h"
 
 @interface MyPageViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -25,6 +26,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:YES];
+    
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
 }
 
 - (void)didReceiveMemoryWarning

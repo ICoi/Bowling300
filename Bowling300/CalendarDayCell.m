@@ -27,11 +27,14 @@
     
     if (inNum == 0) {
         // 일요일인경우
-        self.dayLabel.textColor = [UIColor redColor];
+        self.dayLabel.textColor = [UIColor colorWithRed:1.0 green:((float)115/255) blue:0.0 alpha:0.8];
     }else if(inNum == 6){
         // 토요일인경우
-        self.dayLabel.textColor = [UIColor blueColor];
+        self.dayLabel.textColor = [UIColor colorWithRed:0.0 green:((float)194/255) blue:((float)194/255) alpha:0.8];
+    }else{
+        self.dayLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.8];
     }
+    self.dayLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:17.0];
 }
 
 

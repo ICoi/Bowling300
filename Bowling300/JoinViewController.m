@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *femaleButton;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -48,10 +49,14 @@
     gender = 0;
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];

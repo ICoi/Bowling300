@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -55,6 +56,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self showGroupList];
     
+    
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -231,5 +234,18 @@
         nowYear = [item integerValue];
     
 }
+
+// 피커 뷰 안에 폰트 색 바꾸는거
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
+    label.textColor = [UIColor whiteColor];
+    
+    //TODO글씨 찐하게 글씨 크기도 조금 크게...
+    // 중앙정렬 등.. 수정하기!!
+    label.text = [NSString stringWithFormat:@" %d", row+1];
+    return label;    
+}
+
 
 @end

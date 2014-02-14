@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hamRankingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamGroupBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -65,6 +66,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
 }
 
 - (void)didReceiveMemoryWarning

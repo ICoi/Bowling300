@@ -97,9 +97,11 @@
         
         NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":[NSString stringWithFormat:@"%d",gender],@"country":country,@"hand":[NSString stringWithFormat:@"%d",hander]};
         NSLog(@"%@",parameters);
+        NSInteger randomNum = arc4random()%10000000;
+        NSString *randomName = [NSString stringWithFormat:@"%d.PNG",randomNum];
         AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             //do not put image inside parameters dictionary as I did, but append it!
-            [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:@"proPhoto.PNG" mimeType:@"multipart/form-data"];
+            [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:randomName mimeType:@"multipart/form-data"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             // TODO
             // 여기서 응답 온거 가지고 처리해야한다!!!
@@ -116,6 +118,8 @@
                 ad.myIDX = idx;
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alert show];
             NSLog(@"Error: %@ ***** %@", operation.responseString, error);
         }];
         [op start];

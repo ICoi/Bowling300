@@ -7,11 +7,13 @@
 //
 
 #import "WriteScoreView.h"
+#import "DBPersonnalRecordManager.h"
 
 @implementation WriteScoreView{
     UILabel *scoreLabel;
     UIImageView *handyImageView;
     NSInteger rowIdx;
+    DBPersonnalRecordManager *dbManager;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,6 +35,8 @@
         
         [self addSubview:handyImageView];
         [self addSubview:scoreLabel];
+        
+        dbManager = [DBPersonnalRecordManager sharedModeManager];
         
     }
     return self;
@@ -59,6 +63,13 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Do you want to delete this score?" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Delete", nil];
     
     [alert show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == alertView.firstOtherButtonIndex){
+        // delete 시킴!
+        [dbManager deleteDateWithRowID:rowIdx];
+        [self setHidden:YES];
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.

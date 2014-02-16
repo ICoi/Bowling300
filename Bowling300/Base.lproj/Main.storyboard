@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oDZ-ls-hHM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_top_bg.png" id="oDZ-ls-hHM">
                                 <rect key="frame" x="0.0" y="20" width="320" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -78,8 +78,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aa9-AB-tuO">
-                                                    <rect key="frame" x="29" y="14" width="24" height="25"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aa9-AB-tuO">
+                                                    <rect key="frame" x="-1" y="14" width="43" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.93436243080000003" blue="0.92093942470000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,11 +100,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bTq-eR-N12">
-                                                    <rect key="frame" x="52" y="10" width="37" height="38"/>
+                                                    <rect key="frame" x="52" y="10" width="37" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="98U-5Y-iYT">
-                                                    <rect key="frame" x="51" y="9" width="40" height="40"/>
+                                                    <rect key="frame" x="50" y="9" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white_line.png" id="XUw-ie-QDZ">
+                                                    <rect key="frame" x="0.0" y="53" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -330,15 +334,19 @@
                                 <rect key="frame" x="-1" y="331" width="321" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="352" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ugC-oy-cyR">
-                                <rect key="frame" x="10" y="347" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="352" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ugC-oy-cyR">
+                                <rect key="frame" x="10" y="347" width="32" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_img.png" id="PAs-L4-3CV">
-                                <rect key="frame" x="52" y="337" width="42" height="41"/>
+                                <rect key="frame" x="52" y="337" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="3DA-wM-6X2">
+                                <rect key="frame" x="50" y="336" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="141" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17z-Je-jJY">
@@ -355,10 +363,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="3DA-wM-6X2">
-                                <rect key="frame" x="51" y="336" width="44" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view hidden="YES" alpha="0.89999999999999991" contentMode="scaleToFill" id="lqF-Dg-fjK" customClass="InfoPopupView">
                                 <rect key="frame" x="26" y="133" width="271" height="301"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1626,7 +1630,6 @@
                                 </state>
                                 <connections>
                                     <action selector="showPickerView:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="swP-zk-ySS"/>
-                                    <action selector="showYearPicker:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="ekN-Kd-oP4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wMQ-hN-3IB">
@@ -1651,25 +1654,42 @@
                                 <rect key="frame" x="0.0" y="275" width="320" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" id="vPR-oH-tBt">
-                                <rect key="frame" x="0.0" y="-140" width="329" height="163"/>
+                            <view contentMode="scaleToFill" id="7LS-Ip-N2p">
+                                <rect key="frame" x="0.0" y="-568" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_joinedgroup_bg.png" id="FvK-Az-XvQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="329" height="163"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZcQ-Ti-jXo">
+                                        <rect key="frame" x="240" y="22" width="38" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                    <pickerView contentMode="scaleToFill" id="Kb1-0x-AA9">
-                                        <rect key="frame" x="0.0" y="0.0" width="329" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="search_icon.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
-                                            <outlet property="dataSource" destination="j9N-0f-8BZ" id="6zw-dh-81k"/>
-                                            <outlet property="delegate" destination="j9N-0f-8BZ" id="4sx-ew-nLH"/>
+                                            <action selector="hiddenPicker:" destination="j9N-0f-8BZ" eventType="touchUpInside" id="Ihf-ap-FhW"/>
                                         </connections>
-                                    </pickerView>
+                                    </button>
+                                    <view contentMode="scaleToFill" id="vPR-oH-tBt">
+                                        <rect key="frame" x="0.0" y="70" width="320" height="163"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_joinedgroup_bg.png" id="FvK-Az-XvQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="329" height="163"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                            <pickerView alpha="0.79999999999999982" contentMode="scaleToFill" id="Kb1-0x-AA9">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="j9N-0f-8BZ" id="6zw-dh-81k"/>
+                                                    <outlet property="delegate" destination="j9N-0f-8BZ" id="4sx-ew-nLH"/>
+                                                </connections>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1687,7 +1707,7 @@
                         <outlet property="picker" destination="Kb1-0x-AA9" id="jmt-F8-fVs"/>
                         <outlet property="pieChartView" destination="QBK-vf-KBm" id="Oqp-nW-gLS"/>
                         <outlet property="titleLabel" destination="hx0-Gm-tNJ" id="Sdw-Ag-Q5u"/>
-                        <outlet property="viewPicker" destination="vPR-oH-tBt" id="8sL-vb-ueH"/>
+                        <outlet property="viewPicker" destination="7LS-Ip-N2p" id="4yr-pa-Gx3"/>
                         <outlet property="yearLabel" destination="wMQ-hN-3IB" id="xLL-pS-NSF"/>
                     </connections>
                 </viewController>
@@ -1754,21 +1774,6 @@
                                     <action selector="showDatePicker:" destination="Iha-O5-bdz" eventType="touchUpInside" id="Vo8-01-tkl"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" alpha="0.75" tag="20" contentMode="scaleToFill" id="NoR-vK-6Ai">
-                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" id="xKP-xb-bnj">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Iha-O5-bdz" id="ub8-4Z-B0c"/>
-                                            <outlet property="delegate" destination="Iha-O5-bdz" id="XbJ-5Z-vaw"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7oK-9f-CTn">
                                 <rect key="frame" x="286" y="418" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1807,7 +1812,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view alpha="0.55000001192092896" contentMode="scaleToFill" id="LOB-UL-EcS">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="106"/>
+                                        <rect key="frame" x="0.0" y="55" width="320" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ubA-qt-Bj7">
@@ -1858,6 +1863,41 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="Mfd-74-tX1">
+                                <rect key="frame" x="0.0" y="-568" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view tag="20" contentMode="scaleToFill" id="NoR-vK-6Ai">
+                                        <rect key="frame" x="0.0" y="61" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <pickerView alpha="0.79999999999999982" contentMode="scaleToFill" id="xKP-xb-bnj">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Iha-O5-bdz" id="ub8-4Z-B0c"/>
+                                                    <outlet property="delegate" destination="Iha-O5-bdz" id="XbJ-5Z-vaw"/>
+                                                </connections>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I03-zq-UvN">
+                                        <rect key="frame" x="242" y="25" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" image="search_icon.png">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hiddenPicker:" destination="Iha-O5-bdz" eventType="touchUpInside" id="J4o-h0-h0P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1870,7 +1910,7 @@
                         <outlet property="hamburgerView" destination="4Ak-P4-7Ma" id="YME-v3-xS1"/>
                         <outlet property="pickerView" destination="xKP-xb-bnj" id="0FP-id-pRi"/>
                         <outlet property="titleLabel" destination="ANc-7l-Shh" id="Rqc-b5-vMN"/>
-                        <outlet property="viewPicker" destination="NoR-vK-6Ai" id="kqC-aK-91M"/>
+                        <outlet property="viewPicker" destination="Mfd-74-tX1" id="ze5-aV-DKR"/>
                         <outlet property="writeBtn" destination="7oK-9f-CTn" id="9ep-E5-pHs"/>
                         <outlet property="writeContainerView" destination="YJq-ay-GpP" id="9LG-Qs-aJa"/>
                     </connections>
@@ -3093,12 +3133,49 @@
     </scenes>
     <resources>
         <image name="average_bg.png" width="527" height="81"/>
+        <image name="average_bg.png" width="527" height="81"/>
         <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_foot.png" width="640" height="101"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
+        <image name="back_icon.png" width="68" height="80"/>
         <image name="back_icon.png" width="68" height="80"/>
         <image name="bar_ver.png" width="2" height="45"/>
         <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="bg.png" width="640" height="1136"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
+        <image name="board_profile.png" width="55" height="54"/>
         <image name="board_profile.png" width="55" height="54"/>
         <image name="group_edit_delete_icon.png" width="41" height="41"/>
+        <image name="group_edit_icon.png" width="51" height="51"/>
         <image name="group_edit_icon.png" width="51" height="51"/>
         <image name="group_joinedgroup.png" width="631" height="49"/>
         <image name="group_joinedgroup_bg.png" width="640" height="257"/>
@@ -3114,10 +3191,15 @@
         <image name="group_new_img1.png" width="94" height="94"/>
         <image name="group_new_img_bg.png" width="640" height="167"/>
         <image name="group_new_img_camera.png" width="95" height="71"/>
+        <image name="group_new_img_camera.png" width="95" height="71"/>
         <image name="group_recentgroup.png" width="631" height="49"/>
         <image name="invite_kakao.png" width="63" height="63"/>
         <image name="invite_message.png" width="63" height="63"/>
         <image name="join_female_check.png" width="40" height="47"/>
+        <image name="join_img.png" width="209" height="198"/>
+        <image name="join_img.png" width="209" height="198"/>
+        <image name="join_img.png" width="209" height="198"/>
+        <image name="join_img.png" width="209" height="198"/>
         <image name="join_img.png" width="209" height="198"/>
         <image name="join_img1.png" width="720" height="719"/>
         <image name="join_img2.png" width="720" height="720"/>
@@ -3125,20 +3207,36 @@
         <image name="join_img4.png" width="720" height="720"/>
         <image name="join_male_check.png" width="39" height="47"/>
         <image name="join_man.png" width="40" height="47"/>
+        <image name="join_man.png" width="40" height="47"/>
         <image name="join_man_check.png" width="40" height="47"/>
+        <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman_check.png" width="39" height="47"/>
         <image name="login.png" width="640" height="1136"/>
         <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
+        <image name="menu_bar.png" width="2" height="45"/>
         <image name="menu_group.png" width="106" height="138"/>
         <image name="menu_group2.png" width="104" height="137"/>
         <image name="menu_icon.png" width="80" height="81"/>
+        <image name="menu_icon.png" width="80" height="81"/>
         <image name="menu_mypage.png" width="112" height="139"/>
+        <image name="menu_mypage.png" width="112" height="139"/>
+        <image name="menu_ranking.png" width="111" height="141"/>
         <image name="menu_ranking.png" width="111" height="141"/>
         <image name="menu_record.png" width="106" height="140"/>
         <image name="menu_record2.png" width="104" height="139"/>
         <image name="mypage_a_icon.png" width="42" height="42"/>
+        <image name="mypage_a_icon.png" width="42" height="42"/>
         <image name="mypage_g_icon.png" width="41" height="42"/>
+        <image name="mypage_g_icon.png" width="41" height="42"/>
+        <image name="mypage_h_icon.png" width="41" height="42"/>
         <image name="mypage_h_icon.png" width="41" height="42"/>
         <image name="mypage_img_layout.png" width="640" height="415"/>
         <image name="mypage_myinfo1_ball.png" width="185" height="177"/>
@@ -3152,16 +3250,24 @@
         <image name="ranking_800icon_over.png" width="90" height="90"/>
         <image name="ranking_ballimg.png" width="42" height="43"/>
         <image name="ranking_flag_bg.png" width="104" height="104"/>
+        <image name="ranking_flag_bg.png" width="104" height="104"/>
         <image name="ranking_hander_r.png" width="61" height="66"/>
+        <image name="ranking_me_bg.png" width="640" height="108"/>
+        <image name="ranking_me_bg.png" width="640" height="108"/>
         <image name="ranking_me_bg.png" width="640" height="108"/>
         <image name="ranking_menu_group.png" width="131" height="101"/>
         <image name="ranking_menu_group_over.png" width="131" height="99"/>
         <image name="ranking_menu_mypage.png" width="93" height="101"/>
         <image name="ranking_menu_mypage_over.png" width="93" height="96"/>
+        <image name="ranking_menu_mypage_over.png" width="93" height="96"/>
         <image name="ranking_menu_record.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
+        <image name="ranking_menu_record_over.png" width="82" height="101"/>
+        <image name="ranking_top_bg.png" width="640" height="99"/>
         <image name="ranking_x.png" width="37" height="37"/>
         <image name="record_cal_next.png" width="21" height="27"/>
+        <image name="record_cal_next.png" width="21" height="27"/>
+        <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_calicon.png" width="86" height="89"/>
         <image name="record_chart_distribution.png" width="631" height="49"/>
@@ -3170,9 +3276,23 @@
         <image name="record_chart_topicon.png" width="40" height="37"/>
         <image name="record_charticon.png" width="86" height="89"/>
         <image name="record_footer_chart_bar.png" width="335" height="27"/>
+        <image name="record_footer_chart_bar.png" width="335" height="27"/>
+        <image name="record_footer_chart_bar.png" width="335" height="27"/>
+        <image name="record_footer_chart_bg.png" width="337" height="29"/>
+        <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_insert_groupicon.png" width="84" height="44"/>
         <image name="search_icon.png" width="69" height="72"/>
+        <image name="search_icon.png" width="69" height="72"/>
+        <image name="search_icon.png" width="69" height="72"/>
+        <image name="search_icon.png" width="69" height="72"/>
+        <image name="search_icon.png" width="69" height="72"/>
+        <image name="search_icon.png" width="69" height="72"/>
+        <image name="white_line.png" width="640" height="2"/>
+        <image name="white_line.png" width="640" height="2"/>
+        <image name="white_line.png" width="640" height="2"/>
+        <image name="white_line.png" width="640" height="2"/>
+        <image name="white_line.png" width="640" height="2"/>
         <image name="white_line.png" width="640" height="2"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

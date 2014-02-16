@@ -75,9 +75,12 @@
     
         [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
         NSDictionary *parameters = @{@"aidx": [NSString stringWithFormat:@"%d",myIdx],@"gname":groupName,@"gpwd":groupPassword};
+        NSInteger randomNum = arc4random()%10000000;
+        NSString *randomName = [NSString stringWithFormat:@"%d.PNG",randomNum];
+        NSLog(@"%@",randomName);
         AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             //do not put image inside parameters dictionary as I did, but append it!
-            [formData appendPartWithFileData:imageData name:@"grpPhoto" fileName:@"grpPhoto.png" mimeType:@"multipart/form-data"];
+            [formData appendPartWithFileData:imageData name:@"grpPhoto" fileName:randomName mimeType:@"multipart/form-data"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"%@",responseObject);
             NSString *result = responseObject[@"result"];

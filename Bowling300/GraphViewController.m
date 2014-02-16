@@ -141,8 +141,7 @@
     //    NSLog(@"search button clicked!");
     UIView *viewPicker = self.viewPicker;
     //    NSLog(@"pickerview : %@",pickerView);
-    
-    if(viewPicker.hidden == YES){
+
         // 숨겨진 상태인 경우 등장하기
         
         
@@ -150,7 +149,6 @@
         // 일단 처음에 보여질 칸부터 설정하기
         // 이걸로 시작지점 설정!!!
         [self.picker selectRow:(nowYear - START_YEAR) inComponent:0 animated:NO];
-        [viewPicker setHidden:NO];
         
         [UIView animateWithDuration:0.5
                               delay:0.0
@@ -158,39 +156,40 @@
                          animations:^
          {
              CGRect frame = viewPicker.frame;
-             frame.origin.y = 70;
+             frame.origin.y = 0;
              frame.origin.x = 0;
              viewPicker.frame = frame;
          }
                          completion:^(BOOL finished)
          {
-             [viewPicker setHidden:NO];
              
          }];
-    }
-    else{
-        // 다시 picker접는 경우
+  
         
-        [UIView animateWithDuration:0.5
-                              delay:0.0
-                            options: UIViewAnimationOptionCurveEaseOut
-                         animations:^
-         {
-             CGRect frame = viewPicker.frame;
-             frame.origin.y = -162;
-             frame.origin.x = 0;
-             viewPicker.frame = frame;
-         }
-                         completion:^(BOOL finished)
-         {
-             [viewPicker setHidden:YES];
-             
-         }];
-        self.yearLabel.text = [NSString stringWithFormat:@"%d",nowYear];
-        [self drawGraphsWithYear:nowYear];
-        
-    }
+   
 
+}
+
+-(IBAction)hiddenPicker:(id)sender{
+    // 다시 picker접는 경우
+    UIView *viewPicker = self.viewPicker;
+    
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^
+     {
+         CGRect frame = viewPicker.frame;
+         frame.origin.y = -568;
+         frame.origin.x = 0;
+         viewPicker.frame = frame;
+     }
+                     completion:^(BOOL finished)
+     {
+         
+     }];
+    self.yearLabel.text = [NSString stringWithFormat:@"%d",nowYear];
+    [self drawGraphsWithYear:nowYear];
 }
 - (IBAction)showYearPicker:(id)sender {
 }
@@ -233,18 +232,6 @@
     NSString *item = [self pickerView:pickerView titleForRow:row forComponent:component];
         nowYear = [item integerValue];
     
-}
-
-// 피커 뷰 안에 폰트 색 바꾸는거
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
-    label.textColor = [UIColor whiteColor];
-    
-    //TODO글씨 찐하게 글씨 크기도 조금 크게...
-    // 중앙정렬 등.. 수정하기!!
-    label.text = [NSString stringWithFormat:@" %d", row+1];
-    return label;    
 }
 
 

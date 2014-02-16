@@ -77,6 +77,10 @@
     
     [self getRankingFromServerWithType:GLOBAL_RANKING];
     self.myScoreLabel.font = [UIFont fontWithName:@"expansiva" size:17];
+    
+    
+    self.myImageView.layer.masksToBounds = YES;
+    self.myImageView.layer.cornerRadius = 20.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,12 +139,16 @@
             NSLog(@"result is success");
             [rankingDataArr addObjectsFromArray:responseObject[@"arr"]];
             
+            NSInteger *ranking = [responseObject[@"myrank"] integerValue];
+            [self showMyRankingWithRanking:ranking withProfileURL:responseObject[@"myproPhoto"]];
             // 이미지 다시 보여줌
             [self showRanking];
            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
         // 실패한경우...
         NSLog(@"Error: %@", error);
     }];
@@ -199,7 +207,16 @@
 - (IBAction)goMyPage:(id)sender {
     [self.tabBarController setSelectedIndex:3];
 }
-
+- (void)showMyRankingWithRanking:(NSInteger)inRanking withProfileURL:(NSString *)inProfileURL{
+    
+    //내 랭킹정보를 보여줍니다.
+    self.myRankingLabel.text = [NSString stringWithFormat:@"%d",inRanking];
+    
+    NSURL *proURL = [NSURL URLWithString:inProfileURL];
+    [self.myImageView setImageWithURL:proURL];
+    
+    
+}
 
 - (BOOL)showRanking{
     //이미지 보여주는 부분입니다~

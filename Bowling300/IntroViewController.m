@@ -53,6 +53,8 @@
         NSLog(@"JSON: %@", responseObject);
         NSLog(@"start date : %@ end date : %@",ad.rankingStartDate, ad.rankingEndDate);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
         NSLog(@"Error: %@", error);
     }];
     

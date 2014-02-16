@@ -37,6 +37,7 @@
     NSInteger nowYear;
     NSInteger nowMonth;
     BOOL hamHidden;
+    BOOL pickerHidden;
 }
 
 - (void)viewDidLoad
@@ -69,6 +70,7 @@
     
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
     hamHidden = YES;
+    pickerHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,16 +117,15 @@
 
 - (IBAction)showDatePicker:(id)sender {
 //    NSLog(@"search button clicked!");
-    UIView *pickerView = self.viewPicker;
+    UIView *nowView = self.viewPicker;
 //    NSLog(@"pickerview : %@",pickerView);
     
-    if(pickerView.hidden == YES){
         // 숨겨진 상태인 경우 등장하기
         
         // 일단 현재의 년도와 월 가져오기
         UIViewController *subViewController = (UIViewController *)self.childViewControllers[1];
-        UILabel *year = subViewController.view.subviews[2];
-        UILabel *month = subViewController.view.subviews[3];
+        UILabel *year = subViewController.view.subviews[1];
+        UILabel *month = subViewController.view.subviews[2];
         
         searchYear = year.text;
         searchMonth = month.text;
@@ -133,62 +134,59 @@
         // 이걸로 시작지점 설정!!!
         [self.pickerView selectRow:([searchYear integerValue] - START_YEAR) inComponent:0 animated:NO];
         [self.pickerView selectRow:([searchMonth integerValue] - 1) inComponent:1 animated:NO];
-        [pickerView setHidden:NO];
     
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options: UIViewAnimationOptionCurveEaseOut
                          animations:^
          {
-             CGRect frame = pickerView.frame;
-             frame.origin.y = 70;
+             CGRect frame = nowView.frame;
+             frame.origin.y = 0;
              frame.origin.x = 0;
-             pickerView.frame = frame;
+             nowView.frame = frame;
          }
                          completion:^(BOOL finished)
          {
-             [pickerView setHidden:NO];
-             
+             pickerHidden = NO;
          }];
-    }
-    else{
-        // 다시 picker접는 경우
-        // 달력에 바뀐 년도와 월을 전달한다.
-        NSMutableDictionary *sendUserInfo = [[NSMutableDictionary alloc]init];
-        [sendUserInfo setObject:searchYear forKey:@"year"];
-        [sendUserInfo setObject:searchMonth forKey:@"month"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"CalendarSearchNoti" object:nil userInfo:sendUserInfo];
 
-        [UIView animateWithDuration:0.5
-                              delay:0.0
-                            options: UIViewAnimationOptionCurveEaseOut
-                         animations:^
-         {
-             CGRect frame = pickerView.frame;
-             frame.origin.y = -162;
-             frame.origin.x = 0;
-             pickerView.frame = frame;
-         }
-                         completion:^(BOOL finished)
-         {
-             [pickerView setHidden:YES];
-             
-         }];
-        
-        
-        
-        // Notification을 보냅니다.
-        // Notification을 보냅니다. -> 일 데이터에 따른걸로
-        NSDictionary *sendDic = @{@"type":@"Monthly", @"averageScore":[NSString stringWithFormat:@"%d",100],
-                                  @"highScore":[NSString stringWithFormat:@"%d",170],
-                                  @"lowScore":[NSString stringWithFormat:@"%d",30]};
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"BarChartNoti"
-         object:nil userInfo:sendDic];
-
-    }
 }
 
+- (IBAction)hiddenPicker:(id)sender {
+    UIView *nowView = self.viewPicker;
+    // 다시 picker접는 경우
+    // 달력에 바뀐 년도와 월을 전달한다.
+    NSMutableDictionary *sendUserInfo = [[NSMutableDictionary alloc]init];
+    [sendUserInfo setObject:searchYear forKey:@"year"];
+    [sendUserInfo setObject:searchMonth forKey:@"month"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CalendarSearchNoti" object:nil userInfo:sendUserInfo];
+    
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^
+     {
+         CGRect frame = nowView.frame;
+         frame.origin.y = -568;
+         frame.origin.x = 0;
+         nowView.frame = frame;
+     }
+                     completion:^(BOOL finished)
+     {
+         pickerHidden = YES;
+     }];
+    
+    
+    
+    // Notification을 보냅니다.
+    // Notification을 보냅니다. -> 일 데이터에 따른걸로
+    NSDictionary *sendDic = @{@"type":@"Monthly", @"averageScore":[NSString stringWithFormat:@"%d",100],
+                              @"highScore":[NSString stringWithFormat:@"%d",170],
+                              @"lowScore":[NSString stringWithFormat:@"%d",30]};
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"BarChartNoti"
+     object:nil userInfo:sendDic];
+}
 
 
 
@@ -214,7 +212,7 @@
                      animations:^
      {
          CGRect frame = hamView.frame;
-         frame.origin.y = 70;
+         frame.origin.y = 0;
          frame.origin.x = 0;
          hamView.frame = frame;
      }
@@ -228,6 +226,12 @@
 
 - (IBAction)clickedHamListBtn:(id)sender {
     NSLog(@"Ham list button clicked!");
+    
+    // 햄버거 메뉴 숨기기
+    CGRect frame = self.hamburgerView.frame;
+    frame.origin.y = -568;
+    frame.origin.x = 0;
+    self.hamburgerView.frame = frame;
     UIButton *clickedButton = (UIButton *)sender;
     if(clickedButton == self.hamRankingBtn){
         [self.tabBarController setSelectedIndex:0];
@@ -240,13 +244,6 @@
         [self.tabBarController setSelectedIndex:3];
         
     }
-    
-    // 햄버거 메뉴 숨기기
-    CGRect frame = self.hamburgerView.frame;
-    frame.origin.y = -162;
-    frame.origin.x = 0;
-    self.hamburgerView.frame = frame;
-    [self.hamburgerView setHidden:YES];
     
     
 }

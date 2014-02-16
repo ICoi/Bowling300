@@ -13,8 +13,18 @@
 #import "Score.h"
 #import "AppDelegate.h"
 #import <AFNetworking.h>
-
+#import "WriteScoreView.h"
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/score"
+
+
+
+#define STARTX 27
+#define STARTY 249
+#define SCOREWIDTH 64
+#define SCOREHEIGHT 30
+#define MARGINWIDTH 7
+#define MARGINHIEGHT 3
+
 @interface WriteRecordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *handyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *scoreLabel;
@@ -70,20 +80,24 @@
 
 // 점수 적힌 버튼들 나열하는 함수
 - (void)drawScores{
+    NSInteger nowX = STARTX;
+    NSInteger nowY = STARTY;
     scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
     for(int i = 0 ; i < scores.gameCnt ; i++){
+        
+        if( (i %4) == 0){
+            nowX = STARTX;
+            nowY = STARTY + MARGINHIEGHT + SCOREHEIGHT;
+        }else{
+            nowX += (MARGINWIDTH + SCOREWIDTH);
+        }
         Score *one = [scores.todayScores objectAtIndex:i];
         
-        self.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.button.frame = CGRectMake(70*(i%4) + 30, 250 + 50 *(i/4), 50, 40);
-        self.button.backgroundColor = [UIColor yellowColor];
-        [self.button setTitle:[NSString stringWithFormat:@"%d",one.totalScore] forState:UIControlStateNormal];
-        [self.button addTarget:self action:@selector(pressScoreButton:) forControlEvents:UIControlEventTouchUpInside];
+        WriteScoreView *oneScore = [[WriteScoreView alloc]initWithFrame:CGRectMake(nowX, nowY, 64, 30)];
         
-        // 여기 Tag로 해당 것의rowID 전달.
-        self.button.tag = (10000 + one.rowID);
-        [self.view addSubview:self.button];
         
+        [oneScore setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:TRUE withColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]];
+        [self.view addSubview:oneScore];
         
     }
 }

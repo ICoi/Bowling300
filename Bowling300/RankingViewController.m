@@ -201,7 +201,7 @@
 }
 
 
-- (void)showRanking{
+- (BOOL)showRanking{
     //이미지 보여주는 부분입니다~
     NSDictionary *one;
     NSString *photourl;
@@ -210,6 +210,9 @@
     AFHTTPRequestOperation *postOperation;
     //일단 123 등 보여준다.
     
+    if(rankingDataArr.count == 0) {
+        return TRUE;
+    }
     
     //1등부터 일단 보여줌
     one = [rankingDataArr objectAtIndex:0];
@@ -220,6 +223,9 @@
     self.scoreFirst.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
     self.scoreFirst.font = [UIFont fontWithName:@"Expansiva" size:self.scoreFirst.font.pointSize];
     
+    if (rankingDataArr.count == 1) {
+        return TRUE;
+    }
     
     // 2등 보여줌
     one = [rankingDataArr objectAtIndex:1];
@@ -230,6 +236,9 @@
     self.scoreSecond.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
     self.scoreSecond.font = [UIFont fontWithName:@"Expansiva" size:self.scoreSecond.font.pointSize];
     
+    if (rankingDataArr.count == 2) {
+        return  TRUE;
+    }
     // 3등 보여줌
     one = [rankingDataArr objectAtIndex:2];
     self.nameThird.text = one[@"name"];
@@ -238,22 +247,21 @@
     [self.imageThird setImageWithURL:imageURL];
     self.scoreThrid.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
     self.scoreThrid.font = [UIFont fontWithName:@"Expansiva" size:self.scoreThrid.font.pointSize] ;
-
+    
+    if(rankingDataArr.count == 3){
+        return TRUE;
+    }
     
     //4등이후는 table이용해서 보여지도록 ㅋㅋ
     [self.rankingTable reloadData];
     
+    return TRUE;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // TODO
     //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
     if(selectedRanking == GLOBAL_RANKING){
-        /*
-        PlayListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PLAYLIST_CELL" forIndexPath:indexPath];
-        NSInteger musicID = [_DBManager getKeyValueInListWithKey:@"musicID" index:indexPath.row];
-        Music *music = [_DBManager getMusicWithMusicID:musicID];
-         */
         NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
         NSURL *imageURL = [NSURL URLWithString:one[@"proPhoto"]];
         

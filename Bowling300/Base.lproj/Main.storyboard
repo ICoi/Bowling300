@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bTq-eR-N12">
-                                                    <rect key="frame" x="51" y="9" width="40" height="40"/>
+                                                    <rect key="frame" x="52" y="10" width="37" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="98U-5Y-iYT">
@@ -225,16 +225,16 @@
                                     <action selector="showGroupRanking:" destination="drI-8x-Pyq" eventType="touchUpInside" id="1Uv-9q-AP5"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="y6K-CU-4CX">
-                                <rect key="frame" x="111" y="131" width="99" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_img.png" id="y6K-CU-4CX">
+                                <rect key="frame" x="113" y="132" width="98" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8TE-w8-E1g">
-                                <rect key="frame" x="20" y="199" width="68" height="71"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_img.png" id="8TE-w8-E1g">
+                                <rect key="frame" x="26" y="202" width="62" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="i9T-0V-ST2">
-                                <rect key="frame" x="230" y="199" width="70" height="71"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_img.png" id="i9T-0V-ST2">
+                                <rect key="frame" x="235" y="202" width="62" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_123_re.png" id="195-U8-RuK">
@@ -337,8 +337,8 @@
                                 <color key="textColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="PAs-L4-3CV">
-                                <rect key="frame" x="51" y="336" width="44" height="43"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_img.png" id="PAs-L4-3CV">
+                                <rect key="frame" x="52" y="337" width="42" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="141" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17z-Je-jJY">
@@ -355,14 +355,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="3DA-wM-6X2">
+                                <rect key="frame" x="51" y="336" width="44" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view hidden="YES" alpha="0.89999999999999991" contentMode="scaleToFill" id="lqF-Dg-fjK" customClass="InfoPopupView">
-                                <rect key="frame" x="26" y="137" width="271" height="301"/>
+                                <rect key="frame" x="26" y="133" width="271" height="301"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1SG-xv-fj2">
-                                        <rect key="frame" x="225" y="0.0" width="46" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kFx-Rn-Yhw">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="301"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Close">
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1SG-xv-fj2">
+                                        <rect key="frame" x="233" y="3" width="34" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Close" image="ranking_x.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -435,7 +443,7 @@
                                         <rect key="frame" x="67" y="14" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="g3f-je-wbB">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="g3f-je-wbB">
                                         <rect key="frame" x="67" y="14" width="140" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -494,6 +502,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" id="cxm-1I-g8H">
+                                <rect key="frame" x="-3" y="0.0" width="323" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gzd-AZ-nDe">
                                 <rect key="frame" x="84" y="415" width="43" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -904,8 +916,12 @@
                                     <action selector="goBack:" destination="TaC-bB-wGu" eventType="touchUpInside" id="XrY-ul-PwN"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vc7-uX-SlN">
+                                <rect key="frame" x="70" y="147" width="182" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="pXf-O0-6p3">
-                                <rect key="frame" x="60" y="136" width="199" height="197"/>
+                                <rect key="frame" x="2" y="136" width="318" height="207"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_g_icon.png" id="50V-gl-lxV">
@@ -968,10 +984,6 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bar.png" id="M6c-Gy-pcz">
                                 <rect key="frame" x="159" y="450" width="1" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vc7-uX-SlN">
-                                <rect key="frame" x="60" y="136" width="199" height="197"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1113,50 +1125,6 @@
                                     <action selector="showHamburgerList:" destination="KNE-7K-9YA" eventType="touchUpInside" id="FYT-pI-Iyl"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" alpha="0.5499999999999996" contentMode="scaleToFill" id="bIl-Ao-Dzq">
-                                <rect key="frame" x="1" y="-50" width="320" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ffx-V9-1ZA">
-                                        <rect key="frame" x="27" y="17" width="55" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_ranking.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="Epl-p7-Lko"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g1J-bA-hOr">
-                                        <rect key="frame" x="99" y="17" width="54" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_record.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="sEt-JZ-IE2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0vR-2O-MCr">
-                                        <rect key="frame" x="168" y="17" width="55" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_group2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MpL-f0-JZ0">
-                                        <rect key="frame" x="237" y="17" width="55" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_mypage.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="Dx4-lY-Klo"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3E6-7M-Vrw">
                                 <rect key="frame" x="241" y="21" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1167,6 +1135,57 @@
                                     <segue destination="ESB-Zv-Pnd" kind="push" id="Xy9-Yp-5so"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" id="Aua-su-BZx">
+                                <rect key="frame" x="1" y="-568" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view alpha="0.5499999999999996" contentMode="scaleToFill" id="bIl-Ao-Dzq">
+                                        <rect key="frame" x="0.0" y="69" width="320" height="106"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ffx-V9-1ZA">
+                                                <rect key="frame" x="27" y="17" width="55" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_ranking.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="Epl-p7-Lko"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g1J-bA-hOr">
+                                                <rect key="frame" x="99" y="17" width="54" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_record.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="sEt-JZ-IE2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0vR-2O-MCr">
+                                                <rect key="frame" x="168" y="17" width="55" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_group2.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MpL-f0-JZ0">
+                                                <rect key="frame" x="237" y="17" width="55" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_mypage.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="Dx4-lY-Klo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1179,7 +1198,7 @@
                         <outlet property="hamMyPageBtn" destination="MpL-f0-JZ0" id="g5L-cl-f1v"/>
                         <outlet property="hamRankingBtn" destination="Ffx-V9-1ZA" id="SZU-r6-Flp"/>
                         <outlet property="hamRecordBtn" destination="g1J-bA-hOr" id="IZ2-MX-ynx"/>
-                        <outlet property="hamburgerView" destination="bIl-Ao-Dzq" id="bZu-3F-6mw"/>
+                        <outlet property="hamburgerView" destination="Aua-su-BZx" id="g0c-O6-im7"/>
                         <outlet property="scrollViewBackground" destination="d0J-oD-CVu" id="fAj-Yg-aWk"/>
                         <outlet property="titleLabel" destination="mPx-sd-yL6" id="2WG-HN-M3t"/>
                     </connections>
@@ -1783,54 +1802,61 @@
                                     <action selector="showHamburgerList:" destination="Iha-O5-bdz" eventType="touchUpInside" id="7V3-Ro-Vqt"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" alpha="0.55000001192092896" contentMode="scaleToFill" id="LOB-UL-EcS">
-                                <rect key="frame" x="0.0" y="-50" width="320" height="106"/>
+                            <view contentMode="scaleToFill" id="4Ak-P4-7Ma">
+                                <rect key="frame" x="0.0" y="-568" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ubA-qt-Bj7">
-                                        <rect key="frame" x="27" y="17" width="55" height="72"/>
+                                    <view alpha="0.55000001192092896" contentMode="scaleToFill" id="LOB-UL-EcS">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_ranking.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="7EA-e4-531"/>
-                                            <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="HEG-3W-f8f"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z5x-rx-i5j">
-                                        <rect key="frame" x="99" y="17" width="54" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_record2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="QH8-hZ-dxy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Adk-rm-Zcy">
-                                        <rect key="frame" x="168" y="17" width="55" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_group.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="B6Y-Mh-uU6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Etz-Gd-LRA">
-                                        <rect key="frame" x="237" y="17" width="55" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="menu_mypage.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="JA4-Jm-quc"/>
-                                            <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="dcM-aj-r3l"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ubA-qt-Bj7">
+                                                <rect key="frame" x="27" y="17" width="55" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_ranking.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="7EA-e4-531"/>
+                                                    <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="HEG-3W-f8f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z5x-rx-i5j">
+                                                <rect key="frame" x="99" y="17" width="54" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_record2.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="QH8-hZ-dxy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Adk-rm-Zcy">
+                                                <rect key="frame" x="168" y="17" width="55" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_group.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="B6Y-Mh-uU6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Etz-Gd-LRA">
+                                                <rect key="frame" x="237" y="17" width="55" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="menu_mypage.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickedHamListBtn:" destination="KNE-7K-9YA" eventType="touchUpInside" id="JA4-Jm-quc"/>
+                                                    <action selector="clickedHamListBtn:" destination="Iha-O5-bdz" eventType="touchUpInside" id="dcM-aj-r3l"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1841,7 +1867,7 @@
                         <outlet property="hamGroupBtn" destination="Adk-rm-Zcy" id="LC3-XF-Dc7"/>
                         <outlet property="hamMyPageBtn" destination="Etz-Gd-LRA" id="S2S-ca-cCV"/>
                         <outlet property="hamRankingBtn" destination="ubA-qt-Bj7" id="1NJ-0b-LCd"/>
-                        <outlet property="hamburgerView" destination="LOB-UL-EcS" id="OF9-Wo-0wa"/>
+                        <outlet property="hamburgerView" destination="4Ak-P4-7Ma" id="YME-v3-xS1"/>
                         <outlet property="pickerView" destination="xKP-xb-bnj" id="0FP-id-pRi"/>
                         <outlet property="titleLabel" destination="ANc-7l-Shh" id="Rqc-b5-vMN"/>
                         <outlet property="viewPicker" destination="NoR-vK-6Ai" id="kqC-aK-91M"/>
@@ -2000,27 +2026,27 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="MIS-Cv-HdF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="MIS-Cv-HdF">
                                 <rect key="frame" x="90" y="63" width="143" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="iGC-75-FWe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="iGC-75-FWe">
                                 <rect key="frame" x="25" y="250" width="86" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="aAD-hU-b04">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="aAD-hU-b04">
                                 <rect key="frame" x="25" y="376" width="86" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="fc3-v2-Tv6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="fc3-v2-Tv6">
                                 <rect key="frame" x="119" y="376" width="86" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="pWH-dw-Q8g">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="pWH-dw-Q8g">
                                 <rect key="frame" x="218" y="250" width="86" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage_img_layout.png" id="hIG-zf-4do">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="hIG-zf-4do">
                                 <rect key="frame" x="119" y="250" width="86" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2370,7 +2396,7 @@
                                     <action selector="clickCamera:" destination="W9S-Ib-Upb" eventType="touchUpInside" id="CQK-xf-bUu"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hDN-b7-dbT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_img.png" id="hDN-b7-dbT">
                                 <rect key="frame" x="99" y="342" width="106" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2814,7 +2840,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="Uyn-72-ZtE">
-                                <rect key="frame" x="-4" y="-1" width="324" height="569"/>
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="569"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_foot.png" id="C4O-Xn-iPv">
@@ -2941,7 +2967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RvD-ud-ObF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3633" y="-677"/>
+            <point key="canvasLocation" x="2538" y="505"/>
         </scene>
         <!--Tab Bar Controller - RankingViewController-->
         <scene sceneID="JCp-fx-TwF">
@@ -3092,15 +3118,17 @@
         <image name="invite_kakao.png" width="63" height="63"/>
         <image name="invite_message.png" width="63" height="63"/>
         <image name="join_female_check.png" width="40" height="47"/>
-        <image name="join_img1.png" width="80" height="80"/>
-        <image name="join_img2.png" width="79" height="80"/>
-        <image name="join_img3.png" width="80" height="80"/>
-        <image name="join_img4.png" width="80" height="80"/>
+        <image name="join_img.png" width="209" height="198"/>
+        <image name="join_img1.png" width="720" height="719"/>
+        <image name="join_img2.png" width="720" height="720"/>
+        <image name="join_img3.png" width="720" height="720"/>
+        <image name="join_img4.png" width="720" height="720"/>
         <image name="join_male_check.png" width="39" height="47"/>
         <image name="join_man.png" width="40" height="47"/>
         <image name="join_man_check.png" width="40" height="47"/>
         <image name="join_woman.png" width="39" height="47"/>
         <image name="join_woman_check.png" width="39" height="47"/>
+        <image name="login.png" width="640" height="1136"/>
         <image name="menu_bar.png" width="2" height="45"/>
         <image name="menu_group.png" width="106" height="138"/>
         <image name="menu_group2.png" width="104" height="137"/>
@@ -3112,7 +3140,7 @@
         <image name="mypage_a_icon.png" width="42" height="42"/>
         <image name="mypage_g_icon.png" width="41" height="42"/>
         <image name="mypage_h_icon.png" width="41" height="42"/>
-        <image name="mypage_img_layout.png" width="390" height="391"/>
+        <image name="mypage_img_layout.png" width="640" height="415"/>
         <image name="mypage_myinfo1_ball.png" width="185" height="177"/>
         <image name="mypage_myinfo1_ball1.png" width="81" height="81"/>
         <image name="mypage_myinfo1_ball2.png" width="81" height="81"/>
@@ -3132,6 +3160,7 @@
         <image name="ranking_menu_mypage_over.png" width="93" height="96"/>
         <image name="ranking_menu_record.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
+        <image name="ranking_x.png" width="37" height="37"/>
         <image name="record_cal_next.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_calicon.png" width="86" height="89"/>

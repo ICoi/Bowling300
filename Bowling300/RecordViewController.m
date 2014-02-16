@@ -36,6 +36,7 @@
     NSInteger nowDate;
     NSInteger nowYear;
     NSInteger nowMonth;
+    BOOL hamHidden;
 }
 
 - (void)viewDidLoad
@@ -67,6 +68,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
+    hamHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -205,9 +207,6 @@
 
 - (IBAction)showHamburgerList:(id)sender {
     UIView *hamView = self.hamburgerView;
-    // 숨겨진 상태인 경우 등장하기
-    
-    [hamView setHidden:NO];
     
     [UIView animateWithDuration:0.5
                           delay:0.0
@@ -221,7 +220,7 @@
      }
                      completion:^(BOOL finished)
      {
-         [hamView setHidden:NO];
+         hamHidden = NO;
          
      }];
     
@@ -250,6 +249,31 @@
     [self.hamburgerView setHidden:YES];
     
     
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    if(!hamHidden){
+        NSLog(@"Ham");
+        //햄버거 뷰 숨기기
+        UIView *hamView = self.hamburgerView;
+        
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options:  UIViewAnimationOptionCurveEaseIn
+                         animations:^
+         {
+             CGRect frame = hamView.frame;
+             frame.origin.y = -568;
+             frame.origin.x = 0;
+             hamView.frame = frame;
+         }
+                         completion:^(BOOL finished)
+         {
+             hamHidden = YES;
+             
+         }];
+    }
+    NSLog(@"Touched!!");
 }
 
 

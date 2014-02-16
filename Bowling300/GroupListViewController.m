@@ -29,6 +29,7 @@
     DBGroupManager *dbManager;
     NSArray *groups;
     NSInteger groupCnt;
+    BOOL hamHidden;
 }
 
 
@@ -61,7 +62,7 @@
     
     [self.tabBarController.tabBar setHidden:YES];
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
-    
+    hamHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,20 +83,35 @@
     self.addGroupBtn.frame = CGRectMake(GROUPWIDTH* groupCnt, 20, 90, 90);
     
     self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
-    /*
-    self.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.button.frame = CGRectMake(70*(i%4) + 30, 250 + 50 *(i/4), 50, 40);
-    self.button.backgroundColor = [UIColor yellowColor];
-    [self.button setTitle:[NSString stringWithFormat:@"%d",one.totalScore] forState:UIControlStateNormal];
-    [self.button addTarget:self action:@selector(pressScoreButton:) forControlEvents:UIControlEventTouchUpInside];
-     */
-    
+   
     
 }
 
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    if(!hamHidden){
+        NSLog(@"Ham");
+        //햄버거 뷰 숨기기
+        UIView *hamView = self.hamburgerView;
+        
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options:  UIViewAnimationOptionCurveEaseIn
+                         animations:^
+         {
+             CGRect frame = hamView.frame;
+             frame.origin.y = -568;
+             frame.origin.x = 0;
+             hamView.frame = frame;
+         }
+                         completion:^(BOOL finished)
+         {
+             [hamView setHidden:NO];
+             hamHidden = YES;
+             
+         }];
+    }
     NSLog(@"Touched!!");
 }
 - (IBAction)goBack:(id)sender {
@@ -106,23 +122,21 @@
 
 - (IBAction)showHamburgerList:(id)sender {
     UIView *hamView = self.hamburgerView;
-    // 숨겨진 상태인 경우 등장하기
-    
-    [hamView setHidden:NO];
-    
+    // 햄버거 버튼 보여주기
     [UIView animateWithDuration:0.5
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^
      {
          CGRect frame = hamView.frame;
-         frame.origin.y = 70;
+         frame.origin.y = 0;
          frame.origin.x = 0;
          hamView.frame = frame;
      }
                      completion:^(BOOL finished)
      {
          [hamView setHidden:NO];
+         hamHidden = NO;
          
      }];
     

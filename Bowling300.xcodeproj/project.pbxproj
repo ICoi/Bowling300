@@ -17,6 +17,17 @@
 		008B8FDD18AB525700372F04 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008B8FD618AB525700372F04 /* Roboto-Medium.ttf */; };
 		008B8FDE18AB525700372F04 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008B8FD718AB525700372F04 /* Roboto-Regular.ttf */; };
 		008B8FDF18AB525700372F04 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008B8FD818AB525700372F04 /* Roboto-Thin.ttf */; };
+		0090CDCD18B0622200CC4435 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDCC18B0622200CC4435 /* login.png */; };
+		0090CDD018B070FF00CC4435 /* WriteScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0090CDCF18B070FF00CC4435 /* WriteScoreView.m */; };
+		0090CDDC18B08CC300CC4435 /* flag_america.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD318B08CC300CC4435 /* flag_america.png */; };
+		0090CDDD18B08CC300CC4435 /* flag_china.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD418B08CC300CC4435 /* flag_china.png */; };
+		0090CDDE18B08CC300CC4435 /* flag_japan.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD518B08CC300CC4435 /* flag_japan.png */; };
+		0090CDDF18B08CC300CC4435 /* flag_korea.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD618B08CC300CC4435 /* flag_korea.png */; };
+		0090CDE018B08CC300CC4435 /* join_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD718B08CC300CC4435 /* join_img.png */; };
+		0090CDE118B08CC300CC4435 /* ranking_myinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD818B08CC300CC4435 /* ranking_myinfo.png */; };
+		0090CDE218B08CC300CC4435 /* ranking_x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDD918B08CC300CC4435 /* ranking_x.png */; };
+		0090CDE318B08CC300CC4435 /* score_avr_bg_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDDA18B08CC300CC4435 /* score_avr_bg_line.png */; };
+		0090CDE418B08CC300CC4435 /* score_avr_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDDB18B08CC300CC4435 /* score_avr_bg1.png */; };
 		009807AF18A31EDA0012ED66 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807AE18A31EDA0012ED66 /* Group.m */; };
 		009807B618A35BD10012ED66 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807B518A35BD10012ED66 /* JoinViewController.m */; };
 		009CCB481890E096006DAB6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB471890E096006DAB6F /* Foundation.framework */; };
@@ -202,6 +213,18 @@
 		008B8FD618AB525700372F04 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		008B8FD718AB525700372F04 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		008B8FD818AB525700372F04 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		0090CDCC18B0622200CC4435 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		0090CDCE18B070FF00CC4435 /* WriteScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteScoreView.h; sourceTree = "<group>"; };
+		0090CDCF18B070FF00CC4435 /* WriteScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteScoreView.m; sourceTree = "<group>"; };
+		0090CDD318B08CC300CC4435 /* flag_america.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag_america.png; sourceTree = "<group>"; };
+		0090CDD418B08CC300CC4435 /* flag_china.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag_china.png; sourceTree = "<group>"; };
+		0090CDD518B08CC300CC4435 /* flag_japan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag_japan.png; sourceTree = "<group>"; };
+		0090CDD618B08CC300CC4435 /* flag_korea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag_korea.png; sourceTree = "<group>"; };
+		0090CDD718B08CC300CC4435 /* join_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = join_img.png; sourceTree = "<group>"; };
+		0090CDD818B08CC300CC4435 /* ranking_myinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_myinfo.png; sourceTree = "<group>"; };
+		0090CDD918B08CC300CC4435 /* ranking_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_x.png; sourceTree = "<group>"; };
+		0090CDDA18B08CC300CC4435 /* score_avr_bg_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score_avr_bg_line.png; sourceTree = "<group>"; };
+		0090CDDB18B08CC300CC4435 /* score_avr_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score_avr_bg1.png; sourceTree = "<group>"; };
 		009807AD18A31EDA0012ED66 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		009807AE18A31EDA0012ED66 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		009807B418A35BD10012ED66 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
@@ -431,6 +454,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0090CDCB18B0620700CC4435 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				0090CDCC18B0622200CC4435 /* login.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		009807B318A35BC10012ED66 /* Join */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +510,7 @@
 		009CCB4D1890E096006DAB6F /* Bowling300 */ = {
 			isa = PBXGroup;
 			children = (
+				0090CDCB18B0620700CC4435 /* Image */,
 				00A483B218AC8CAF006B6707 /* Custom */,
 				00A4829218AC56A1006B6707 /* CutImage */,
 				00A4829118AC557D006B6707 /* Cell */,
@@ -628,6 +660,15 @@
 		00A4829218AC56A1006B6707 /* CutImage */ = {
 			isa = PBXGroup;
 			children = (
+				0090CDD318B08CC300CC4435 /* flag_america.png */,
+				0090CDD418B08CC300CC4435 /* flag_china.png */,
+				0090CDD518B08CC300CC4435 /* flag_japan.png */,
+				0090CDD618B08CC300CC4435 /* flag_korea.png */,
+				0090CDD718B08CC300CC4435 /* join_img.png */,
+				0090CDD818B08CC300CC4435 /* ranking_myinfo.png */,
+				0090CDD918B08CC300CC4435 /* ranking_x.png */,
+				0090CDDA18B08CC300CC4435 /* score_avr_bg_line.png */,
+				0090CDDB18B08CC300CC4435 /* score_avr_bg1.png */,
 				00A4829318AC56A1006B6707 /* average_bg.png */,
 				00A9B23418AE2A4300EAF308 /* bg.png */,
 				00A4829418AC56A1006B6707 /* back_foot.png */,
@@ -743,6 +784,8 @@
 				00A483B718AC93D9006B6707 /* InfoPopupView.m */,
 				00A483C118ACBBBF006B6707 /* GroupView.h */,
 				00A483C218ACBBBF006B6707 /* GroupView.m */,
+				0090CDCE18B070FF00CC4435 /* WriteScoreView.h */,
+				0090CDCF18B070FF00CC4435 /* WriteScoreView.m */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -940,8 +983,10 @@
 				00A4833718AC56A1006B6707 /* ranking_123_re.png in Resources */,
 				00A482F618AC56A1006B6707 /* average_bg.png in Resources */,
 				00A4830218AC56A1006B6707 /* group_joinedgroup.png in Resources */,
+				0090CDE418B08CC300CC4435 /* score_avr_bg1.png in Resources */,
 				00A4831F18AC56A1006B6707 /* join_woman.png in Resources */,
 				00A4834718AC56A1006B6707 /* record_ballicon.png in Resources */,
+				0090CDE218B08CC300CC4435 /* ranking_x.png in Resources */,
 				00A4830718AC56A1006B6707 /* group_league_left.png in Resources */,
 				00A4834118AC56A1006B6707 /* ranking_menu_group.png in Resources */,
 				00A4833018AC56A1006B6707 /* mypage_myinfo1_ball1.png in Resources */,
@@ -978,9 +1023,12 @@
 				00A4831418AC56A1006B6707 /* group_new_img_camera.png in Resources */,
 				00A4835018AC56A1006B6707 /* record_charticon.png in Resources */,
 				00A4830818AC56A1006B6707 /* group_league_para.png in Resources */,
+				0090CDE318B08CC300CC4435 /* score_avr_bg_line.png in Resources */,
 				00A4833518AC56A1006B6707 /* profile_camera.png in Resources */,
 				00A4832118AC56A1006B6707 /* menu_bar.png in Resources */,
 				00A4834C18AC56A1006B6707 /* record_chart_distribution.png in Resources */,
+				0090CDCD18B0622200CC4435 /* login.png in Resources */,
+				0090CDE118B08CC300CC4435 /* ranking_myinfo.png in Resources */,
 				00A4831E18AC56A1006B6707 /* join_man.png in Resources */,
 				00A4832818AC56A1006B6707 /* menu_ranking2.png in Resources */,
 				00EFB2C818A4953500B090B7 /* db.sqlite in Resources */,
@@ -992,8 +1040,10 @@
 				00A4830118AC56A1006B6707 /* group_img_edit.png in Resources */,
 				00A482F918AC56A1006B6707 /* back_icon.png in Resources */,
 				00A482F718AC56A1006B6707 /* back_foot.png in Resources */,
+				0090CDDE18B08CC300CC4435 /* flag_japan.png in Resources */,
 				00A482FA18AC56A1006B6707 /* bar_ver.png in Resources */,
 				00A4832F18AC56A1006B6707 /* mypage_myinfo1_ball.png in Resources */,
+				0090CDDF18B08CC300CC4435 /* flag_korea.png in Resources */,
 				00A4832C18AC56A1006B6707 /* mypage_g_icon.png in Resources */,
 				00A4832218AC56A1006B6707 /* menu_group.png in Resources */,
 				00A4831818AC56A1006B6707 /* join_female_check.png in Resources */,
@@ -1010,6 +1060,7 @@
 				00A4834218AC56A1006B6707 /* ranking_menu_group_over.png in Resources */,
 				00A4833B18AC56A1006B6707 /* ranking_800icon_over.png in Resources */,
 				00A4833118AC56A1006B6707 /* mypage_myinfo1_ball2.png in Resources */,
+				0090CDDD18B08CC300CC4435 /* flag_china.png in Resources */,
 				00A4831D18AC56A1006B6707 /* join_male_check.png in Resources */,
 				00A4833E18AC56A1006B6707 /* ranking_hander_l.png in Resources */,
 				00A4835318AC56A1006B6707 /* record_footer_chart_bg.png in Resources */,
@@ -1018,6 +1069,7 @@
 				008B8FDD18AB525700372F04 /* Roboto-Medium.ttf in Resources */,
 				00A4830E18AC56A1006B6707 /* group_new_img.png in Resources */,
 				00A4830618AC56A1006B6707 /* group_leage_cloud.png in Resources */,
+				0090CDDC18B08CC300CC4435 /* flag_america.png in Resources */,
 				00A9B23518AE2A4300EAF308 /* bg.png in Resources */,
 				009CCB521890E096006DAB6F /* InfoPlist.strings in Resources */,
 				00A4832018AC56A1006B6707 /* logo.png in Resources */,
@@ -1030,6 +1082,7 @@
 				008B8FDF18AB525700372F04 /* Roboto-Thin.ttf in Resources */,
 				00A4833218AC56A1006B6707 /* mypage_myinfo1_ball3.png in Resources */,
 				00A4830418AC56A1006B6707 /* group_layout.png in Resources */,
+				0090CDE018B08CC300CC4435 /* join_img.png in Resources */,
 				009CCB5B1890E096006DAB6F /* Main.storyboard in Resources */,
 				00A4831918AC56A1006B6707 /* join_img1.png in Resources */,
 				00A483C018ACBA10006B6707 /* record_chart_graphline.png in Resources */,
@@ -1132,6 +1185,7 @@
 				009CCC0C1890F188006DAB6F /* GroupListViewController.m in Sources */,
 				7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */,
 				009CCC15189100A4006DAB6F /* GroupLeagueViewController.m in Sources */,
+				0090CDD018B070FF00CC4435 /* WriteScoreView.m in Sources */,
 				009807AF18A31EDA0012ED66 /* Group.m in Sources */,
 				00A483B118AC5FB5006B6707 /* CalendarDayCell.m in Sources */,
 				7049E39F18919DA500DF1063 /* DB.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "GroupLeagueViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AirBalloonView.h"
 @interface GroupLeagueViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;
 @property (nonatomic, strong) UIView *testView;
@@ -38,7 +39,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.tabBarController.tabBar setHidden:YES];
-
+    AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:CGRectMake(100, 50, 60, 90)];
+    [self.view addSubview:one];
+    [self.view reloadInputViews];
     
 }
 - (void)didReceiveMemoryWarning

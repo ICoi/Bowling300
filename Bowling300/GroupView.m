@@ -8,6 +8,7 @@
 
 #import "GroupView.h"
 #import <UIImageView+AFNetworking.h>
+#import "Group.h"
 @interface GroupView()
 
 @end
@@ -17,8 +18,11 @@
     UIImageView *backgroundImageView;
     UIImageView *groupImageView;
     UIImageView *labelImageView;
+    UIImageView *editImageView;
     UILabel *groupNameLabel;
     UILabel *dateLabel;
+    
+    BOOL nowEditMode;
 }
 
 
@@ -53,20 +57,27 @@
         dateLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
         dateLabel.text = @"2014.01.01";
         
+        UIImage *editImage= [ UIImage imageNamed:@"group_edit_delete_icon.png"];
+        editImageView = [[UIImageView alloc]initWithImage:editImage];
+        [editImageView setHidden:YES];
         
+        nowEditMode = NO;
         
         [self addSubview:groupImageView];
         [self addSubview:labelImageView];
         [self addSubview:groupNameLabel];
         [self addSubview:dateLabel];
         [self addSubview:backgroundImageView];
+        [self addSubview:editImageView];
     }
     return self;
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"touches??");
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu" message:@"What do you want to do?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Represent Group",@"Setting", nil];
-    [alert show];
+    if(nowEditMode){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu" message:@"What do you want to do?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Represent   Group",@"Setting", nil];
+        [alert show];
+    }
 }
 
 - (void)setValueWithGroupIdx:(NSInteger)idx withGroupName:(NSString *)inGroupName withDate:(NSString *)inDate withImageLink:(NSString *)inImageLink{
@@ -75,6 +86,17 @@
     dateLabel.text = inDate;
     NSURL *imageURL = [NSURL URLWithString:inImageLink];
     [groupImageView setImageWithURL:imageURL];
+}
+- (void)setEditMode:(BOOL)ck{
+    if(ck){
+        NSLog(@"EditMode");
+        [editImageView setHidden:NO];
+        nowEditMode = YES;
+    } else{
+        NSLog(@"EditMode end");
+        [editImageView setHidden:YES];
+        nowEditMode = NO;
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.

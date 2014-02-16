@@ -29,7 +29,9 @@
     DBGroupManager *dbManager;
     NSArray *groups;
     NSInteger groupCnt;
+    NSMutableArray *groupViews;                // group view들 담아놓는거
     BOOL hamHidden;
+    BOOL nowEditMode;
 }
 
 
@@ -49,6 +51,7 @@
     
     //그룹 리스트 초기화
     groups = [dbManager showAllGroups];
+    groupViews = [[NSMutableArray alloc]init];
     groupCnt = [groups count];
     // scrollView
     [self.groupListScrollView setScrollEnabled:YES];
@@ -66,6 +69,7 @@
     [self.tabBarController.tabBar setHidden:YES];
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
     hamHidden = YES;
+    nowEditMode = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,12 +79,15 @@
 }
 
 - (void)showGroupList{
+    groupViews = [[NSMutableArray alloc]init];
     for(int i = 0 ; i < groupCnt ; i++){
         
         Group *nowGroup = [groups objectAtIndex:i];
         GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(GROUPWIDTH * i, 20, 90, 90)];
         [self.groupListScrollView addSubview:gv];
         [self.groupListScrollView reloadInputViews];
+        
+        [groupViews addObject:gv];
     }
     
     self.addGroupBtn.frame = CGRectMake(GROUPWIDTH* groupCnt, 20, 90, 90);
@@ -90,6 +97,21 @@
         self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
     }
     
+}
+- (IBAction)goEditMode:(id)sender {
+    if(nowEditMode == NO){
+        for(int i = 0 ; i < groupViews.count; i++){
+            GroupView *one = [groupViews objectAtIndex:i];
+            [one setEditMode:YES];
+        }
+        nowEditMode = YES;
+    }else{
+        for(int i = 0 ; i < groupViews.count ; i++){
+            GroupView *one = [groupViews objectAtIndex:i];
+            [one setEditMode:NO];
+        }
+        nowEditMode = NO;
+    }
 }
 
 

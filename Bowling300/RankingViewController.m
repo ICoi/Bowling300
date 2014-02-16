@@ -49,6 +49,7 @@
 
 @property (weak, nonatomic) IBOutlet InfoPopupView *popUpView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *background_123_imageView;
 
 
 @end
@@ -158,8 +159,14 @@
         UIImage *image = [UIImage imageNamed:@"bg.png"];
         self.backgroundImage.image = image;
     
+        image = [UIImage imageNamed:@"ranking_123_re.png"];
+        self.background_123_imageView.image = image;
         selectedRanking = GLOBAL_RANKING;
         [self.rankingTable reloadData];
+        
+        [self.globalRankingBtn setAlpha:0.9];
+        [self.localRankingBtn setAlpha:0.6];
+        [self.groupRankingBtn setAlpha:0.6];
         // TODO
         // 여기서 table reload도 해야하고 사진도 바꿔야하고 할거 많음..
     }
@@ -169,8 +176,15 @@
         UIImage *image = [UIImage imageNamed:@"ranking_local_bg.png"];
         self.backgroundImage.image = image;
         
+        image = [UIImage imageNamed:@"ranking_123_bg2.png"];
+        self.background_123_imageView.image = image;
+        
         selectedRanking = LOCAL_RANKING;
         [self.rankingTable reloadData];
+        
+        [self.globalRankingBtn setAlpha:0.6];
+        [self.localRankingBtn setAlpha:0.9];
+        [self.groupRankingBtn setAlpha:0.6];
         // TODO
         // 여기서 table reload도 해야하고 사진도 바꾸어ㅑ하고 할거 많음
     }
@@ -181,8 +195,15 @@
         UIImage *image = [UIImage imageNamed:@"ranking_group_bg.png"];
         self.backgroundImage.image = image;
      
+        image = [UIImage imageNamed:@"ranking_123_bg3.png"];
+        self.background_123_imageView.image = image;
+        
         selectedRanking = GROUP_RANKING;
         [self.rankingTable reloadData];
+        
+        [self.globalRankingBtn setAlpha:0.6];
+        [self.localRankingBtn setAlpha:0.6];
+        [self.groupRankingBtn setAlpha:0.9];
         // TODO
         // 여기서 table reload도 해야하고 사진도 바꿔야됨
     }

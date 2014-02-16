@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0012E81B18B0CB5D000FB3FA /* AirBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */; };
 		00406A4618AA45CD004AA546 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00406A4518AA45CD004AA546 /* LoginViewController.m */; };
 		004448911892027200ED684E /* BarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004448901892027200ED684E /* BarGraphViewController.m */; };
 		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
@@ -123,7 +124,6 @@
 		00A4833318AC56A1006B6707 /* mypage_myinfo1_ball4.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D018AC56A1006B6707 /* mypage_myinfo1_ball4.png */; };
 		00A4833418AC56A1006B6707 /* mypage_myinfo1_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D118AC56A1006B6707 /* mypage_myinfo1_profile.png */; };
 		00A4833518AC56A1006B6707 /* profile_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D218AC56A1006B6707 /* profile_camera.png */; };
-		00A4833618AC56A1006B6707 /* ranking_123.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D318AC56A1006B6707 /* ranking_123.png */; };
 		00A4833718AC56A1006B6707 /* ranking_123_re.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D418AC56A1006B6707 /* ranking_123_re.png */; };
 		00A4833818AC56A1006B6707 /* ranking_300icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D518AC56A1006B6707 /* ranking_300icon.png */; };
 		00A4833918AC56A1006B6707 /* ranking_300icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A482D618AC56A1006B6707 /* ranking_300icon_over.png */; };
@@ -200,6 +200,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0012E81918B0CB5D000FB3FA /* AirBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirBalloonView.h; sourceTree = "<group>"; };
+		0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirBalloonView.m; sourceTree = "<group>"; };
 		00406A4418AA45CD004AA546 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		00406A4518AA45CD004AA546 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0044488F1892027200ED684E /* BarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphViewController.h; sourceTree = "<group>"; };
@@ -339,7 +341,6 @@
 		00A482D018AC56A1006B6707 /* mypage_myinfo1_ball4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypage_myinfo1_ball4.png; sourceTree = "<group>"; };
 		00A482D118AC56A1006B6707 /* mypage_myinfo1_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypage_myinfo1_profile.png; sourceTree = "<group>"; };
 		00A482D218AC56A1006B6707 /* profile_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_camera.png; sourceTree = "<group>"; };
-		00A482D318AC56A1006B6707 /* ranking_123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_123.png; sourceTree = "<group>"; };
 		00A482D418AC56A1006B6707 /* ranking_123_re.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_123_re.png; sourceTree = "<group>"; };
 		00A482D518AC56A1006B6707 /* ranking_300icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_300icon.png; sourceTree = "<group>"; };
 		00A482D618AC56A1006B6707 /* ranking_300icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_300icon_over.png; sourceTree = "<group>"; };
@@ -734,7 +735,6 @@
 				00A482D018AC56A1006B6707 /* mypage_myinfo1_ball4.png */,
 				00A482D118AC56A1006B6707 /* mypage_myinfo1_profile.png */,
 				00A482D218AC56A1006B6707 /* profile_camera.png */,
-				00A482D318AC56A1006B6707 /* ranking_123.png */,
 				00A482D418AC56A1006B6707 /* ranking_123_re.png */,
 				00A482D518AC56A1006B6707 /* ranking_300icon.png */,
 				00A482D618AC56A1006B6707 /* ranking_300icon_over.png */,
@@ -786,6 +786,8 @@
 				00A483C218ACBBBF006B6707 /* GroupView.m */,
 				0090CDCE18B070FF00CC4435 /* WriteScoreView.h */,
 				0090CDCF18B070FF00CC4435 /* WriteScoreView.m */,
+				0012E81918B0CB5D000FB3FA /* AirBalloonView.h */,
+				0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -1000,7 +1002,6 @@
 				00A4832D18AC56A1006B6707 /* mypage_h_icon.png in Resources */,
 				00A4833C18AC56A1006B6707 /* ranking_ballimg.png in Resources */,
 				00A4835618AC56A1006B6707 /* record_insert_plusicon.png in Resources */,
-				00A4833618AC56A1006B6707 /* ranking_123.png in Resources */,
 				008B8FDA18AB525700372F04 /* Roboto-Bold.ttf in Resources */,
 				00A483BD18ACBA10006B6707 /* ranking_123_bg2.png in Resources */,
 				00A4831518AC56A1006B6707 /* group_recentgroup.png in Resources */,
@@ -1189,6 +1190,7 @@
 				009807AF18A31EDA0012ED66 /* Group.m in Sources */,
 				00A483B118AC5FB5006B6707 /* CalendarDayCell.m in Sources */,
 				7049E39F18919DA500DF1063 /* DB.m in Sources */,
+				0012E81B18B0CB5D000FB3FA /* AirBalloonView.m in Sources */,
 				009807B618A35BD10012ED66 /* JoinViewController.m in Sources */,
 				00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */,
 			);

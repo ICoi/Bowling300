@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/DBGraphManager.m"
-            timestampString = "413799880.413026"
+            timestampString = "414237645.148405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-arrayForBarLineGraphWithYear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/DBGraphManager.m"
-            timestampString = "413799883.077479"
+            timestampString = "414237784.387237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-arrayForBarLineGraphWithYear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -818,11 +818,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/GroupListViewController.m"
-            timestampString = "414213953.588038"
+            timestampString = "414234668.25585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-showGroupList"
             landmarkType = "5">
          </BreakpointContent>
@@ -866,11 +866,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/WriteRecordViewController.m"
-            timestampString = "414219457.782519"
+            timestampString = "414236683.804341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "-clickSaveBtn:"
             landmarkType = "5">
          </BreakpointContent>
@@ -882,11 +882,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/WriteRecordViewController.m"
-            timestampString = "414219457.782519"
+            timestampString = "414236683.804341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-clickSaveBtn:"
             landmarkType = "5">
          </BreakpointContent>
@@ -898,11 +898,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/WriteRecordViewController.m"
-            timestampString = "414219457.782519"
+            timestampString = "414236683.804341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-clickSaveBtn:"
             landmarkType = "5">
          </BreakpointContent>
@@ -951,14 +951,14 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
             endingLineNumber = "140"
-            landmarkName = "-drawRect:"
+            landmarkName = "-setDataForBarLineCharWithGroupNum:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/BarLineChart.m"
@@ -967,7 +967,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
-            landmarkName = "-setDataForBarLineCharWithGroupNum:"
+            landmarkName = "-setDataForBarLineCharWithYear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1192,6 +1192,54 @@
             startingLineNumber = "140"
             endingLineNumber = "140"
             landmarkName = "-showPickerView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bowling300/BarLineChart.m"
+            timestampString = "414237264.927937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-setDataForBarLineCharWithYear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bowling300/BarLineChart.m"
+            timestampString = "414237554.6867"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-drawRect:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bowling300/DBGraphManager.m"
+            timestampString = "414237819.366696"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-arrayForBarLineGraphWithYear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

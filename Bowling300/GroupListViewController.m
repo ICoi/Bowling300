@@ -53,8 +53,11 @@
     // scrollView
     [self.groupListScrollView setScrollEnabled:YES];
     self.groupListScrollView.alwaysBounceVertical = NO;
-    [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groupCnt + 1) , 130)];
-    
+    if(groupCnt < 3){
+        [self.groupListScrollView setContentSize:CGSizeMake(320, 130)];
+    }else{
+        [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groupCnt + 1) , 130)];
+    }
     //group list를 보여준다.
     [self showGroupList];
     
@@ -81,9 +84,11 @@
     }
     
     self.addGroupBtn.frame = CGRectMake(GROUPWIDTH* groupCnt, 20, 90, 90);
-    
-    self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
-   
+    if(groupCnt < 3){
+        self.scrollViewBackground.frame = CGRectMake(0, 0, 320, 128);
+    }else{
+        self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
+    }
     
 }
 

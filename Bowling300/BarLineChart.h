@@ -11,4 +11,5 @@
 @interface BarLineChart : UIView
 - (void)setDataForBarLineChar;
 - (void)setDataForBarLineCharWithGroupNum:(NSInteger)inGroupNum;
+- (void)setDataForBarLineCharWithYear:(NSInteger)inYear;
 @end

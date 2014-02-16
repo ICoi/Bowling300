@@ -129,7 +129,9 @@
     
     
     [dbPRManager insertDataWithDate:dateStr withGroupNum:groupNum withScore:@"" withHandy:handy withTotalScore:totalScore];
+    self.scoreLabel.text = @"";
     [self drawScores];
+    
 }
 
 - (IBAction)clickSaveBtn:(id)sender {

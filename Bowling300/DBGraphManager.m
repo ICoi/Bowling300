@@ -88,6 +88,7 @@ static DBGraphManager *_instance = nil;
     BLGraphYear *returnBLGYear = [[BLGraphYear alloc]init];
     
     NSString *queryStr = @"SELECT Date, TotalScore, GroupNum FROM personnalRecord";
+    
     sqlite3_stmt *stmt;
     int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
     
@@ -99,9 +100,13 @@ static DBGraphManager *_instance = nil;
         int totalScore = (int)sqlite3_column_int(stmt, 1);
         int groupNum = (int)sqlite3_column_int(stmt, 2);
         
+    
         NSString *nsDateStr = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
-        NSString *month = [nsDateStr substringWithRange:NSMakeRange(4, 2)];
-        [returnBLGYear addDataWithMonth:month withGroup:groupNum withScore:totalScore];
+        NSString *year = [nsDateStr substringWithRange:NSMakeRange(0, 4)];
+        if([year isEqualToString:[NSString stringWithFormat:@"%d",inYear]]){
+            NSString *month = [nsDateStr substringWithRange:NSMakeRange(4, 2)];
+            [returnBLGYear addDataWithMonth:month withGroup:groupNum withScore:totalScore];
+        }
     }
     
     sqlite3_finalize(stmt);

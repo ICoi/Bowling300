@@ -111,7 +111,7 @@
     // barline그래프 그리는거
     
     [self.barChartView init];
-    [self.barChartView setDataForBarLineChar];
+    [self.barChartView setDataForBarLineCharWithYear:inYear];
     
 }
 - (void)drawGraphsWithYear:(NSInteger)inYear withGroupNum:(NSInteger)inGroupNum{
@@ -128,7 +128,7 @@
     // barline그래프 그리는거
     
     [self.barChartView init];
-    [self.barChartView setDataForBarLineCharWithGroupNum:inGroupNum];
+    [self.barChartView setDataForBarLineCharWithYear:nowYear];
 }
 
 - (IBAction)goCalendar:(id)sender {

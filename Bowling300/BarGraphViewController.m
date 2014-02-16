@@ -102,6 +102,11 @@
 
 // average circle을 이동시키는 함수입니다.
 - (void)moveAverageCircleWithScore:(NSInteger)score{
+    if (score >= 200) {
+        [self.averageBar setHighlighted:YES];
+    } else{
+        [self.averageBar setHighlighted:NO];
+    }
     float scoreBarWidth = [self setScoreBarWidth:score];
     [self.averageBar setFrame:CGRectMake(self.averageBar.frame.origin.x, self.averageBar.frame.origin.y, scoreBarWidth, self.averageBar.frame.size.height)];
  //   NSLog(@"%f",circleX);
@@ -110,6 +115,11 @@
 
 // high circle을 이동시키는 함수입니다.
 - (void)moveHighCircleWithScore:(NSInteger)score{
+    if( score >= 200){
+        [self.highBar setHighlighted:YES];
+    }else{
+        [self.highBar setHighlighted:NO];
+    }
     float scoreBarWidth = [self setScoreBarWidth:score];
     [self.highBar setFrame:CGRectMake(self.highBar.frame.origin.x, self.highBar.frame.origin.y, scoreBarWidth, self.highBar.frame.size.height)];
  //   NSLog(@"%f",circleX);
@@ -118,6 +128,11 @@
 
 // low circle을 이동시키는 함수입니다.
 - (void)moveLowCircleWithScore:(NSInteger)score{
+    if(score >=200) {
+        [self.lowBar setHighlighted:YES];
+    }else{
+        [self.lowBar setHighlighted:NO];
+    }
     float scoreBarWidth = [self setScoreBarWidth:score];
     [self.lowBar setFrame:CGRectMake(self.lowBar.frame.origin.x, self.lowBar.frame.origin.y, scoreBarWidth, self.lowBar.frame.size.height)];
 //    NSLog(@"%f",circleX);

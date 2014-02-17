@@ -43,6 +43,12 @@
     NSMutableArray *groupNames;
     NSMutableArray *groupIdes;
     AppDelegate *ad;
+
+    UIActionSheet *sheet;
+    UIPickerView *groupPicker;
+    
+    NSInteger selectedGroupIdx;
+    NSString *selectedGroupName;
 }
 
 - (void)viewDidLoad
@@ -58,6 +64,8 @@
     groupNames = [dbGManager showGroupNameWithGroupsArray:groups];
     groupIdes = [dbGManager showGroupIdxWithGroupsArray:groups];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -87,7 +95,7 @@
         
         if( (i %4) == 0){
             nowX = STARTX;
-            nowY = STARTY + MARGINHIEGHT + SCOREHEIGHT;
+            nowY = nowY + MARGINHIEGHT + SCOREHEIGHT;
         }else{
             nowX += (MARGINWIDTH + SCOREWIDTH);
         }
@@ -124,11 +132,10 @@
     NSInteger totalScore = [self.handyLabel.text integerValue] + [self.scoreLabel.text integerValue];
     NSInteger handy = [self.handyLabel.text integerValue];
     NSString *dateStr = [NSString stringWithFormat:@"%04d%02d%02d",(int)self.nowYear,(int)self.nowMonth,(int)self.nowDate];
-    NSInteger groupNum = [self.groupLabel.text integerValue];
     NSLog(@"data string : %@",dateStr);
     
     
-    [dbPRManager insertDataWithDate:dateStr withGroupNum:groupNum withScore:@"" withHandy:handy withTotalScore:totalScore];
+    [dbPRManager insertDataWithDate:dateStr withGroupNum:selectedGroupIdx withScore:@"" withHandy:handy withTotalScore:totalScore];
     self.scoreLabel.text = @"";
     [self drawScores];
     
@@ -136,28 +143,23 @@
 
 - (IBAction)clickSaveBtn:(id)sender {
     
-    NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140111"];
+    NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140210"];
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     NSString *myIdx = [NSString stringWithFormat:@"%d",ad.myIDX];
     [sendDic setObject:myIdx forKey:@"aidx"];
     
     NSArray *keys = [dataDic allKeys];
-    /*
+    NSMutableArray *datas = [[NSMutableArray alloc]init];
+    
     for(int i = 0 ; i < keys.count ; i++){
         NSDictionary *oneData = dataDic[[keys objectAtIndex:i]];
         // 원래  @"type":[keys objectAtIndexi]
-        NSDictionary *oneDic = @{@"type":@"solo",
+        NSDictionary *oneDic = @{@"type":[keys objectAtIndex:i],
                                  @"allScore":oneData[@"score"],
                                  @"allGame":oneData[@"cnt"]};
         [datas addObject:oneDic];
     }
-    */
-    
-    // TODO여기 기간에 맞는거랑 그룹별 등등 해야할듯.. 일단 정보전달은 잘 되는걸로~
-    NSDictionary *oneDic = @{@"type":@"-1",
-                             @"allScore":@"280",
-                             @"allGame":@"2"};
-    [sendDic setObject:@[oneDic] forKey:@"myscoredata"];
+   
     
     // 여기 부분은 에러 체크용..
     __autoreleasing NSError *error;
@@ -202,6 +204,26 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+- (IBAction)selectGroup:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Groups" message:@"Select Group" delegate:self cancelButtonTitle:@"Solo" otherButtonTitles:nil];
+    for(int i = 0 ; i < groupNames.count ; i++){
+        [alert addButtonWithTitle:[groupNames objectAtIndex:i]];
+    }
+    [alert show];
+    // TODO
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(alertView.cancelButtonIndex != buttonIndex){
+        //TODO
+        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex - 1)] integerValue];
+        selectedGroupName = [groupNames objectAtIndex:(buttonIndex - 1)];
+        
+        self.groupLabel.text = selectedGroupName;
+    }else{
+        selectedGroupIdx = -1;
+        self.groupLabel.text = @"solo";
+    }
 }
 
 @end

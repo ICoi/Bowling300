@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *countryImageView;
+
+
 @end
 
 @implementation GlobalRankingCell
@@ -26,7 +29,7 @@
     return self;
 }
 
-- (void)setValueWithRankingNum:(NSInteger)inRankingNum withName:(NSString *)inName withScore:(NSString *)inScore withProfileImageURL:(NSURL*)inImageURL{
+- (void)setValueWithRankingNum:(NSInteger)inRankingNum withName:(NSString *)inName withScore:(NSString *)inScore withProfileImageURL:(NSURL*)inImageURL withCountryImageURL:(NSURL*)inCountryURL{
     self.rankingNumLabel.text = [NSString stringWithFormat:@"%d",inRankingNum];
     self.scoreLabel.text = inScore;
     self.nameLabel.text = inName;
@@ -36,6 +39,9 @@
     [self.profileImageView setImageWithURL:inImageURL];
     self.profileImageView.layer.masksToBounds = YES;
     self.profileImageView.layer.cornerRadius = 20.0f;
+    
+    
+    [self.countryImageView setImageWithURL:inCountryURL];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

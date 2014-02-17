@@ -8,18 +8,25 @@
 
 #import "AppDelegate.h"
 #import "DBMyInfoManager.h"
+#import "DBPersonnalRecordManager.h"
 @implementation AppDelegate{
     DBMyInfoManager *dbInfoManager;
+    DBPersonnalRecordManager *dbRecordManager;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     
+    dbRecordManager = [DBPersonnalRecordManager sharedModeManager];
+    
     self.myIDX = [dbInfoManager showMyIdx];
     // Override point for customization after application launch.
     self.rankingStartDate = @"";
     self.rankingEndDate = @"";
+    
+    // 여기서 호출하기!
+    [dbRecordManager setDefaultData];
     return YES;
 }
 							

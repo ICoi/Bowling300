@@ -8,7 +8,7 @@
 
 #import "DBPersonnalRecordManager.h"
 #import "MonthScore.h"
-
+#import "AppDelegate.h"
 #define USERINFO 11
 
 @implementation DBPersonnalRecordManager
@@ -37,7 +37,35 @@ static DBPersonnalRecordManager *_instance = nil;
     sqlite3_last_insert_rowid(db);
     return YES;
 }
-
+- (void)setDefaultData{
+    
+    AppDelegate *ad = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    
+    NSInteger highScore = 0;
+    NSInteger allScore = 0;
+    NSInteger gameCnt =0;
+    
+    NSString *queryStr = @"SELECT TotalScore FROM personnalRecord";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db,[queryStr UTF8String],-1, &stmt,NULL);
+    
+    NSAssert2(SQLITE_OK == ret , @"ERROR(%d) on resolving data :%s",ret,sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        int score = (int)sqlite3_column_int(stmt, 0);
+        
+        gameCnt++;
+        allScore += score;
+        if(highScore < score){
+            highScore = score;
+        }
+    }
+    ad.myHighScore = highScore;
+    ad.myAllScore = allScore;
+    ad.myGameCnt = gameCnt;
+    sqlite3_finalize(stmt);
+    
+}
 
 - (MonthScore *)showDataWithMonth:(NSInteger)inMonth withYear:(NSInteger)inYear{
     MonthScore *tmpMonthScore = [[MonthScore alloc] init];

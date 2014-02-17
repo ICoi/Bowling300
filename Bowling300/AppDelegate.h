@@ -18,5 +18,9 @@
 @property (strong, nonatomic) NSString *rankingStartDate;
 @property (strong, nonatomic) NSString *rankingEndDate;
 
+@property (nonatomic) NSInteger myHighScore;
+@property (nonatomic) NSInteger myAllScore;
+@property (nonatomic) NSInteger myGameCnt;
+
 @property (nonatomic) NSInteger myIDX;
 @end

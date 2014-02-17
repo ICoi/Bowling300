@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GlobalRankingCell : UITableViewCell
-- (void)setValueWithRankingNum:(NSInteger)inRankingNum withName:(NSString *)inName withScore:(NSString *)inScore withProfileImageURL:(NSURL*)inImageURL;
+- (void)setValueWithRankingNum:(NSInteger)inRankingNum withName:(NSString *)inName withScore:(NSString *)inScore withProfileImageURL:(NSURL*)inImageURL withCountryImageURL:(NSURL*)inCountryURL;
 
 
 @end

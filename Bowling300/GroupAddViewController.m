@@ -88,10 +88,9 @@
                 NSLog(@"result is fail");
             }else{
                 NSLog(@"result is success");
-                NSInteger groupIdx = [responseObject[@"aidx"] integerValue];
-                NSString *imageLink = @"";
+                NSInteger groupIdx = [responseObject[@"gidx"] integerValue];
             
-                [dbManager addDataInGroupTableWithGroupIdx:groupIdx withGroupName:@"groupTest" withGroupRedColor:redColor withGroupGreenColor:greenColor withGroupBlueColor:blueColor];
+                [dbManager addDataInGroupTableWithGroupIdx:groupIdx withGroupName:groupName withGroupRedColor:redColor withGroupGreenColor:greenColor withGroupBlueColor:blueColor];
             
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }

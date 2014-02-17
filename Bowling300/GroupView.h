@@ -12,4 +12,5 @@
 - (void)setValueWithGroupIdx:(NSInteger)idx withGroupName:(NSString *)inGroupName withDate:(NSString *)inDate withImageLink:(NSString *)inImageLink;
 @property NSInteger groupIdx;
 - (void)setEditMode:(BOOL)ck;
+- (void)setRepresentive;
 @end

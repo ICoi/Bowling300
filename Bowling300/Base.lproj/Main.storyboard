@@ -111,12 +111,17 @@
                                                     <rect key="frame" x="0.0" y="53" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hSQ-Kk-zeo">
+                                                    <rect key="frame" x="139" y="13" width="30" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="countryImageView" destination="hSQ-Kk-zeo" id="dRv-tD-5Bn"/>
                                             <outlet property="nameLabel" destination="Tcw-HX-0FW" id="RHT-Dy-zgV"/>
                                             <outlet property="profileImageView" destination="bTq-eR-N12" id="x0l-cT-lH8"/>
                                             <outlet property="rankingNumLabel" destination="aa9-AB-tuO" id="Def-z4-k0u"/>
@@ -252,7 +257,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oQ2-D1-hym">
-                                <rect key="frame" x="29" y="272" width="61" height="21"/>
+                                <rect key="frame" x="27" y="272" width="61" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="highlightedColor"/>
@@ -363,108 +368,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view hidden="YES" alpha="0.89999999999999991" contentMode="scaleToFill" id="lqF-Dg-fjK" customClass="InfoPopupView">
-                                <rect key="frame" x="26" y="133" width="271" height="301"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Z0i-dk-wmv">
+                                <rect key="frame" x="144" y="217" width="40" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kFx-Rn-Yhw">
-                                        <rect key="frame" x="0.0" y="0.0" width="271" height="301"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1SG-xv-fj2">
-                                        <rect key="frame" x="233" y="3" width="34" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Close" image="ranking_x.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickCloseButton:" destination="lqF-Dg-fjK" eventType="touchUpInside" id="kC8-BK-0cV"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_flag_bg.png" id="f7z-rA-Hiv">
-                                        <rect key="frame" x="207" y="61" width="53" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_flag_bg.png" id="7ox-Uw-qSI">
-                                        <rect key="frame" x="9" y="61" width="53" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VFt-x3-5ge">
-                                        <rect key="frame" x="158" y="240" width="45" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qJI-Yo-XqU">
-                                        <rect key="frame" x="204" y="242" width="46" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_ballimg.png" id="H3A-OW-pFz">
-                                        <rect key="frame" x="23" y="263" width="19" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 Pound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCy-zZ-evw">
-                                        <rect key="frame" x="44" y="262" width="68" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NY7-Yg-Lr2">
-                                        <rect key="frame" x="56" y="163" width="163" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="174" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usI-0I-yaC">
-                                        <rect key="frame" x="119" y="183" width="36" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Years" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cfl-ei-9eY">
-                                        <rect key="frame" x="30" y="213" width="57" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Straight Ball" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x8U-G0-Qej">
-                                        <rect key="frame" x="100" y="213" width="94" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Step" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sIQ-nV-PF3">
-                                        <rect key="frame" x="202" y="213" width="51" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranking_hander_r.png" id="e9x-F1-95h">
-                                        <rect key="frame" x="211" y="68" width="36" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ueI-7Q-ftV">
-                                        <rect key="frame" x="67" y="14" width="140" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="g3f-je-wbB">
-                                        <rect key="frame" x="67" y="14" width="140" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="ballLabel" destination="rCy-zZ-evw" id="E5e-Gh-u3y"/>
-                                    <outlet property="closeButton" destination="1SG-xv-fj2" id="BXp-kg-83Y"/>
-                                    <outlet property="handerImageView" destination="e9x-F1-95h" id="ccL-9E-173"/>
-                                    <outlet property="nameLabel" destination="NY7-Yg-Lr2" id="7he-Kk-TpP"/>
-                                    <outlet property="profileImageView" destination="ueI-7Q-ftV" id="fu2-dL-fF2"/>
-                                    <outlet property="scoreLabel" destination="usI-0I-yaC" id="cpC-SU-ww3"/>
-                                    <outlet property="stepLabel" destination="sIQ-nV-PF3" id="Z9K-ey-nTN"/>
-                                    <outlet property="styleLabel" destination="x8U-G0-Qej" id="0QI-bH-R53"/>
-                                    <outlet property="yearLabel" destination="cfl-ei-9eY" id="nEU-Xd-Dax"/>
-                                </connections>
-                            </view>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LSg-qj-y7C">
+                                <rect key="frame" x="43" y="257" width="30" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Lyp-n8-jN9">
+                                <rect key="frame" x="253" y="259" width="30" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -473,10 +388,16 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="averageScoreLabel" destination="ebA-c3-4Ox" id="1C8-Xj-sP1"/>
                         <outlet property="backgroundImage" destination="lIW-6N-w00" id="T3V-Qc-Y1r"/>
                         <outlet property="background_123_imageView" destination="195-U8-RuK" id="xbS-b8-Q2I"/>
+                        <outlet property="countryFirst" destination="Z0i-dk-wmv" id="tLo-7m-RqR"/>
+                        <outlet property="countrySecond" destination="LSg-qj-y7C" id="O6d-BD-FGe"/>
+                        <outlet property="countryThird" destination="Lyp-n8-jN9" id="mh7-aX-AZc"/>
+                        <outlet property="gameCntLabel" destination="MvE-iU-ksG" id="1xg-Nh-qy3"/>
                         <outlet property="globalRankingBtn" destination="Pru-Q3-yoE" id="I4I-zz-CWq"/>
                         <outlet property="groupRankingBtn" destination="rVg-HK-j7r" id="INp-ZB-xVV"/>
+                        <outlet property="highScoreLabel" destination="lrM-r2-C8s" id="x3L-PB-jMs"/>
                         <outlet property="imageFirst" destination="y6K-CU-4CX" id="J3z-uc-vOa"/>
                         <outlet property="imageSecond" destination="8TE-w8-E1g" id="eQr-dx-Nm0"/>
                         <outlet property="imageThird" destination="i9T-0V-ST2" id="fgo-ps-gsz"/>
@@ -488,7 +409,6 @@
                         <outlet property="nameFirst" destination="4cf-id-jhK" id="jnn-Dj-cZ7"/>
                         <outlet property="nameSecond" destination="QaL-b2-m8T" id="pKs-MW-2E3"/>
                         <outlet property="nameThird" destination="33f-Rv-b0B" id="CUR-j1-EVH"/>
-                        <outlet property="popUpView" destination="lqF-Dg-fjK" id="OZB-Cl-DCE"/>
                         <outlet property="rankingTable" destination="qvf-p2-WoI" id="w0l-6x-qez"/>
                         <outlet property="scoreFirst" destination="68t-7W-qHK" id="BvA-mm-UwQ"/>
                         <outlet property="scoreSecond" destination="oQ2-D1-hym" id="GOK-M6-eLs"/>
@@ -497,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43Y-bq-ixC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="-1092"/>
+            <point key="canvasLocation" x="1950" y="-1085"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="C9w-0G-O8O">
@@ -1048,7 +968,7 @@
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" id="bYD-20-Wsb">
-                                <rect key="frame" x="72" y="150" width="162" height="156"/>
+                                <rect key="frame" x="72" y="150" width="160" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tR6-Qp-Dvx">
@@ -1215,10 +1135,10 @@
             </objects>
             <point key="canvasLocation" x="1807" y="1202"/>
         </scene>
-        <!--Group Main View Controller-->
+        <!--Group Main View Controller - GROUP_STORYBOARD-->
         <scene sceneID="xyO-vq-evQ">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="ZCX-Nx-sB2" customClass="GroupMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GROUP_STORYBOARD" title="GROUP_STORYBOARD" extendedLayoutIncludesOpaqueBars="YES" id="ZCX-Nx-sB2" customClass="GroupMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="le6-Yr-5hj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2769,7 +2689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyX-2H-iWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="-424"/>
+            <point key="canvasLocation" x="1950" y="-408"/>
         </scene>
         <!--Bar Graph View Controller-->
         <scene sceneID="tFO-cH-2of">
@@ -3213,9 +3133,6 @@
         <image name="ranking_123_re.png" width="640" height="416"/>
         <image name="ranking_300icon_over.png" width="91" height="90"/>
         <image name="ranking_800icon_over.png" width="90" height="90"/>
-        <image name="ranking_ballimg.png" width="42" height="43"/>
-        <image name="ranking_flag_bg.png" width="104" height="104"/>
-        <image name="ranking_hander_r.png" width="61" height="66"/>
         <image name="ranking_me_bg.png" width="640" height="108"/>
         <image name="ranking_menu_group.png" width="131" height="101"/>
         <image name="ranking_menu_group_over.png" width="131" height="99"/>
@@ -3224,7 +3141,6 @@
         <image name="ranking_menu_record.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
         <image name="ranking_top_bg.png" width="640" height="99"/>
-        <image name="ranking_x.png" width="37" height="37"/>
         <image name="record_cal_next.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_calicon.png" width="86" height="89"/>

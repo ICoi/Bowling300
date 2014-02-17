@@ -12,6 +12,7 @@
 @interface DBPersonnalRecordManager : DB
 + (id)sharedModeManager;
 - (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore;
+- (void)setDefaultData;
 - (MonthScore *)showDataWithMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 - (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 - (BOOL)deleteDateWithRowID:(NSInteger)inRowID;

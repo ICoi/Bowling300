@@ -66,6 +66,45 @@ static DBGroupManager *_instance = nil;
     
     return  groups;
 }
+- (NSInteger)showRepresentiveGroupIdx{
+    //"CREATE TABLE IF NOT EXISTS myGroup(groupIdx Integer, groupName Text, groupRColor Integer, groupGColor Integer, groupBColor Integer, Represent BOOL)"
+    NSString *queryStr = @"SELECT groupIdx FROM myGroup where Represent = 1";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR (%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        int groupIdxd = (int)sqlite3_column_int(stmt, 0);
+        sqlite3_finalize(stmt);
+        return  groupIdxd;
+    }
+    return  0;
+}
+
+
+- (void)setRepresentiveGroupWithGroupIdx:(NSInteger)inGroupIdx{
+    
+    // 일단 기존의 대표 그룹을 해제시킨다
+    sqlite3_stmt *stmt;
+    NSString *queryString = [NSString stringWithFormat:@"UPDATE myGroup SET Represent=0"];
+    int ret = sqlite3_prepare_v2(db, [queryString UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    
+    
+    // 새로운 것을 대표그룹으로 설정한다.
+    queryString = [NSString stringWithFormat:@"UPDATE myGroup SET Represent=1 WHERE groupIdx=%d",(int)inGroupIdx];
+    ret = sqlite3_prepare_v2(db, [queryString UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR (%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+}
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups{
     NSMutableArray *returnArr = [[NSMutableArray alloc]init];
     int arrLen = inGroups.count;

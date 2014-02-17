@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UIButton *backgroundButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 - (void)setValueWithDate:(NSString *)inDate withClicked:(BOOL)inCK withDay:(NSInteger)inDay;
-- (void)setClicked:(BOOL)inCK;
 @end

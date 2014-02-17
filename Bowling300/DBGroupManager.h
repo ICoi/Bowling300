@@ -12,6 +12,8 @@
 + (id)sharedModeManager;
 - (BOOL)addDataInGroupTableWithGroupIdx:(NSInteger)inIdx withGroupName:(NSString *)inGroupName withGroupRedColor:(NSInteger)inRed withGroupGreenColor:(NSInteger)inGreen withGroupBlueColor:(NSInteger)inBlue;
 - (NSMutableArray *)showAllGroups;
+- (NSInteger)showRepresentiveGroupIdx;
+- (void)setRepresentiveGroupWithGroupIdx:(NSInteger)inGroupIdx;
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSMutableArray *)showGroupIdxWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSMutableArray *)showGroupColorWithGroupsArray:(NSMutableArray *)inGroups;

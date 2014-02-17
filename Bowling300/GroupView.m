@@ -9,6 +9,7 @@
 #import "GroupView.h"
 #import <UIImageView+AFNetworking.h>
 #import "Group.h"
+#import "DBGroupManager.h"
 @interface GroupView()
 
 @end
@@ -23,6 +24,8 @@
     UILabel *dateLabel;
     
     BOOL nowEditMode;
+    DBGroupManager *dbManager;
+    BOOL representive;
 }
 
 
@@ -31,29 +34,31 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        dbManager = [DBGroupManager sharedModeManager];
         // Initialization code
         UIImage *backgroundImage = [UIImage imageNamed:@"group_layout.png"];
         
         backgroundImageView = [[UIImageView alloc]initWithImage:backgroundImage];
-        backgroundImageView.frame = CGRectMake(0, 0, 90, 90);
+        backgroundImageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         
         
         UIImage *groupImage = [UIImage imageNamed:@"group_new_img1.png"];
         groupImageView = [[UIImageView alloc]initWithImage:groupImage];
-        groupImageView.frame = CGRectMake(12, 13, 77, 77);
+        groupImageView.frame = CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.125, self.frame.size.width*0.875, self.frame.size.height*0.875);
         
         
         UIImage *labelImage = [UIImage imageNamed:@"group_new_img_bg.png"];
         labelImageView = [[UIImageView alloc]initWithImage:labelImage];
-        labelImageView.frame = CGRectMake(12, 60, 77, 30);
+        labelImageView.frame = CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.75, self.frame.size.width*0.875, self.frame.size.height*0.25);
         
-        groupNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(14, 54, 86, 22)];
+        groupNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.75, self.frame.size.width*0.875, self.frame.size.height*0.125)];
         groupNameLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
-        groupNameLabel.font = [UIFont systemFontOfSize:9.0];
         groupNameLabel.text = @"groupName";
         
-        dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(14, 67, 52, 21)];
-        dateLabel.font = [UIFont systemFontOfSize:8.0];
+        dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.875, self.frame.size.width*0.875, self.frame.size.height*0.125)];
+        
+        
         dateLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
         dateLabel.text = @"2014.01.01";
         
@@ -62,6 +67,17 @@
         [editImageView setHidden:YES];
         
         nowEditMode = NO;
+        
+        
+        
+        if(self.frame.size.width >100){
+            groupNameLabel.font = [UIFont systemFontOfSize:13.0];
+            dateLabel.font = [UIFont systemFontOfSize:12.0];
+        }else{
+            groupNameLabel.font = [UIFont systemFontOfSize:8.0];
+            dateLabel.font = [UIFont systemFontOfSize:7.0];
+        }
+        
         
         [self addSubview:groupImageView];
         [self addSubview:labelImageView];
@@ -77,9 +93,21 @@
     if(nowEditMode){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu" message:@"What do you want to do?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Represent   Group",@"Setting", nil];
         [alert show];
+    }else{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showGroup" object:nil];
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(alertView.firstOtherButtonIndex == buttonIndex){
+        [dbManager setRepresentiveGroupWithGroupIdx:self.groupIdx];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshGroupList" object:nil];
     }
 }
 
+-(void)setRepresentive{
+    representive = TRUE;
+}
 - (void)setValueWithGroupIdx:(NSInteger)idx withGroupName:(NSString *)inGroupName withDate:(NSString *)inDate withImageLink:(NSString *)inImageLink{
     self.groupIdx = idx;
     groupNameLabel.text = inGroupName;

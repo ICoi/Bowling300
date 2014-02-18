@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AirBalloonView : UIView
-- (void)setValueWithScore:(NSInteger)inScore withProfileURL:(NSString *)inProfileURL;
+- (void)setValueWithScore:(NSInteger)inScore withProfileURL:(NSString *)inProfileURL withName:(NSString *)inName;
+- (void)isMe;
 @end

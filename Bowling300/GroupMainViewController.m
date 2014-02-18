@@ -7,13 +7,19 @@
 //
 
 #import "GroupMainViewController.h"
+#import "DBGroupManager.h"
+#import "AppDelegate.h"
 
 @interface GroupMainViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
-@implementation GroupMainViewController
+@implementation GroupMainViewController{
+    DBGroupManager *dbManager;
+    AppDelegate *ad;
+}
+
 
 
 - (void)viewDidLoad
@@ -24,6 +30,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    dbManager = [DBGroupManager sharedModeManager];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSString *groupName = [dbManager showGroupNameWithGroupIdx:ad.selectedGroupIdx];
+    self.titleLabel.text = groupName;
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
 }
 - (void)didReceiveMemoryWarning

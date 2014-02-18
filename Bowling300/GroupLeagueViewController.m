@@ -32,6 +32,8 @@
     AppDelegate *ad;
     NSMutableArray *datas;
     NSMutableArray *airBalloons;
+    NSInteger holdingAirBalloon;
+    NSInteger holdingY;
 }
 
 
@@ -54,6 +56,7 @@
     self.testPeople.layer.masksToBounds = YES;
     self.testPeople.layer.cornerRadius = 30.0f;
     
+    holdingAirBalloon = -1;
 }
 
 
@@ -64,6 +67,7 @@
     
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     [sendDic setObject:[NSString stringWithFormat:@"%d",ad.selectedGroupIdx] forKey:@"gidx"];
+    [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
     
     __autoreleasing NSError *error;
     NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
@@ -85,18 +89,24 @@
             NSLog(@"result is success");
             
             datas = responseObject[@"leaguedata"];
+            NSString *myAver = responseObject[@"myavg"];
+            NSString *myName = ad.myName;
+            
             
             for(int i =0 ; i < datas.count ; i++){
                 NSMutableDictionary *oneData = [datas objectAtIndex:i];
                 NSString *score = oneData[@"avg"];
                 CGRect tmpPosition = [self showDrawPointWithScore:[score integerValue]];
                 AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:tmpPosition];
-                [one setValueWithScore:[score integerValue] withProfileURL:oneData[@"prophoto"]];
+                [one setValueWithScore:[score integerValue] withProfileURL:oneData[@"prophoto"] withName:oneData[@"name"]];
+                if(([myAver doubleValue] == [score doubleValue]) && ([myName isEqualToString:oneData[@"name"]])){
+                    [one isMe];
+                }
                 [airBalloons addObject:one];
                 [self.view addSubview:one];
             }
             self.membersCntLabel.text = [NSString stringWithFormat:@"%d members.",datas.count];
-            [self.view reloadInputViews];
+            
             // TODO
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -138,15 +148,44 @@
     NSInteger x = arc4random()%WIDTH;
     NSInteger y = (HEIGHT-90) * ((float)inScore/300);
     
-    CGRect tmp = CGRectMake(TOPX + x, 420 - (((float)359/300)*inScore), 60, 90 );
+    CGRect tmp = CGRectMake(TOPX + x, 420 - (((float)349/300)*inScore), 60, 100 );
     
     return tmp;
 }
-
-- (void)showLeague{
-    // League를 보여줌
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    for(int i = 0 ; i < airBalloons.count ; i++){
+        AirBalloonView *one = [airBalloons objectAtIndex:i];
+        if(CGRectContainsPoint(one.frame, point )){
+            holdingAirBalloon = i;
+            holdingY = one.frame.origin.y + 50;
+            one.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            break;
+        }
+    }
+    
 }
-
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    if(holdingAirBalloon != -1){
+        AirBalloonView *one = [airBalloons objectAtIndex:holdingAirBalloon];
+        UITouch *touch = [touches anyObject];
+        CGPoint point = [touch locationInView:self.view];
+        CGPoint point2 = CGPointMake(point.x, holdingY);
+        if((point2.x > 0) && (point2.x < 320)){
+            one.center = point2;
+        }
+    }
+    
+}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    if(holdingAirBalloon != -1){
+        AirBalloonView *one = [airBalloons objectAtIndex:holdingAirBalloon];
+        one.transform = CGAffineTransformIdentity;
+        holdingAirBalloon = -1;
+        holdingY = 0;
+    }
+}
 - (void)drawPersonWithScore:(NSInteger)score{
     
 }

@@ -125,6 +125,22 @@ static DBGroupManager *_instance = nil;
     }
     return  [UIColor blackColor];
 }
+- (NSString *)showGroupNameWithGroupIdx:(NSInteger)inGroupIdx{
+    NSString *queryStr = [NSString stringWithFormat: @"SELECT groupName FROM myGroup where groupIdx = %d",inGroupIdx ];;
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR (%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        char *groupName = (char *)sqlite3_column_text(stmt, 0 );
+        
+        NSString *name = [NSString stringWithCString:groupName encoding:NSUTF8StringEncoding];
+        sqlite3_finalize(stmt);
+        return  name;
+    }
+    return  nil;
+}
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups{
     NSMutableArray *returnArr = [[NSMutableArray alloc]init];
     int arrLen = inGroups.count;

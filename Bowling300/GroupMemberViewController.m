@@ -10,12 +10,14 @@
 #import "GroupMemberCell.h"
 #import "AppDelegate.h"
 #import <AFNetworking.h>
-
+#import <UIImageView+AFNetworking.h>
 
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupmember"
 @interface GroupMemberViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *memberList;
 @property (weak, nonatomic) IBOutlet UILabel *memberCntLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *myPhotoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *myNameLabel;
 
 @end
 
@@ -32,6 +34,10 @@
 	// Do any additional setup after loading the view.
     members = [[NSMutableArray alloc]init];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    
+    self.myPhotoImageView.layer.masksToBounds = YES;
+    self.myPhotoImageView.layer.cornerRadius = 71.0f;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -39,6 +45,7 @@
     
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     [sendDic setObject:[NSString stringWithFormat:@"%d",ad.selectedGroupIdx] forKey:@"gidx"];
+    [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
     
     __autoreleasing NSError *error;
     NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
@@ -58,7 +65,10 @@
             NSLog(@"result is fail");
         }else{
             NSLog(@"result is success");
-            
+            NSString *myPhoto = responseObject[@"proPhoto"];
+            NSURL *myURL = [NSURL URLWithString:myPhoto];
+            [self.myPhotoImageView setImageWithURL:myURL];
+            self.myNameLabel.text = ad.myName;
             members = responseObject[@"member"];
             self.memberCntLabel.text = [NSString stringWithFormat:@"%d members.",members.count];
             [self.memberList reloadData];

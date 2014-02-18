@@ -12,6 +12,8 @@
     UILabel *scoreLabel;
     UIImageView *bgImageView;
     UIImageView *profileImageView;
+    UILabel *nameLabel;
+    
     
 }
 
@@ -23,7 +25,13 @@
         scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 42, 20)];
         scoreLabel.text = @"150";
         scoreLabel.textAlignment = NSTextAlignmentCenter;
-        scoreLabel.font = [UIFont systemFontOfSize:10.0];
+        scoreLabel.font = [UIFont boldSystemFontOfSize:10.0];
+        
+        nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 90, 42, 20)];
+        nameLabel.text = @"name";
+        nameLabel.textAlignment = NSTextAlignmentCenter;
+        nameLabel.font = [UIFont boldSystemFontOfSize:10.0];
+        nameLabel.textColor = [UIColor whiteColor];
         
         UIImage *paraImage = [UIImage imageNamed:@"group_league_para.png"];
         UIImage *paraHighlightImage = [UIImage imageNamed:@"group_league_para_200.png"];
@@ -37,12 +45,14 @@
         [self addSubview:profileImageView];
         [self addSubview:bgImageView];
         [self addSubview:scoreLabel];
+        [self addSubview:nameLabel];
     }
     return self;
 }
 
-- (void)setValueWithScore:(NSInteger)inScore withProfileURL:(NSString *)inProfileURL{
+- (void)setValueWithScore:(NSInteger)inScore withProfileURL:(NSString *)inProfileURL withName:(NSString *)inName{
     scoreLabel.text = [NSString stringWithFormat:@"%d",inScore];
+    nameLabel.text = inName;
     if(inScore >= 200){
         [bgImageView setHighlighted:YES];
     }else{
@@ -53,6 +63,12 @@
     [profileImageView setImageWithURL:profileURL];
     
 }
+
+- (void)isMe{
+    UIImage *image = [UIImage imageNamed:@"group_league_para_me.png"];
+    bgImageView.image = image;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -50,7 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self setCalendarSetting];
     self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
-    clickedDate = 10;
+    clickedDate = 40;
 }
 
 

@@ -34,7 +34,7 @@
     self.scoreLabel.text = inScore;
     self.nameLabel.text = inName;
     
-    self.scoreLabel.font = [UIFont fontWithName:@"expansiva" size:17];
+    //self.scoreLabel.font = [UIFont fontWithName:@"expansiva" size:self.scoreLabel.font.pointSize];
     
     [self.profileImageView setImageWithURL:inImageURL];
     self.profileImageView.layer.masksToBounds = YES;

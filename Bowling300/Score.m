@@ -7,8 +7,10 @@
 //
 
 #import "Score.h"
-
-@implementation Score
+#import "DBGroupManager.h"
+@implementation Score{
+    
+}
 - (id)init
 {
     self = [super init];
@@ -24,10 +26,24 @@
 - (id)initWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID{
     self = [super init];
     if(self){
-        
+        DBGroupManager *dbManager = [DBGroupManager sharedModeManager];
         self.groupNum = inGroupNum;
         self.totalScore = inTotalScore;
         self.rowID = inRowID;
+        self.groupColor = [dbManager showGroupColorWithGroupIdx:inGroupNum];
+    }
+    return self;
+}
+
+- (id)initWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID withHandy:(NSInteger)inHandy{
+    self = [super init];
+    if(self){
+        DBGroupManager *dbManager = [DBGroupManager sharedModeManager];
+        self.groupNum = inGroupNum;
+        self.totalScore = inTotalScore;
+        self.rowID = inRowID;
+        self.groupColor = [dbManager showGroupColorWithGroupIdx:inGroupNum];
+        self.handy = inHandy;
     }
     return self;
 }

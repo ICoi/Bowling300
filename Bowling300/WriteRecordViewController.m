@@ -103,8 +103,11 @@
         
         WriteScoreView *oneScore = [[WriteScoreView alloc]initWithFrame:CGRectMake(nowX, nowY, 64, 30)];
         
-        
-        [oneScore setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:TRUE withColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]];
+        BOOL handy = FALSE;
+        if(one.handy != 0){
+            handy = TRUE;
+        }
+        [oneScore setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:handy withColor:one.groupColor];
         [self.view addSubview:oneScore];
         
     }
@@ -143,57 +146,69 @@
 
 - (IBAction)clickSaveBtn:(id)sender {
     
-    NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:@"20140105" withEndDate:@"20140210"];
-    NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
-    NSString *myIdx = [NSString stringWithFormat:@"%d",ad.myIDX];
-    [sendDic setObject:myIdx forKey:@"aidx"];
+   
+    NSInteger selectdDay = [[NSString stringWithFormat:@"%04d%02d%02d",self.nowYear,self.nowMonth, self.nowDate] integerValue];
     
-    NSArray *keys = [dataDic allKeys];
-    NSMutableArray *datas = [[NSMutableArray alloc]init];
+    if((selectdDay >= [ad.rankingStartDate integerValue]) && (selectdDay <= [ad.rankingEndDate integerValue])){
+   
+        // 해당기간에 해당하는 날짜의 점수를 수정한경우 서버에 전송함
+        
+         NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:ad.rankingStartDate withEndDate:ad.rankingEndDate];
+        
+        NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
+        NSString *myIdx = [NSString stringWithFormat:@"%d",ad.myIDX];
+        [sendDic setObject:myIdx forKey:@"aidx"];
     
-    for(int i = 0 ; i < keys.count ; i++){
-        NSDictionary *oneData = dataDic[[keys objectAtIndex:i]];
-        // 원래  @"type":[keys objectAtIndexi]
-        NSDictionary *oneDic = @{@"type":[keys objectAtIndex:i],
+        NSArray *keys = [dataDic allKeys];
+        NSMutableArray *datas = [[NSMutableArray alloc]init];
+    
+        for(int i = 0 ; i < keys.count ; i++){
+            NSDictionary *oneData = dataDic[[keys objectAtIndex:i]];
+            // 원래  @"type":[keys objectAtIndexi]
+            NSDictionary *oneDic = @{@"type":[keys objectAtIndex:i],
                                  @"allScore":oneData[@"score"],
                                  @"allGame":oneData[@"cnt"]};
-        [datas addObject:oneDic];
-    }
+            
+        }
    
     
-    // 여기 부분은 에러 체크용..
-    __autoreleasing NSError *error;
-    NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
-    NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        // 여기 부분은 에러 체크용..
+        __autoreleasing NSError *error;
+        NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
+        NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@",stringdata);
+        NSLog(@"%@",stringdata);
     
-    // 데이터 보냄
-       AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sendDic : %@",sendDic);
-        NSLog(@"JSON: %@", responseObject);
+        // 데이터 보냄
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+        [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"sendDic : %@",sendDic);
+                NSLog(@"JSON: %@", responseObject);
         
-        // TODO
-        // 여기서 응답 온거 가지고 처리해야한다!!!
-        /*
-        NSString *value = responseObject[@"aidx"];
-        NSLog(@"result : %@",value);
-         */
-        NSString *result = responseObject[@"result"];
-        if([result isEqualToString:@"SUCCESS"]){
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-        else{
-            NSLog(@"Save ERROR!");
-        }
+            // TODO
+            // 여기서 응답 온거 가지고 처리해야한다!!!
+            /*
+             NSString *value = responseObject[@"aidx"];
+             NSLog(@"result : %@",value);
+             */
+            NSString *result = responseObject[@"result"];
+            if([result isEqualToString:@"SUCCESS"]){
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else{
+                NSLog(@"Save ERROR!");
+            }
     
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-        [alert show];
-        NSLog(@"Error: %@", error);
-    }];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alert show];
+            NSLog(@"Error: %@", error);
+        }];
+    }else{
+        // 해당 기간의 날짜를 편집한게 아니라면 그냥 끝냄
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 
     
    

@@ -10,14 +10,16 @@
 
 @interface Person : NSObject
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *profileImage;
-@property (nonatomic) NSString *country;
+@property (nonatomic) NSURL *profileImage;
+@property (nonatomic) NSURL *country;
 @property (nonatomic) NSInteger hand;
-@property (nonatomic) NSInteger score;
-@property (nonatomic) NSString *fromYear;
-@property (nonatomic) NSInteger style;
+@property (nonatomic) NSString *score;
+@property (nonatomic) NSInteger fromYear;
+@property (nonatomic) NSString *style;
 @property (nonatomic) NSInteger step;
 @property (nonatomic) NSInteger ballPound;
 @property (nonatomic) NSInteger series300;
 @property (nonatomic) NSInteger series800;
+
+-(void)setValueWithName:(NSString *)inName withProfileURL:(NSURL *)inProfileURL withCountryURL:(NSURL *)inCountryURL withHandy:(NSInteger)inHandy withScore:(NSString *)score withYear:(NSInteger)inYear withStyle:(NSString *)inSytle withStep:(NSInteger)inStep withBall:(NSInteger)inBall with300:(NSInteger)in300 with800Series:(NSInteger)in800;
 @end

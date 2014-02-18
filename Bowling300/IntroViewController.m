@@ -40,7 +40,6 @@
       
          NSString *string = responseObject[@"startPoint"];
          NSArray *components = [string componentsSeparatedByString: @"-"];
-         NSString *string2 = (NSString*) [components objectAtIndex:1];
         
         ad.rankingStartDate = [NSString stringWithFormat:@"%04d%02d%02d",[[components objectAtIndex:0] integerValue],[[components objectAtIndex:1] integerValue],[[components objectAtIndex:2] integerValue]];
         
@@ -52,6 +51,9 @@
         
         NSLog(@"JSON: %@", responseObject);
         NSLog(@"start date : %@ end date : %@",ad.rankingStartDate, ad.rankingEndDate);
+        
+        
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];

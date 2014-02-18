@@ -23,4 +23,7 @@
 @property (nonatomic) NSInteger myGameCnt;
 
 @property (nonatomic) NSInteger myIDX;
+@property (nonatomic) NSString *myName;
+
+@property (nonatomic) NSInteger selectedGroupIdx;
 @end

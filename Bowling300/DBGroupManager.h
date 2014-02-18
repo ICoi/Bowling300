@@ -14,6 +14,7 @@
 - (NSMutableArray *)showAllGroups;
 - (NSInteger)showRepresentiveGroupIdx;
 - (void)setRepresentiveGroupWithGroupIdx:(NSInteger)inGroupIdx;
+- (UIColor *)showGroupColorWithGroupIdx:(NSInteger)inGroupIdx;
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSMutableArray *)showGroupIdxWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSMutableArray *)showGroupColorWithGroupsArray:(NSMutableArray *)inGroups;

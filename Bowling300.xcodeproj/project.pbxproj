@@ -174,6 +174,11 @@
 		00BD7A9E18A078E300F35DF3 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9D18A078E300F35DF3 /* Score.m */; };
 		00BD7AA418A0997F00F35DF3 /* WriteRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7AA318A0997F00F35DF3 /* WriteRecordViewController.m */; };
 		00BD7AA718A0D3EF00F35DF3 /* DBGraphManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */; };
+		00D5140B18B306C20091F082 /* ranking_pop.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5140A18B306C20091F082 /* ranking_pop.png */; };
+		00D5140D18B31A280091F082 /* ranking_myinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5140C18B31A280091F082 /* ranking_myinfo.png */; };
+		00D5140F18B31F6D0091F082 /* ranking_x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5140E18B31F6D0091F082 /* ranking_x.png */; };
+		00D5141518B345930091F082 /* GroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D5141418B345930091F082 /* GroupMemberCell.m */; };
+		00D5141718B34FCE0091F082 /* menu_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5141618B34FCE0091F082 /* menu_bg.png */; };
 		00D979CD18A1ECEF0078B24C /* BLGraphScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D979CC18A1ECEF0078B24C /* BLGraphScore.m */; };
 		00D979D018A1EDBB0078B24C /* BLGraphMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D979CF18A1EDBB0078B24C /* BLGraphMonth.m */; };
 		00D979D318A1EFFB0078B24C /* BLGraphYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D979D218A1EFFB0078B24C /* BLGraphYear.m */; };
@@ -403,6 +408,12 @@
 		00BD7AA318A0997F00F35DF3 /* WriteRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteRecordViewController.m; sourceTree = "<group>"; };
 		00BD7AA518A0D3EF00F35DF3 /* DBGraphManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGraphManager.h; sourceTree = "<group>"; };
 		00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGraphManager.m; sourceTree = "<group>"; };
+		00D5140A18B306C20091F082 /* ranking_pop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_pop.png; path = ../../../../Dropbox/Bowling/640_1136/ranking_pop.png; sourceTree = "<group>"; };
+		00D5140C18B31A280091F082 /* ranking_myinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_myinfo.png; sourceTree = "<group>"; };
+		00D5140E18B31F6D0091F082 /* ranking_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_x.png; sourceTree = "<group>"; };
+		00D5141318B345930091F082 /* GroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberCell.h; sourceTree = "<group>"; };
+		00D5141418B345930091F082 /* GroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberCell.m; sourceTree = "<group>"; };
+		00D5141618B34FCE0091F082 /* menu_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_bg.png; sourceTree = "<group>"; };
 		00D979CB18A1ECEF0078B24C /* BLGraphScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGraphScore.h; sourceTree = "<group>"; };
 		00D979CC18A1ECEF0078B24C /* BLGraphScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLGraphScore.m; sourceTree = "<group>"; };
 		00D979CE18A1EDBB0078B24C /* BLGraphMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLGraphMonth.h; sourceTree = "<group>"; };
@@ -524,6 +535,7 @@
 				009CCB561890E096006DAB6F /* AppDelegate.h */,
 				009CCB571890E096006DAB6F /* AppDelegate.m */,
 				009CCB591890E096006DAB6F /* Main.storyboard */,
+				00D5140A18B306C20091F082 /* ranking_pop.png */,
 				009CCB5C1890E096006DAB6F /* IntroViewController.h */,
 				009CCB5D1890E096006DAB6F /* IntroViewController.m */,
 				009CCB5F1890E096006DAB6F /* Images.xcassets */,
@@ -654,6 +666,8 @@
 				00A483B018AC5FB5006B6707 /* CalendarDayCell.m */,
 				00BA3A9618ADA2FB00A2DFC0 /* GroupListCell.h */,
 				00BA3A9718ADA2FB00A2DFC0 /* GroupListCell.m */,
+				00D5141318B345930091F082 /* GroupMemberCell.h */,
+				00D5141418B345930091F082 /* GroupMemberCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -664,6 +678,7 @@
 				0090CDD318B08CC300CC4435 /* flag_america.png */,
 				0090CDD418B08CC300CC4435 /* flag_china.png */,
 				0090CDD518B08CC300CC4435 /* flag_japan.png */,
+				00D5141618B34FCE0091F082 /* menu_bg.png */,
 				0090CDD618B08CC300CC4435 /* flag_korea.png */,
 				0090CDD718B08CC300CC4435 /* join_img.png */,
 				0090CDD818B08CC300CC4435 /* ranking_myinfo.png */,
@@ -749,6 +764,8 @@
 				00A482DF18AC56A1006B6707 /* ranking_menu_group_over.png */,
 				00A482E018AC56A1006B6707 /* ranking_menu_mypage.png */,
 				00A483B918ACBA10006B6707 /* ranking_123_bg2.png */,
+				00D5140E18B31F6D0091F082 /* ranking_x.png */,
+				00D5140C18B31A280091F082 /* ranking_myinfo.png */,
 				00A483BA18ACBA10006B6707 /* ranking_123_bg3.png */,
 				00A483BB18ACBA10006B6707 /* ranking_top_bg.png */,
 				00A483BC18ACBA10006B6707 /* record_chart_graphline.png */,
@@ -1011,6 +1028,7 @@
 				00A4830318AC56A1006B6707 /* group_joinedgroup_bg.png in Resources */,
 				008B8FDC18AB525700372F04 /* Roboto-Light.ttf in Resources */,
 				00A482FF18AC56A1006B6707 /* group_edit_delete_icon.png in Resources */,
+				00D5140D18B31A280091F082 /* ranking_myinfo.png in Resources */,
 				00A482F818AC56A1006B6707 /* back_foot_bar.png in Resources */,
 				00A4832618AC56A1006B6707 /* menu_mypage2.png in Resources */,
 				00A4831A18AC56A1006B6707 /* join_img2.png in Resources */,
@@ -1029,6 +1047,7 @@
 				00A4832118AC56A1006B6707 /* menu_bar.png in Resources */,
 				00A4834C18AC56A1006B6707 /* record_chart_distribution.png in Resources */,
 				0090CDCD18B0622200CC4435 /* login.png in Resources */,
+				00D5140B18B306C20091F082 /* ranking_pop.png in Resources */,
 				0090CDE118B08CC300CC4435 /* ranking_myinfo.png in Resources */,
 				00A4831E18AC56A1006B6707 /* join_man.png in Resources */,
 				00A4832818AC56A1006B6707 /* menu_ranking2.png in Resources */,
@@ -1059,8 +1078,10 @@
 				00A4832418AC56A1006B6707 /* menu_icon.png in Resources */,
 				00A4834518AC56A1006B6707 /* ranking_menu_record.png in Resources */,
 				00A4834218AC56A1006B6707 /* ranking_menu_group_over.png in Resources */,
+				00D5140F18B31F6D0091F082 /* ranking_x.png in Resources */,
 				00A4833B18AC56A1006B6707 /* ranking_800icon_over.png in Resources */,
 				00A4833118AC56A1006B6707 /* mypage_myinfo1_ball2.png in Resources */,
+				00D5141718B34FCE0091F082 /* menu_bg.png in Resources */,
 				0090CDDD18B08CC300CC4435 /* flag_china.png in Resources */,
 				00A4831D18AC56A1006B6707 /* join_male_check.png in Resources */,
 				00A4833E18AC56A1006B6707 /* ranking_hander_l.png in Resources */,
@@ -1150,6 +1171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */,
+				00D5141518B345930091F082 /* GroupMemberCell.m in Sources */,
 				009CCC1E18910542006DAB6F /* GroupWriteViewController.m in Sources */,
 				009CCB5E1890E096006DAB6F /* IntroViewController.m in Sources */,
 				009CCC1B18910220006DAB6F /* GroupMemberViewController.m in Sources */,

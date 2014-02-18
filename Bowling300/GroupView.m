@@ -10,6 +10,7 @@
 #import <UIImageView+AFNetworking.h>
 #import "Group.h"
 #import "DBGroupManager.h"
+#import "AppDelegate.h"
 @interface GroupView()
 
 @end
@@ -52,11 +53,11 @@
         labelImageView = [[UIImageView alloc]initWithImage:labelImage];
         labelImageView.frame = CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.75, self.frame.size.width*0.875, self.frame.size.height*0.25);
         
-        groupNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.75, self.frame.size.width*0.875, self.frame.size.height*0.125)];
+        groupNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width*0.15, self.frame.size.height*0.75, self.frame.size.width*0.85, self.frame.size.height*0.125)];
         groupNameLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
         groupNameLabel.text = @"groupName";
         
-        dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width*0.125, self.frame.size.height*0.875, self.frame.size.width*0.875, self.frame.size.height*0.125)];
+        dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width*0.15, self.frame.size.height*0.875, self.frame.size.width*0.85, self.frame.size.height*0.125)];
         
         
         dateLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.9];
@@ -64,6 +65,7 @@
         
         UIImage *editImage= [ UIImage imageNamed:@"group_edit_delete_icon.png"];
         editImageView = [[UIImageView alloc]initWithImage:editImage];
+        editImageView.frame = CGRectMake(self.frame.size.width*0.06, self.frame.size.height*0.06, self.frame.size.width*0.2, self.frame.size.height*0.2);
         [editImageView setHidden:YES];
         
         nowEditMode = NO;
@@ -71,10 +73,10 @@
         
         
         if(self.frame.size.width >100){
-            groupNameLabel.font = [UIFont systemFontOfSize:13.0];
-            dateLabel.font = [UIFont systemFontOfSize:12.0];
+            groupNameLabel.font = [UIFont boldSystemFontOfSize:16.0];
+            dateLabel.font = [UIFont systemFontOfSize:13.0];
         }else{
-            groupNameLabel.font = [UIFont systemFontOfSize:8.0];
+            groupNameLabel.font = [UIFont boldSystemFontOfSize:12.0];
             dateLabel.font = [UIFont systemFontOfSize:7.0];
         }
         
@@ -94,7 +96,8 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu" message:@"What do you want to do?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Represent   Group",@"Setting", nil];
         [alert show];
     }else{
-        
+        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        ad.selectedGroupIdx = self.groupIdx;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"showGroup" object:nil];
     }
 }

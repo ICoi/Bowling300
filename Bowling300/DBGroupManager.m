@@ -57,7 +57,7 @@ static DBGroupManager *_instance = nil;
         Group *one = [[Group alloc]init];
         one.idx = groupIdx;
         one.name = nsGroupName;
-        one.color = [UIColor colorWithRed:redColor green:greenColor blue:blueColor alpha:1.0];
+        one.color = [UIColor colorWithRed:((float)redColor/255) green:((float)greenColor/255) blue:((float)blueColor/255) alpha:1.0];
         
         [groups addObject:one];
     }
@@ -104,6 +104,26 @@ static DBGroupManager *_instance = nil;
     
     sqlite3_step(stmt);
     sqlite3_finalize(stmt);
+}
+- (UIColor *)showGroupColorWithGroupIdx:(NSInteger)inGroupIdx{
+    NSString *queryStr = [NSString stringWithFormat: @"SELECT groupRColor, groupGColor, groupBColor FROM myGroup where groupIdx = %d",inGroupIdx ];;
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR (%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        int groupRColor = (int)sqlite3_column_int(stmt, 0);
+        int groupGColor = (int)sqlite3_column_int(stmt, 1);
+        int groupBColor = (int)sqlite3_column_int(stmt, 2);
+        float rColor = (float)groupRColor/255;
+        float gColor = (float)groupGColor/255;
+        float bColor = (float)groupBColor/255;
+        UIColor *tmpColor = [UIColor colorWithRed:rColor green:gColor blue:bColor alpha:1.0];
+        sqlite3_finalize(stmt);
+        return  tmpColor;
+    }
+    return  [UIColor blackColor];
 }
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups{
     NSMutableArray *returnArr = [[NSMutableArray alloc]init];

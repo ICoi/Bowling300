@@ -32,6 +32,22 @@ static DBMyInfoManager *_instance = nil;
     sqlite3_last_insert_rowid(db);
     return YES;
 }
+- (NSString *)showUsername{
+    NSString *queryStr = @"SELECT Name FROM myInfo";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        char *name = (char *)sqlite3_column_text(stmt, 0);
+        
+        NSString *returnName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+        sqlite3_finalize(stmt);
+        return returnName;
+    }
+    return nil;
+}
 -(BOOL)isLoggined{
     NSString *queryStr = @"SELECT * FROM myInfo";
     sqlite3_stmt *stmt;

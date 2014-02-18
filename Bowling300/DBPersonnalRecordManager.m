@@ -106,7 +106,7 @@ static DBPersonnalRecordManager *_instance = nil;
 - (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear{
     DayScore *tmpDayScore = [[DayScore alloc]init];
     
-    NSString *queryStr = @"SELECT Date, GroupNum, TotalScore, rowid FROM personnalRecord";
+    NSString *queryStr = @"SELECT Date, GroupNum, TotalScore, rowid, handy FROM personnalRecord";
     sqlite3_stmt *stmt;
     int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
     
@@ -118,12 +118,13 @@ static DBPersonnalRecordManager *_instance = nil;
         int groupNum = (int)sqlite3_column_int(stmt, 1);
         int score = (int)sqlite3_column_int(stmt, 2);
         int rowID = (int)sqlite3_column_int(stmt, 3);
+        int handy = (int)sqlite3_column_int(stmt, 4);
         
         NSString *nsDate = [NSString stringWithCString:date encoding:NSUTF8StringEncoding];
         NSString *searchDate = [NSString stringWithFormat:@"%04d%02d%02d",inYear,inMonth,inDate];
         
         if([searchDate isEqualToString:nsDate]){
-            [tmpDayScore addDataWithGroupNum:groupNum withTotalScore:score withRowID:rowID];
+            [tmpDayScore addDataWithGroupNum:groupNum withTotalScore:score withRowID:rowID withHandy:handy];
         }
     }
     sqlite3_finalize(stmt);
@@ -157,11 +158,14 @@ static DBPersonnalRecordManager *_instance = nil;
     
     NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s'", ret, sqlite3_errmsg(db));
     
+    int myPeriodAllScore = 0;
+    int myPeroidGameCnt = 0;
     //모든 행의 정보를 얻어온다.
     while(SQLITE_ROW == sqlite3_step(stmt)){
         char *date = (char *)sqlite3_column_text(stmt, 0);
         int groupNum = (int)sqlite3_column_int(stmt, 1);
         int totalScore = (int)sqlite3_column_int(stmt, 2);
+        
         
         NSInteger dateInt = [[NSString stringWithCString:date encoding:NSUTF8StringEncoding] integerValue];
         NSInteger startD = [startDate integerValue];
@@ -171,6 +175,12 @@ static DBPersonnalRecordManager *_instance = nil;
             NSLog(@"%d 기간 안에 들은 값이지롱!!",dateInt);
             NSString *groupKey = [NSString stringWithFormat:@"%d",groupNum];
             NSMutableDictionary *tmpDic = returnDic[groupKey];
+            
+            // 일단 총 값을 더해서 보내줘야됨..? ;; ㅠㅠ
+            myPeroidGameCnt++;
+            myPeriodAllScore += totalScore;
+            
+            
             if(tmpDic == nil){
                 tmpDic = [[NSMutableDictionary alloc]init];
                 [tmpDic setObject:[NSString stringWithFormat:@"%d",totalScore] forKey:@"score"];
@@ -194,6 +204,14 @@ static DBPersonnalRecordManager *_instance = nil;
     }
     sqlite3_finalize(stmt);
     
+    
+    // 여기서 return Dic에 총점 총게임수 보내면 될거 같당!! 그걸 -1키로 해서 보내면 될ㄷ스..
+    
+    NSMutableDictionary *tmpDic = [[NSMutableDictionary alloc]init];
+    [tmpDic setObject:[NSString stringWithFormat:@"%d", myPeriodAllScore] forKey:@"score"];
+    [tmpDic setObject:[NSString stringWithFormat:@"%d",myPeroidGameCnt] forKey:@"cnt"];
+    
+    [returnDic setObject:tmpDic forKey:@"-1"];
     return returnDic;
     
 }

@@ -62,4 +62,32 @@
     
     
 }
+- (void)addDataWithGroupNum:(NSInteger)inGroupNum withTotalScore:(NSInteger)inTotalScore withRowID:(NSInteger)inRowID withHandy:(NSInteger)inHandy{
+    Score *oneScore = [[Score alloc] initWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID withHandy:inHandy];
+    [self.todayScores addObject:oneScore];
+    
+    NSString *key = [NSString stringWithFormat:@"%d",inGroupNum];
+    NSString *groupScore = self.groupScores[key];
+    if(groupScore == nil){
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",inTotalScore] forKey:key];
+    }else{
+        NSInteger tmp = ([groupScore integerValue] + inTotalScore);
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",tmp] forKey:key];
+    }
+    
+    if(self.highScore < inTotalScore){
+        self.highScore = inTotalScore;
+    }
+    if(self.lowScore > inTotalScore){
+        self.lowScore = inTotalScore;
+    }
+    
+    
+    NSInteger beforeTotal = self.averageScore * self.gameCnt;
+    self.gameCnt++;
+    self.averageScore = (beforeTotal + inTotalScore)/self.gameCnt;
+    
+    //  NSLog(@"최고점 : %d 최소점 : %d 평균 : %d 게임수 : %d",(int)self.highScore, (int)self.lowScore, (int)self.averageScore, (int)self.gameCnt);
+}
+
 @end

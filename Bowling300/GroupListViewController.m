@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hamRecordBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *groupCountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *scrollViewBackground;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addGroupBtn;
@@ -89,6 +90,7 @@
     //TODO
     
     representGroupIdx = dbManager.showRepresentiveGroupIdx;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -158,12 +160,15 @@
             }else{
                 [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groupCnt + 1) , 130)];
             }
+            
+            
+            
+            self.groupCountLabel.text = [NSString stringWithFormat:@"total %d",groupCnt];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
     }];
     [op start];
-    
     
     
     

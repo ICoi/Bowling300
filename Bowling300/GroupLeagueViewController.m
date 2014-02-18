@@ -9,6 +9,17 @@
 #import "GroupLeagueViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AirBalloonView.h"
+#import <AFNetworking.h>
+#import "AppDelegate.h"
+#import <UIImageView+AFNetworking.h>
+#define TOPX 25
+#define TOPY 61
+#define BOTTOMY 485
+#define WIDTH 235
+#define HEIGHT 424
+
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupLeague"
+
 @interface GroupLeagueViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;
 @property (nonatomic, strong) UIView *testView;
@@ -16,12 +27,17 @@
 
 @end
 
-@implementation GroupLeagueViewController
+@implementation GroupLeagueViewController{
+    AppDelegate *ad;
+    NSMutableArray *datas;
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    datas = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view.
     
     // 이부분이 이미지 둥글게 만들 수 잇는 부분임.
@@ -37,11 +53,58 @@
     
 }
 
+
+// setneedsdisplay
 - (void)viewWillAppear:(BOOL)animated{
     [self.tabBarController.tabBar setHidden:YES];
-    AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:CGRectMake(100, 50, 60, 90)];
-    [self.view addSubview:one];
-    [self.view reloadInputViews];
+    
+    
+    NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
+    [sendDic setObject:[NSString stringWithFormat:@"%d",ad.selectedGroupIdx] forKey:@"gidx"];
+    
+    __autoreleasing NSError *error;
+    NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
+    NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"request : %@",sendDic);
+    
+    // 데이터 통신함
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        
+        // 여기서 응답 온거 가지고 처리해야한다!!!
+        NSString *result = responseObject[@"result"];
+        if([result isEqualToString:@"FAIL"]){
+            NSLog(@"result is fail");
+        }else{
+            NSLog(@"result is success");
+            
+            datas = responseObject[@"leagueData"];
+            
+            for(int i =0 ; i < datas.count ; i++){
+                NSMutableDictionary *oneData = [datas objectAtIndex:i];
+                CGRect tmpPosition = [self showDrawPointWithScore:100];
+                AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:tmpPosition];
+                NSString *score = oneData[@"avg"];
+                [one setValueWithScore:[score integerValue] withProfileURL:oneData[@"prophoto"]];
+                [self.view addSubview:one];
+            }
+            
+            [self.view reloadInputViews];
+            // TODO
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
+        // 실패한경우...
+        NSLog(@"Error: %@", error);
+    }];
+
+    
+    
     
 }
 - (void)didReceiveMemoryWarning
@@ -59,6 +122,14 @@
     [self.tabBarController setSelectedIndex:2];
 }
 
+- (CGRect)showDrawPointWithScore:(NSInteger)inScore{
+    NSInteger x = arc4random()%WIDTH;
+    NSInteger y = HEIGHT * ((float)inScore/300);
+    
+    CGRect tmp = CGRectMake(TOPX + x, TOPY + y, 60, 90 );
+    
+    return tmp;
+}
 
 - (void)showLeague{
     // League를 보여줌

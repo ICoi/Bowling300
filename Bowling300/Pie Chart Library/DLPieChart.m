@@ -8,7 +8,8 @@
 
 #import "DLPieChart.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "Group.h"
+#import "DBGroupManager.h"
 #define OFFSET 20
 
 @interface SliceLayer : CAShapeLayer
@@ -86,6 +87,8 @@
     //animation control
     NSTimer *_animationTimer;
     NSMutableArray *_animations;
+    
+    NSMutableArray *groups;
 }
 
 static NSUInteger kDefaultSliceZOrder = 100;
@@ -169,6 +172,11 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     self = [super initWithCoder:aDecoder];
     if(self)
     {
+        // 일단 그룹목록!!
+        //TODO
+        DBGroupManager *dbManager = [DBGroupManager sharedModeManager];
+        groups = [dbManager showAllGroups];
+        
         _pieView = [[UIView alloc] initWithFrame:self.bounds];
         [_pieView setBackgroundColor:[UIColor clearColor]];
         [self insertSubview:_pieView atIndex:0];
@@ -694,7 +702,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     for(int i=0;i<self.DLDataArray.count;i++)
     {
         // 여기서 색 지정하네!!!
-        [self.DLColorsArray addObject:[UIColor colorWithRed:(rand()%255)/255.0 green:(rand()%255)/255.0 blue:(rand()%255)/255.0 alpha:1.0]];
+        Group *one = [groups objectAtIndex:i];
+        [self.DLColorsArray addObject:one.color];
     }
     
     [layerHostingView setDataSource:self];
@@ -813,10 +822,12 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     if(self.groupLabel == nil){
         self.groupLabel = [[UILabel alloc]init];
         self.groupLabel.textColor = [UIColor whiteColor];
-        self.groupLabel.frame = CGRectMake(150, 50, 100, 100);
+        self.groupLabel.frame = CGRectMake(150, 20, 120, 20);
         [self addSubview:self.groupLabel];
     }
-        self.groupLabel.text = [NSString stringWithFormat:@"Group : %d",index];
+    Group *one = [groups objectAtIndex:index];
+    self.groupLabel.text = [NSString stringWithFormat:@"%@",one.name];
+        //self.groupLabel.text = [NSString stringWithFormat:@"Group : %d",index];
     
     
 //    NSLog(@"did select slice at index %d",index);

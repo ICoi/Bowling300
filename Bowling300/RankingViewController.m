@@ -16,7 +16,8 @@
 #import "InfoPopupView.h"
 #import "DBPersonnalRecordManager.h"
 #import "DBGroupManager.h"
-
+#import "InfoPopupView.h"
+#import "Person.h"
 #define GLOBAL_RANKING 0
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
@@ -54,7 +55,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *myNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *myRankingLabel;
 
-@property (weak, nonatomic) IBOutlet InfoPopupView *popUpView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *background_123_imageView;
 
@@ -69,7 +69,10 @@
     DBMyInfoManager *dbInfoManager;
     AppDelegate *ad;
     NSInteger representiveGroupIdx;
+    DBPersonnalRecordManager *dbPersonManager;
+    InfoPopupView *popUpView;
     
+    NSMutableArray *peoples;
 }
 
 
@@ -79,23 +82,30 @@
 	// Do any additional setup after loading the view.
     selectedRanking = GLOBAL_RANKING;
     rankingDataArr = [[NSMutableArray alloc]init];
+    dbPersonManager = [DBPersonnalRecordManager sharedModeManager];
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     [self.tabBarController.tabBar setHidden:YES];
     [self.navigationController.navigationBar setHidden:YES];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    self.myScoreLabel.font = [UIFont fontWithName:@"expansiva" size:17];
+    //self.myScoreLabel.font = [UIFont fontWithName:@"expansiva" size:17];
     
     
     self.myImageView.layer.masksToBounds = YES;
     self.myImageView.layer.cornerRadius = 20.0f;
     
     [self getRankingFromServerWithType:GLOBAL_RANKING];
+    popUpView = [[InfoPopupView alloc]initWithFrame:CGRectMake(0, 88, 274, 302)];
+    [self.view addSubview:popUpView];
+    [popUpView setHidden:YES];
+    peoples = [[NSMutableArray alloc]init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    DBPersonnalRecordManager *dbRecordManager = [DBPersonnalRecordManager sharedModeManager];
-    [dbRecordManager setDefaultData];
+    //TODO
+    ad.myName =[dbInfoManager showUsername];
+    
+    [dbPersonManager setDefaultData];
     
 
     
@@ -117,7 +127,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)savePeoplesDataWithDic:(NSMutableArray *)inArr{
+    Person *person;
+    NSMutableDictionary *one;
+    for(int i = 0 ; i < inArr.count; i++){
+        person = [[Person alloc]init];
+        one = [rankingDataArr objectAtIndex:i];
+        NSLog(@"%@",one);
+        NSString *name = one[@"name"];
+        NSString *profile = one[@"proPhoto"];
+        NSString *country = one[@"country"];
+        NSString *handy = one[@"hand"];
+        NSString *score = one[@"avg"];
+        NSString *fromYear = @"";
+        NSString *style = one[@"style"];
+        NSString *step = one[@"step"];
+        NSString *ballURL = one[@"proPhoto"];
+        NSString *ball = @"1";
+        NSString *series300 = @"1";
+        NSString *series800 = @"1";
+        
+        
+        [person setValueWithName:name withProfileURL:[NSURL URLWithString:profile] withCountryURL:[NSURL URLWithString:country] withHandy:[handy integerValue] withScore:score withYear:2012 withStyle:@"Straight" withStep:3 withBall:3 with300:1 with800Series:1];
+        
+        [peoples addObject:person];
+        // rankingDataArr
+    }
+}
 
 - (void)getRankingFromServerWithType:(NSInteger)inType{
     
@@ -168,7 +204,7 @@
     NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
     NSLog(@"%@",stringdata);
-    
+    NSLog(@"request : %@",sendDic);
     
     // 데이터 통신함
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -176,7 +212,6 @@
     [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
-        // TODO
         // 여기서 응답 온거 가지고 처리해야한다!!!
         NSString *result = responseObject[@"result"];
         if([result isEqualToString:@"FAIL"]){
@@ -186,8 +221,15 @@
             rankingDataArr = [[NSMutableArray alloc]init];
             [rankingDataArr addObjectsFromArray:responseObject[@"arr"]];
             
-            NSInteger *ranking = [responseObject[@"myrank"] integerValue];
-            [self showMyRankingWithRanking:ranking withProfileURL:responseObject[@"myproPhoto"]];
+            NSInteger ranking = [responseObject[@"myrank"] integerValue];
+            NSInteger score = [responseObject[@"myavg"] integerValue];
+            
+            // TODO
+            [self savePeoplesDataWithDic:responseObject[@"arr"]];
+            
+            [self showMyRankingWithRanking:ranking withProfileURL:responseObject[@"myproPhoto"] withMyScore:score];
+            
+            
             // 이미지 다시 보여줌
             [self showRanking];
            
@@ -273,13 +315,18 @@
 - (IBAction)goMyPage:(id)sender {
     [self.tabBarController setSelectedIndex:3];
 }
-- (void)showMyRankingWithRanking:(NSInteger)inRanking withProfileURL:(NSString *)inProfileURL{
+- (void)showMyRankingWithRanking:(NSInteger)inRanking withProfileURL:(NSString *)inProfileURL withMyScore:(NSInteger)inMyScore{
     
     //내 랭킹정보를 보여줍니다.
     self.myRankingLabel.text = [NSString stringWithFormat:@"%d",inRanking];
     
     NSURL *proURL = [NSURL URLWithString:inProfileURL];
     [self.myImageView setImageWithURL:proURL];
+    
+    // TODO showUsername
+    self.myNameLabel.text = ad.myName;
+    
+    self.myScoreLabel.text = [NSString stringWithFormat:@"%d",inMyScore];
     
     
 }
@@ -311,7 +358,7 @@
     [self.imageFirst setImageWithURL:imageURL];
     self.nameFirst.text = one[@"name"];
     self.scoreFirst.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
-    self.scoreFirst.font = [UIFont fontWithName:@"Expansiva" size:self.scoreFirst.font.pointSize];
+   // self.scoreFirst.font = [UIFont fontWithName:@"Expansiva" size:self.scoreFirst.font.pointSize];
     [self.countryFirst setImageWithURL:countryURL];
     if (rankingDataArr.count == 1) {
         return TRUE;
@@ -325,7 +372,7 @@
     [self.imageSecond  setImageWithURL:imageURL];
     self.nameSecond.text = one[@"name"];
     self.scoreSecond.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
-    self.scoreSecond.font = [UIFont fontWithName:@"Expansiva" size:self.scoreSecond.font.pointSize];
+    //self.scoreSecond.font = [UIFont fontWithName:@"Expansiva" size:self.scoreSecond.font.pointSize];
     [self.countrySecond setImageWithURL:countryURL];
     if (rankingDataArr.count == 2) {
         return  TRUE;
@@ -338,7 +385,7 @@
     countryURL = [NSURL URLWithString:one[@"country"]];
     [self.imageThird setImageWithURL:imageURL];
     self.scoreThrid.text = [NSString stringWithFormat:@"%3.1f", [one[@"avg"] floatValue]];
-    self.scoreThrid.font = [UIFont fontWithName:@"Expansiva" size:self.scoreThrid.font.pointSize] ;
+    //self.scoreThrid.font = [UIFont fontWithName:@"Expansiva" size:self.scoreThrid.font.pointSize] ;
     [self.countryThird setImageWithURL:countryURL];
     if(rankingDataArr.count == 3){
         return TRUE;
@@ -385,10 +432,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *one = rankingDataArr[indexPath.row+3];
-    [self.popUpView setDataWithDictionary:one];
     
-    [self.popUpView setHidden:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Person *selectedPerson = [peoples objectAtIndex:(indexPath.row+3)];
+    NSLog(@"haha %@",selectedPerson);
+    
+    [popUpView setValueWithProfileURL:selectedPerson.profileImage withCountryURL:selectedPerson.country withHandy:selectedPerson.hand withName:selectedPerson.name withScore:selectedPerson.score withYears:selectedPerson.fromYear withStyle:selectedPerson.style withStep:selectedPerson.step withBall:selectedPerson.ballPound with300:selectedPerson.series300 with800Series:selectedPerson.series800];
+    
+    [popUpView setHidden:NO];
     
     
     

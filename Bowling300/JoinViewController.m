@@ -34,6 +34,9 @@
     AppDelegate *ad;
     NSInteger hander;
     NSInteger gender;
+    UIAlertView *countryAlert;
+    UIAlertView *cameraAlert;
+    NSString *selectCountryCode;
 }
 
 - (void)viewDidLoad
@@ -86,7 +89,7 @@
     NSString *password = self.passwordField.text;
     NSData *imageData = UIImageJPEGRepresentation(usingImage, 0.5);
     
-    if (([name isEqualToString:@""]) || ([email isEqualToString:@""]) || ([country isEqualToString:@""]) || ([password isEqualToString:@""]) || ( imageData == nil)) {
+    if (([name isEqualToString:@""]) || ([email isEqualToString:@""]) || ([selectCountryCode isEqualToString:@""]) || ([password isEqualToString:@""]) || ( imageData == nil)) {
         // 한개라도 null이 들어가면 서버에 전송하지 않음!!
         NSLog(@"Null Error");
     }
@@ -95,7 +98,7 @@
     
         AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
         
-        NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":[NSString stringWithFormat:@"%d",gender],@"country":country,@"hand":[NSString stringWithFormat:@"%d",hander]};
+        NSDictionary *parameters = @{@"email": email,@"name":name,@"pwd":password,@"sex":[NSString stringWithFormat:@"%d",gender],@"country":selectCountryCode,@"hand":[NSString stringWithFormat:@"%d",hander]};
         NSLog(@"%@",parameters);
         NSInteger randomNum = arc4random()%10000000;
         NSString *randomName = [NSString stringWithFormat:@"%d.PNG",randomNum];
@@ -126,8 +129,8 @@
     }
 }
 - (IBAction)clickCamera:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Profile" message:@"Select" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Take picture",@"Alberm", nil];
-    [alert show];
+    cameraAlert = [[UIAlertView alloc] initWithTitle:@"Profile" message:@"Select" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Take picture",@"Album", nil];
+    [cameraAlert show];
 }
 
 - (IBAction)selectFaceIcon:(id)sender {
@@ -148,11 +151,28 @@
 
 //alertView 선택시
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == alertView.firstOtherButtonIndex){
-        [self takePicture];
-    }else{
-        //앨범에서 가져오는거
-        [self getImage];
+    if (alertView == cameraAlert) {
+
+        if(buttonIndex == alertView.firstOtherButtonIndex){
+            [self takePicture];
+        }else{
+            //앨범에서 가져오는거
+            [self getImage];
+        }
+    } else if(alertView == countryAlert){
+        if(buttonIndex == alertView.firstOtherButtonIndex){
+            self.countryField.text = @"Korea";
+            selectCountryCode = @"KOR";
+        }else if(buttonIndex == (alertView.firstOtherButtonIndex+1)){
+            self.countryField.text = @"Japan";
+            selectCountryCode = @"JPN";
+        }else if(buttonIndex == (alertView.firstOtherButtonIndex+2)){
+            self.countryField.text = @"America";
+            selectCountryCode = @"USA";
+        }else if(buttonIndex == (alertView.firstOtherButtonIndex+3)){
+            self.countryField.text = @"China";
+            selectCountryCode = @"CHN";
+        }
     }
 }
 
@@ -208,7 +228,10 @@
     
     return newImage;
 }
-
+- (IBAction)selectCountry:(id)sender {
+    countryAlert = [[UIAlertView alloc]initWithTitle:@"Country" message:@"Select country" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Korea",@"Japan",@"America",@"China", nil];
+    [countryAlert show];
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

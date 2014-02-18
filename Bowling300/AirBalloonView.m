@@ -20,14 +20,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 13, 42, 20)];
+        scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 42, 20)];
         scoreLabel.text = @"150";
+        scoreLabel.textAlignment = NSTextAlignmentCenter;
+        scoreLabel.font = [UIFont systemFontOfSize:10.0];
         
         UIImage *paraImage = [UIImage imageNamed:@"group_league_para.png"];
         UIImage *paraHighlightImage = [UIImage imageNamed:@"group_league_para_200.png"];
         bgImageView = [[UIImageView alloc]initWithImage:paraImage highlightedImage:paraHighlightImage];
         bgImageView.frame = CGRectMake(0, 0, 60, 90);
         profileImageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 37, 50, 50)];
+        
+        profileImageView.layer.masksToBounds = YES;
+        profileImageView.layer.cornerRadius = 25.0f;
         
         [self addSubview:profileImageView];
         [self addSubview:bgImageView];

@@ -8,13 +8,20 @@
 
 #import "GroupMemberViewController.h"
 #import "GroupMemberCell.h"
+#import "AppDelegate.h"
+#import <AFNetworking.h>
+
+
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupmember"
 @interface GroupMemberViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *memberList;
+@property (weak, nonatomic) IBOutlet UILabel *memberCntLabel;
 
 @end
 
 @implementation GroupMemberViewController{
     NSMutableArray *members;
+    AppDelegate *ad;
 }
 
 
@@ -23,11 +30,48 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    members = [[NSMutableArray alloc]initWithArray:@[@"daun",@"aa",@"AA",@"AA",@"DD",@"sdf",@"aa",@"sdf",@"asd"]];
+    members = [[NSMutableArray alloc]init];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.tabBarController.tabBar setHidden:YES];
+    
+    NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
+    [sendDic setObject:[NSString stringWithFormat:@"%d",ad.selectedGroupIdx] forKey:@"gidx"];
+    
+    __autoreleasing NSError *error;
+    NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
+    NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"request : %@",sendDic);
+    
+    // 데이터 통신함
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        
+        // 여기서 응답 온거 가지고 처리해야한다!!!
+        NSString *result = responseObject[@"result"];
+        if([result isEqualToString:@"FAIL"]){
+            NSLog(@"result is fail");
+        }else{
+            NSLog(@"result is success");
+            
+            members = responseObject[@"member"];
+            self.memberCntLabel.text = [NSString stringWithFormat:@"%d members.",members.count];
+            [self.memberList reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
+        // 실패한경우...
+        NSLog(@"Error: %@", error);
+    }];
+    
+
 }
 - (void)didReceiveMemoryWarning
 {
@@ -47,6 +91,11 @@
     if (indexPath.row < [members count]){
         GroupMemberCell *cell;
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MEMBER_CELL" forIndexPath:indexPath];
+        
+        NSMutableDictionary *one = [members objectAtIndex:indexPath.row];
+        NSLog(@"%@",one);
+        NSString *proPhoto = one[@"proPhoto"];
+        [cell setValueWithName:one[@"name"] withProfileURL:[NSURL URLWithString:proPhoto]];
         return  cell;
         
     }else{

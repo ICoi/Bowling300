@@ -276,6 +276,16 @@
         [self.view setNeedsDisplay];
     }
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [self removeGroupViews];
+}
+
+- (void)removeGroupViews{
+    for(int i = 0 ; i < groupViews.count ;i++){
+        GroupView *one = [groupViews objectAtIndex:i];
+        [one removeFromSuperview];
+    }
+}
 - (void)showGroup:(NSNotification *)notification{
     if([[notification name]isEqualToString:@"showGroup"]){
         UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GROUP_STORYBOARD"];

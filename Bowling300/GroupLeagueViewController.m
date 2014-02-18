@@ -23,6 +23,7 @@
 @interface GroupLeagueViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;
 @property (nonatomic, strong) UIView *testView;
+@property (weak, nonatomic) IBOutlet UILabel *membersCntLabel;
 
 
 @end
@@ -30,6 +31,7 @@
 @implementation GroupLeagueViewController{
     AppDelegate *ad;
     NSMutableArray *datas;
+    NSMutableArray *airBalloons;
 }
 
 
@@ -38,6 +40,7 @@
     [super viewDidLoad];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     datas = [[NSMutableArray alloc]init];
+    airBalloons = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view.
     
     // 이부분이 이미지 둥글게 만들 수 잇는 부분임.
@@ -81,17 +84,18 @@
         }else{
             NSLog(@"result is success");
             
-            datas = responseObject[@"leagueData"];
+            datas = responseObject[@"leaguedata"];
             
             for(int i =0 ; i < datas.count ; i++){
                 NSMutableDictionary *oneData = [datas objectAtIndex:i];
-                CGRect tmpPosition = [self showDrawPointWithScore:100];
-                AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:tmpPosition];
                 NSString *score = oneData[@"avg"];
+                CGRect tmpPosition = [self showDrawPointWithScore:[score integerValue]];
+                AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:tmpPosition];
                 [one setValueWithScore:[score integerValue] withProfileURL:oneData[@"prophoto"]];
+                [airBalloons addObject:one];
                 [self.view addSubview:one];
             }
-            
+            self.membersCntLabel.text = [NSString stringWithFormat:@"%d members.",datas.count];
             [self.view reloadInputViews];
             // TODO
         }
@@ -113,7 +117,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)removeAirBalloons{
+    for(int i = 0 ; i < airBalloons.count ;i++){
+        AirBalloonView *one = [airBalloons objectAtIndex:i];
+        [one removeFromSuperview];
+    }
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [self removeAirBalloons];
+}
 - (IBAction)showBoard:(id)sender {
     [self.tabBarController setSelectedIndex:1];
 }
@@ -124,9 +136,9 @@
 
 - (CGRect)showDrawPointWithScore:(NSInteger)inScore{
     NSInteger x = arc4random()%WIDTH;
-    NSInteger y = HEIGHT * ((float)inScore/300);
+    NSInteger y = (HEIGHT-90) * ((float)inScore/300);
     
-    CGRect tmp = CGRectMake(TOPX + x, TOPY + y, 60, 90 );
+    CGRect tmp = CGRectMake(TOPX + x, 420 - (((float)359/300)*inScore), 60, 90 );
     
     return tmp;
 }

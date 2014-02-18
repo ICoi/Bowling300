@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupMemberCell : UICollectionViewCell
+- (void)setValueWithName:(NSString *)inName withProfileURL:(NSURL *)inURL;
 @end

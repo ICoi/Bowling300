@@ -26,8 +26,11 @@
     return self;
 }
 - (void)setValueWithName:(NSString *)inName withProfileURL:(NSURL *)inURL{
-    self.nameLabel.textColor = inName;
+    self.nameLabel.text = inName;
     [self.profileImageView setImageWithURL:inURL];
+    
+    self.profileImageView.layer.masksToBounds = YES;
+    self.profileImageView.layer.cornerRadius = 44.0f;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

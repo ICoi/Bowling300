@@ -140,7 +140,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         
        // self.pieRadius = MIN(frame.size.width/2, frame.size.height/2) - 10;
-        self.pieRadius = 50;
+        self.pieRadius = 20;
         self.pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
         _labelColor = [UIColor whiteColor];
@@ -720,7 +720,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     //[self.pieChartLeft setStartPieAngle:M_PI_2];
     [layerHostingView setAnimationSpeed:1.0];
     // 여기서 반지름 크기 설정하는거!!
-    [layerHostingView setPieRadius:60];
+    [layerHostingView setPieRadius:40];
     //[layerHostingView setPieRadius:((MIN(layerHostingView.frame.size.width, layerHostingView.frame.size.height) - OFFSET*2))/2];
     [layerHostingView setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:(24-DLDataArray.count/2)]];
     [layerHostingView setShowPercentage:NO];

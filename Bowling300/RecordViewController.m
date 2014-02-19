@@ -25,10 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *writeBtn;
 @property (weak, nonatomic) IBOutlet UIView *writeContainerView;
 
-@property (weak, nonatomic) IBOutlet UIView *hamburgerView;
-@property (weak, nonatomic) IBOutlet UIButton *hamRankingBtn;
-@property (weak, nonatomic) IBOutlet UIButton *hamGroupBtn;
-@property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet CalendarView *calendarView;
 @property (weak, nonatomic) IBOutlet BarGraphView *barGraphView;
@@ -95,9 +91,6 @@
     nowMonth = inMonth;
     nowDate = inDate;
 }
-- (IBAction)goBack:(id)sender {
-    [self.tabBarController setSelectedIndex:0];
-}
 
 - (IBAction)showDatePicker:(id)sender {
 //    NSLog(@"search button clicked!");
@@ -160,75 +153,6 @@
 
 
 
-- (IBAction)showHamburgerList:(id)sender {
-    UIView *hamView = self.hamburgerView;
-    
-    [UIView animateWithDuration:0.5
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = hamView.frame;
-         frame.origin.y = 0;
-         frame.origin.x = 0;
-         hamView.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-         hamHidden = NO;
-         
-     }];
-    
-}
-
-- (IBAction)clickedHamListBtn:(id)sender {
-    NSLog(@"Ham list button clicked!");
-    
-    // 햄버거 메뉴 숨기기
-    CGRect frame = self.hamburgerView.frame;
-    frame.origin.y = -568;
-    frame.origin.x = 0;
-    self.hamburgerView.frame = frame;
-    UIButton *clickedButton = (UIButton *)sender;
-    if(clickedButton == self.hamRankingBtn){
-        [self.tabBarController setSelectedIndex:0];
-    }
-    else if(clickedButton == self.hamGroupBtn){
-        [self.tabBarController setSelectedIndex:2];
-        
-    }
-    else if(clickedButton == self.hamMyPageBtn){
-        [self.tabBarController setSelectedIndex:3];
-        
-    }
-    
-    
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    if(!hamHidden){
-        NSLog(@"Ham");
-        //햄버거 뷰 숨기기
-        UIView *hamView = self.hamburgerView;
-        
-        [UIView animateWithDuration:0.5
-                              delay:0.0
-                            options:  UIViewAnimationOptionCurveEaseIn
-                         animations:^
-         {
-             CGRect frame = hamView.frame;
-             frame.origin.y = -568;
-             frame.origin.x = 0;
-             hamView.frame = frame;
-         }
-                         completion:^(BOOL finished)
-         {
-             hamHidden = YES;
-             
-         }];
-    }
-    NSLog(@"Touched!!");
-}
 
 // 컴포넌트 갯수
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -273,7 +197,16 @@
     NSLog(@"selected components : %d row %d text %@",(int)component,(int)row,item);
 }
 
+- (IBAction)goRankingPage:(id)sender {
+    [self.tabBarController setSelectedIndex:0];
+}
 
+- (IBAction)goGroupPage:(id)sender {
+    [self.tabBarController setSelectedIndex:2];
+}
+- (IBAction)goMyPage:(id)sender {
+    [self.tabBarController setSelectedIndex:3];
+}
 
 
 @end

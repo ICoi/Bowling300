@@ -36,13 +36,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)goBack:(id)sender {
-    [self.tabBarController setSelectedIndex:0];
-}
 - (IBAction)logout:(id)sender {
     if([dbInfoManager logOut]){
         NSLog(@"You Logout success!");
         [self.tabBarController setSelectedIndex:0];
     }
+}
+- (IBAction)goRanking:(id)sender {
+    [self.tabBarController setSelectedIndex:0];
+}
+- (IBAction)goRecord:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
+}
+- (IBAction)goGroup:(id)sender {
+    [self.tabBarController setSelectedIndex:2];
 }
 @end

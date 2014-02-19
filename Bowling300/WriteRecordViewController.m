@@ -243,6 +243,4 @@
         self.groupLabel.text = @"solo";
     }
 }
-
-
 @end

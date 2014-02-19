@@ -212,58 +212,6 @@
     }
     NSLog(@"Touched!!");
 }
-- (IBAction)goBack:(id)sender {
-    [self.tabBarController setSelectedIndex:0];
-}
-
-
-
-- (IBAction)showHamburgerList:(id)sender {
-    UIView *hamView = self.hamburgerView;
-    // 햄버거 버튼 보여주기
-    [UIView animateWithDuration:0.5
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = hamView.frame;
-         frame.origin.y = 0;
-         frame.origin.x = 0;
-         hamView.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-         [hamView setHidden:NO];
-         hamHidden = NO;
-         
-     }];
-    
-}
-
-- (IBAction)clickedHamListBtn:(id)sender {
-    NSLog(@"Ham list button clicked!");
-    UIButton *clickedButton = (UIButton *)sender;
-    if(clickedButton == self.hamRankingBtn){
-        [self.tabBarController setSelectedIndex:0];
-    }
-    else if(clickedButton == self.hamRecordBtn){
-        [self.tabBarController setSelectedIndex:1];
-        
-    }
-    else if(clickedButton == self.hamMyPageBtn){
-        [self.tabBarController setSelectedIndex:3];
-        
-    }
-    
-    // 햄버거 메뉴 숨기기
-    CGRect frame = self.hamburgerView.frame;
-    frame.origin.y = -162;
-    frame.origin.x = 0;
-    self.hamburgerView.frame = frame;
-    [self.hamburgerView setHidden:YES];
-    
-    
-}
 
 
 - (void)refreshView:(NSNotification *)notification{
@@ -287,4 +235,15 @@
         [self.navigationController pushViewController:uiVC   animated:YES];
     }
 }
+- (IBAction)goRanking:(id)sender {
+    [self.tabBarController setSelectedIndex:0];
+}
+- (IBAction)goRecord:(id)sender {
+    [self.tabBarController setSelectedIndex:1];
+}
+- (IBAction)goMyPage:(id)sender {
+    [self.tabBarController setSelectedIndex:3];
+}
+
+
 @end

@@ -59,6 +59,7 @@
     
     
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -234,6 +235,15 @@
     NSString *item = [self pickerView:pickerView titleForRow:row forComponent:component];
         nowYear = [item integerValue];
     
+}
+- (IBAction)goRanking:(id)sender {
+    [self.tabBarController setSelectedIndex:0];
+}
+- (IBAction)goGroup:(id)sender {
+    [self.tabBarController setSelectedIndex:2];
+}
+- (IBAction)goMyPage:(id)sender {
+    [self.tabBarController setSelectedIndex:3];
 }
 
 

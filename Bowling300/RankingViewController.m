@@ -244,6 +244,7 @@
 }
 - (IBAction)showGlobalRanking:(id)sender {
     if( selectedRanking != GLOBAL_RANKING){
+        rankingDataArr = [[NSMutableArray alloc]init];
         UIImage *image = [UIImage imageNamed:@"bg.png"];
         self.backgroundImage.image = image;
     
@@ -261,6 +262,7 @@
 }
 - (IBAction)showLocalRanking:(id)sender {
     if( selectedRanking != LOCAL_RANKING) {
+        rankingDataArr = [[NSMutableArray alloc]init];
         UIImage *image = [UIImage imageNamed:@"ranking_local_bg.png"];
         self.backgroundImage.image = image;
         
@@ -280,6 +282,7 @@
 }
 - (IBAction)showGroupRanking:(id)sender {
     if(selectedRanking != GROUP_RANKING){
+        rankingDataArr = [[NSMutableArray alloc]init];
         UIImage *image = [UIImage imageNamed:@"ranking_group_bg.png"];
         self.backgroundImage.image = image;
      
@@ -287,6 +290,7 @@
         self.background_123_imageView.image = image;
         
         selectedRanking = GROUP_RANKING;
+        [self.rankingTable reloadData];
         
         [self.globalRankingBtn setAlpha:0.6];
         [self.localRankingBtn setAlpha:0.6];

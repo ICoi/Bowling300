@@ -67,11 +67,11 @@
     
     
     // 화면 전환하기
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:2.0
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         self.view.alpha = 0.0;
+                         self.view.alpha = 0.5;
                      }
                      completion:^(BOOL finished){
                          UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RankingViewController"];

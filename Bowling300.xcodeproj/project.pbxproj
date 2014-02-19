@@ -31,6 +31,9 @@
 		0090CDE418B08CC300CC4435 /* score_avr_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0090CDDB18B08CC300CC4435 /* score_avr_bg1.png */; };
 		009807AF18A31EDA0012ED66 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807AE18A31EDA0012ED66 /* Group.m */; };
 		009807B618A35BD10012ED66 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009807B518A35BD10012ED66 /* JoinViewController.m */; };
+		0099B69E18B437EE008E4F09 /* ranking_group_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0099B69C18B437EE008E4F09 /* ranking_group_bg.png */; };
+		0099B69F18B437EE008E4F09 /* ranking_local_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0099B69D18B437EE008E4F09 /* ranking_local_bg.png */; };
+		0099B6A118B438CC008E4F09 /* intro_720_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = 0099B6A018B438CC008E4F09 /* intro_720_1280.png */; };
 		009CCB481890E096006DAB6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB471890E096006DAB6F /* Foundation.framework */; };
 		009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB491890E096006DAB6F /* CoreGraphics.framework */; };
 		009CCB4C1890E096006DAB6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009CCB4B1890E096006DAB6F /* UIKit.framework */; };
@@ -174,7 +177,6 @@
 		00BD7A9E18A078E300F35DF3 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9D18A078E300F35DF3 /* Score.m */; };
 		00BD7AA418A0997F00F35DF3 /* WriteRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7AA318A0997F00F35DF3 /* WriteRecordViewController.m */; };
 		00BD7AA718A0D3EF00F35DF3 /* DBGraphManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */; };
-		00D5140B18B306C20091F082 /* ranking_pop.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5140A18B306C20091F082 /* ranking_pop.png */; };
 		00D5140D18B31A280091F082 /* ranking_myinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5140C18B31A280091F082 /* ranking_myinfo.png */; };
 		00D5140F18B31F6D0091F082 /* ranking_x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5140E18B31F6D0091F082 /* ranking_x.png */; };
 		00D5141518B345930091F082 /* GroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D5141418B345930091F082 /* GroupMemberCell.m */; };
@@ -236,6 +238,9 @@
 		009807AE18A31EDA0012ED66 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		009807B418A35BD10012ED66 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
 		009807B518A35BD10012ED66 /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
+		0099B69C18B437EE008E4F09 /* ranking_group_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_group_bg.png; sourceTree = "<group>"; };
+		0099B69D18B437EE008E4F09 /* ranking_local_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_local_bg.png; sourceTree = "<group>"; };
+		0099B6A018B438CC008E4F09 /* intro_720_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = intro_720_1280.png; path = ../../../../Dropbox/Bowling/640_1136/intro_720_1280.png; sourceTree = "<group>"; };
 		009CCB441890E096006DAB6F /* Bowling300.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowling300.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009CCB471890E096006DAB6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		009CCB491890E096006DAB6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -408,7 +413,6 @@
 		00BD7AA318A0997F00F35DF3 /* WriteRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteRecordViewController.m; sourceTree = "<group>"; };
 		00BD7AA518A0D3EF00F35DF3 /* DBGraphManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGraphManager.h; sourceTree = "<group>"; };
 		00BD7AA618A0D3EF00F35DF3 /* DBGraphManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGraphManager.m; sourceTree = "<group>"; };
-		00D5140A18B306C20091F082 /* ranking_pop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ranking_pop.png; path = ../../../../Dropbox/Bowling/640_1136/ranking_pop.png; sourceTree = "<group>"; };
 		00D5140C18B31A280091F082 /* ranking_myinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_myinfo.png; sourceTree = "<group>"; };
 		00D5140E18B31F6D0091F082 /* ranking_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking_x.png; sourceTree = "<group>"; };
 		00D5141318B345930091F082 /* GroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberCell.h; sourceTree = "<group>"; };
@@ -535,7 +539,7 @@
 				009CCB561890E096006DAB6F /* AppDelegate.h */,
 				009CCB571890E096006DAB6F /* AppDelegate.m */,
 				009CCB591890E096006DAB6F /* Main.storyboard */,
-				00D5140A18B306C20091F082 /* ranking_pop.png */,
+				0099B6A018B438CC008E4F09 /* intro_720_1280.png */,
 				009CCB5C1890E096006DAB6F /* IntroViewController.h */,
 				009CCB5D1890E096006DAB6F /* IntroViewController.m */,
 				009CCB5F1890E096006DAB6F /* Images.xcassets */,
@@ -776,6 +780,8 @@
 				00A482E518AC56A1006B6707 /* record_cal_next.png */,
 				00A482E618AC56A1006B6707 /* record_cal_prev.png */,
 				00A482E718AC56A1006B6707 /* record_cal_select.png */,
+				0099B69C18B437EE008E4F09 /* ranking_group_bg.png */,
+				0099B69D18B437EE008E4F09 /* ranking_local_bg.png */,
 				00A482E818AC56A1006B6707 /* record_calicon.png */,
 				00A482E918AC56A1006B6707 /* record_chart_distribution.png */,
 				00A482EB18AC56A1006B6707 /* record_chart_scoreinfo.png */,
@@ -1047,7 +1053,7 @@
 				00A4832118AC56A1006B6707 /* menu_bar.png in Resources */,
 				00A4834C18AC56A1006B6707 /* record_chart_distribution.png in Resources */,
 				0090CDCD18B0622200CC4435 /* login.png in Resources */,
-				00D5140B18B306C20091F082 /* ranking_pop.png in Resources */,
+				0099B69F18B437EE008E4F09 /* ranking_local_bg.png in Resources */,
 				0090CDE118B08CC300CC4435 /* ranking_myinfo.png in Resources */,
 				00A4831E18AC56A1006B6707 /* join_man.png in Resources */,
 				00A4832818AC56A1006B6707 /* menu_ranking2.png in Resources */,
@@ -1066,6 +1072,7 @@
 				0090CDDF18B08CC300CC4435 /* flag_korea.png in Resources */,
 				00A4832C18AC56A1006B6707 /* mypage_g_icon.png in Resources */,
 				00A4832218AC56A1006B6707 /* menu_group.png in Resources */,
+				0099B69E18B437EE008E4F09 /* ranking_group_bg.png in Resources */,
 				00A4831818AC56A1006B6707 /* join_female_check.png in Resources */,
 				00A4831718AC56A1006B6707 /* invite_message.png in Resources */,
 				00A4830B18AC56A1006B6707 /* group_member_invite_check.png in Resources */,
@@ -1100,6 +1107,7 @@
 				00A4833818AC56A1006B6707 /* ranking_300icon.png in Resources */,
 				00A4835718AC56A1006B6707 /* search_icon.png in Resources */,
 				00A4835418AC56A1006B6707 /* record_insert_groupicon.png in Resources */,
+				0099B6A118B438CC008E4F09 /* intro_720_1280.png in Resources */,
 				00A4832718AC56A1006B6707 /* menu_ranking.png in Resources */,
 				008B8FDF18AB525700372F04 /* Roboto-Thin.ttf in Resources */,
 				00A4833218AC56A1006B6707 /* mypage_myinfo1_ball3.png in Resources */,

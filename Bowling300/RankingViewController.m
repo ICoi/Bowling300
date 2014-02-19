@@ -94,7 +94,7 @@
     self.myImageView.layer.masksToBounds = YES;
     self.myImageView.layer.cornerRadius = 20.0f;
     
-    popUpView = [[InfoPopupView alloc]initWithFrame:CGRectMake(0, 88, 274, 302)];
+    popUpView = [[InfoPopupView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
     [self.view addSubview:popUpView];
     [popUpView setHidden:YES];
     peoples = [[NSMutableArray alloc]init];
@@ -404,9 +404,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    // TODO
-    //  여기에 조건문으로 어떤 경우인지에 따라 다르게 보여줘야 할거임!
-    //if(selectedRanking == GLOBAL_RANKING){
         NSDictionary *one = [rankingDataArr objectAtIndex:(indexPath.row+3)];
         NSURL *imageURL = [NSURL URLWithString:one[@"proPhoto"]];
         NSURL *countryURL = [NSURL URLWithString:one[@"country"]];
@@ -415,18 +412,6 @@
         
         [cell setValueWithRankingNum:(indexPath.row+4) withName:one[@"name"] withScore:one[@"avg"] withProfileImageURL:imageURL withCountryImageURL:countryURL];
                 return  cell;
-        
-   /* }
-    else if(selectedRanking == LOCAL_RANKING){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LOCAL_RANKING_CELL" forIndexPath:indexPath];
-        return cell;
-    }
-    else if(selectedRanking == GROUP_RANKING ) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GROUP_RANKING_CELL" forIndexPath:indexPath];
-        return  cell;
-    }
-    */
-    
     
     
     return nil;
@@ -452,5 +437,35 @@
     
     
     
+}
+- (IBAction)showFirstManInfo:(id)sender {
+    if (rankingDataArr.count >= 1) {
+       
+        Person *selectedPerson = [peoples objectAtIndex:0];
+    
+        [popUpView setValueWithProfileURL:selectedPerson.profileImage withCountryURL:selectedPerson.country withHandy:selectedPerson.hand withName:selectedPerson.name withScore:selectedPerson.score withYears:selectedPerson.fromYear withStyle:selectedPerson.style withStep:selectedPerson.step withBall:selectedPerson.ballPound with300:selectedPerson.series300 with800Series:selectedPerson.series800];
+    
+        [popUpView setHidden:NO];
+    }
+}
+- (IBAction)showSecondManInfo:(id)sender {
+    if (rankingDataArr.count >= 2) {
+        
+        Person *selectedPerson = [peoples objectAtIndex:1];
+        
+        [popUpView setValueWithProfileURL:selectedPerson.profileImage withCountryURL:selectedPerson.country withHandy:selectedPerson.hand withName:selectedPerson.name withScore:selectedPerson.score withYears:selectedPerson.fromYear withStyle:selectedPerson.style withStep:selectedPerson.step withBall:selectedPerson.ballPound with300:selectedPerson.series300 with800Series:selectedPerson.series800];
+        
+        [popUpView setHidden:NO];
+    }
+}
+- (IBAction)showThirdManInfo:(id)sender {
+    if (rankingDataArr.count >= 3) {
+        
+        Person *selectedPerson = [peoples objectAtIndex:2];
+        
+        [popUpView setValueWithProfileURL:selectedPerson.profileImage withCountryURL:selectedPerson.country withHandy:selectedPerson.hand withName:selectedPerson.name withScore:selectedPerson.score withYears:selectedPerson.fromYear withStyle:selectedPerson.style withStep:selectedPerson.step withBall:selectedPerson.ballPound with300:selectedPerson.series300 with800Series:selectedPerson.series800];
+        
+        [popUpView setHidden:NO];
+    }
 }
 @end

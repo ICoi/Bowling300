@@ -15,7 +15,9 @@
 - (NSInteger)getDailyHighScoreWithDate:(NSString *)inDate;
 - (NSInteger)getDailyLowScoreWithDate:(NSString *)inDate;
 - (NSInteger)getDailyAverageScoreWithDate:(NSString *)inDate;
+-(NSInteger)getDailyGameCnt:(NSString *)inDate;
 
+- (NSInteger)getMonthlyGameCnt;
 - (NSInteger)getMonthlyHighScore;
 - (NSInteger)getMonthlyLowScore;
 - (NSInteger)getMonthlyAverageScore;

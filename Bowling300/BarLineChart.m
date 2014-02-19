@@ -28,6 +28,8 @@
 @implementation BarLineChart{
     BLGraphYear *thisYearData;
     DBGraphManager *dbManager;
+    
+    NSInteger lastDataMonth;
 }
 - (id)init
 {
@@ -53,6 +55,7 @@
 }
 
 - (void)setDataForBarLineChar{
+    lastDataMonth = 0;
     NSString *monthStr;
     
     NSInteger allCnt = 0;
@@ -69,6 +72,7 @@
         
         if(totalCnt == 0){
             totalAver = 0;
+            lastDataMonth = i-1;
         }
         else {
             totalAver = totalScore / totalCnt;
@@ -90,6 +94,7 @@
     }
 }
 - (void)setDataForBarLineCharWithYear:(NSInteger)inYear{
+    lastDataMonth = 0;
     thisYearData = [dbManager arrayForBarLineGraphWithYear:inYear];
     NSString *monthStr;
     NSString *groupStr;
@@ -106,9 +111,12 @@
         NSInteger totalAver;
         if(totalCnt == 0){
             totalAver = 0;
+            
         }
         else {
             totalAver = totalScore / totalCnt;
+            
+            lastDataMonth = i;
         }
         
         [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
@@ -117,6 +125,8 @@
         allScore += totalScore;
         allCnt += totalCnt;
         NSInteger allAver;
+        
+        
         if (allCnt == 0){
             allAver = 0;
         }
@@ -173,7 +183,34 @@
 {
     CGFloat beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     for(int i = 0 ; i < [self.averageDataArr count]; i++){
+        // 여기 아래는 달 적는 부분
+        UIFont *monthFont = [UIFont systemFontOfSize:10.0];
         
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSString *month = [NSString stringWithFormat:@"%d 월",(i+1)];
+        
+        CGPoint temp = CGPointMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y + 10);
+        [month drawAtPoint:temp withAttributes:@{NSFontAttributeName:monthFont,
+                                                 NSParagraphStyleAttributeName:paragraphStyle
+                                                 ,
+                                                 NSForegroundColorAttributeName:[UIColor yellowColor]}];
+        
+        
+        
+        beforeX = beforeX + BAR_SPACE + BAR_WIDTH;
+    }
+    
+    
+    
+    beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
+    for(int i = 0 ; i < [self.averageDataArr count]; i++){
+        if(lastDataMonth <= i){
+            break;
+        }
         UIColor * secondaryTextColor = nil;
         UIFont * secondaryFont = [UIFont systemFontOfSize:10];
         
@@ -211,22 +248,6 @@
         [test drawAtPoint:temp withAttributes:@{ NSFontAttributeName: font,
                                                  NSParagraphStyleAttributeName: paragraphStyle }];
         
-        // 여기 아래는 달 적는 부분
-        UIFont *monthFont = [UIFont systemFontOfSize:10.0];
-    
-        
-        paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-        paragraphStyle.alignment = NSTextAlignmentCenter;
-        
-        NSString *month = [NSString stringWithFormat:@"%d 월",(i+1)];
-        
-        temp = CGPointMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y + 10);
-        [month drawAtPoint:temp withAttributes:@{NSFontAttributeName:monthFont,
-                                                 NSParagraphStyleAttributeName:paragraphStyle
-                                                 ,
-                                                 NSForegroundColorAttributeName:[UIColor yellowColor]}];
-        
      
         
         beforeX = beforeX + BAR_SPACE + BAR_WIDTH;
@@ -236,6 +257,9 @@
     beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     
     for(int i = 1 ; i < [self.cumDataArr count] ; i++){
+        if(lastDataMonth <= i){
+            break;
+        }
         // 그다음 선을 그림..
         UIBezierPath *path;
         NSInteger barHeight1 = LINEGRAPE_HEIGHT * ([[self.cumDataArr objectAtIndex:i-1] floatValue]/300);
@@ -255,6 +279,9 @@
     
     beforeX = BARGRAPE_X +BAR_FIRST_SPACE + (BAR_WIDTH/2);
     for(int i = 0 ; i < [self.cumDataArr count]; i++){
+        if(lastDataMonth <= i){
+            break;
+        }
         // 그다음 해당 선에 해당하는 곳에 동그라미 점 찍음
         UIBezierPath *path;
         NSInteger barHeight = LINEGRAPE_HEIGHT * ([[self.cumDataArr objectAtIndex:i] floatValue]/300);

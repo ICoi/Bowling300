@@ -377,6 +377,39 @@
                                 <rect key="frame" x="256" y="261" width="19" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8SJ-TZ-9E3">
+                                <rect key="frame" x="20" y="195" width="76" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSecondManInfo:" destination="drI-8x-Pyq" eventType="touchUpInside" id="BQK-3x-oET"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sjF-xa-166">
+                                <rect key="frame" x="113" y="132" width="98" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFirstManInfo:" destination="drI-8x-Pyq" eventType="touchUpInside" id="rDy-pA-FRI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aNr-lh-Zzn">
+                                <rect key="frame" x="225" y="195" width="83" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showThirdManInfo:" destination="drI-8x-Pyq" eventType="touchUpInside" id="hqb-b8-qaW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1463,16 +1496,20 @@
                                         <rect key="frame" x="14" y="0.0" width="327" height="218"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="average_bg.png" id="U3d-xI-pnm">
-                                                <rect key="frame" x="26" y="84" width="263" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_chart_topicon.png" id="tJc-VD-BvU">
                                                 <rect key="frame" x="154" y="35" width="23" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_chart_graphline.png" id="yZh-6Y-yFI">
                                                 <rect key="frame" x="-7" y="6" width="520" height="207"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_avr_bg1.png" id="EA5-ek-Hfl">
+                                                <rect key="frame" x="249" y="80" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_avr_bg_line.png" id="Brf-kL-Yty">
+                                                <rect key="frame" x="25" y="99" width="240" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -1948,16 +1985,16 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nWA-sj-aFi">
+                                <rect key="frame" x="97" y="69" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="MIS-Cv-HdF">
                                 <rect key="frame" x="90" y="63" width="143" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nWA-sj-aFi">
-                                <rect key="frame" x="90" y="63" width="143" height="143"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6U3-bb-GGo">
-                                <rect key="frame" x="126" y="207" width="90" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6U3-bb-GGo">
+                                <rect key="frame" x="97" y="207" width="130" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -2666,11 +2703,16 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_ballicon.png" id="Uuj-Cv-MtW">
+                                                    <rect key="frame" x="18" y="19" width="10" height="10"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
                                             <outlet property="backgroundButton" destination="wi4-sq-RnA" id="cfy-YD-Vq7"/>
+                                            <outlet property="ballImg" destination="Uuj-Cv-MtW" id="TYm-cA-TfD"/>
                                             <outlet property="dateLabel" destination="O9b-Oh-VhM" id="xLx-gJ-coF"/>
                                         </connections>
                                     </collectionViewCell>
@@ -2842,6 +2884,7 @@
                         <outlet property="MonthlyDailyLabel" destination="Vo8-c9-Hde" id="z0D-F4-YCN"/>
                         <outlet property="averageBar" destination="6qE-Bx-cYE" id="Qcs-p4-Cax"/>
                         <outlet property="averageLabel" destination="ptx-cL-uA0" id="CeH-HR-tAR"/>
+                        <outlet property="gameCountLabel" destination="7bZ-Sc-GS5" id="Z4R-Lb-I0B"/>
                         <outlet property="groupSelectScrollView" destination="hGV-vW-oBE" id="ccX-Bi-oEE"/>
                         <outlet property="highBar" destination="ZAF-vH-isV" id="Gow-Fd-wwE"/>
                         <outlet property="highLabel" destination="Taz-j1-UMY" id="yqK-kH-hKZ"/>
@@ -3171,6 +3214,7 @@
         <image name="ranking_menu_record.png" width="82" height="101"/>
         <image name="ranking_menu_record_over.png" width="82" height="101"/>
         <image name="ranking_top_bg.png" width="640" height="99"/>
+        <image name="record_ballicon.png" width="42" height="42"/>
         <image name="record_cal_next.png" width="21" height="27"/>
         <image name="record_cal_prev.png" width="21" height="27"/>
         <image name="record_calicon.png" width="86" height="89"/>
@@ -3183,6 +3227,8 @@
         <image name="record_footer_chart_bar_200.png" width="335" height="27"/>
         <image name="record_footer_chart_bg.png" width="337" height="29"/>
         <image name="record_insert_groupicon.png" width="84" height="44"/>
+        <image name="score_avr_bg1.png" width="80" height="80"/>
+        <image name="score_avr_bg_line.png" width="1" height="2"/>
         <image name="search_icon.png" width="69" height="72"/>
         <image name="white_line.png" width="640" height="2"/>
     </resources>

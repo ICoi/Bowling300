@@ -80,7 +80,13 @@
     DayScore *tmpDayScore = self.days[inDate];
     return tmpDayScore.averageScore;
 }
-
+-(NSInteger)getDailyGameCnt:(NSString *)inDate{
+    DayScore *tmpDayScore = self.days[inDate];
+    return  tmpDayScore.gameCnt;
+}
+- (NSInteger)getMonthlyGameCnt{
+    return gameCnt;
+}
 - (NSInteger)getMonthlyHighScore{
     return highScore;
 }

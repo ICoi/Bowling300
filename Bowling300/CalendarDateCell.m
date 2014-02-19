@@ -49,6 +49,12 @@
     }
 }
 
+- (void)hasData{
+    [self.ballImg setHidden:NO];
+}
+- (void)noData{
+    [self.ballImg setHidden:YES];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

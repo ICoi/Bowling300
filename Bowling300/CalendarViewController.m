@@ -41,13 +41,15 @@
     
     year = 2014;
     month = 1;
-    [self setYear:year setMonth:month];
     
+    [self setYear:year setMonth:month];
     
     // 돋보기 기능을 위한 Notification 등록
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvCalNoti:) name:@"CalendarSearchNoti" object:nil];
 }
 - (void)viewWillAppear:(BOOL)animated{
+    // TODO
+    [self.collection reloadData];
     [self setCalendarSetting];
     self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
     clickedDate = 40;
@@ -122,6 +124,7 @@
     NSInteger averageScore = [nowMonthScoreData getMonthlyAverageScore];
     NSInteger highScore = [nowMonthScoreData getMonthlyHighScore];
     NSInteger lowScore = [nowMonthScoreData getMonthlyLowScore];
+    NSInteger gameCnt = [nowMonthScoreData getMonthlyGameCnt];
     
     // 이건 low는 초기값이 300인거때문에... 발생하는 오류 잡으려고 해둔거
     if(highScore < lowScore){
@@ -130,7 +133,8 @@
     
     NSDictionary *sendDic = @{@"type":@"Monthly", @"averageScore":[NSString stringWithFormat:@"%d",(int)averageScore],
                               @"highScore":[NSString stringWithFormat:@"%d",(int)highScore],
-                              @"lowScore":[NSString stringWithFormat:@"%d",(int)lowScore]};
+                              @"lowScore":[NSString stringWithFormat:@"%d",(int)lowScore],
+                              @"gameCnt":[NSString stringWithFormat:@"%d",(int)gameCnt]};
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"BarChartNoti"
      object:nil userInfo:sendDic];
@@ -159,8 +163,6 @@
     beforeClicked.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
     
     
-    // TODO
-    
     UIButton *tmp = [UIButton alloc];
     tmp = sender;
     NSString *tmpString = [NSString alloc];
@@ -170,16 +172,17 @@
 //    NSLog(@"day is %@",tmpString);
     
     //해당일에 대한 정보 얻어오기
-    //TODO
     NSString *clickedDateStr = [NSString stringWithFormat:@"%02d",(int)clickedDate];
     NSInteger highScore = [nowMonthScoreData getDailyHighScoreWithDate:clickedDateStr];
     NSInteger lowScore = [nowMonthScoreData getDailyLowScoreWithDate:clickedDateStr];
     NSInteger averageScore = [nowMonthScoreData getDailyAverageScoreWithDate:clickedDateStr];
+    NSInteger gameCnt = [nowMonthScoreData getDailyGameCnt:clickedDateStr];
     
     // Notification을 보냅니다. -> 일 데이터에 따른걸로
     NSDictionary *sendDic = @{@"type":@"Daily", @"averageScore":[NSString stringWithFormat:@"%d",(int)averageScore],
         @"highScore":[NSString stringWithFormat:@"%d",(int)highScore],
-        @"lowScore":[NSString stringWithFormat:@"%d",(int)lowScore]};
+        @"lowScore":[NSString stringWithFormat:@"%d",(int)lowScore],
+                     @"gameCnt":[NSString stringWithFormat:@"%d",(int)gameCnt]};
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"BarChartNoti"
      object:nil userInfo:sendDic];
@@ -262,6 +265,14 @@
                 beforeClicked = cell.backgroundButton;
             }else{
                 [cell setValueWithDate:writeDateStr withClicked:NO withDay:(indexPath.row % 7)];
+            }
+            
+            NSMutableDictionary *oneDay = nowMonthScoreData.days[[NSString stringWithFormat:@"%02d",(int)writeDate]];
+            if(oneDay != nil){
+                [cell hasData];
+                
+            }else{
+                [cell noData];
             }
             
             return cell;

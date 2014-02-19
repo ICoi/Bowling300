@@ -37,71 +37,71 @@
         // Initialization code
         UIImage *image = [UIImage imageNamed:@"ranking_x.png"];
         UIImage *highlightImage;
-        self.closeButton = [[UIButton alloc]initWithFrame:CGRectMake(225, 44, 30, 30)];
+        self.closeButton = [[UIButton alloc]initWithFrame:CGRectMake(225, 132, 30, 30)];
         self.closeButton.imageView.image = image;
         
         image = [UIImage imageNamed:@"ranking_flag_bg.png"];
-        self.handerImageBackground = [[UIImageView alloc]initWithFrame:CGRectMake(34, 105, 54, 54)];
+        self.handerImageBackground = [[UIImageView alloc]initWithFrame:CGRectMake(34, 193, 54, 54)];
         self.handerImageBackground.image = image;
-        self.countryImageBackground = [[UIImageView alloc]initWithFrame:CGRectMake(233, 105, 54, 54)];
+        self.countryImageBackground = [[UIImageView alloc]initWithFrame:CGRectMake(233, 193, 54, 54)];
         self.countryImageBackground.image = image;
         
         image = [UIImage imageNamed:@"ranking_hander_l.png"];
         highlightImage = [UIImage imageNamed:@"ranking_hander_r.png"];
-        self.handerImageView = [[UIImageView alloc]initWithFrame:CGRectMake(41, 115, 35, 35)];
+        self.handerImageView = [[UIImageView alloc]initWithFrame:CGRectMake(41, 203, 35, 35)];
         self.handerImageView.image = image;
         self.handerImageView.highlightedImage = highlightImage;
-        self.countryImageView = [[UIImageView alloc]initWithFrame:CGRectMake(245, 122, 30, 20)];
+        self.countryImageView = [[UIImageView alloc]initWithFrame:CGRectMake(245, 210, 30, 20)];
         
         image = [UIImage imageNamed:@"board_profile.png"];
-        self.profileImageBackground = [[UIImageView alloc]initWithFrame:CGRectMake(91, 57, 138, 138)];
+        self.profileImageBackground = [[UIImageView alloc]initWithFrame:CGRectMake(91, 145, 138, 138)];
         self.profileImageBackground.image = image;
         
-        self.profileImageView = [[UIImageView alloc]initWithFrame:CGRectMake(93, 59, 134, 134)];
+        self.profileImageView = [[UIImageView alloc]initWithFrame:CGRectMake(93, 147, 134, 134)];
         
         self.profileImageView.layer.masksToBounds = YES;
         self.profileImageView.layer.cornerRadius = 67.0f;
         
-        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(91, 208, 140, 21)];
+        self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(91, 296, 140, 21)];
         self.nameLabel.textAlignment = NSTextAlignmentCenter;
         self.nameLabel.font = [UIFont boldSystemFontOfSize:20.0];
         self.nameLabel.textColor = [UIColor whiteColor];
-        self.scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(121, 230, 82, 21)];
+        self.scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(121, 318, 82, 21)];
         self.scoreLabel.font = [UIFont boldSystemFontOfSize:17.0];
         self.scoreLabel.textAlignment = NSTextAlignmentCenter;
         
-        self.yearLabel = [[UILabel alloc]initWithFrame:CGRectMake(57, 255, 50, 21)];
+        self.yearLabel = [[UILabel alloc]initWithFrame:CGRectMake(57, 343, 50, 21)];
         self.yearLabel.font = [UIFont systemFontOfSize:13.0f];
         self.yearLabel.text = @"1 Years";
-        self.styleLabel = [[UILabel alloc]initWithFrame:CGRectMake(122, 255, 82, 21)];
+        self.styleLabel = [[UILabel alloc]initWithFrame:CGRectMake(122, 343, 82, 21)];
         self.styleLabel.font = [UIFont systemFontOfSize:13.0f];
         self.styleLabel.text = @"Straight Ball";
-        self.stepLabel = [[UILabel alloc]initWithFrame:CGRectMake(228, 255, 50, 21)];
+        self.stepLabel = [[UILabel alloc]initWithFrame:CGRectMake(228, 343, 50, 21)];
         self.stepLabel.font = [UIFont systemFontOfSize:13.0f];
         self.stepLabel.text = @"3 Steps";
         
         image = [UIImage imageNamed:@"ranking_ballimg.png"];
-        self.ballImageView = [[UIImageView alloc]initWithFrame:CGRectMake(44, 305, 28, 26)];
+        self.ballImageView = [[UIImageView alloc]initWithFrame:CGRectMake(44, 393, 28, 26)];
         self.ballImageView.image = image;
         
-        self.ballLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 307, 53, 21)];
+        self.ballLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 395, 53, 21)];
         self.ballLabel.text = @"3 Pounds";
         self.ballLabel.font = [UIFont systemFontOfSize:12.0f];
         
         image = [UIImage imageNamed:@"ranking_300icon.png"];
         highlightImage = [UIImage imageNamed:@"ranking_300icon_over.png"];
         self.series300ImageView = [[UIImageView alloc]initWithImage:image highlightedImage:highlightImage];
-        self.series300ImageView.frame = CGRectMake(184, 289, 47, 46);
+        self.series300ImageView.frame = CGRectMake(184, 377, 47, 46);
         
         image = [UIImage imageNamed:@"ranking_800icon.png"];
         highlightImage = [UIImage imageNamed:@"ranking_800icon_over.png"];
         
         self.series800ImageView = [[UIImageView alloc]initWithImage:image highlightedImage:highlightImage];
-        self.series800ImageView.frame = CGRectMake(233, 289, 47, 46);
+        self.series800ImageView.frame = CGRectMake(233, 377, 47, 46);
         
         
         image = [UIImage imageNamed:@"ranking_myinfo.png"];
-        self.backgroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 391)];
+        self.backgroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 80, 320, 391)];
         self.backgroundImageView.image = image;
         
         [self addSubview:self.backgroundImageView];

@@ -37,7 +37,7 @@
     
     
     self.myPhotoImageView.layer.masksToBounds = YES;
-    self.myPhotoImageView.layer.cornerRadius = 71.0f;
+    self.myPhotoImageView.layer.cornerRadius = 65.0f;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

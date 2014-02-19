@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *averageBar;
 @property (weak, nonatomic) IBOutlet UIImageView *highBar;
 @property (weak, nonatomic) IBOutlet UIImageView *lowBar;
+@property (weak, nonatomic) IBOutlet UILabel *gameCountLabel;
 
 @end
 
@@ -41,6 +42,7 @@
     NSMutableArray *groups;
     UIButton *button;
     DBGroupManager *dbManager;
+    NSString *gameCnt;
 }
 
 
@@ -159,7 +161,7 @@
         NSString *highScore = [userInfo objectForKey:@"highScore"];
         NSString *lowScore = [userInfo objectForKey:@"lowScore"];
         
-        
+        gameCnt = [userInfo objectForKey:@"gameCnt"];
         
         // 해당 상태에 맞는 label구성
         if([monthlyOrDaily isEqualToString:Monthly]){
@@ -183,6 +185,9 @@
              object:nil userInfo:sendDic];
             
         }
+        
+        // 게임수 설정
+        self.gameCountLabel.text = [NSString stringWithFormat:@"Game %@",gameCnt];
         // 그래프를 그린다
         
         [self drawBarGraphWithAverage:[averageScore intValue] withHighScore:[highScore intValue] withLowScore:[lowScore intValue]];

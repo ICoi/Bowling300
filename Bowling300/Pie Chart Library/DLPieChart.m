@@ -139,7 +139,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         _selectedSliceStroke = 3.0;
         
         
-        self.pieRadius = MIN(frame.size.width/2, frame.size.height/2) - 10;
+       // self.pieRadius = MIN(frame.size.width/2, frame.size.height/2) - 10;
+        self.pieRadius = 50;
         self.pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
         _labelColor = [UIColor whiteColor];
@@ -161,6 +162,13 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     self = [self initWithFrame:frame];
     if (self)
     {
+        
+        // 일단 그룹목록!!
+        //TODO
+        DBGroupManager *dbManager = [DBGroupManager sharedModeManager];
+        groups = [dbManager showAllGroups];
+        
+
         self.pieCenter = center;
         self.pieRadius = radius;
     }

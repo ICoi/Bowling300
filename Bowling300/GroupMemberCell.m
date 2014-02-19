@@ -30,7 +30,7 @@
     [self.profileImageView setImageWithURL:inURL];
     
     self.profileImageView.layer.masksToBounds = YES;
-    self.profileImageView.layer.cornerRadius = 44.0f;
+    self.profileImageView.layer.cornerRadius = 37.0f;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -163,7 +163,7 @@
             
             
             
-            self.groupCountLabel.text = [NSString stringWithFormat:@"total %d",groupCnt];
+            self.groupCountLabel.text = [NSString stringWithFormat:@"Total %d",groupCnt];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);

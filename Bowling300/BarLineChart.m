@@ -196,9 +196,9 @@
         paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
         paragraphStyle.alignment = NSTextAlignmentCenter;
         
-        NSString *month = [NSString stringWithFormat:@"%d 월",(i+1)];
+        NSString *month = [NSString stringWithFormat:@"%d",(i+1)];
         
-        CGPoint temp = CGPointMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y + 10);
+        CGPoint temp = CGPointMake(beforeX - (BAR_WIDTH/2)+10, BARGRAPE_Y + 5);
         [month drawAtPoint:temp withAttributes:@{NSFontAttributeName:monthFont,
                                                  NSParagraphStyleAttributeName:paragraphStyle
                                                  ,
@@ -249,7 +249,7 @@
         /// Set text alignment
         paragraphStyle.alignment = NSTextAlignmentCenter;
         NSString *test = [self.averageDataArr objectAtIndex:i];
-        CGPoint temp = CGPointMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y - 10);
+        CGPoint temp = CGPointMake(beforeX - (BAR_WIDTH/2)+3, BARGRAPE_Y - 10);
         [test drawAtPoint:temp withAttributes:@{ NSFontAttributeName: font,
                                                  NSParagraphStyleAttributeName: paragraphStyle }];
         

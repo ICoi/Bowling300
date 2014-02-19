@@ -168,10 +168,10 @@
             NSDictionary *oneDic = @{@"type":[keys objectAtIndex:i],
                                  @"allScore":oneData[@"score"],
                                  @"allGame":oneData[@"cnt"]};
-            
+        
+            [datas addObject:oneDic];
         }
-   
-    
+        [sendDic setObject:datas forKey:@"data"];
         // 여기 부분은 에러 체크용..
         __autoreleasing NSError *error;
         NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
@@ -180,6 +180,7 @@
         NSLog(@"%@",stringdata);
     
         // 데이터 보냄
+        NSLog(@"senddic : %@",sendDic);
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
         [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {

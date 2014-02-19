@@ -119,7 +119,7 @@ static DBGroupManager *_instance = nil;
         float rColor = (float)groupRColor/255;
         float gColor = (float)groupGColor/255;
         float bColor = (float)groupBColor/255;
-        UIColor *tmpColor = [UIColor colorWithRed:rColor green:gColor blue:bColor alpha:1.0];
+        UIColor *tmpColor = [UIColor colorWithRed:rColor green:gColor blue:bColor alpha:0.7];
         sqlite3_finalize(stmt);
         return  tmpColor;
     }

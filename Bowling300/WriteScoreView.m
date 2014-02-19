@@ -26,9 +26,9 @@
         UIImage *handyImage = [UIImage imageNamed:@"record_insert_handyicon.png"];
         
         handyImageView = [[UIImageView alloc]initWithImage:handyImage];
-        handyImageView.frame = CGRectMake(30, 0, 30, 15);
+        handyImageView.frame = CGRectMake(45, 0, 20, 10);
         
-        scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 4, 60, 30)];
+        scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
         scoreLabel.text = @"000";
         scoreLabel.textColor = [UIColor colorWithWhite:1.0 alpha:1.0];
         scoreLabel.textAlignment = NSTextAlignmentCenter;
@@ -55,6 +55,8 @@
     scoreLabel.text = inScore;
     
     self.backgroundColor = inColor;
+    self.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.layer.borderWidth = 0.5;
     
 }
 

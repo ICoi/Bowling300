@@ -187,7 +187,7 @@
         }
         
         // 게임수 설정
-        self.gameCountLabel.text = [NSString stringWithFormat:@"Game %@",gameCnt];
+        self.gameCountLabel.text = [NSString stringWithFormat:@"Games %@",gameCnt];
         // 그래프를 그린다
         
         [self drawBarGraphWithAverage:[averageScore intValue] withHighScore:[highScore intValue] withLowScore:[lowScore intValue]];

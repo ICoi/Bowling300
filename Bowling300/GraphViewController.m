@@ -11,7 +11,7 @@
 #import "DBGroupManager.h"
 #import "Group.h"
 #import "BarLineChart.h"
-
+#import "DLPieChart.h"
 #define START_YEAR 2000
 #define GROUPWIDTH 70
 @interface GraphViewController ()
@@ -33,6 +33,7 @@
     
     NSMutableArray *pieDataArr;
     NSMutableArray *pieGroupIdxArr;
+    DLPieChart *pieChart;
 }
 
 - (void)viewDidLoad
@@ -50,7 +51,6 @@
     [self.barScrollView setContentSize:CGSizeMake(530, 220)];
    
     [self drawGraphsWithYear:nowYear];
-    
     
 }
 

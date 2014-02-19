@@ -65,7 +65,7 @@
     groupIdes = [dbGManager showGroupIdxWithGroupsArray:groups];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    
+    selectedGroupIdx = -1;
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -221,7 +221,7 @@
     return YES;
 }
 - (IBAction)selectGroup:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Groups" message:@"Select Group" delegate:self cancelButtonTitle:@"Solo" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Groups" message:@"Select Group" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
     for(int i = 0 ; i < groupNames.count ; i++){
         [alert addButtonWithTitle:[groupNames objectAtIndex:i]];
     }
@@ -231,8 +231,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(alertView.cancelButtonIndex != buttonIndex){
         //TODO
-        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex - 1)] integerValue];
-        selectedGroupName = [groupNames objectAtIndex:(buttonIndex - 1)];
+        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex )] integerValue];
+        selectedGroupName = [groupNames objectAtIndex:(buttonIndex)];
         
         self.groupLabel.text = selectedGroupName;
     }else{

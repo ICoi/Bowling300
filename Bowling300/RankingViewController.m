@@ -94,7 +94,6 @@
     self.myImageView.layer.masksToBounds = YES;
     self.myImageView.layer.cornerRadius = 20.0f;
     
-    [self getRankingFromServerWithType:GLOBAL_RANKING];
     popUpView = [[InfoPopupView alloc]initWithFrame:CGRectMake(0, 88, 274, 302)];
     [self.view addSubview:popUpView];
     [popUpView setHidden:YES];
@@ -107,7 +106,8 @@
     
     [dbPersonManager setDefaultData];
     
-
+    
+    [self getRankingFromServerWithType:GLOBAL_RANKING];
     
     self.highScoreLabel.text = [NSString stringWithFormat:@"%d",ad.myHighScore];
     if(ad.myGameCnt != 0){
@@ -158,17 +158,22 @@
 - (void)getRankingFromServerWithType:(NSInteger)inType{
     
     // 일단 값들 초기화시키기
-    self.scoreFirst.text = nil;
-    self.scoreSecond.text = nil;
-    self.scoreThrid.text = nil;
+    self.myScoreLabel.text = @"Non";
+    self.myRankingLabel.text = @"0";
     
-    self.imageFirst.image = nil;
-    self.imageSecond.image = nil;
-    self.imageThird.image = nil;
+    self.scoreFirst.text = @"NaN";
+    self.scoreSecond.text = @"NaN";
+    self.scoreThrid.text = @"NaN";
     
-    self.nameFirst.text = nil;
-    self.nameSecond.text = nil;
-    self.nameThird.text = nil;
+    UIImage *peopleImage = [UIImage imageNamed:@"join_img.png"];
+    
+    self.imageFirst.image = peopleImage;
+    self.imageSecond.image = peopleImage;
+    self.imageThird.image = peopleImage;
+    
+    self.nameFirst.text = @"name";
+    self.nameSecond.text = @"name";
+    self.nameThird.text = @"name";
     
     self.countryFirst.image = nil;
     self.countrySecond.image = nil;
@@ -183,10 +188,9 @@
         
     }else if(inType == LOCAL_RANKING){
         
-        [sendDic setObject:@"12" forKey:@"allgame"];
-        [sendDic setObject:@"120" forKey:@"allscore"];
-        [sendDic setObject:@"world" forKey:@"type"];
-        [sendDic setObject:@"0" forKey:@"limit"];
+        [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
+        [sendDic setObject:@"local" forKey:@"type"];
+        [sendDic setObject:@"limit" forKey:@"0"];
         
     }else if(inType == GROUP_RANKING){
         [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
@@ -275,8 +279,8 @@
         [self.globalRankingBtn setAlpha:0.6];
         [self.localRankingBtn setAlpha:0.9];
         [self.groupRankingBtn setAlpha:0.6];
-        // TODO
-        // 여기서 table reload도 해야하고 사진도 바꾸어ㅑ하고 할거 많음
+        
+        [self getRankingFromServerWithType:LOCAL_RANKING];
     }
     
 }

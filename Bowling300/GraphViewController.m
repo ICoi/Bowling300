@@ -10,6 +10,7 @@
 #import "DBGraphManager.h"
 #import "DBGroupManager.h"
 #import "Group.h"
+#import "BarLineChart.h"
 
 #define START_YEAR 2000
 #define GROUPWIDTH 70
@@ -44,13 +45,13 @@
     self.yearLabel.text = [NSString stringWithFormat:@"%d",nowYear];
 	// Do any additional setup after loading the view.
     
+    // 이거 스크롤 가능하게 하는거
+    [self.barScrollView setScrollEnabled:YES];
+    [self.barScrollView setContentSize:CGSizeMake(530, 220)];
    
     [self drawGraphsWithYear:nowYear];
     
     
-    // 이거 스크롤 가능하게 하는거
-    [self.barScrollView setScrollEnabled:YES];
-    [self.barScrollView setContentSize:CGSizeMake(400, 220)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -109,9 +110,10 @@
     
     
     // barline그래프 그리는거
+    BarLineChart *barlineChar = [[BarLineChart alloc]initWithFrame:CGRectMake(0, 0, 530, 250)];
+    [barlineChar setDataForBarLineCharWithYear:inYear];
     
-    [self.barChartView init];
-    [self.barChartView setDataForBarLineCharWithYear:inYear];
+    [self.barScrollView addSubview:barlineChar];
     
 }
 - (void)drawGraphsWithYear:(NSInteger)inYear withGroupNum:(NSInteger)inGroupNum{
@@ -124,11 +126,11 @@
     
     [self.pieChartView renderInLayer:self.pieChartView dataArray:dataArr];
     
-    
     // barline그래프 그리는거
+    BarLineChart *barlineChar = [[BarLineChart alloc]initWithFrame:CGRectMake(0, 0, 520, 220)];
+    [barlineChar setDataForBarLineCharWithYear:inYear];
     
-    [self.barChartView init];
-    [self.barChartView setDataForBarLineCharWithYear:nowYear];
+    [self.barScrollView addSubview:barlineChar];
 }
 
 - (IBAction)goCalendar:(id)sender {

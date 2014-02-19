@@ -1472,7 +1472,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record_chart_graphline.png" id="yZh-6Y-yFI">
-                                                <rect key="frame" x="-7" y="6" width="314" height="207"/>
+                                                <rect key="frame" x="-7" y="6" width="520" height="207"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -2064,6 +2064,38 @@
             </objects>
             <point key="canvasLocation" x="3231" y="2473"/>
         </scene>
+        <!--Group Board Read View Controller-->
+        <scene sceneID="d2B-S2-cIK">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="hKq-hc-svm" customClass="GroupBoardReadViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I9D-Qf-O7J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_board_read.png" id="BmE-J0-vSO">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="498"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="siy-mx-xmC">
+                                <rect key="frame" x="8" y="26" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="hKq-hc-svm" eventType="touchUpInside" id="OF9-Vf-7el"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1hg-sr-WNR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZo-6W-1h0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3610" y="2402"/>
+        </scene>
         <!--Group Board View Controller - Item-->
         <scene sceneID="Xc3-Wf-nkA">
             <objects>
@@ -2072,6 +2104,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_board2.png" id="PZg-J6-geB">
+                                <rect key="frame" x="0.0" y="-72" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bar.png" id="PCi-GS-TG7">
                                 <rect key="frame" x="215" y="2" width="1" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2085,6 +2121,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="League">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2096,6 +2133,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="Member">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2103,16 +2141,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bJD-xw-bqv">
-                                <rect key="frame" x="136" y="461" width="47" height="21"/>
+                                <rect key="frame" x="136" y="460" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uhW-AJ-IS5" kind="push" id="Ney-BS-6uq"/>
+                                    <segue destination="uhW-AJ-IS5" kind="push" id="c3q-cA-MqU"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="qsh-NK-glh">
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="qsh-NK-glh">
                                 <rect key="frame" x="0.0" y="29" width="321" height="420"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
@@ -2189,9 +2228,20 @@
                                 <rect key="frame" x="141" y="0.0" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NML-9J-ex4">
+                                <rect key="frame" x="0.0" y="30" width="320" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hKq-hc-svm" kind="push" id="HZw-it-sag"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -2240,6 +2290,21 @@
                                     <action selector="takePhoto:" destination="uhW-AJ-IS5" eventType="touchUpInside" id="FEL-Yz-FpC"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_board_post2.png" id="JFa-T3-I1y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FSJ-bM-irv">
+                                <rect key="frame" x="10" y="29" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="uhW-AJ-IS5" eventType="touchUpInside" id="mwL-h8-lWC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2255,7 +2320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L49-HJ-GY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3604" y="1828"/>
+            <point key="canvasLocation" x="3610" y="1757"/>
         </scene>
         <!--Join View Controller-->
         <scene sceneID="iqH-ze-8qB">
@@ -3050,6 +3115,9 @@
         <image name="bar_ver.png" width="2" height="45"/>
         <image name="bg.png" width="640" height="1136"/>
         <image name="board_profile.png" width="55" height="54"/>
+        <image name="group_board2.png" width="640" height="1136"/>
+        <image name="group_board_post2.png" width="640" height="1136"/>
+        <image name="group_board_read.png" width="640" height="1136"/>
         <image name="group_edit_icon.png" width="51" height="51"/>
         <image name="group_joinedgroup.png" width="631" height="49"/>
         <image name="group_joinedgroup_bg.png" width="640" height="257"/>

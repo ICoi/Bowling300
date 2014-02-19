@@ -34,12 +34,6 @@
     self = [super init];
     if (self) {
         
-        // Initialization code
-        self.averageDataArr = [[NSMutableArray alloc]init];
-        self.cumDataArr = [[NSMutableArray alloc]init];
-        thisYearData = [[BLGraphYear alloc] init];
-        dbManager = [DBGraphManager sharedModeManager];
-        thisYearData = [dbManager arrayForBarLineGraphWithYear:2014];
     }
     return self;
 }
@@ -48,9 +42,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
         self.averageDataArr = [[NSMutableArray alloc]init];
         self.cumDataArr = [[NSMutableArray alloc]init];
-
+        thisYearData = [[BLGraphYear alloc] init];
+        dbManager = [DBGraphManager sharedModeManager];
+        thisYearData = [dbManager arrayForBarLineGraphWithYear:2014];
     }
     return self;
 }
@@ -201,7 +198,7 @@
         
         
         // 여기 아래는 점수 텍스트 적는ㄴ부분
-        UIFont *font = [UIFont fontWithName:@"Courier" size:10];
+        UIFont *font = [UIFont boldSystemFontOfSize:10.0];
         
         /// Make a copy of the default paragraph style
         NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -214,6 +211,21 @@
         [test drawAtPoint:temp withAttributes:@{ NSFontAttributeName: font,
                                                  NSParagraphStyleAttributeName: paragraphStyle }];
         
+        // 여기 아래는 달 적는 부분
+        UIFont *monthFont = [UIFont systemFontOfSize:10.0];
+    
+        
+        paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSString *month = [NSString stringWithFormat:@"%d 월",(i+1)];
+        
+        temp = CGPointMake(beforeX - (BAR_WIDTH/2), BARGRAPE_Y + 10);
+        [month drawAtPoint:temp withAttributes:@{NSFontAttributeName:monthFont,
+                                                 NSParagraphStyleAttributeName:paragraphStyle
+                                                 ,
+                                                 NSForegroundColorAttributeName:[UIColor yellowColor]}];
         
      
         

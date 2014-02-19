@@ -69,6 +69,9 @@
             NSURL *myURL = [NSURL URLWithString:myPhoto];
             [self.myPhotoImageView setImageWithURL:myURL];
             self.myNameLabel.text = ad.myName;
+            
+            // 여기서 본인꺼 제외한거만 members에 넣어야되
+            
             members = responseObject[@"member"];
             self.memberCntLabel.text = [NSString stringWithFormat:@"%d members.",members.count];
             [self.memberList reloadData];

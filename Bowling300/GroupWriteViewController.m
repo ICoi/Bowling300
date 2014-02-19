@@ -66,4 +66,7 @@
     
     return YES;
 }
+- (IBAction)goBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

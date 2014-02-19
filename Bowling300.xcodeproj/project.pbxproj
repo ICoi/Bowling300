@@ -11,6 +11,10 @@
 		00406A4618AA45CD004AA546 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00406A4518AA45CD004AA546 /* LoginViewController.m */; };
 		004448911892027200ED684E /* BarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004448901892027200ED684E /* BarGraphViewController.m */; };
 		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
+		006DFE6018B44967002C5717 /* group_board2.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DFE5F18B44967002C5717 /* group_board2.png */; };
+		006DFE6318B44973002C5717 /* group_board_post2.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DFE6118B44973002C5717 /* group_board_post2.png */; };
+		006DFE6418B44973002C5717 /* group_board_read.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DFE6218B44973002C5717 /* group_board_read.png */; };
+		006DFE6718B44BE2002C5717 /* GroupBoardReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DFE6618B44BE2002C5717 /* GroupBoardReadViewController.m */; };
 		008B8FD918AB525700372F04 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008B8FD218AB525700372F04 /* Roboto-Black.ttf */; };
 		008B8FDA18AB525700372F04 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008B8FD318AB525700372F04 /* Roboto-Bold.ttf */; };
 		008B8FDB18AB525700372F04 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008B8FD418AB525700372F04 /* Roboto-Italic.ttf */; };
@@ -215,6 +219,11 @@
 		004448901892027200ED684E /* BarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphViewController.m; sourceTree = "<group>"; };
 		006A3D6918A20A3100276BE0 /* DBGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGroupManager.h; sourceTree = "<group>"; };
 		006A3D6A18A20A3100276BE0 /* DBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGroupManager.m; sourceTree = "<group>"; };
+		006DFE5F18B44967002C5717 /* group_board2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board2.png; path = ../../../../Dropbox/Bowling/640_1136/group_board2.png; sourceTree = "<group>"; };
+		006DFE6118B44973002C5717 /* group_board_post2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board_post2.png; path = ../../../../Dropbox/Bowling/640_1136/group_board_post2.png; sourceTree = "<group>"; };
+		006DFE6218B44973002C5717 /* group_board_read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board_read.png; path = ../../../../Dropbox/Bowling/640_1136/group_board_read.png; sourceTree = "<group>"; };
+		006DFE6518B44BE2002C5717 /* GroupBoardReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupBoardReadViewController.h; sourceTree = "<group>"; };
+		006DFE6618B44BE2002C5717 /* GroupBoardReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBoardReadViewController.m; sourceTree = "<group>"; };
 		008B8FD218AB525700372F04 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		008B8FD318AB525700372F04 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		008B8FD418AB525700372F04 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
@@ -540,6 +549,9 @@
 				009CCB571890E096006DAB6F /* AppDelegate.m */,
 				009CCB591890E096006DAB6F /* Main.storyboard */,
 				0099B6A018B438CC008E4F09 /* intro_720_1280.png */,
+				006DFE6118B44973002C5717 /* group_board_post2.png */,
+				006DFE6218B44973002C5717 /* group_board_read.png */,
+				006DFE5F18B44967002C5717 /* group_board2.png */,
 				009CCB5C1890E096006DAB6F /* IntroViewController.h */,
 				009CCB5D1890E096006DAB6F /* IntroViewController.m */,
 				009CCB5F1890E096006DAB6F /* Images.xcassets */,
@@ -629,6 +641,8 @@
 				009CCC1A18910220006DAB6F /* GroupMemberViewController.m */,
 				009CCC1C18910541006DAB6F /* GroupWriteViewController.h */,
 				009CCC1D18910542006DAB6F /* GroupWriteViewController.m */,
+				006DFE6518B44BE2002C5717 /* GroupBoardReadViewController.h */,
+				006DFE6618B44BE2002C5717 /* GroupBoardReadViewController.m */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -1027,6 +1041,7 @@
 				00A4835618AC56A1006B6707 /* record_insert_plusicon.png in Resources */,
 				008B8FDA18AB525700372F04 /* Roboto-Bold.ttf in Resources */,
 				00A483BD18ACBA10006B6707 /* ranking_123_bg2.png in Resources */,
+				006DFE6318B44973002C5717 /* group_board_post2.png in Resources */,
 				00A4831518AC56A1006B6707 /* group_recentgroup.png in Resources */,
 				00A4834E18AC56A1006B6707 /* record_chart_scoreinfo.png in Resources */,
 				00A4831B18AC56A1006B6707 /* join_img3.png in Resources */,
@@ -1086,6 +1101,7 @@
 				00A4834518AC56A1006B6707 /* ranking_menu_record.png in Resources */,
 				00A4834218AC56A1006B6707 /* ranking_menu_group_over.png in Resources */,
 				00D5140F18B31F6D0091F082 /* ranking_x.png in Resources */,
+				006DFE6418B44973002C5717 /* group_board_read.png in Resources */,
 				00A4833B18AC56A1006B6707 /* ranking_800icon_over.png in Resources */,
 				00A4833118AC56A1006B6707 /* mypage_myinfo1_ball2.png in Resources */,
 				00D5141718B34FCE0091F082 /* menu_bg.png in Resources */,
@@ -1107,6 +1123,7 @@
 				00A4833818AC56A1006B6707 /* ranking_300icon.png in Resources */,
 				00A4835718AC56A1006B6707 /* search_icon.png in Resources */,
 				00A4835418AC56A1006B6707 /* record_insert_groupicon.png in Resources */,
+				006DFE6018B44967002C5717 /* group_board2.png in Resources */,
 				0099B6A118B438CC008E4F09 /* intro_720_1280.png in Resources */,
 				00A4832718AC56A1006B6707 /* menu_ranking.png in Resources */,
 				008B8FDF18AB525700372F04 /* Roboto-Thin.ttf in Resources */,
@@ -1203,6 +1220,7 @@
 				004448911892027200ED684E /* BarGraphViewController.m in Sources */,
 				009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */,
 				00B193A718A4778F0037150A /* DBMyInfoManager.m in Sources */,
+				006DFE6718B44BE2002C5717 /* GroupBoardReadViewController.m in Sources */,
 				006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */,
 				009CCC121890FFB6006DAB6F /* GroupMainViewController.m in Sources */,
 				009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */,

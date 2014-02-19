@@ -57,6 +57,22 @@ static DB *_instance = nil;
             NSLog(@"create myGroup TABLE fail : %s", errorMsg);
             return NO;
         }
+        
+        
+        
+        NSString *insertQuery = @"INSERT INTO myGroup(groupIdx, groupName , groupRColor , GroupGColor , GroupBColor,Represent) VALUES (-1, 'solo', 0, 0, 0, 0)";
+        
+        NSLog(@"insertQuery : %@", insertQuery);
+        int ret = sqlite3_exec(db, [insertQuery UTF8String], nil, nil, &errorMsg);
+        
+        if(ret != SQLITE_OK){
+            NSLog(@"Error on InsertQuery : %s", errorMsg);
+            return NO;
+        }
+        
+        sqlite3_last_insert_rowid(db);
+        return YES;
+        
     }
     
     return YES;

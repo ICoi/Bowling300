@@ -169,10 +169,6 @@
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
     }];
     [op start];
-    
-    
-    
-    
 }
 - (IBAction)goEditMode:(id)sender {
     if(nowEditMode == NO){

@@ -116,6 +116,10 @@
 - (IBAction)goBack:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+- (IBAction)deleteData:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Do you want to delete all data?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    [alert show];
+}
 
 - (void)pressScoreButton:(id)sender{
     UIButton *pressBtn = (UIButton *)sender;
@@ -241,5 +245,6 @@
         self.groupLabel.text = @"solo";
     }
 }
+
 
 @end

@@ -6,15 +6,15 @@
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "CalendarView.h"
 #import "DBPersonnalRecordManager.h"
 #import "CalendarDateCell.h"
 #import "CalendarDayCell.h"
-
+#import "RecordViewController.h"
 
 #define NUMBER_FONT @"Roboto-Medium"
 
-@interface CalendarViewController ()<UICollectionViewDataSource>{
+@interface CalendarView ()<UICollectionViewDataSource>{
     NSInteger year;
     NSInteger month;
     NSInteger startDate;
@@ -28,67 +28,48 @@
 
 @end
 
-@implementation CalendarViewController{
+@implementation CalendarView{
     DBPersonnalRecordManager *dbPRManager;
     MonthScore *nowMonthScoreData;
     UIButton *beforeClicked;
 }
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    year = 2014;
-    month = 1;
-    
-    [self setYear:year setMonth:month];
-    
-    // 돋보기 기능을 위한 Notification 등록
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvCalNoti:) name:@"CalendarSearchNoti" object:nil];
-}
-- (void)viewWillAppear:(BOOL)animated{
-    // TODO
-    [self.collection reloadData];
-    [self setCalendarSetting];
-    self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
-    clickedDate = 40;
-}
 
-
-
-// notification
-
-- (void)recvCalNoti:(NSNotification*)notification{
-    if ([[notification name] isEqualToString:@"CalendarSearchNoti"]){
-        NSDictionary *userInfo = notification.userInfo;
-        NSString *tmpYear = [userInfo objectForKey:@"year"];
-        NSString *tmpMonth = [userInfo objectForKey:@"month"];
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if(self) {
+        NSLog(@"Calendar init with coder");
+        year = 2014;
+        month = 1;
         
-        NSInteger setYear;
-        NSInteger setMonth;
-        if( tmpYear != nil) {
-//            NSLog(@"yearyear %@",tmpYear);
-            setYear = [tmpYear integerValue];
-        }else{
-            setYear = year;
-        }
-        if( tmpMonth != nil){
-//            NSLog(@"monthmonth %@",tmpMonth);
-            setMonth = [tmpMonth integerValue];
-        }else{
-            setMonth = month;
-        }
+        [self setYear:year setMonth:month];
         
-        [self setYear:setYear setMonth:setMonth];
         [self.collection reloadData];
+        self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
+        clickedDate = 40;
     }
+    return self;
+}
+
+-(id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        year = 2014;
+        month = 1;
+        
+        [self setYear:year setMonth:month];
+        [self.collection reloadData];
+        self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
+        clickedDate = 40;
+        
+    }
+    return  self;
 }
 
 
 // bar에 년도와 요일 표시하는 부분의 글씨 편집하는 함수.
 - (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth{
-    
     // 새로 1일의 시작 날자 설정
  //   NSLog(@"year : %d month : %d",(int)year,(int)month );
     year = inYear;
@@ -119,28 +100,25 @@
     
     //NSLog(@"Month test : %@",nowMonthScoreData);
     
+    
+   
+    
+}
+
+- (void)drawMonthly{
+    
+    [self.recordVC setYear:year withMonth:month withDate:1];
     // Bar chart의 위치 설정
-    // Notification을 보냅니다. -> 월 데이터에 따른걸로
     NSInteger averageScore = [nowMonthScoreData getMonthlyAverageScore];
     NSInteger highScore = [nowMonthScoreData getMonthlyHighScore];
     NSInteger lowScore = [nowMonthScoreData getMonthlyLowScore];
     NSInteger gameCnt = [nowMonthScoreData getMonthlyGameCnt];
-    
     // 이건 low는 초기값이 300인거때문에... 발생하는 오류 잡으려고 해둔거
     if(highScore < lowScore){
         lowScore = 0;
     }
-    
-    NSDictionary *sendDic = @{@"type":@"Monthly", @"averageScore":[NSString stringWithFormat:@"%d",(int)averageScore],
-                              @"highScore":[NSString stringWithFormat:@"%d",(int)highScore],
-                              @"lowScore":[NSString stringWithFormat:@"%d",(int)lowScore],
-                              @"gameCnt":[NSString stringWithFormat:@"%d",(int)gameCnt]};
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"BarChartNoti"
-     object:nil userInfo:sendDic];
+    [self.recordVC drawBarchartWithAverageScore:averageScore withHighScore:highScore withLowScore:lowScore withGameCnt:gameCnt isMonthly:TRUE];
 }
-
-
 
 // 요일을 리턴해주는 함수
 // 0 : 일요일 1 : 월요일 2 : 화요일 3: 수요일 4:목요일 5:금요일 6 :토요일
@@ -177,25 +155,10 @@
     NSInteger lowScore = [nowMonthScoreData getDailyLowScoreWithDate:clickedDateStr];
     NSInteger averageScore = [nowMonthScoreData getDailyAverageScoreWithDate:clickedDateStr];
     NSInteger gameCnt = [nowMonthScoreData getDailyGameCnt:clickedDateStr];
+    [self.recordVC setYear:year withMonth:month withDate:clickedDate];
     
-    // Notification을 보냅니다. -> 일 데이터에 따른걸로
-    NSDictionary *sendDic = @{@"type":@"Daily", @"averageScore":[NSString stringWithFormat:@"%d",(int)averageScore],
-        @"highScore":[NSString stringWithFormat:@"%d",(int)highScore],
-        @"lowScore":[NSString stringWithFormat:@"%d",(int)lowScore],
-                     @"gameCnt":[NSString stringWithFormat:@"%d",(int)gameCnt]};
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"BarChartNoti"
-     object:nil userInfo:sendDic];
- //   NSLog(@"Send notification : %@",sendDic);
+    [self.recordVC drawBarchartWithAverageScore:averageScore withHighScore:highScore withLowScore:lowScore withGameCnt:gameCnt isMonthly:FALSE];
     
-    // 이거 보다 큰 화면으로 요일 정보 보내는 noti
-    NSDictionary *sendDateDic = @{@"year":[NSString stringWithFormat:@"%d",(int)year],
-                              @"month":[NSString stringWithFormat:@"%d",(int)month],
-                              @"date":[NSString stringWithFormat:@"%d",(int)clickedDate]};
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"DateNoti"
-     object:nil userInfo:sendDateDic];
-//    NSLog(@"Send notification : %@",sendDic);
     
 }
 
@@ -210,10 +173,10 @@
     
     
     [self setYear:year setMonth:month];
+    [self drawMonthly];
+    [self.recordVC setYear:year withMonth:month withDate:1];
     [self.collection reloadData];
     
-    // 해당 월에 해당하는 Notification을 보냅니다.
-    // TODO
 }
 
 // 이 다음 달로 이동하는 버튼 누른 경우
@@ -224,11 +187,11 @@
         month = 1;
     }
     [self setYear:year setMonth:month];
+    [self drawMonthly];
+    [self.recordVC setYear:year withMonth:month withDate:1];
     [self.collection reloadData];
     
     
-    // 해당 월에 해당하는 Notification을 보냅니다.
-    // TODO
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -303,11 +266,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

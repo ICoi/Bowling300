@@ -12,5 +12,5 @@
 @property NSInteger nowYear;
 @property NSInteger nowMonth;
 @property NSInteger nowDate;
-
+- (void)setYear:(NSInteger)inYear withMonth:(NSInteger)inMonth withDate:(NSInteger)inDate;
 @end

@@ -55,6 +55,9 @@
 - (void)noData{
     [self.ballImg setHidden:YES];
 }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

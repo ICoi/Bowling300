@@ -53,7 +53,6 @@
     
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    // 화면 갱신 notification등록
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView:) name:@"refreshGroupList" object:nil];
     
     //화면 이동 notification등록

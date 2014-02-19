@@ -78,6 +78,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)setYear:(NSInteger)inYear withMonth:(NSInteger)inMonth withDate:(NSInteger)inDate{
+    self.nowYear = inYear;
+    self.nowMonth = inMonth;
+    self.nowDate = inDate;
+}
 
 // 화면 아무곳이나 클릭하면 키보드 사라짐
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -116,10 +121,6 @@
 - (IBAction)goBack:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-- (IBAction)deleteData:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Do you want to delete all data?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
-    [alert show];
-}
 
 - (void)pressScoreButton:(id)sender{
     UIButton *pressBtn = (UIButton *)sender;
@@ -147,32 +148,30 @@
     [self drawScores];
     
 }
-
-- (IBAction)clickSaveBtn:(id)sender {
+- (void)viewWillDisappear:(BOOL)animated{
     
-   
     NSInteger selectdDay = [[NSString stringWithFormat:@"%04d%02d%02d",self.nowYear,self.nowMonth, self.nowDate] integerValue];
     
     if((selectdDay >= [ad.rankingStartDate integerValue]) && (selectdDay <= [ad.rankingEndDate integerValue])){
-   
+        
         // 해당기간에 해당하는 날짜의 점수를 수정한경우 서버에 전송함
         
-         NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:ad.rankingStartDate withEndDate:ad.rankingEndDate];
+        NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:ad.rankingStartDate withEndDate:ad.rankingEndDate];
         
         NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
         NSString *myIdx = [NSString stringWithFormat:@"%d",ad.myIDX];
         [sendDic setObject:myIdx forKey:@"aidx"];
-    
+        
         NSArray *keys = [dataDic allKeys];
         NSMutableArray *datas = [[NSMutableArray alloc]init];
-    
+        
         for(int i = 0 ; i < keys.count ; i++){
             NSDictionary *oneData = dataDic[[keys objectAtIndex:i]];
             // 원래  @"type":[keys objectAtIndexi]
             NSDictionary *oneDic = @{@"type":[keys objectAtIndex:i],
-                                 @"allScore":oneData[@"score"],
-                                 @"allGame":oneData[@"cnt"]};
-        
+                                     @"allScore":oneData[@"score"],
+                                     @"allGame":oneData[@"cnt"]};
+            
             [datas addObject:oneDic];
         }
         [sendDic setObject:datas forKey:@"data"];
@@ -180,17 +179,17 @@
         __autoreleasing NSError *error;
         NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
         NSString *stringdata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    
+        
         NSLog(@"%@",stringdata);
-    
+        
         // 데이터 보냄
         NSLog(@"senddic : %@",sendDic);
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
         [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"sendDic : %@",sendDic);
-                NSLog(@"JSON: %@", responseObject);
-        
+            NSLog(@"JSON: %@", responseObject);
+            
             // TODO
             // 여기서 응답 온거 가지고 처리해야한다!!!
             /*
@@ -204,7 +203,7 @@
             else{
                 NSLog(@"Save ERROR!");
             }
-    
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
             [alert show];
@@ -214,10 +213,9 @@
         // 해당 기간의 날짜를 편집한게 아니라면 그냥 끝냄
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
-
     
-   
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

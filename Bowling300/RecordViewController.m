@@ -10,6 +10,9 @@
 #import "DBPersonnalRecordManager.h"
 #import "WriteRecordViewController.h"
 #import "DBMyInfoManager.h"
+#import "CalendarView.h"
+#import "BarGraphView.h"
+
 #define START_YEAR 2000
 
 @interface RecordViewController (){
@@ -27,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *hamGroupBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hamMyPageBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet CalendarView *calendarView;
+@property (weak, nonatomic) IBOutlet BarGraphView *barGraphView;
 
 @end
 
@@ -38,14 +43,14 @@
     NSInteger nowMonth;
     BOOL hamHidden;
     BOOL pickerHidden;
+    MonthScore *nowMonthScoreData;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    
+  
     
     searchYear = [NSString stringWithFormat:@""];
     searchMonth = [NSString stringWithFormat:@""];
@@ -53,15 +58,10 @@
     dbPRManager = [DBPersonnalRecordManager sharedModeManager];
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     
-    // Notification등록하기. 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveWriteButtonNotification:) name:@"WriteBtnNoti" object:nil];
-    
-    
-    // Notification등록하기.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDateNotification:) name:@"DateNoti" object:nil];
     
     [self.navigationController.navigationBar setHidden:YES];
     
+    [self.calendarView drawMonthly];
     
 }
 
@@ -79,38 +79,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-// Notification전달 받을 함수입니다.
-- (void)receiveWriteButtonNotification:(NSNotification *)notification{
-    if([[notification name] isEqualToString:@"WriteBtnNoti"]){
-        
-        NSDictionary *userInfo = notification.userInfo;
-        
-        NSString *visibility = [userInfo objectForKey:@"visibility"];
-        
-        if([visibility isEqualToString:@"YES"]){
-            [self.writeBtn setHidden:NO];
-        }
-        else{
-            [self.writeBtn setHidden:YES];
-        }
-        
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if( [@"WRITE_SEGUE" isEqualToString:segue.identifier]){
+        WriteRecordViewController *wrVC = (WriteRecordViewController *)segue.destinationViewController;
+        [wrVC setYear:nowYear withMonth:nowMonth withDate:nowDate];
     }
 }
-
-// Notification전달 받을 함수입니다.
-- (void)receiveDateNotification:(NSNotification *)notification{
-    if([[notification name] isEqualToString:@"DateNoti"]){
-        NSDictionary *userInfo = notification.userInfo;
-        
-        nowYear = [[userInfo objectForKey:@"year"] integerValue];
-        nowMonth = [[userInfo objectForKey:@"month"] integerValue];
-        nowDate = [[userInfo objectForKey:@"date"]integerValue];
-        // TODO
-        
-    }
+- (void)drawBarchartWithAverageScore:(NSInteger)inAverage withHighScore:(NSInteger)inHighScore withLowScore:(NSInteger)inLowScore withGameCnt:(NSInteger)inGameCnt isMonthly:(BOOL)isMonthly{
+    [self.barGraphView drawBarchartWithAverageScore:inAverage withHighScore:inHighScore withLowScore:inLowScore withGameCnt:inGameCnt isMonthly:isMonthly];
 }
 
+
+- (void)setYear:(NSInteger)inYear withMonth:(NSInteger)inMonth withDate:(NSInteger)inDate{
+    nowYear = inYear;
+    nowMonth = inMonth;
+    nowDate = inDate;
+}
 - (IBAction)goBack:(id)sender {
     [self.tabBarController setSelectedIndex:0];
 }
@@ -118,17 +102,15 @@
 - (IBAction)showDatePicker:(id)sender {
 //    NSLog(@"search button clicked!");
     UIView *nowView = self.viewPicker;
+    searchYear = [NSString stringWithFormat:@"%d",nowYear];
+    searchMonth = [NSString stringWithFormat:@"%d",nowMonth];
 //    NSLog(@"pickerview : %@",pickerView);
     
         // 숨겨진 상태인 경우 등장하기
+    
         
-        // 일단 현재의 년도와 월 가져오기
-        UIViewController *subViewController = (UIViewController *)self.childViewControllers[1];
-        UILabel *year = subViewController.view.subviews[1];
-        UILabel *month = subViewController.view.subviews[2];
-        
-        searchYear = year.text;
-        searchMonth = month.text;
+      // NSString * searchYear = year.text;
+      //  NSString *searchMonth = month.text;
         
         // 일단 처음에 보여질 칸부터 설정하기
         // 이걸로 시작지점 설정!!!
@@ -156,10 +138,7 @@
     UIView *nowView = self.viewPicker;
     // 다시 picker접는 경우
     // 달력에 바뀐 년도와 월을 전달한다.
-    NSMutableDictionary *sendUserInfo = [[NSMutableDictionary alloc]init];
-    [sendUserInfo setObject:searchYear forKey:@"year"];
-    [sendUserInfo setObject:searchMonth forKey:@"month"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CalendarSearchNoti" object:nil userInfo:sendUserInfo];
+    [self.calendarView setYear:[searchYear integerValue] setMonth:[searchMonth integerValue]];
     
     [UIView animateWithDuration:0.5
                           delay:0.0
@@ -176,32 +155,10 @@
          pickerHidden = YES;
      }];
     
-    
-    
-    // Notification을 보냅니다.
-    // Notification을 보냅니다. -> 일 데이터에 따른걸로
-    NSDictionary *sendDic = @{@"type":@"Monthly", @"averageScore":[NSString stringWithFormat:@"%d",100],
-                              @"highScore":[NSString stringWithFormat:@"%d",170],
-                              @"lowScore":[NSString stringWithFormat:@"%d",30]};
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"BarChartNoti"
-     object:nil userInfo:sendDic];
 }
 
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"WRITE_SEGUE"])
-    {
-        WriteRecordViewController *nextVC = (WriteRecordViewController *)segue.destinationViewController;
-        nextVC.nowYear = nowYear;
-        nextVC.nowMonth = nowMonth;
-        nextVC.nowDate = nowDate;
-    }
-    
-    
-}
 
 - (IBAction)showHamburgerList:(id)sender {
     UIView *hamView = self.hamburgerView;
@@ -272,7 +229,6 @@
     }
     NSLog(@"Touched!!");
 }
-
 
 // 컴포넌트 갯수
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{

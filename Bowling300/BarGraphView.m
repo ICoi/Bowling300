@@ -6,7 +6,7 @@
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-#import "BarGraphViewController.h"
+#import "BarGraphView.h"
 #import "Group.h"
 #import "DBGroupManager.h"
 #define AVERAGESCORE 150
@@ -22,7 +22,7 @@
 
 #define GROUPWIDTH 70
 
-@interface BarGraphViewController ()
+@interface BarGraphView ()
 @property (weak, nonatomic) IBOutlet UIScrollView *groupSelectScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIButton *writeBtn;
@@ -37,42 +37,56 @@
 
 @end
 
-@implementation BarGraphViewController{
+@implementation BarGraphView{
     NSString *monthlyOrDaily;
     NSMutableArray *groups;
     UIButton *button;
     DBGroupManager *dbManager;
     NSString *gameCnt;
 }
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if(self) {
+        
+        dbManager = [DBGroupManager sharedModeManager];
+        groups = [dbManager showAllGroups];
+        groups = [[NSMutableArray alloc]init];
+        monthlyOrDaily = Monthly;
+        
+       
+        //  초기에 그래프를 그림
+        [self drawBarGraphWithAverage:AVERAGESCORE withHighScore:HIGHSCORE withLowScore:LOWSCORE];
+        
+        
+        [self showGroupList];
+        self.averageLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+        self.highLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+        self.lowLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+        
+    }
+    return  self;
+}
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self ) {
+        dbManager = [DBGroupManager sharedModeManager];
+        groups = [dbManager showAllGroups];
+        groups = [[NSMutableArray alloc]init];
+        monthlyOrDaily = Monthly;
     
-    dbManager = [DBGroupManager sharedModeManager];
-    groups = [dbManager showAllGroups];
-    groups = [[NSMutableArray alloc]init];
-    monthlyOrDaily = Monthly;
-    
-    // Notification등록하기. 값이 변하면 그래프가 자동으로 변하도록 해야한다.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveBarChartNotification:) name:@"BarChartNoti" object:nil];
-    
-    
-    //  초기에 그래프를 그림
-    [self drawBarGraphWithAverage:AVERAGESCORE withHighScore:HIGHSCORE withLowScore:LOWSCORE];
-    
-    
-    
-    
+        //  초기에 그래프를 그림
+        [self drawBarGraphWithAverage:AVERAGESCORE withHighScore:HIGHSCORE withLowScore:LOWSCORE];
+        
+        
+        [self showGroupList];
+        self.averageLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+        self.highLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+        self.lowLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
+    }
+    return  self;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self showGroupList];
-    self.averageLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
-    self.highLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
-    self.lowLabel.font = [UIFont fontWithName:@"expansiva" size:13.0];
-}
+
 
 - (void)showGroupList{
     
@@ -147,65 +161,22 @@
     return scoreBarWidth;
 }
 
-
-// Notification전달 받을 함수입니다.
-- (void)receiveBarChartNotification:(NSNotification *)notification{
-    if([[notification name] isEqualToString:@"BarChartNoti"]){
-//        NSLog(@"Successfully received the notification!");
-        
-        NSDictionary *userInfo = notification.userInfo;
-
-        monthlyOrDaily = [userInfo objectForKey:@"type"];
-        
-        NSString *averageScore = [userInfo objectForKey:@"averageScore"];
-        NSString *highScore = [userInfo objectForKey:@"highScore"];
-        NSString *lowScore = [userInfo objectForKey:@"lowScore"];
-        
-        gameCnt = [userInfo objectForKey:@"gameCnt"];
-        
-        // 해당 상태에 맞는 label구성
-        if([monthlyOrDaily isEqualToString:Monthly]){
-            
-            self.MonthlyDailyLabel.text = @"Monthly";
-            //backgroundImage
-            // Notification을 보냅니다. -> write버튼 숨김
-            NSDictionary *sendDic = @{@"visibility":@"NO"};
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"WriteBtnNoti"
-             object:nil userInfo:sendDic];
-
-            
-        }
-        else {
-            self.MonthlyDailyLabel.text = @"Daily";
-            // Notification을 보냅니다. -> write버튼 보임
-            NSDictionary *sendDic = @{@"visibility":@"YES"};
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"WriteBtnNoti"
-             object:nil userInfo:sendDic];
-            
-        }
-        
-        // 게임수 설정
-        self.gameCountLabel.text = [NSString stringWithFormat:@"Games %@",gameCnt];
-        // 그래프를 그린다
-        
-        [self drawBarGraphWithAverage:[averageScore intValue] withHighScore:[highScore intValue] withLowScore:[lowScore intValue]];
-        
-        // Label변경한다
-        self.averageLabel.text = averageScore;
-        self.highLabel.text = highScore;
-        self.lowLabel.text = lowScore;
-        
+- (void)drawBarchartWithAverageScore:(NSInteger)inAverage withHighScore:(NSInteger)inHighScore withLowScore:(NSInteger)inLowScore withGameCnt:(NSInteger)inGameCnt isMonthly:(BOOL)isMonthly{
+    if(isMonthly){
+        self.MonthlyDailyLabel.text = @"Monthly";
+    }else{
+        self.MonthlyDailyLabel.text = @"Daily";
     }
-}
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.gameCountLabel.text = [NSString stringWithFormat:@"Game %d",inGameCnt];
+    
+    
+    [self drawBarGraphWithAverage:inAverage withHighScore:inHighScore withLowScore:inLowScore];
+    
+    // Label변경한다
+    self.averageLabel.text = [NSString stringWithFormat:@"%d",inAverage];
+    self.highLabel.text = [NSString stringWithFormat:@"%d",inHighScore];
+    self.lowLabel.text = [NSString stringWithFormat:@"%d",inLowScore];
 }
 
 @end

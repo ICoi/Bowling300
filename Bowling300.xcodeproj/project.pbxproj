@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0012E81B18B0CB5D000FB3FA /* AirBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */; };
 		00406A4618AA45CD004AA546 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00406A4518AA45CD004AA546 /* LoginViewController.m */; };
-		004448911892027200ED684E /* BarGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004448901892027200ED684E /* BarGraphViewController.m */; };
+		004448911892027200ED684E /* BarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 004448901892027200ED684E /* BarGraphView.m */; };
 		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
 		006DFE6018B44967002C5717 /* group_board2.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DFE5F18B44967002C5717 /* group_board2.png */; };
 		006DFE6318B44973002C5717 /* group_board_post2.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DFE6118B44973002C5717 /* group_board_post2.png */; };
@@ -191,7 +191,7 @@
 		00DB21A61895F0E90011FDBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DB21A51895F0E90011FDBE /* QuartzCore.framework */; };
 		00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21B41895F64D0011FDBE /* DLPieChart.m */; };
 		00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21BB1896088A0011FDBE /* BarLineChart.m */; };
-		00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarViewController.m */; };
+		00E8D6D51891EFBE0069A79A /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarView.m */; };
 		00EFB2C818A4953500B090B7 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 00EFB2C718A4953500B090B7 /* db.sqlite */; };
 		327198422D2344A6A0D94B01 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BF10027DEB48AF917E7CC3 /* libPods.a */; };
 		7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7049E39B18919D6B00DF1063 /* libsqlite3.dylib */; };
@@ -214,8 +214,8 @@
 		0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirBalloonView.m; sourceTree = "<group>"; };
 		00406A4418AA45CD004AA546 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		00406A4518AA45CD004AA546 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		0044488F1892027200ED684E /* BarGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphViewController.h; sourceTree = "<group>"; };
-		004448901892027200ED684E /* BarGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphViewController.m; sourceTree = "<group>"; };
+		0044488F1892027200ED684E /* BarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphView.h; sourceTree = "<group>"; };
+		004448901892027200ED684E /* BarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarGraphView.m; sourceTree = "<group>"; };
 		006A3D6918A20A3100276BE0 /* DBGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBGroupManager.h; sourceTree = "<group>"; };
 		006A3D6A18A20A3100276BE0 /* DBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBGroupManager.m; sourceTree = "<group>"; };
 		006DFE5F18B44967002C5717 /* group_board2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board2.png; path = ../../../../Dropbox/Bowling/640_1136/group_board2.png; sourceTree = "<group>"; };
@@ -438,8 +438,8 @@
 		00DB21B41895F64D0011FDBE /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		00DB21BA1896088A0011FDBE /* BarLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarLineChart.h; sourceTree = "<group>"; };
 		00DB21BB1896088A0011FDBE /* BarLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarLineChart.m; sourceTree = "<group>"; };
-		00E8D6D31891EFBD0069A79A /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		00E8D6D41891EFBE0069A79A /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		00E8D6D31891EFBD0069A79A /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		00E8D6D41891EFBE0069A79A /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
 		00EFB2C718A4953500B090B7 /* db.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.sqlite; sourceTree = "<group>"; };
 		321C41A4F4564FC4A0ADAAD5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7049E39B18919D6B00DF1063 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -594,10 +594,10 @@
 				009CCC011890E41D006DAB6F /* RecordViewController.m */,
 				009CCC031890EAC9006DAB6F /* GraphViewController.h */,
 				009CCC041890EAC9006DAB6F /* GraphViewController.m */,
-				00E8D6D31891EFBD0069A79A /* CalendarViewController.h */,
-				00E8D6D41891EFBE0069A79A /* CalendarViewController.m */,
-				0044488F1892027200ED684E /* BarGraphViewController.h */,
-				004448901892027200ED684E /* BarGraphViewController.m */,
+				00E8D6D31891EFBD0069A79A /* CalendarView.h */,
+				00E8D6D41891EFBE0069A79A /* CalendarView.m */,
+				0044488F1892027200ED684E /* BarGraphView.h */,
+				004448901892027200ED684E /* BarGraphView.m */,
 				00BD7AA218A0997F00F35DF3 /* WriteRecordViewController.h */,
 				00BD7AA318A0997F00F35DF3 /* WriteRecordViewController.m */,
 			);
@@ -1213,14 +1213,14 @@
 				00BD7AA418A0997F00F35DF3 /* WriteRecordViewController.m in Sources */,
 				00D979D018A1EDBB0078B24C /* BLGraphMonth.m in Sources */,
 				009CCB7E1890E0DC006DAB6F /* RankingViewController.m in Sources */,
-				004448911892027200ED684E /* BarGraphViewController.m in Sources */,
+				004448911892027200ED684E /* BarGraphView.m in Sources */,
 				009CCC021890E41D006DAB6F /* RecordViewController.m in Sources */,
 				00B193A718A4778F0037150A /* DBMyInfoManager.m in Sources */,
 				006DFE6718B44BE2002C5717 /* GroupBoardReadViewController.m in Sources */,
 				006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */,
 				009CCC121890FFB6006DAB6F /* GroupMainViewController.m in Sources */,
 				009CCC21189106FA006DAB6F /* GroupAddViewController.m in Sources */,
-				00E8D6D51891EFBE0069A79A /* CalendarViewController.m in Sources */,
+				00E8D6D51891EFBE0069A79A /* CalendarView.m in Sources */,
 				009CCC051890EAC9006DAB6F /* GraphViewController.m in Sources */,
 				00A483B818AC93D9006B6707 /* InfoPopupView.m in Sources */,
 				00A483AE18AC5C72006B6707 /* CalendarDateCell.m in Sources */,

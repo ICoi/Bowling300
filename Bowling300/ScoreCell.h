@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ScoreCell : UICollectionViewCell
+
+@property NSInteger rowIdx;
 - (void)setValueWithRowIDX:(NSInteger)inRowIDX withscore:(NSString *)inScore withHandy:(BOOL)inHandy withColor:(UIColor *)inColor;
 
 @end

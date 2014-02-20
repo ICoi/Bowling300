@@ -17,7 +17,6 @@
 
 
 @implementation ScoreCell{
-    NSInteger rowIdx;
     DBPersonnalRecordManager *dbManager;
 }
 
@@ -26,7 +25,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        rowIdx  = 0;
+        self.rowIdx  = 0;
         dbManager = [DBPersonnalRecordManager sharedModeManager];
         
     }
@@ -41,7 +40,7 @@
     return  self;
 }
 - (void)setValueWithRowIDX:(NSInteger)inRowIDX withscore:(NSString *)inScore withHandy:(BOOL)inHandy withColor:(UIColor *)inColor{
-    rowIdx = inRowIDX;
+    self.rowIdx = inRowIDX;
     
     if(inHandy){
         [ self.handyImageView setHidden:NO];
@@ -62,7 +61,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex == alertView.firstOtherButtonIndex){
         // delete 시킴!
-        [dbManager deleteDateWithRowID:rowIdx];
+        [dbManager deleteDateWithRowID:self.rowIdx];
         [self setHidden:YES];
     }
 }

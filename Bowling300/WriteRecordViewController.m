@@ -51,6 +51,8 @@
     
     NSInteger selectedGroupIdx;
     NSString *selectedGroupName;
+    
+    NSIndexPath *selectedIdx ;
 }
 
 - (void)viewDidLoad
@@ -237,6 +239,28 @@
     [cell setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:handy withColor:one.groupColor];
     return  cell;
 }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Do you want to delete this socore?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+    selectedIdx = indexPath;
+    [alert show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == alertView.firstOtherButtonIndex){
+        
+        
+        ScoreCell *cell = (ScoreCell *)[self.collectionView
+                           cellForItemAtIndexPath:selectedIdx];
+        
+        NSInteger rowIdx = cell.rowIdx;
+        NSLog(@"rowdix : %d",rowIdx);
+        [dbPRManager deleteDateWithRowID:rowIdx];
+        
+        scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
+        [self.collectionView reloadData];
+        
+    }
+}
+
 /*
  //TODO
  -        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex )] integerValue];

@@ -23,10 +23,10 @@ static DBPersonnalRecordManager *_instance = nil;
     return _instance;
 }
 
-- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore{
+- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore withLeague:(BOOL)inLeague{
     
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    NSString *insertQuery = [NSString stringWithFormat:@"INSERT INTO personnalRecord(User, Date , GroupNum , Score , Handy, TotalScore) VALUES (%d, '%@', %d, '%@', %d ,%d)",ad.myIDX , inDate, (int)inGroupNum, inScore,(int)inHandy ,(int)inTotalScore];
+    NSString *insertQuery = [NSString stringWithFormat:@"INSERT INTO personnalRecord(User, Date , GroupNum , Score , Handy, TotalScore, League) VALUES (%d, '%@', %d, '%@', %d ,%d, %d)",ad.myIDX , inDate, (int)inGroupNum, inScore,(int)inHandy ,(int)inTotalScore,(int)inLeague];
     
     NSLog(@"insertQuery : %@", insertQuery);
     char *errorMsg;
@@ -106,7 +106,7 @@ static DBPersonnalRecordManager *_instance = nil;
     return  tmpMonthScore;
 }
 
-- (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear{
+- (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear {
     DayScore *tmpDayScore = [[DayScore alloc]init];
     
     NSString *queryStr = @"SELECT Date, GroupNum, TotalScore, rowid, handy FROM personnalRecord";
@@ -154,7 +154,7 @@ static DBPersonnalRecordManager *_instance = nil;
 - (NSMutableDictionary *)shownByGroupRecordWithStartDate:(NSString *)startDate withEndDate:(NSString *)endDate{
     NSMutableDictionary *returnDic = [[NSMutableDictionary alloc]init];
     
-    NSString *queryStr = @"SELECT Date, GroupNum, TotalScore FROM personnalRecord";
+    NSString *queryStr = @"SELECT Date, GroupNum, TotalScore, League FROM personnalRecord";
     
     sqlite3_stmt *stmt;
     int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
@@ -168,7 +168,7 @@ static DBPersonnalRecordManager *_instance = nil;
         char *date = (char *)sqlite3_column_text(stmt, 0);
         int groupNum = (int)sqlite3_column_int(stmt, 1);
         int totalScore = (int)sqlite3_column_int(stmt, 2);
-        
+        int league = (int)sqlite3_column_int(stmt, 3);
         
         NSInteger dateInt = [[NSString stringWithCString:date encoding:NSUTF8StringEncoding] integerValue];
         NSInteger startD = [startDate integerValue];
@@ -176,7 +176,13 @@ static DBPersonnalRecordManager *_instance = nil;
         
         if((dateInt >= startD) && (dateInt <= endD)){
             NSLog(@"%d 기간 안에 들은 값이지롱!!",dateInt);
-            NSString *groupKey = [NSString stringWithFormat:@"%d",groupNum];
+            //TODO
+            NSString *groupKey;
+            if(league == 1){
+                groupKey = [NSString stringWithFormat:@"l_%d",groupNum];
+            }else{
+                groupKey = [NSString stringWithFormat:@"%d",groupNum];
+            }
             NSMutableDictionary *tmpDic = returnDic[groupKey];
             
             // 일단 총 값을 더해서 보내줘야됨..? ;; ㅠㅠ

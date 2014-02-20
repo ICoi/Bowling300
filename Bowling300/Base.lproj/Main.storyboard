@@ -475,6 +475,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="Login:" destination="uWu-qu-C67" eventType="touchUpInside" id="aXy-1m-0Of"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gGt-1j-DKq">
                                 <rect key="frame" x="182" y="415" width="55" height="30"/>
@@ -487,11 +490,27 @@
                                     <segue destination="W9S-Ib-Upb" kind="push" id="ojo-MQ-Bmg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" minimumFontSize="17" id="bog-Bm-FTS">
+                                <rect key="frame" x="57" y="327" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" id="0tb-Rz-gLZ">
+                                <rect key="frame" x="57" y="371" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EcQ-3B-XKW"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="idLabel" destination="bog-Bm-FTS" id="Aeh-M3-IbT"/>
+                        <outlet property="passwordLabel" destination="0tb-Rz-gLZ" id="BDk-Qb-BAI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9j-5R-4Ur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3167,7 +3186,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="Uyn-72-ZtE">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="569"/>
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Handy" minimumFontSize="17" id="bFb-NJ-bAE">
@@ -3328,6 +3347,7 @@
                         <outlet property="collectionView" destination="1jO-kt-ErZ" id="wsB-P1-5Cz"/>
                         <outlet property="groupLabel" destination="SMg-ao-ePP" id="plq-yN-kIj"/>
                         <outlet property="handyLabel" destination="bFb-NJ-bAE" id="drK-z5-7Wh"/>
+                        <outlet property="leagueSwitch" destination="ZEk-wT-fBj" id="2YS-ju-MDU"/>
                         <outlet property="scoreLabel" destination="Die-6I-r8P" id="1bX-fl-XUl"/>
                         <outlet property="titleLabel" destination="JSY-be-4ou" id="emE-6i-Odh"/>
                     </connections>

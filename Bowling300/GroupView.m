@@ -11,6 +11,10 @@
 #import "Group.h"
 #import "DBGroupManager.h"
 #import "AppDelegate.h"
+#import <AFNetworking.h>
+
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupdel"
+
 @interface GroupView()<UIActionSheetDelegate>
 
 @end
@@ -96,7 +100,8 @@
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Set Representive", nil];
         
         [actionSheet showInView:self];
-    }else{        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    }else{
+        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
         ad.selectedGroupIdx = self.groupIdx;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"showGroup" object:nil];
     }
@@ -106,7 +111,39 @@
         
     }
     else if(buttonIndex == actionSheet.destructiveButtonIndex){
-    
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        //self.groupIdx
+        //ad.myIdx
+        
+        
+        // 히히.. 여기서 지우기
+        AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
+        
+        NSDictionary *parameters = @{@"aidx": [NSString stringWithFormat:@"%d",ad.myIDX],@"gidx":[NSString stringWithFormat:@"%d",self.groupIdx]};
+        NSLog(@"%@",parameters);
+        AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"result : %@",responseObject);
+            NSString *result = responseObject[@"result"];
+            if([result isEqualToString:@"FAIL"]){
+                NSLog(@"%@",responseObject);
+                NSLog(@"result is fail");
+            }else{
+                NSLog(@"result is success");
+               // 내 디비에서 그룹 리스트 지워야됨
+                [dbManager deleteGroupDataWithGroupIdx:self.groupIdx];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshGroupList" object:nil];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alert show];
+            NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+        }];
+        [op start];
+
+        
+        
+        
     }else if(buttonIndex == actionSheet.firstOtherButtonIndex) {
         
         

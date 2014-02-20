@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UISwitch *leagueSwitch;
 
 @property (strong) UIButton *button;
 @end
@@ -121,7 +122,7 @@
     NSLog(@"data string : %@",dateStr);
     
     
-    [dbPRManager insertDataWithDate:dateStr withGroupNum:selectedGroupIdx withScore:@"" withHandy:handy withTotalScore:totalScore];
+    [dbPRManager insertDataWithDate:dateStr withGroupNum:selectedGroupIdx withScore:@"" withHandy:handy withTotalScore:totalScore withLeague:self.leagueSwitch.on];
     self.scoreLabel.text = @"";
     
     scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
@@ -147,15 +148,29 @@
         NSMutableArray *datas = [[NSMutableArray alloc]init];
         
         for(int i = 0 ; i < keys.count ; i++){
+            NSString *keyChk = [keys objectAtIndex:i];
+            NSArray *components = [keyChk componentsSeparatedByString:@"_"];
+            
             NSDictionary *oneData = dataDic[[keys objectAtIndex:i]];
+            NSDictionary *oneDic;
+            if([[components objectAtIndex:0] isEqualToString:@"l"]){
+                // 리그전의 점수인경우
+                oneDic = @{@"type":[components objectAtIndex:1],
+                           @"league":@"1",
+                           @"allScore":oneData[@"score"],
+                           @"allGame":oneData[@"cnt"]};
+            }else{
+                // 그냥 점수인경우
+                oneDic = @{@"type":[keys objectAtIndex:i],
+                           @"league":@"0",
+                           @"allScore":oneData[@"score"],
+                           @"allGame":oneData[@"cnt"]};
+            }
             // 원래  @"type":[keys objectAtIndexi]
-            NSDictionary *oneDic = @{@"type":[keys objectAtIndex:i],
-                                     @"allScore":oneData[@"score"],
-                                     @"allGame":oneData[@"cnt"]};
             
             [datas addObject:oneDic];
         }
-        [sendDic setObject:datas forKey:@"data"];
+        [sendDic setObject:datas forKey:@"myscoredata"];
         // 여기 부분은 에러 체크용..
         __autoreleasing NSError *error;
         NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];

@@ -226,7 +226,8 @@
     if([[notification name]isEqualToString:@"refreshGroupList"]){
         representGroupIdx =dbManager.showRepresentiveGroupIdx;
         [self removeGroupViews];
-        [self drawGroups];
+        [self showGroupList];
+//[self drawGroups];
         //[self goEditMode:NO];
     }
 }

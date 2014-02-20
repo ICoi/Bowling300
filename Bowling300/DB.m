@@ -27,7 +27,7 @@ static DB *_instance = nil;
     if(existFileFlag == NO){
         
         // 점수 저장하는 DB 만들기
-        char *createQuery_MODE = "CREATE TABLE IF NOT EXISTS personnalRecord (User Integer, Date Text, GroupNum Integer, Score Text, Handy Integer, TotalScore Integer)";
+        char *createQuery_MODE = "CREATE TABLE IF NOT EXISTS personnalRecord (User Integer, Date Text, GroupNum Integer, Score Text, Handy Integer, TotalScore Integer, League Integer)";
         char *errorMsg ;
         
         ret = sqlite3_exec(db, createQuery_MODE, NULL, NULL, &errorMsg);

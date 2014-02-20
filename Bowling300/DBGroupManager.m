@@ -141,6 +141,23 @@ static DBGroupManager *_instance = nil;
     }
     return  nil;
 }
+
+- (BOOL)deleteGroupDataWithGroupIdx:(NSInteger)inIdx{
+    //여기 지우는거 구현하기
+    NSString *queryStr = [NSString stringWithFormat:@"DELETE FROM myGroup WHERE groupIdx = %d", inIdx];
+    
+    NSLog(@"Delete Query : %@",queryStr);
+    char *errMsg;
+    int ret = sqlite3_exec(db, [queryStr UTF8String], NULL, NULL, &errMsg);
+    
+    if (SQLITE_OK != ret){
+        NSLog(@"Error(%d) on deleting data : %s",ret,errMsg);
+    }
+    return false;
+}
+
+
+
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups{
     NSMutableArray *returnArr = [[NSMutableArray alloc]init];
     int arrLen = inGroups.count;

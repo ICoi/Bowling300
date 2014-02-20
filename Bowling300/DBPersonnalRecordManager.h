@@ -11,7 +11,7 @@
 #import "DayScore.h"
 @interface DBPersonnalRecordManager : DB
 + (id)sharedModeManager;
-- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore;
+- (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore withLeague:(BOOL)inLeague;
 - (void)setDefaultData;
 - (MonthScore *)showDataWithMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;
 - (DayScore *)showDataWithDate:(NSInteger)inDate withMonth:(NSInteger)inMonth withYear:(NSInteger)inYear;

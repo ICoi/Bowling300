@@ -57,16 +57,22 @@
     
     [self.navigationController.navigationBar setHidden:YES];
     
-    [self.calendarView drawMonthly];
     
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    
-    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
-    hamHidden = YES;
-    pickerHidden = YES;
+    if([dbInfoManager isLoggined]){
+        
+        [self.calendarView setCalendarSetting];
+        self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
+        hamHidden = YES;
+        pickerHidden = YES;
+    }else{
+        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
+        [self.navigationController pushViewController:uiVC   animated:YES];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,15 +104,6 @@
     searchYear = [NSString stringWithFormat:@"%d",nowYear];
     searchMonth = [NSString stringWithFormat:@"%d",nowMonth];
 //    NSLog(@"pickerview : %@",pickerView);
-    
-        // 숨겨진 상태인 경우 등장하기
-    
-        
-      // NSString * searchYear = year.text;
-      //  NSString *searchMonth = month.text;
-        
-        // 일단 처음에 보여질 칸부터 설정하기
-        // 이걸로 시작지점 설정!!!
         [self.pickerView selectRow:([searchYear integerValue] - START_YEAR) inComponent:0 animated:NO];
         [self.pickerView selectRow:([searchMonth integerValue] - 1) inComponent:1 animated:NO];
     

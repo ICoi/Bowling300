@@ -11,7 +11,7 @@
 #import "Group.h"
 #import "DBGroupManager.h"
 #import "AppDelegate.h"
-@interface GroupView()
+@interface GroupView()<UIActionSheetDelegate>
 
 @end
 
@@ -93,20 +93,28 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"touches??");
     if(nowEditMode){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Menu" message:@"What do you want to do?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Represent   Group",@"Setting", nil];
-        [alert show];
-    }else{
-        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Menu" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:@"Set Representive", nil];
+        
+        [actionSheet showInView:self];
+    }else{        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
         ad.selectedGroupIdx = self.groupIdx;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"showGroup" object:nil];
     }
 }
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(alertView.firstOtherButtonIndex == buttonIndex){
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == actionSheet.cancelButtonIndex){
+        
+    }
+    else if(buttonIndex == actionSheet.destructiveButtonIndex){
+    
+    }else if(buttonIndex == actionSheet.firstOtherButtonIndex) {
+        
+        
         [dbManager setRepresentiveGroupWithGroupIdx:self.groupIdx];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshGroupList" object:nil];
     }
 }
+
 
 -(void)setRepresentive{
     representive = TRUE;

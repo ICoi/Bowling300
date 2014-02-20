@@ -9,9 +9,11 @@
 #import "DBPersonnalRecordManager.h"
 #import "MonthScore.h"
 #import "AppDelegate.h"
-#define USERINFO 11
 
-@implementation DBPersonnalRecordManager
+
+@implementation DBPersonnalRecordManager{
+    AppDelegate *ad;
+}
 static DBPersonnalRecordManager *_instance = nil;
 + (id)sharedModeManager{
     if (nil == _instance) {
@@ -23,7 +25,8 @@ static DBPersonnalRecordManager *_instance = nil;
 
 - (BOOL)insertDataWithDate:(NSString *)inDate withGroupNum:(NSInteger)inGroupNum withScore:(NSString *)inScore withHandy:(NSInteger)inHandy withTotalScore:(NSInteger)inTotalScore{
     
-    NSString *insertQuery = [NSString stringWithFormat:@"INSERT INTO personnalRecord(User, Date , GroupNum , Score , Handy, TotalScore) VALUES (%d, '%@', %d, '%@', %d ,%d)", USERINFO, inDate, (int)inGroupNum, inScore,(int)inHandy ,(int)inTotalScore];
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSString *insertQuery = [NSString stringWithFormat:@"INSERT INTO personnalRecord(User, Date , GroupNum , Score , Handy, TotalScore) VALUES (%d, '%@', %d, '%@', %d ,%d)",ad.myIDX , inDate, (int)inGroupNum, inScore,(int)inHandy ,(int)inTotalScore];
     
     NSLog(@"insertQuery : %@", insertQuery);
     char *errorMsg;

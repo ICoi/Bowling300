@@ -13,4 +13,5 @@
 @property (strong, nonatomic) IBOutlet RecordViewController *recordVC;
 - (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth;
 - (void)drawMonthly;
+- (void)setCalendarSetting;
 @end

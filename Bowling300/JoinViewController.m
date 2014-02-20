@@ -46,7 +46,6 @@
 	// Do any additional setup after loading the view.
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     [self.navigationController.navigationBar setHidden:YES];
-    [self.tabBarController.tabBar setHidden:YES];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     hander = 0;
     gender = 0;

@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 #import "GroupLeagueViewController.h"
-
+#import "DBMyInfoManager.h"
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/grouplist"
 #define GROUPWIDTH 100
 
@@ -63,33 +63,39 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    
-    groupCnt = 0;
-    
-    //그룹 리스트 초기화
-    groups = [[NSMutableArray alloc]init];
-    groupViews = [[NSMutableArray alloc]init];
-    // scrollView
-    [self.groupListScrollView setScrollEnabled:YES];
-    self.groupListScrollView.alwaysBounceVertical = NO;
-    if(groups.count < 3){
-        [self.groupListScrollView setContentSize:CGSizeMake(320, 130)];
+    DBMyInfoManager *dbInfoManager = [DBMyInfoManager sharedModeManager];
+    if([dbInfoManager isLoggined]){
+        
+        
+        groupCnt = 0;
+        
+        //그룹 리스트 초기화
+        groups = [[NSMutableArray alloc]init];
+        groupViews = [[NSMutableArray alloc]init];
+        // scrollView
+        [self.groupListScrollView setScrollEnabled:YES];
+        self.groupListScrollView.alwaysBounceVertical = NO;
+        if(groups.count < 3){
+            [self.groupListScrollView setContentSize:CGSizeMake(320, 130)];
+        }else{
+            [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groups.count + 1) , 130)];
+        }
+        //group list를 보여준다.
+        [self showGroupList];
+        
+        [self.navigationController.navigationBar setHidden:YES];
+        
+        self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
+        hamHidden = YES;
+        nowEditMode = NO;
+        //TODO
+        
+        representGroupIdx = dbManager.showRepresentiveGroupIdx;
     }else{
-        [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groups.count + 1) , 130)];
+        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
+        [self.navigationController pushViewController:uiVC   animated:YES];
+        
     }
-    //group list를 보여준다.
-    [self showGroupList];
-    
-    [self.navigationController.navigationBar setHidden:YES];
-    
-    [self.tabBarController.tabBar setHidden:YES];
-    self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
-    hamHidden = YES;
-    nowEditMode = NO;
-    //TODO
-    
-    representGroupIdx = dbManager.showRepresentiveGroupIdx;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,51 +124,7 @@
             if (groups != nil) {
                 groupCnt = groups.count;
             }
-            int nowGroupI = 0;
-            for(int i = 0 ; i < groupCnt ; i++){
-                
-                NSDictionary *nowGroup = [groups objectAtIndex:i];
-                NSInteger nowGroupIdx = [nowGroup[@"gidx"]integerValue];
-                
-                if(nowGroupIdx == representGroupIdx){
-                    // TODO@@
-                    // 대표 그룹인경우 위에 보이도록 해야한다.
-                    
-                    GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(72, 150, 160, 160)];
-                    [gv setValueWithGroupIdx:[nowGroup[@"gidx"] integerValue] withGroupName:nowGroup[@"gname"] withDate:nowGroup[@"gdate"] withImageLink:nowGroup[@"gphoto"]];
-                    [self.view addSubview:gv];
-                    [groupViews addObject:gv];
-                    
-                } else{
-                    GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(GROUPWIDTH * nowGroupI, 20, 90, 90)];
-                
-              
-                
-                    [gv setValueWithGroupIdx:[nowGroup[@"gidx"] integerValue] withGroupName:nowGroup[@"gname"] withDate:nowGroup[@"gdate"] withImageLink:nowGroup[@"gphoto"]];
-                    [self.groupListScrollView addSubview:gv];
-                    [self.groupListScrollView reloadInputViews];
-                
-                    [groupViews addObject:gv];
-                    nowGroupI++;
-                }
-            }
-            
-            self.addGroupBtn.frame = CGRectMake(GROUPWIDTH* nowGroupI, 20, 90, 90);
-            if(groupCnt< 3){
-                self.scrollViewBackground.frame = CGRectMake(0, 0, 320, 128);
-            }else{
-                self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
-            }
-            
-            if(groupCnt < 3){
-                [self.groupListScrollView setContentSize:CGSizeMake(320, 130)];
-            }else{
-                [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groupCnt + 1) , 130)];
-            }
-            
-            
-            
-            self.groupCountLabel.text = [NSString stringWithFormat:@"Total %d",groupCnt];
+            [self drawGroups];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);
@@ -185,7 +147,53 @@
     }
 }
 
-
+- (void)drawGroups{
+    int nowGroupI = 0;
+    for(int i = 0 ; i < groupCnt ; i++){
+        
+        NSDictionary *nowGroup = [groups objectAtIndex:i];
+        NSInteger nowGroupIdx = [nowGroup[@"gidx"]integerValue];
+        
+        if(nowGroupIdx == representGroupIdx){
+            // TODO@@
+            // 대표 그룹인경우 위에 보이도록 해야한다.
+            
+            GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(72, 150, 160, 160)];
+            [gv setValueWithGroupIdx:[nowGroup[@"gidx"] integerValue] withGroupName:nowGroup[@"gname"] withDate:nowGroup[@"gdate"] withImageLink:nowGroup[@"gphoto"]];
+            [self.view addSubview:gv];
+            [groupViews addObject:gv];
+            
+        } else{
+            GroupView *gv = [[GroupView alloc]initWithFrame:CGRectMake(GROUPWIDTH * nowGroupI, 20, 90, 90)];
+            
+            
+            
+            [gv setValueWithGroupIdx:[nowGroup[@"gidx"] integerValue] withGroupName:nowGroup[@"gname"] withDate:nowGroup[@"gdate"] withImageLink:nowGroup[@"gphoto"]];
+            [self.groupListScrollView addSubview:gv];
+            [self.groupListScrollView reloadInputViews];
+            
+            [groupViews addObject:gv];
+            nowGroupI++;
+        }
+    }
+    
+    self.addGroupBtn.frame = CGRectMake(GROUPWIDTH* nowGroupI, 20, 90, 90);
+    if(groupCnt< 3){
+        self.scrollViewBackground.frame = CGRectMake(0, 0, 320, 128);
+    }else{
+        self.scrollViewBackground.frame = CGRectMake(0, 0, GROUPWIDTH * (groupCnt + 1), 128);
+    }
+    
+    if(groupCnt < 3){
+        [self.groupListScrollView setContentSize:CGSizeMake(320, 130)];
+    }else{
+        [self.groupListScrollView setContentSize:CGSizeMake(GROUPWIDTH * (groupCnt + 1) , 130)];
+    }
+    
+    
+    
+    self.groupCountLabel.text = [NSString stringWithFormat:@"Total %d",groupCnt];
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if(!hamHidden){
@@ -216,7 +224,10 @@
 
 - (void)refreshView:(NSNotification *)notification{
     if([[notification name]isEqualToString:@"refreshGroupList"]){
-        [self.view setNeedsDisplay];
+        representGroupIdx =dbManager.showRepresentiveGroupIdx;
+        [self removeGroupViews];
+        [self drawGroups];
+        //[self goEditMode:NO];
     }
 }
 -(void)viewWillDisappear:(BOOL)animated{

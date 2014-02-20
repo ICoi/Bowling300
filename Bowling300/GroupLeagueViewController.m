@@ -57,12 +57,13 @@
     self.testPeople.layer.cornerRadius = 30.0f;
     
     holdingAirBalloon = -1;
+    
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 
 // setneedsdisplay
 - (void)viewWillAppear:(BOOL)animated{
-    [self.tabBarController.tabBar setHidden:YES];
     
     
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];

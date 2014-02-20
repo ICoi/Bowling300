@@ -23,7 +23,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.tabBarController.tabBar setHidden:YES];
 }
 - (void)didReceiveMemoryWarning
 {

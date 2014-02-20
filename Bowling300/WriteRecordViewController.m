@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 #import "WriteScoreView.h"
+#import "ScoreCell.h"
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/score"
 
 
@@ -25,12 +26,13 @@
 #define MARGINWIDTH 7
 #define MARGINHIEGHT 3
 
-@interface WriteRecordViewController ()
+@interface WriteRecordViewController ()<UIActionSheetDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *handyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *scoreLabel;
 @property (weak, nonatomic) IBOutlet UITextField *groupLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong) UIButton *button;
 @end
@@ -57,7 +59,8 @@
     dbPRManager = [DBPersonnalRecordManager sharedModeManager];
 	// Do any additional setup after loading the view.
     scores.todayScores = [[NSMutableArray alloc]init];
-    [self drawScores];
+    NSLog(@"%d %d %d",self.nowDate, self.nowMonth, self.nowYear);
+     scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
     
     dbGManager = [DBGroupManager sharedModeManager];
     NSMutableArray *groups = [dbGManager showAllGroups];
@@ -91,33 +94,6 @@
 }
 
 
-// 점수 적힌 버튼들 나열하는 함수
-- (void)drawScores{
-    NSInteger nowX = STARTX;
-    NSInteger nowY = STARTY;
-    scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
-    for(int i = 0 ; i < scores.gameCnt ; i++){
-        
-        if( (i %4) == 0){
-            nowX = STARTX;
-            nowY = nowY + MARGINHIEGHT + SCOREHEIGHT;
-        }else{
-            nowX += (MARGINWIDTH + SCOREWIDTH);
-        }
-        Score *one = [scores.todayScores objectAtIndex:i];
-        
-        WriteScoreView *oneScore = [[WriteScoreView alloc]initWithFrame:CGRectMake(nowX, nowY, 64, 30)];
-        
-        BOOL handy = FALSE;
-        if(one.handy != 0){
-            handy = TRUE;
-        }
-        [oneScore setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:handy withColor:one.groupColor];
-        [self.view addSubview:oneScore];
-        
-    }
-}
-
 - (IBAction)goBack:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -145,7 +121,10 @@
     
     [dbPRManager insertDataWithDate:dateStr withGroupNum:selectedGroupIdx withScore:@"" withHandy:handy withTotalScore:totalScore];
     self.scoreLabel.text = @"";
-    [self drawScores];
+    
+    scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
+    
+    [self.collectionView reloadData];
     
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -205,6 +184,8 @@
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Server was not connected!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
             [alert show];
             NSLog(@"Error: %@", error);
@@ -224,23 +205,43 @@
     return YES;
 }
 - (IBAction)selectGroup:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Groups" message:@"Select Group" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
-    for(int i = 0 ; i < groupNames.count ; i++){
-        [alert addButtonWithTitle:[groupNames objectAtIndex:i]];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Groups" delegate:self cancelButtonTitle:@"Cancle" destructiveButtonTitle:nil otherButtonTitles: nil];
+    for(int i = 0 ; i < groupNames.count; i++){
+        [actionSheet addButtonWithTitle:[groupNames objectAtIndex:i]];
     }
-    [alert show];
-    // TODO
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    [actionSheet showInView:self.view];
 }
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(alertView.cancelButtonIndex != buttonIndex){
-        //TODO
-        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex )] integerValue];
-        selectedGroupName = [groupNames objectAtIndex:(buttonIndex)];
-        
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex != actionSheet.cancelButtonIndex){
+        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex-1)] integerValue];
+        selectedGroupName = [groupNames objectAtIndex:(buttonIndex-1)];
+    
         self.groupLabel.text = selectedGroupName;
-    }else{
-        selectedGroupIdx = -1;
-        self.groupLabel.text = @"solo";
     }
 }
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return scores.gameCnt;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    ScoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SCORE_CELL" forIndexPath:indexPath];
+    
+    Score *one = [scores.todayScores objectAtIndex:indexPath.row];
+    
+    BOOL handy = FALSE;
+    if(one.handy != 0){
+        handy = TRUE;
+    }
+    [cell setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:handy withColor:one.groupColor];
+    return  cell;
+}
+/*
+ //TODO
+ -        selectedGroupIdx = [[groupIdes objectAtIndex:(buttonIndex )] integerValue];
+ -        selectedGroupName = [groupNames objectAtIndex:(buttonIndex)];
+ -
+ -        self.groupLabel.text = selectedGroupName;
+ */
 @end

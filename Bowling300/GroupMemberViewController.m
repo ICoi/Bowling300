@@ -41,7 +41,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.tabBarController.tabBar setHidden:YES];
     
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     [sendDic setObject:[NSString stringWithFormat:@"%d",ad.selectedGroupIdx] forKey:@"gidx"];

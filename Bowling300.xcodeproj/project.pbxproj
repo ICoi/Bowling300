@@ -173,6 +173,7 @@
 		00A483C318ACBBBF006B6707 /* GroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A483C218ACBBBF006B6707 /* GroupView.m */; };
 		00A9B23518AE2A4300EAF308 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A9B23418AE2A4300EAF308 /* bg.png */; };
 		00B193A718A4778F0037150A /* DBMyInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B193A618A4778F0037150A /* DBMyInfoManager.m */; };
+		00B4E76518B5B139009F275F /* ScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B4E76418B5B139009F275F /* ScoreCell.m */; };
 		00BA3A9518AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BA3A9418AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m */; };
 		00BA3A9818ADA2FB00A2DFC0 /* GroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BA3A9718ADA2FB00A2DFC0 /* GroupListCell.m */; };
 		00BD7A9818A077BD00F35DF3 /* DayScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BD7A9718A077BD00F35DF3 /* DayScore.m */; };
@@ -406,6 +407,8 @@
 		00A9B23418AE2A4300EAF308 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		00B193A518A4778F0037150A /* DBMyInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMyInfoManager.h; sourceTree = "<group>"; };
 		00B193A618A4778F0037150A /* DBMyInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMyInfoManager.m; sourceTree = "<group>"; };
+		00B4E76318B5B139009F275F /* ScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCell.h; sourceTree = "<group>"; };
+		00B4E76418B5B139009F275F /* ScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCell.m; sourceTree = "<group>"; };
 		00BA3A9318AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSearchAndJoinViewController.h; sourceTree = "<group>"; };
 		00BA3A9418AD9EA200A2DFC0 /* GroupSearchAndJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSearchAndJoinViewController.m; sourceTree = "<group>"; };
 		00BA3A9618ADA2FB00A2DFC0 /* GroupListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListCell.h; sourceTree = "<group>"; };
@@ -684,6 +687,8 @@
 				00BA3A9718ADA2FB00A2DFC0 /* GroupListCell.m */,
 				00D5141318B345930091F082 /* GroupMemberCell.h */,
 				00D5141418B345930091F082 /* GroupMemberCell.m */,
+				00B4E76318B5B139009F275F /* ScoreCell.h */,
+				00B4E76418B5B139009F275F /* ScoreCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1207,6 +1212,7 @@
 				009CCC1818910215006DAB6F /* GroupBoardViewController.m in Sources */,
 				00D979CD18A1ECEF0078B24C /* BLGraphScore.m in Sources */,
 				009CCB581890E096006DAB6F /* AppDelegate.m in Sources */,
+				00B4E76518B5B139009F275F /* ScoreCell.m in Sources */,
 				00BD7A9B18A077C900F35DF3 /* MonthScore.m in Sources */,
 				009CCB541890E096006DAB6F /* main.m in Sources */,
 				009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */,

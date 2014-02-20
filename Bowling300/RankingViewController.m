@@ -84,7 +84,6 @@
     rankingDataArr = [[NSMutableArray alloc]init];
     dbPersonManager = [DBPersonnalRecordManager sharedModeManager];
     dbInfoManager = [DBMyInfoManager sharedModeManager];
-    [self.tabBarController.tabBar setHidden:YES];
     [self.navigationController.navigationBar setHidden:YES];
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
@@ -101,7 +100,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    //TODO
+    [self.tabBarController.tabBar setHidden:YES];
+    
+    
     ad.myName =[dbInfoManager showUsername];
     
     [dbPersonManager setDefaultData];
@@ -308,13 +309,8 @@
 
 // 여기 아래는 탭 버튼 누르는거
 - (IBAction)goRecordPage:(id)sender {
-    if([dbInfoManager isLoggined]){
-        [self.tabBarController setSelectedIndex:1];
-    }else{
-        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
-        [self.navigationController pushViewController:uiVC   animated:YES];
-        
-    }
+    [self.tabBarController setSelectedIndex:1];
+  
     //
 }
 - (IBAction)goGroupPage:(id)sender {

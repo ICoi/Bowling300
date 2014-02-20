@@ -47,7 +47,7 @@
         
         [self.collection reloadData];
         self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
-        clickedDate = 40;
+        clickedDate = 0;
     }
     return self;
 }
@@ -61,7 +61,7 @@
         [self setYear:year setMonth:month];
         [self.collection reloadData];
         self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
-        clickedDate = 40;
+        clickedDate = 0;
         
     }
     return  self;
@@ -100,14 +100,26 @@
     
     //NSLog(@"Month test : %@",nowMonthScoreData);
     
+    [self.collection reloadData];
     
-   
-    
+    if((clickedDate != 0)){
+        NSLog(@"%d",clickedDate);
+        
+        NSInteger averageScore = [nowMonthScoreData getDailyAverageScoreWithDate:[NSString stringWithFormat:@"%d",clickedDate]];
+        NSInteger highScore = [nowMonthScoreData getDailyHighScoreWithDate:[NSString stringWithFormat:@"%d",clickedDate]];
+        NSInteger lowScore = [nowMonthScoreData getDailyLowScoreWithDate:[NSString stringWithFormat:@"%d",clickedDate]];
+        NSInteger gameCnt = [nowMonthScoreData getDailyGameCnt:[NSString stringWithFormat:@"%d",clickedDate]];
+    [self.recordVC drawBarchartWithAverageScore:averageScore withHighScore:highScore withLowScore:lowScore withGameCnt:gameCnt isMonthly:FALSE];
+        NSLog(@"ha?");
+    }else{
+        [self drawMonthly];
+    }
 }
 
 - (void)drawMonthly{
     
     [self.recordVC setYear:year withMonth:month withDate:1];
+    
     // Bar chart의 위치 설정
     NSInteger averageScore = [nowMonthScoreData getMonthlyAverageScore];
     NSInteger highScore = [nowMonthScoreData getMonthlyHighScore];

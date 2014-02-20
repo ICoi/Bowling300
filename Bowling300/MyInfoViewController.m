@@ -7,9 +7,16 @@
 //
 
 #import "MyInfoViewController.h"
+#import "MyInfoTwoViewController.h"
 
 @interface MyInfoViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *countryLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *emailLabel;
+@property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
+@property (weak, nonatomic) IBOutlet UITextField *handerLabel;
 
 @end
 
@@ -30,6 +37,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"MYINFOSEGUE"]) {
+        MyInfoTwoViewController *mitVC = (MyInfoTwoViewController *)segue.destinationViewController;
+        
+    }
+}
+
+- (IBAction)selectCountry:(id)sender {
+}
+- (IBAction)selectHander:(id)sender {
+}
 
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

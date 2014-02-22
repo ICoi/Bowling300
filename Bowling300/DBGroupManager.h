@@ -15,9 +15,11 @@
 - (NSInteger)showRepresentiveGroupIdx;
 - (void)setRepresentiveGroupWithGroupIdx:(NSInteger)inGroupIdx;
 - (UIColor *)showGroupColorWithGroupIdx:(NSInteger)inGroupIdx;
+-(BOOL)logOut;
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSMutableArray *)showGroupIdxWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSMutableArray *)showGroupColorWithGroupsArray:(NSMutableArray *)inGroups;
 - (NSString *)showGroupNameWithGroupIdx:(NSInteger)inGroupIdx;
 - (BOOL)deleteGroupDataWithGroupIdx:(NSInteger)inIdx;
+- (void)setGroupDataWhenLoginedWithJSON:(NSArray *)inArr;
 @end

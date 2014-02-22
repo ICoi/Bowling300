@@ -8,7 +8,9 @@
 
 #import "LoginViewController.h"
 #import <AFNetworking.h>
-
+#import "DBGroupManager.h"
+#import "DBMyInfoManager.h"
+#import "DBPersonnalRecordManager.h"
 #define URLLINK @"http://bowling.pineoc.cloulu.com/login"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *idLabel;
@@ -18,6 +20,9 @@
 
 @implementation LoginViewController{
     int dy;
+    DBGroupManager *dbGManager;
+    DBMyInfoManager *dbMyManager;
+    DBPersonnalRecordManager *dbRecordManager;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +38,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    dbGManager = [DBGroupManager sharedModeManager];
+    dbMyManager = [DBMyInfoManager sharedModeManager];
+    dbRecordManager = [DBPersonnalRecordManager sharedModeManager];
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -74,7 +82,14 @@
         }else{
             NSLog(@"result is success");
             
+            NSArray *Arr = responseObject[@"group"];
+            [dbGManager setGroupDataWhenLoginedWithJSON:Arr];
             
+            NSDictionary *dic = responseObject[@"myval"];
+            [dbMyManager setMyDataWhenLoginedWithDic:dic];
+            
+            [dbRecordManager setDefaultData ];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

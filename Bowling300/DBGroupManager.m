@@ -155,7 +155,24 @@ static DBGroupManager *_instance = nil;
     }
     return false;
 }
-
+-(BOOL)logOut{
+    NSString *queryStr = @"DELETE FROM myGroup";
+    sqlite3_stmt *stmt;
+    
+    sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    if (sqlite3_step(stmt) == SQLITE_DONE)
+    {
+        sqlite3_finalize(stmt);
+        return  YES;
+        
+    } else {
+        sqlite3_finalize(stmt);
+        return  NO;
+    }
+    sqlite3_finalize(stmt);
+    return NO;
+    
+}
 
 
 - (NSMutableArray *)showGroupNameWithGroupsArray:(NSMutableArray *)inGroups{
@@ -184,5 +201,18 @@ static DBGroupManager *_instance = nil;
         [returnArr addObject:one.color];
     }
     return returnArr;
+}
+
+
+- (void)setGroupDataWhenLoginedWithJSON:(NSArray *)inArr{
+    for(int i = 0 ; i < inArr.count ; i++){
+        NSDictionary *one = [inArr objectAtIndex:i];
+        NSInteger rColor = arc4random()%255;
+        NSInteger gColor = arc4random()%255;
+        NSInteger bColor= arc4random()%255;
+        [self addDataInGroupTableWithGroupIdx:one[@"gidx"] withGroupName:one[@"gname"] withGroupRedColor:rColor withGroupGreenColor:gColor withGroupBlueColor:bColor];
+    }
+    
+    //
 }
 @end

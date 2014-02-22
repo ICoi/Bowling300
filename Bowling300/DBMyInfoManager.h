@@ -12,7 +12,9 @@
 + (id)sharedModeManager;
 - (BOOL)isLoggined;
 - (NSString *)showUsername;
+- (NSString *)showUserProfile;
 - (BOOL)joinMemberWithIdx:(NSInteger)inIdx WithName:(NSString *)inName withGender:(BOOL)inGender withCountry:(NSString *)inCountry withEmail:(NSString *)inEmail withPwd:(NSString *)inPwd withHand:(BOOL)inHand withImage:(NSString *)inImage;
 - (BOOL)logOut;
 -(NSInteger)showMyIdx;
+-(void)setMyDataWhenLoginedWithDic:(NSDictionary *)inDic;
 @end

@@ -48,6 +48,23 @@ static DBMyInfoManager *_instance = nil;
     }
     return nil;
 }
+
+- (NSString *)showUserProfile{
+    NSString *queryStr = @"SELECT Image FROM myInfo";
+    sqlite3_stmt *stmt;
+    int ret = sqlite3_prepare_v2(db, [queryStr UTF8String], -1, &stmt, NULL);
+    
+    NSAssert2(SQLITE_OK == ret, @"ERROR(%d) on resolving data : %s", ret, sqlite3_errmsg(db));
+    
+    while(SQLITE_ROW == sqlite3_step(stmt)){
+        char *image = (char *)sqlite3_column_text(stmt, 0);
+        
+        NSString *returnName = [NSString stringWithCString:image encoding:NSUTF8StringEncoding];
+        sqlite3_finalize(stmt);
+        return returnName;
+    }
+    return nil;
+}
 -(BOOL)isLoggined{
     NSString *queryStr = @"SELECT * FROM myInfo";
     sqlite3_stmt *stmt;
@@ -95,5 +112,10 @@ static DBMyInfoManager *_instance = nil;
     }
     sqlite3_finalize(stmt);
     return 0;
+}
+
+
+-(void)setMyDataWhenLoginedWithDic:(NSDictionary *)inDic{
+    [self joinMemberWithIdx:[inDic[@"aidx"] integerValue]WithName:inDic[@"name"] withGender:[inDic[@"sex"]integerValue ] withCountry:inDic[@"country"] withEmail:inDic[@"email"] withPwd:@"" withHand:[inDic[@"hand"]integerValue ] withImage:inDic[@"proPhoto"]];
 }
 @end

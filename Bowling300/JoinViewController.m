@@ -105,8 +105,8 @@
             //do not put image inside parameters dictionary as I did, but append it!
             [formData appendPartWithFileData:imageData name:@"proPhoto" fileName:randomName mimeType:@"multipart/form-data"];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            // TODO
-            // 여기서 응답 온거 가지고 처리해야한다!!!
+            NSLog(@"JSON : %@",responseObject);
+            
             NSString *result = responseObject[@"result"];
             if([result isEqualToString:@"FAIL"]){
                 NSLog(@"%@",responseObject);

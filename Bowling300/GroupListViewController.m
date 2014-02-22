@@ -107,7 +107,7 @@
 - (void)showGroupList{
     // 그룹 리스트들 저장하고 있는 뷰들을 저장하는 배열
     groupViews = [[NSMutableArray alloc]init];
-    
+    nowEditMode = YES;
     
     // 일단 그룹 리스트들을 불러옴
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
@@ -149,7 +149,7 @@
 
 - (void)drawGroups{
     int nowGroupI = 0;
-    for(int i = 0 ; i < groupCnt ; i++){
+    for(int i = 0 ; i < groups.count ; i++){
         
         NSDictionary *nowGroup = [groups objectAtIndex:i];
         NSInteger nowGroupIdx = [nowGroup[@"gidx"]integerValue];
@@ -224,11 +224,11 @@
 
 - (void)refreshView:(NSNotification *)notification{
     if([[notification name]isEqualToString:@"refreshGroupList"]){
+        
+        [self goEditMode:NO];
         representGroupIdx =dbManager.showRepresentiveGroupIdx;
-        [self removeGroupViews];
+       // [self removeGroupViews];
         [self showGroupList];
-//[self drawGroups];
-        //[self goEditMode:NO];
     }
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -244,7 +244,7 @@
 - (void)showGroup:(NSNotification *)notification{
     if([[notification name]isEqualToString:@"showGroup"]){
         UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GROUP_STORYBOARD"];
-        [self.navigationController pushViewController:uiVC   animated:YES];
+        [self.navigationController pushViewController:uiVC   animated:NO];
     }
 }
 - (IBAction)goRanking:(id)sender {

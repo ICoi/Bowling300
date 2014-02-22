@@ -205,12 +205,13 @@ static DBGroupManager *_instance = nil;
 
 
 - (void)setGroupDataWhenLoginedWithJSON:(NSArray *)inArr{
+    [self addDataInGroupTableWithGroupIdx:-1 withGroupName:@"solo" withGroupRedColor:0.0 withGroupGreenColor:0.0 withGroupBlueColor:0.0];
     for(int i = 0 ; i < inArr.count ; i++){
         NSDictionary *one = [inArr objectAtIndex:i];
         NSInteger rColor = arc4random()%255;
         NSInteger gColor = arc4random()%255;
         NSInteger bColor= arc4random()%255;
-        [self addDataInGroupTableWithGroupIdx:one[@"gidx"] withGroupName:one[@"gname"] withGroupRedColor:rColor withGroupGreenColor:gColor withGroupBlueColor:bColor];
+        [self addDataInGroupTableWithGroupIdx:[one[@"gidx"]integerValue ] withGroupName:one[@"gname"] withGroupRedColor:rColor withGroupGreenColor:gColor withGroupBlueColor:bColor];
     }
     
     //

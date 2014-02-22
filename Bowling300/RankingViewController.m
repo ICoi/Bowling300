@@ -159,7 +159,7 @@
 - (void)getRankingFromServerWithType:(NSInteger)inType{
     
     // 일단 값들 초기화시키기
-    self.myScoreLabel.text = @"Non";
+    self.myScoreLabel.text = @"NaN";
     self.myRankingLabel.text = @"0";
     
     self.scoreFirst.text = @"NaN";

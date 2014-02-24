@@ -7,6 +7,7 @@
 //
 
 #import "DBMyInfoManager.h"
+#import "AppDelegate.h"
 
 @implementation DBMyInfoManager
 static DBMyInfoManager *_instance = nil;
@@ -116,6 +117,8 @@ static DBMyInfoManager *_instance = nil;
 
 
 -(void)setMyDataWhenLoginedWithDic:(NSDictionary *)inDic{
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     [self joinMemberWithIdx:[inDic[@"aidx"] integerValue]WithName:inDic[@"name"] withGender:[inDic[@"sex"]integerValue ] withCountry:inDic[@"country"] withEmail:inDic[@"email"] withPwd:@"" withHand:[inDic[@"hand"]integerValue ] withImage:inDic[@"proPhoto"]];
+    ad.myIDX = [inDic[@"aidx"] integerValue];
 }
 @end

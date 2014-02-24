@@ -41,8 +41,8 @@
     if(self) {
         NSLog(@"Calendar init with coder");
         year = 2014;
-        month = 1;
-        
+        month = 2;
+        clickedDate = 25;
         [self setYear:year setMonth:month];
         
         [self.collection reloadData];

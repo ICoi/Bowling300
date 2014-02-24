@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0003408618B618ED006E1992 /* MyInfoTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0003408518B618ED006E1992 /* MyInfoTwoViewController.m */; };
 		0012E81B18B0CB5D000FB3FA /* AirBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */; };
-		001D2C3018B849F2003AE43A /* launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 001D2C2F18B849F2003AE43A /* launcher.png */; };
 		00406A4618AA45CD004AA546 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00406A4518AA45CD004AA546 /* LoginViewController.m */; };
 		004448911892027200ED684E /* BarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 004448901892027200ED684E /* BarGraphView.m */; };
 		006A3D6B18A20A3100276BE0 /* DBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006A3D6A18A20A3100276BE0 /* DBGroupManager.m */; };
@@ -191,6 +190,7 @@
 		00DB21B51895F64D0011FDBE /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21B41895F64D0011FDBE /* DLPieChart.m */; };
 		00DB21BC1896088A0011FDBE /* BarLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DB21BB1896088A0011FDBE /* BarLineChart.m */; };
 		00E8D6D51891EFBE0069A79A /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8D6D41891EFBE0069A79A /* CalendarView.m */; };
+		00EF072E18BACCD000466D5B /* launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EF072D18BACCD000466D5B /* launcher.png */; };
 		00EFB2C818A4953500B090B7 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 00EFB2C718A4953500B090B7 /* db.sqlite */; };
 		327198422D2344A6A0D94B01 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BF10027DEB48AF917E7CC3 /* libPods.a */; };
 		7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7049E39B18919D6B00DF1063 /* libsqlite3.dylib */; };
@@ -213,7 +213,6 @@
 		0003408518B618ED006E1992 /* MyInfoTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoTwoViewController.m; sourceTree = "<group>"; };
 		0012E81918B0CB5D000FB3FA /* AirBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirBalloonView.h; sourceTree = "<group>"; };
 		0012E81A18B0CB5D000FB3FA /* AirBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirBalloonView.m; sourceTree = "<group>"; };
-		001D2C2F18B849F2003AE43A /* launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcher.png; sourceTree = "<group>"; };
 		00406A4418AA45CD004AA546 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		00406A4518AA45CD004AA546 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0044488F1892027200ED684E /* BarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarGraphView.h; sourceTree = "<group>"; };
@@ -440,6 +439,7 @@
 		00DB21BB1896088A0011FDBE /* BarLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarLineChart.m; sourceTree = "<group>"; };
 		00E8D6D31891EFBD0069A79A /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
 		00E8D6D41891EFBE0069A79A /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
+		00EF072D18BACCD000466D5B /* launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcher.png; sourceTree = "<group>"; };
 		00EFB2C718A4953500B090B7 /* db.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.sqlite; sourceTree = "<group>"; };
 		321C41A4F4564FC4A0ADAAD5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7049E39B18919D6B00DF1063 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -480,7 +480,6 @@
 		0090CDCB18B0620700CC4435 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				001D2C2F18B849F2003AE43A /* launcher.png */,
 				0090CDCC18B0622200CC4435 /* login.png */,
 			);
 			name = Image;
@@ -709,6 +708,7 @@
 				00A4829718AC56A1006B6707 /* bar_ver.png */,
 				00A4829818AC56A1006B6707 /* board_profile.png */,
 				00A4829918AC56A1006B6707 /* board_title_bg.png */,
+				00EF072D18BACCD000466D5B /* launcher.png */,
 				00A4829A18AC56A1006B6707 /* group_board_read_gra.png */,
 				00A4829B18AC56A1006B6707 /* group_edit_delete_bg.png */,
 				00A4829C18AC56A1006B6707 /* group_edit_delete_icon.png */,
@@ -1044,7 +1044,7 @@
 				00A4830A18AC56A1006B6707 /* group_league_para_me.png in Resources */,
 				00A4830318AC56A1006B6707 /* group_joinedgroup_bg.png in Resources */,
 				008B8FDC18AB525700372F04 /* Roboto-Light.ttf in Resources */,
-				001D2C3018B849F2003AE43A /* launcher.png in Resources */,
+				00EF072E18BACCD000466D5B /* launcher.png in Resources */,
 				00A482FF18AC56A1006B6707 /* group_edit_delete_icon.png in Resources */,
 				00D5140D18B31A280091F082 /* ranking_myinfo.png in Resources */,
 				00A482F818AC56A1006B6707 /* back_foot_bar.png in Resources */,

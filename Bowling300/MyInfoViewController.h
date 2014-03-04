@@ -6,7 +6,6 @@
 //  Copyright (c) 2014년 T. All rights reserved.
 //
 
-//bowling.pineoc.cloulu.com/user/userinfo
 
 #import <UIKit/UIKit.h>
 

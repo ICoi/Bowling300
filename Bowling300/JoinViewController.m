@@ -90,7 +90,8 @@
     
     if (([name isEqualToString:@""]) || ([email isEqualToString:@""]) || ([selectCountryCode isEqualToString:@""]) || ([password isEqualToString:@""]) || ( imageData == nil)) {
         // 한개라도 null이 들어가면 서버에 전송하지 않음!!
-        NSLog(@"Null Error");
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"You have to write all blank" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
     }
     else{
     
@@ -109,8 +110,14 @@
             
             NSString *result = responseObject[@"result"];
             if([result isEqualToString:@"FAIL"]){
-                NSLog(@"%@",responseObject);
-                NSLog(@"result is fail");
+                NSString *string = responseObject[@"resultmsg"];
+                if([string isEqualToString:@"DUP EMAIL"]){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"Email is already exist" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                    [alert show];
+                }else{
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"Server is errored. Please try it again" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                    [alert show];
+                }
             }else{
                 NSLog(@"result is success");
                 NSInteger idx = [responseObject[@"aidx"] integerValue];

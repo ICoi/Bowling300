@@ -68,6 +68,23 @@
         self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
         hamHidden = YES;
         pickerHidden = YES;
+        
+        
+        
+        NSDate *now = [NSDate date];
+        
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSDateComponents* components = [calendar components:NSYearCalendarUnit |
+                                        NSMonthCalendarUnit |
+                                        NSDayCalendarUnit fromDate:now];
+        
+        nowYear = [components year];
+        nowMonth = [components month];
+        nowDate = [components day];
+        
+        NSLog(@"now %d-%d-%d",nowYear,nowMonth,nowDate);
+        [self.calendarView setYear:nowYear setMonth:nowMonth setDate:nowDate];
+        
     }else{
         UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
         [self.navigationController pushViewController:uiVC   animated:YES];
@@ -128,7 +145,7 @@
     UIView *nowView = self.viewPicker;
     // 다시 picker접는 경우
     // 달력에 바뀐 년도와 월을 전달한다.
-    [self.calendarView setYear:[searchYear integerValue] setMonth:[searchMonth integerValue]];
+    [self.calendarView setYear:[searchYear integerValue] setMonth:[searchMonth integerValue] setDate:nowDate];
     
     [UIView animateWithDuration:0.5
                           delay:0.0

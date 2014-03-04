@@ -75,17 +75,25 @@
     [manager POST:URLLINK parameters:sendDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
+        NSDictionary *resultDic = responseObject[@"myval"];
         // 여기서 응답 온거 가지고 처리해야한다!!!
-        NSString *result = responseObject[@"result"];
+        NSString *result = resultDic[@"result"];
         if([result isEqualToString:@"FAIL"]){
+            NSString *msg = resultDic[@"resultmsg"];
+            if([msg isEqualToString:@"NO ACCOUNT"]){
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"NO ACCOUNT" message:@"Wrong Email or PassWord" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                [alert show];
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"There is Error on connecting server" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            }
             NSLog(@"result is fail");
         }else{
             NSLog(@"result is success");
             
-            NSArray *Arr = responseObject[@"group"];
+            NSArray *Arr = resultDic[@"group"];
             [dbGManager setGroupDataWhenLoginedWithJSON:Arr];
             
-            NSDictionary *dic = responseObject[@"myval"];
+            NSDictionary *dic = resultDic[@"myval"];
             [dbMyManager setMyDataWhenLoginedWithDic:dic];
             
             [dbRecordManager setDefaultData ];

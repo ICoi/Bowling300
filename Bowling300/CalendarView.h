@@ -11,7 +11,7 @@
 @interface CalendarView : UIView
 
 @property (strong, nonatomic) IBOutlet RecordViewController *recordVC;
-- (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth;
+- (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth setDate:(NSInteger)indate;
 - (void)drawMonthly;
 - (void)setCalendarSetting;
 @end

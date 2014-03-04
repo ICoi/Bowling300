@@ -43,7 +43,7 @@
         year = 2014;
         month = 2;
         clickedDate = 25;
-        [self setYear:year setMonth:month];
+        [self setYear:year setMonth:month setDate:clickedDate];
         
         [self.collection reloadData];
         self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
@@ -58,7 +58,7 @@
         year = 2014;
         month = 1;
         
-        [self setYear:year setMonth:month];
+        [self setYear:year setMonth:month setDate:clickedDate];
         [self.collection reloadData];
         self.monthLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:25.0];
         clickedDate = 0;
@@ -69,7 +69,10 @@
 
 
 // bar에 년도와 요일 표시하는 부분의 글씨 편집하는 함수.
-- (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth{
+- (void)setYear:(NSInteger)inYear setMonth:(NSInteger)inMonth setDate:(NSInteger)indate{
+    year=inYear;
+    month = inMonth;
+    clickedDate = indate;
     // 새로 1일의 시작 날자 설정
  //   NSLog(@"year : %d month : %d",(int)year,(int)month );
     year = inYear;
@@ -184,7 +187,7 @@
     }
     
     
-    [self setYear:year setMonth:month];
+    [self setYear:year setMonth:month setDate:clickedDate];
     [self drawMonthly];
     [self.recordVC setYear:year withMonth:month withDate:1];
     [self.collection reloadData];
@@ -198,7 +201,7 @@
         year++;
         month = 1;
     }
-    [self setYear:year setMonth:month];
+    [self setYear:year setMonth:month setDate:clickedDate];
     [self drawMonthly];
     [self.recordVC setYear:year withMonth:month withDate:1];
     [self.collection reloadData];

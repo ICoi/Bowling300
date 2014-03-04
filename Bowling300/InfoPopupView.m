@@ -149,20 +149,6 @@
     }
 }
 - (void)setDataWithDictionary:(NSDictionary *)inDic{
-    /*
-     allhighScore = "<null>";
-     avg = "0.0";
-     ballPhoto = "<null>";
-     country = kor;
-     hand = 1;
-     highscore = "<null>";
-     name = "\Uc815\Ub2e4\Uc6b4";
-     proPhoto = "http://bowling.pineoc.cloulu.com/uploads/user/90/proPhoto.PNG";
-     rank = 22;
-     series800 = "<null>";
-     step = "<null>";
-     style = "<null>";
-     */
     NSURL *proURL = [NSURL URLWithString:inDic[@"proPhoto"]];
     self.scoreLabel.text = inDic[@"avg"];
     self.nameLabel.text = inDic[@"name"];

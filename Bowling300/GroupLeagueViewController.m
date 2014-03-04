@@ -18,7 +18,7 @@
 #define WIDTH 235
 #define HEIGHT 424
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupLeague"
+#define URLLINK @"http://bowling300.cafe24app.com/user/groupLeague"
 
 @interface GroupLeagueViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;
@@ -45,13 +45,6 @@
     airBalloons = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view.
     
-    // 이부분이 이미지 둥글게 만들 수 잇는 부분임.
-    UIImage *image = [UIImage imageNamed:@"person1.png"];
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-    imageView.frame = CGRectMake(30, 120, 50, 50);
-    imageView.layer.masksToBounds = YES;
-    imageView.layer.cornerRadius = 30.0f;
-    [self.view addSubview:imageView];
     
     self.testPeople.layer.masksToBounds = YES;
     self.testPeople.layer.cornerRadius = 30.0f;

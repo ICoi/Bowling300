@@ -11,7 +11,7 @@
 #import "DBGroupManager.h"
 #import "DBMyInfoManager.h"
 #import "DBPersonnalRecordManager.h"
-#define URLLINK @"http://bowling.pineoc.cloulu.com/login"
+#define URLLINK @"http://bowling300.cafe24app.com/login"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *idLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;

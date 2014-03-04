@@ -12,7 +12,7 @@
 #import "DBMyInfoManager.h"
 #import <AFNetworking.h>
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/rankpoint"
+#define URLLINK @"http://bowling300.cafe24app.com/user/rankpoint"
 @interface IntroViewController ()
 @end
 

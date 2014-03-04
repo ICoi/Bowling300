@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupdel"
+#define URLLINK @"http://bowling300.cafe24app.com/user/groupdel"
 
 @interface GroupView()<UIActionSheetDelegate>
 

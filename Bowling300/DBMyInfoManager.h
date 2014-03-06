@@ -7,6 +7,7 @@
 //
 
 #import "DB.h"
+#import "Person.h"
 
 @interface DBMyInfoManager : DB
 + (id)sharedModeManager;
@@ -17,4 +18,6 @@
 - (BOOL)logOut;
 -(NSInteger)showMyIdx;
 -(void)setMyDataWhenLoginedWithDic:(NSDictionary *)inDic;
+-(Person *)getMyData;
+-(BOOL)setMyDataWithPerson:(Person *)me;
 @end

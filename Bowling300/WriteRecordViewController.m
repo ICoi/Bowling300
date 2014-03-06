@@ -15,7 +15,7 @@
 #import <AFNetworking.h>
 #import "WriteScoreView.h"
 #import "ScoreCell.h"
-#define URLLINK @"http://bowling300.cafe24app.com/user/score"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/score"
 
 
 

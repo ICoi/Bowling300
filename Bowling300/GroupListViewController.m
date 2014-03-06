@@ -14,7 +14,7 @@
 #import <AFNetworking.h>
 #import "GroupLeagueViewController.h"
 #import "DBMyInfoManager.h"
-#define URLLINK @"http://bowling300.cafe24app.com/user/grouplist"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/grouplist"
 #define GROUPWIDTH 100
 
 @interface GroupListViewController ()

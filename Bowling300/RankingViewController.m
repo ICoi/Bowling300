@@ -22,7 +22,7 @@
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
 
-#define URLLINK @"http://bowling300.cafe24app.com/ranking"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/ranking"
 
 
 
@@ -149,7 +149,7 @@
         NSString *series800 = @"1";
         
         
-        [person setValueWithName:name withProfileURL:[NSURL URLWithString:profile] withCountryURL:[NSURL URLWithString:country] withHandy:[handy integerValue] withScore:score withYear:2012 withStyle:@"Straight" withStep:3 withBall:3 with300:1 with800Series:1];
+        [person setValueWithName:name withProfileURL:[NSURL URLWithString:profile] withCountryURL:[NSURL URLWithString:country] withHandy:[handy integerValue] withScore:score withYear:2012 withStyle:0 withStep:3 withBall:3 with300:1 with800Series:1];
         
         [peoples addObject:person];
         // rankingDataArr

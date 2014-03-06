@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 #define IMAGESIZE 300
-#define URLLINK @"http://bowling300.cafe24app.com/user/groupmake"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupmake"
 ///user/groupmake
 @interface GroupAddViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *groupNameLabel;

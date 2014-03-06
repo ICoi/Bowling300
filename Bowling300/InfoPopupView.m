@@ -128,7 +128,7 @@
 - (IBAction)clickCloseButton:(id)sender{
     [self setHidden:YES];
 }
-- (void)setValueWithProfileURL:(NSURL *)inProfileURL withCountryURL:(NSURL *)inCountryURL withHandy:(NSInteger)inHandy withName:(NSString *)inName withScore:(NSString *)inScore withYears:(NSInteger)inYears withStyle:(NSString *)instyle withStep:(NSInteger)inStep withBall:(NSInteger)inBall with300:(NSInteger)in300 with800Series:(NSInteger)in800{
+- (void)setValueWithProfileURL:(NSURL *)inProfileURL withCountryURL:(NSURL *)inCountryURL withHandy:(NSInteger)inHandy withName:(NSString *)inName withScore:(NSString *)inScore withYears:(NSInteger)inYears withStyle:(NSInteger)instyle withStep:(NSInteger)inStep withBall:(NSInteger)inBall with300:(NSInteger)in300 with800Series:(NSInteger)in800{
     [self.profileImageView setImageWithURL:inProfileURL];
     [self.countryImageView setImageWithURL:inCountryURL];
     if(inHandy == 1){
@@ -138,7 +138,7 @@
     self.scoreLabel.text = inScore;
     self.nameLabel.text = inName;
     self.yearLabel.text = [NSString stringWithFormat:@"%d",inYears];
-    self.styleLabel.text = instyle;
+    self.styleLabel.text = [NSString stringWithFormat:@"test"];
     self.stepLabel.text = [NSString stringWithFormat:@"%d Steps",inStep];
     self.ballLabel.text = [NSString stringWithFormat:@"%d Pounds",inBall];
     if(in300 == 1){

@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 #import "DBMyInfoManager.h"
 #import "AppDelegate.h"
-#define URLLINK @"http://bowling300.cafe24app.com/user/sign"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/sign"
 #define IMAGESIZE 300
 
 

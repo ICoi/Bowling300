@@ -11,7 +11,7 @@
 #import "DBGroupManager.h"
 #import "DBMyInfoManager.h"
 #import "DBPersonnalRecordManager.h"
-#define URLLINK @"http://bowling300.cafe24app.com/login"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/login"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *idLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
@@ -90,10 +90,10 @@
         }else{
             NSLog(@"result is success");
             
-            NSArray *Arr = resultDic[@"group"];
+            NSArray *Arr = responseObject[@"group"];
             [dbGManager setGroupDataWhenLoginedWithJSON:Arr];
             
-            NSDictionary *dic = resultDic[@"myval"];
+            NSDictionary *dic = responseObject[@"myval"];
             [dbMyManager setMyDataWhenLoginedWithDic:dic];
             
             [dbRecordManager setDefaultData ];

@@ -18,7 +18,7 @@
 #define WIDTH 235
 #define HEIGHT 424
 
-#define URLLINK @"http://bowling300.cafe24app.com/user/groupLeague"
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupLeague"
 
 @interface GroupLeagueViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;

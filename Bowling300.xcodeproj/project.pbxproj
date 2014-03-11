@@ -197,6 +197,7 @@
 		7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7049E39B18919D6B00DF1063 /* libsqlite3.dylib */; };
 		7049E39F18919DA500DF1063 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39E18919DA500DF1063 /* DB.m */; };
 		7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */; };
+		70A8DAB318CF5336001464F3 /* next_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A8DAB218CF5336001464F3 /* next_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -449,6 +450,7 @@
 		7049E39E18919DA500DF1063 /* DB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DB.m; sourceTree = "<group>"; };
 		7049E3A018919E7C00DF1063 /* DBPersonnalRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPersonnalRecordManager.h; sourceTree = "<group>"; };
 		7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPersonnalRecordManager.m; sourceTree = "<group>"; };
+		70A8DAB218CF5336001464F3 /* next_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_icon.png; sourceTree = "<group>"; };
 		76BF10027DEB48AF917E7CC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -708,6 +710,7 @@
 				701E093618CCBB17007E2311 /* group_league_noscore.png */,
 				00A4829518AC56A1006B6707 /* back_foot_bar.png */,
 				00A4829618AC56A1006B6707 /* back_icon.png */,
+				70A8DAB218CF5336001464F3 /* next_icon.png */,
 				00A4829718AC56A1006B6707 /* bar_ver.png */,
 				00A4829818AC56A1006B6707 /* board_profile.png */,
 				00A4829918AC56A1006B6707 /* board_title_bg.png */,
@@ -1059,6 +1062,7 @@
 				00A4830C18AC56A1006B6707 /* group_member_invite_check_check.png in Resources */,
 				00A4835218AC56A1006B6707 /* record_footer_chart_bar_200.png in Resources */,
 				00A4832918AC56A1006B6707 /* menu_record.png in Resources */,
+				70A8DAB318CF5336001464F3 /* next_icon.png in Resources */,
 				008B8FD918AB525700372F04 /* Roboto-Black.ttf in Resources */,
 				00A4832E18AC56A1006B6707 /* mypage_img_layout.png in Resources */,
 				00A4831318AC56A1006B6707 /* group_new_img_bg.png in Resources */,

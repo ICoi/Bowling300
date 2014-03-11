@@ -47,9 +47,9 @@
     [self.profileImage setImageWithURL:myImageURL];
     
     self.userName.text = [dbInfoManager showUsername];
-    self.gLabel.text = [NSString stringWithFormat:@"%d",ad.myGameCnt];
-    self.aLabel.text = [NSString stringWithFormat:@"%d",ad.myAllScore];
-    self.hLabel.text = [NSString stringWithFormat:@"%d",ad.myHighScore];
+    self.gLabel.text = [NSString stringWithFormat:@"%d",(int)ad.myGameCnt];
+    self.aLabel.text = [NSString stringWithFormat:@"%d",(int)ad.myAllScore];
+    self.hLabel.text = [NSString stringWithFormat:@"%d",(int)ad.myHighScore];
     
     
     

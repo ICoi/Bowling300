@@ -37,13 +37,13 @@
     Score *oneScore = [[Score alloc] initWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID];
     [self.todayScores addObject:oneScore];
 
-    NSString *key = [NSString stringWithFormat:@"%d",inGroupNum];
+    NSString *key = [NSString stringWithFormat:@"%d",(int)inGroupNum];
     NSString *groupScore = self.groupScores[key];
     if(groupScore == nil){
-        [self.groupScores setObject:[NSString stringWithFormat:@"%d",inTotalScore] forKey:key];
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",(int)inTotalScore] forKey:key];
     }else{
         NSInteger tmp = ([groupScore integerValue] + inTotalScore);
-        [self.groupScores setObject:[NSString stringWithFormat:@"%d",tmp] forKey:key];
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",(int)tmp] forKey:key];
     }
     
     if(self.highScore < inTotalScore){
@@ -66,13 +66,13 @@
     Score *oneScore = [[Score alloc] initWithGroupNum:inGroupNum withTotalScore:inTotalScore withRowID:inRowID withHandy:inHandy];
     [self.todayScores addObject:oneScore];
     
-    NSString *key = [NSString stringWithFormat:@"%d",inGroupNum];
+    NSString *key = [NSString stringWithFormat:@"%d",(int)inGroupNum];
     NSString *groupScore = self.groupScores[key];
     if(groupScore == nil){
-        [self.groupScores setObject:[NSString stringWithFormat:@"%d",inTotalScore] forKey:key];
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",(int)inTotalScore] forKey:key];
     }else{
         NSInteger tmp = ([groupScore integerValue] + inTotalScore);
-        [self.groupScores setObject:[NSString stringWithFormat:@"%d",tmp] forKey:key];
+        [self.groupScores setObject:[NSString stringWithFormat:@"%d",(int)tmp] forKey:key];
     }
     
     if(self.highScore < inTotalScore){

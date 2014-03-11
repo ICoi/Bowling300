@@ -21,7 +21,7 @@
 - (void)addDataWithGroup:(NSInteger)inGroupNum withScore:(NSInteger)inScore{
     self.totalScore += inScore;
     self.totalGameCnt++;
-    NSString *keyMonth = [NSString stringWithFormat:@"%d",inGroupNum];
+    NSString *keyMonth = [NSString stringWithFormat:@"%d",(int)inGroupNum];
     BLGraphScore *tmpScore = self.scores[keyMonth];
     if(tmpScore == nil){
         // 해당 그룹에 데이터가 없으면 키를 만들고 추가한다.

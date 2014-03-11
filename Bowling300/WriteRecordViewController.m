@@ -34,6 +34,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISwitch *leagueSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (strong) UIButton *button;
 @end
@@ -62,7 +63,7 @@
     dbPRManager = [DBPersonnalRecordManager sharedModeManager];
 	// Do any additional setup after loading the view.
     scores.todayScores = [[NSMutableArray alloc]init];
-    NSLog(@"%d %d %d",self.nowDate, self.nowMonth, self.nowYear);
+    NSLog(@"%d %d %d",(int)self.nowDate, (int)self.nowMonth, (int)self.nowYear);
      scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];
     
     dbGManager = [DBGroupManager sharedModeManager];
@@ -77,6 +78,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
+    self.dateLabel.text = [NSString stringWithFormat:@"%d - %d - %d",(int)self.nowYear,(int)self.nowMonth,(int)self.nowDate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,7 +106,7 @@
 - (void)pressScoreButton:(id)sender{
     UIButton *pressBtn = (UIButton *)sender;
     NSInteger pressRowID = pressBtn.tag - 10000;
-    NSLog(@"rowID : %d",pressRowID);
+    NSLog(@"rowID : %d",(int)pressRowID);
     
     
     [dbPRManager deleteDateWithRowID:pressRowID];
@@ -132,7 +134,7 @@
 }
 - (void)viewWillDisappear:(BOOL)animated{
     
-    NSInteger selectdDay = [[NSString stringWithFormat:@"%04d%02d%02d",self.nowYear,self.nowMonth, self.nowDate] integerValue];
+    NSInteger selectdDay = [[NSString stringWithFormat:@"%04d%02d%02d",(int)self.nowYear,(int)self.nowMonth, (int)self.nowDate] integerValue];
     
     if((selectdDay >= [ad.rankingStartDate integerValue]) && (selectdDay <= [ad.rankingEndDate integerValue])){
         
@@ -141,7 +143,7 @@
         NSMutableDictionary *dataDic = [dbPRManager shownByGroupRecordWithStartDate:ad.rankingStartDate withEndDate:ad.rankingEndDate];
         
         NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
-        NSString *myIdx = [NSString stringWithFormat:@"%d",ad.myIDX];
+        NSString *myIdx = [NSString stringWithFormat:@"%d",(int)ad.myIDX];
         [sendDic setObject:myIdx forKey:@"aidx"];
         
         NSArray *keys = [dataDic allKeys];
@@ -251,7 +253,7 @@
     if(one.handy != 0){
         handy = TRUE;
     }
-    [cell setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",one.totalScore] withHandy:handy withColor:one.groupColor];
+    [cell setValueWithRowIDX:one.rowID withscore:[NSString stringWithFormat:@"%d",(int)one.totalScore] withHandy:handy withColor:one.groupColor];
     return  cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -267,7 +269,7 @@
                            cellForItemAtIndexPath:selectedIdx];
         
         NSInteger rowIdx = cell.rowIdx;
-        NSLog(@"rowdix : %d",rowIdx);
+        NSLog(@"rowdix : %d",(int)rowIdx);
         [dbPRManager deleteDateWithRowID:rowIdx];
         
         scores = [dbPRManager showDataWithDate:self.nowDate withMonth:self.nowMonth withYear:self.nowYear];

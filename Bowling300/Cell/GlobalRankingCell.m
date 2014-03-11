@@ -30,7 +30,7 @@
 }
 
 - (void)setValueWithRankingNum:(NSInteger)inRankingNum withName:(NSString *)inName withScore:(NSString *)inScore withProfileImageURL:(NSURL*)inImageURL withCountryImageURL:(NSURL*)inCountryURL{
-    self.rankingNumLabel.text = [NSString stringWithFormat:@"%d",inRankingNum];
+    self.rankingNumLabel.text = [NSString stringWithFormat:@"%d",(int)inRankingNum];
     self.scoreLabel.text = inScore;
     self.nameLabel.text = inName;
     

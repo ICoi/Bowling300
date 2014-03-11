@@ -45,7 +45,7 @@ static DBGraphManager *_instance = nil;
             if(nowCnt == nil){
                 [dataTmpDic setObject:@"1" forKey:dateKey];
             }else{
-                int cnt = [nowCnt integerValue];
+                int cnt = (int)[nowCnt integerValue];
                 cnt++;
                 [dataTmpDic setObject:[NSString stringWithFormat:@"%d",cnt] forKey:dateKey];
             }

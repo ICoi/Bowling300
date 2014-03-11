@@ -43,8 +43,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
-    [sendDic setObject:[NSString stringWithFormat:@"%d",ad.selectedGroupIdx] forKey:@"gidx"];
-    [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
+    [sendDic setObject:[NSString stringWithFormat:@"%d",(int)ad.selectedGroupIdx] forKey:@"gidx"];
+    [sendDic setObject:[NSString stringWithFormat:@"%d",(int)ad.myIDX] forKey:@"aidx"];
     
     __autoreleasing NSError *error;
     NSData *data =[NSJSONSerialization dataWithJSONObject:sendDic options:kNilOptions error:&error];
@@ -72,7 +72,7 @@
             // 여기서 본인꺼 제외한거만 members에 넣어야되
             
             members = responseObject[@"member"];
-            self.memberCntLabel.text = [NSString stringWithFormat:@"%d members.",members.count];
+            self.memberCntLabel.text = [NSString stringWithFormat:@"%d members.",(int)members.count];
             [self.memberList reloadData];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

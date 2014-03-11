@@ -41,12 +41,12 @@
          NSString *string = responseObject[@"startPoint"];
          NSArray *components = [string componentsSeparatedByString: @"-"];
         
-        ad.rankingStartDate = [NSString stringWithFormat:@"%04d%02d%02d",[[components objectAtIndex:0] integerValue],[[components objectAtIndex:1] integerValue],[[components objectAtIndex:2] integerValue]];
+        ad.rankingStartDate = [NSString stringWithFormat:@"%04d%02d%02d",(int)[[components objectAtIndex:0] integerValue],(int)[[components objectAtIndex:1] integerValue],(int)[[components objectAtIndex:2] integerValue]];
         
         string = responseObject[@"endPoint"];
         components = [string componentsSeparatedByString:@"-"];
         
-        ad.rankingEndDate = [NSString stringWithFormat:@"%04d%02d%02d",[[components objectAtIndex:0] integerValue],[[components objectAtIndex:1] integerValue],[[components objectAtIndex:2] integerValue]];
+        ad.rankingEndDate = [NSString stringWithFormat:@"%04d%02d%02d",(int)[[components objectAtIndex:0] integerValue],(int)[[components objectAtIndex:1] integerValue],(int)[[components objectAtIndex:2] integerValue]];
         
         
         NSLog(@"JSON: %@", responseObject);

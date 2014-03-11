@@ -78,7 +78,7 @@
         else {
             totalAver = totalScore / totalCnt;
         }
-        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",(int)totalAver]];
         
         
         allScore += totalScore;
@@ -91,7 +91,7 @@
             allAver = allScore / allCnt;
         }
        // NSLog(@"all aver : %d",allAver);
-        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",allAver]];
+        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",(int)allAver]];
     }
 }
 - (void)setDataForBarLineCharWithYear:(NSInteger)inYear{
@@ -99,7 +99,6 @@
     allAverage = 0;
     thisYearData = [dbManager arrayForBarLineGraphWithYear:inYear];
     NSString *monthStr;
-    NSString *groupStr;
     
     NSInteger allCnt = 0;
     NSInteger allScore = 0;
@@ -121,7 +120,7 @@
             lastDataMonth = i;
         }
         
-        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",(int)totalAver]];
         
         
         allScore += totalScore;
@@ -135,7 +134,7 @@
         else{
             allAver = allScore / allCnt;
         }
-        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",allAver]];
+        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",(int)allAver]];
     }
     if(allCnt != 0){
         allAverage = allScore/allCnt;
@@ -151,7 +150,7 @@
     for(int i = 1 ; i < 13 ; i++){
         monthStr = [NSString stringWithFormat:@"%02d",i];
         BLGraphMonth *nowMonth = thisYearData.months[monthStr];
-        groupStr = [NSString stringWithFormat:@"%d",inGroupNum];
+        groupStr = [NSString stringWithFormat:@"%d",(int)inGroupNum];
         BLGraphScore *nowScore = nowMonth.scores[groupStr];
         
         NSInteger totalScore = nowScore.score;
@@ -164,7 +163,7 @@
             totalAver = totalScore / totalCnt;
         }
         
-        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",totalAver]];
+        [self.averageDataArr addObject:[NSString stringWithFormat:@"%d",(int)totalAver]];
         
         
         allScore += totalScore;
@@ -176,7 +175,7 @@
         else{
             allAver = allScore / allCnt;
         }
-        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",allAver]];
+        [self.cumDataArr addObject:[NSString stringWithFormat:@"%d",(int)allAver]];
     }
 }
 /*
@@ -217,7 +216,6 @@
             break;
         }
         UIColor * secondaryTextColor = nil;
-        UIFont * secondaryFont = [UIFont systemFontOfSize:10];
         
         //mainTextColor = [UIColor blackColor];
         secondaryTextColor = [UIColor blackColor];
@@ -305,7 +303,7 @@
     if(lastDataMonth >= 1){
         
         NSInteger barHeight = LINEGRAPE_HEIGHT * (float)allAverage/300;
-        int YPosition = BARGRAPE_Y - barHeight;
+        int YPosition = BARGRAPE_Y - (int)barHeight;
         // 이제 선을 그림
         UIBezierPath *path = [UIBezierPath bezierPath];
         [[UIColor colorWithRed:((float)60/255) green:((float)179/255) blue:((float)113/255) alpha:0.0]setFill];

@@ -110,13 +110,13 @@
     
     [self getRankingFromServerWithType:GLOBAL_RANKING];
     
-    self.highScoreLabel.text = [NSString stringWithFormat:@"%d",ad.myHighScore];
+    self.highScoreLabel.text = [NSString stringWithFormat:@"%d",(int)ad.myHighScore];
     if(ad.myGameCnt != 0){
-        self.averageScoreLabel.text = [NSString stringWithFormat:@"%d",(ad.myAllScore / ad.myGameCnt)];
+        self.averageScoreLabel.text = [NSString stringWithFormat:@"%d",(int)(ad.myAllScore / ad.myGameCnt)];
     }else{
         self.averageScoreLabel.text = @"0";
     }
-    self.gameCntLabel.text = [NSString stringWithFormat:@"%d",ad.myGameCnt];
+    self.gameCntLabel.text = [NSString stringWithFormat:@"%d",(int)ad.myGameCnt];
     
     
     DBGroupManager *dbGroupManager = [DBGroupManager sharedModeManager];
@@ -149,7 +149,7 @@
         NSString *series800 = @"1";
         
         
-        [person setValueWithName:name withProfileURL:[NSURL URLWithString:profile] withCountryURL:[NSURL URLWithString:country] withHandy:[handy integerValue] withScore:score withYear:2012 withStyle:0 withStep:3 withBall:3 with300:1 with800Series:1];
+        [person setValueWithName:name withProfileURL:[NSURL URLWithString:profile] withCountryURL:[NSURL URLWithString:country] withHandy:[handy integerValue] withScore:score withYear:[fromYear integerValue] withStyle:[style integerValue] withStep:[step integerValue] withBall:[ball integerValue] with300:[series300 integerValue] with800Series:[series800 integerValue]];
         
         [peoples addObject:person];
         // rankingDataArr
@@ -183,19 +183,19 @@
     
     NSMutableDictionary *sendDic = [[NSMutableDictionary alloc]init];
     if( inType == GLOBAL_RANKING){
-        [sendDic setObject:[NSString stringWithFormat:@"%d", ad.myIDX]forKey:@"aidx"];
+        [sendDic setObject:[NSString stringWithFormat:@"%d", (int)ad.myIDX]forKey:@"aidx"];
         [sendDic setObject:@"world" forKey:@"type"];
         [sendDic setObject:@"0" forKey:@"limit"];
         
     }else if(inType == LOCAL_RANKING){
         
-        [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
+        [sendDic setObject:[NSString stringWithFormat:@"%d",(int)ad.myIDX] forKey:@"aidx"];
         [sendDic setObject:@"local" forKey:@"type"];
-        [sendDic setObject:@"limit" forKey:@"0"];
+        [sendDic setObject:@"0" forKey:@"limit"];
         
     }else if(inType == GROUP_RANKING){
-        [sendDic setObject:[NSString stringWithFormat:@"%d",ad.myIDX] forKey:@"aidx"];
-        [sendDic setObject:[NSString stringWithFormat:@"%d",representiveGroupIdx] forKey:@"type"];
+        [sendDic setObject:[NSString stringWithFormat:@"%d",(int)ad.myIDX] forKey:@"aidx"];
+        [sendDic setObject:[NSString stringWithFormat:@"%d",(int)representiveGroupIdx] forKey:@"type"];
         [sendDic setObject:@"0" forKey:@"limit"];
         
     }
@@ -309,20 +309,41 @@
 
 // 여기 아래는 탭 버튼 누르는거
 - (IBAction)goRecordPage:(id)sender {
-    [self.tabBarController setSelectedIndex:1];
+    if([dbInfoManager isLoggined]){
+        [self.tabBarController setSelectedIndex:1];
+        
+    }else{
+        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
+        [self.navigationController pushViewController:uiVC   animated:YES];
+        
+    }
   
     //
 }
 - (IBAction)goGroupPage:(id)sender {
-    [self.tabBarController setSelectedIndex:2];
+    if([dbInfoManager isLoggined]){
+        [self.tabBarController setSelectedIndex:2];
+        
+    }else{
+        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
+        [self.navigationController pushViewController:uiVC   animated:YES];
+        
+    }
 }
 - (IBAction)goMyPage:(id)sender {
-    [self.tabBarController setSelectedIndex:3];
+    if([dbInfoManager isLoggined]){
+        [self.tabBarController setSelectedIndex:3];
+        
+    }else{
+        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
+        [self.navigationController pushViewController:uiVC   animated:YES];
+        
+    }
 }
 - (void)showMyRankingWithRanking:(NSInteger)inRanking withProfileURL:(NSString *)inProfileURL withMyScore:(NSInteger)inMyScore{
     
     //내 랭킹정보를 보여줍니다.
-    self.myRankingLabel.text = [NSString stringWithFormat:@"%d",inRanking];
+    self.myRankingLabel.text = [NSString stringWithFormat:@"%d",(int)inRanking];
     
     NSURL *proURL = [NSURL URLWithString:inProfileURL];
     [self.myImageView setImageWithURL:proURL];

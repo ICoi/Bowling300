@@ -63,9 +63,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    DBMyInfoManager *dbInfoManager = [DBMyInfoManager sharedModeManager];
-    if([dbInfoManager isLoggined]){
-        
         
         groupCnt = 0;
         
@@ -91,11 +88,6 @@
         //TODO
         
         representGroupIdx = dbManager.showRepresentiveGroupIdx;
-    }else{
-        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
-        [self.navigationController pushViewController:uiVC   animated:YES];
-        
-    }
 }
 
 - (void)didReceiveMemoryWarning

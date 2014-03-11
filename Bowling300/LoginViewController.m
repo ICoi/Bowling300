@@ -85,6 +85,7 @@
                 [alert show];
             }else{
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:@"There is Error on connecting server" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                [alert show];
             }
             NSLog(@"result is fail");
         }else{
@@ -155,6 +156,9 @@
         
     }
     
+}
+- (IBAction)goBack:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

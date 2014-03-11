@@ -58,38 +58,30 @@
     [self.navigationController.navigationBar setHidden:YES];
     
     
+    NSDate *now = [NSDate date];
+    
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:NSYearCalendarUnit |
+                                    NSMonthCalendarUnit |
+                                    NSDayCalendarUnit fromDate:now];
+    
+    nowYear = [components year];
+    nowMonth = [components month];
+    nowDate = [components day];
+    
+    NSLog(@"now %d-%d-%d",(int)nowYear,(int)nowMonth,(int)nowDate);
+    [self.calendarView setYear:nowYear setMonth:nowMonth setDate:nowDate];
+    
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    if([dbInfoManager isLoggined]){
-        
         [self.calendarView setCalendarSetting];
         self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
         hamHidden = YES;
         pickerHidden = YES;
-        
-        
-        
-        NSDate *now = [NSDate date];
-        
-        NSCalendar* calendar = [NSCalendar currentCalendar];
-        NSDateComponents* components = [calendar components:NSYearCalendarUnit |
-                                        NSMonthCalendarUnit |
-                                        NSDayCalendarUnit fromDate:now];
-        
-        nowYear = [components year];
-        nowMonth = [components month];
-        nowDate = [components day];
-        
-        NSLog(@"now %d-%d-%d",nowYear,nowMonth,nowDate);
-        [self.calendarView setYear:nowYear setMonth:nowMonth setDate:nowDate];
-        
-    }else{
-        UIViewController *uiVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_BOARD"];
-        [self.navigationController pushViewController:uiVC   animated:YES];
-        
-    }
+    [self.calendarView setYear:nowYear setMonth:nowMonth setDate:nowDate];
+    NSLog(@"view will appear : %d %d %d",(int)nowYear,(int)nowMonth,(int)nowDate);
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,8 +110,8 @@
 - (IBAction)showDatePicker:(id)sender {
 //    NSLog(@"search button clicked!");
     UIView *nowView = self.viewPicker;
-    searchYear = [NSString stringWithFormat:@"%d",nowYear];
-    searchMonth = [NSString stringWithFormat:@"%d",nowMonth];
+    searchYear = [NSString stringWithFormat:@"%d",(int)nowYear];
+    searchMonth = [NSString stringWithFormat:@"%d",(int)nowMonth];
 //    NSLog(@"pickerview : %@",pickerView);
         [self.pickerView selectRow:([searchYear integerValue] - START_YEAR) inComponent:0 animated:NO];
         [self.pickerView selectRow:([searchMonth integerValue] - 1) inComponent:1 animated:NO];

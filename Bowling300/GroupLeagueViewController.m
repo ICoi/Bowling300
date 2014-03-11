@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;
 @property (nonatomic, strong) UIView *testView;
 @property (weak, nonatomic) IBOutlet UILabel *membersCntLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *noScoreImg;
 
 
 @end
@@ -85,21 +86,27 @@
             datas = responseObject[@"leaguedata"];
             NSString *myAver = responseObject[@"myavg"];
             NSString *myName = ad.myName;
-            
+            NSInteger notZeroeScoreCnt = 0;
             
             for(int i =0 ; i < datas.count ; i++){
                 NSMutableDictionary *oneData = [datas objectAtIndex:i];
                 NSString *score = oneData[@"avg"];
-                CGRect tmpPosition = [self showDrawPointWithScore:[score integerValue]];
-                AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:tmpPosition];
-                [one setValueWithScore:[score integerValue] withProfileURL:oneData[@"prophoto"] withName:oneData[@"name"]];
-                if(([myAver doubleValue] == [score doubleValue]) && ([myName isEqualToString:oneData[@"name"]])){
+                if ([score integerValue] != 0) {
+                    CGRect tmpPosition = [self showDrawPointWithScore:[score integerValue]];
+                    AirBalloonView *one = [[AirBalloonView alloc]initWithFrame:tmpPosition];
+                    [one setValueWithScore:[score integerValue] withProfileURL:oneData[@"prophoto"] withName:oneData[@"name"]];
+                    if(([myAver doubleValue] == [score doubleValue]) && ([myName isEqualToString:oneData[@"name"]])){
                     [one isMe];
+                    }
+                    [airBalloons addObject:one];
+                    [self.view addSubview:one];
+                    notZeroeScoreCnt++;
                 }
-                [airBalloons addObject:one];
-                [self.view addSubview:one];
             }
-            self.membersCntLabel.text = [NSString stringWithFormat:@"%d members.",datas.count];
+            if(notZeroeScoreCnt == 0){
+                [self.noScoreImg setHidden:NO];
+            }
+            self.membersCntLabel.text = [NSString stringWithFormat:@"%d members.",notZeroeScoreCnt];
             
             // TODO
         }

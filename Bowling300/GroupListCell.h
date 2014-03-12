@@ -10,4 +10,6 @@
 
 @interface GroupListCell : UITableViewCell
 -(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName withGroupImageURL:(NSString *)inImageURL;
+
+-(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName;
 @end

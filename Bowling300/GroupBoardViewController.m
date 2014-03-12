@@ -7,20 +7,33 @@
 //
 
 #import "GroupBoardViewController.h"
+#import "AppDelegate.h"
+#import "GroupWriteListCell.h"
+#import <AFNetworking.h>
+#define URLLINK @"http://bowling.pineoc.cloulu.com/user/group/board/list"
 
 @interface GroupBoardViewController () <UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UICollectionView *collection;
 
 @end
 
-@implementation GroupBoardViewController
+@implementation GroupBoardViewController{
+    AppDelegate *ad;
+    NSMutableArray *listArr;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    listArr = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    [self getList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,6 +42,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)getList{
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:URLLINK]];
+    
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    NSDictionary *parameters = @{@"gidx":[NSString stringWithFormat:@"%d",ad.selectedGroupIdx],@"limit":[NSString stringWithFormat:@"%d",0]};
+    NSLog(@"parameters : %@",parameters);
+    AFHTTPRequestOperation *op = [manager POST:@"" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"%@",responseObject);
+        listArr = responseObject[@"arr"];
+        NSLog(@"list : %@",listArr);
+        [self.collection reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+    }];
+    [op start];
+
+}
 
 - (IBAction)showLeague:(id)sender {
     [self.tabBarController setSelectedIndex:0];
@@ -41,11 +72,18 @@
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GROUP_CELL" forIndexPath:indexPath];
+    GroupWriteListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LIST_CELL" forIndexPath:indexPath];
+    NSDictionary *one = [listArr objectAtIndex:indexPath.row];
+    NSString *tmp = [NSString stringWithFormat:@"%@",one[@"photo"]];
+    if ([tmp isEqualToString:@"<null>"]) {
+        [cell setValueWithTitle:one[@"title"] withName:one[@"name"] withDate:one[@"writedate"]];
+    }else{
+    [cell setValueWithTitle:one[@"title"] withName:one[@"name"] withDate:one[@"writedate"] withImageURL:one[@"photo"]];
+    }
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 30;
+    return listArr.count;
 }
 @end

@@ -198,6 +198,10 @@
 		7049E39F18919DA500DF1063 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E39E18919DA500DF1063 /* DB.m */; };
 		7049E3A218919E7C00DF1063 /* DBPersonnalRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */; };
 		70A8DAB318CF5336001464F3 /* next_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A8DAB218CF5336001464F3 /* next_icon.png */; };
+		70A967F018D0210900E26BC3 /* group_board2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A967EF18D0210900E26BC3 /* group_board2.png */; };
+		70A967F218D0211100E26BC3 /* group_board_post2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A967F118D0211100E26BC3 /* group_board_post2.png */; };
+		70A967F518D03D0100E26BC3 /* GroupWriteListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A967F418D03D0100E26BC3 /* GroupWriteListCell.m */; };
+		70A967F718D0586B00E26BC3 /* group_board_read.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A967F618D0586B00E26BC3 /* group_board_read.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -451,6 +455,11 @@
 		7049E3A018919E7C00DF1063 /* DBPersonnalRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPersonnalRecordManager.h; sourceTree = "<group>"; };
 		7049E3A118919E7C00DF1063 /* DBPersonnalRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPersonnalRecordManager.m; sourceTree = "<group>"; };
 		70A8DAB218CF5336001464F3 /* next_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_icon.png; sourceTree = "<group>"; };
+		70A967EF18D0210900E26BC3 /* group_board2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board2.png; path = ../../../Dropbox/Bowling/640_1136/group_board2.png; sourceTree = "<group>"; };
+		70A967F118D0211100E26BC3 /* group_board_post2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board_post2.png; path = ../../../Dropbox/Bowling/640_1136/group_board_post2.png; sourceTree = "<group>"; };
+		70A967F318D03D0100E26BC3 /* GroupWriteListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWriteListCell.h; sourceTree = "<group>"; };
+		70A967F418D03D0100E26BC3 /* GroupWriteListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWriteListCell.m; sourceTree = "<group>"; };
+		70A967F618D0586B00E26BC3 /* group_board_read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board_read.png; path = ../../../Dropbox/Bowling/640_1136/group_board_read.png; sourceTree = "<group>"; };
 		76BF10027DEB48AF917E7CC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -484,6 +493,9 @@
 		0090CDCB18B0620700CC4435 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				70A967EF18D0210900E26BC3 /* group_board2.png */,
+				70A967F118D0211100E26BC3 /* group_board_post2.png */,
+				70A967F618D0586B00E26BC3 /* group_board_read.png */,
 				0090CDCC18B0622200CC4435 /* login.png */,
 			);
 			name = Image;
@@ -688,6 +700,8 @@
 				00D5141418B345930091F082 /* GroupMemberCell.m */,
 				00B4E76318B5B139009F275F /* ScoreCell.h */,
 				00B4E76418B5B139009F275F /* ScoreCell.m */,
+				70A967F318D03D0100E26BC3 /* GroupWriteListCell.h */,
+				70A967F418D03D0100E26BC3 /* GroupWriteListCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1020,6 +1034,7 @@
 				00A4833F18AC56A1006B6707 /* ranking_hander_r.png in Resources */,
 				00A4833D18AC56A1006B6707 /* ranking_flag_bg.png in Resources */,
 				00A482FB18AC56A1006B6707 /* board_profile.png in Resources */,
+				70A967F018D0210900E26BC3 /* group_board2.png in Resources */,
 				00A4834F18AC56A1006B6707 /* record_chart_topicon.png in Resources */,
 				701E093718CCBB17007E2311 /* group_league_noscore.png in Resources */,
 				008B8FDE18AB525700372F04 /* Roboto-Regular.ttf in Resources */,
@@ -1075,6 +1090,7 @@
 				00A4834C18AC56A1006B6707 /* record_chart_distribution.png in Resources */,
 				0090CDCD18B0622200CC4435 /* login.png in Resources */,
 				0099B69F18B437EE008E4F09 /* ranking_local_bg.png in Resources */,
+				70A967F218D0211100E26BC3 /* group_board_post2.png in Resources */,
 				0090CDE118B08CC300CC4435 /* ranking_myinfo.png in Resources */,
 				00A4831E18AC56A1006B6707 /* join_woman.png in Resources */,
 				00A4832818AC56A1006B6707 /* menu_ranking2.png in Resources */,
@@ -1121,6 +1137,7 @@
 				00A4830618AC56A1006B6707 /* group_leage_cloud.png in Resources */,
 				0090CDDC18B08CC300CC4435 /* flag_america.png in Resources */,
 				00A9B23518AE2A4300EAF308 /* bg.png in Resources */,
+				70A967F718D0586B00E26BC3 /* group_board_read.png in Resources */,
 				009CCB521890E096006DAB6F /* InfoPlist.strings in Resources */,
 				00A4832018AC56A1006B6707 /* logo.png in Resources */,
 				00A4830018AC56A1006B6707 /* group_edit_icon.png in Resources */,
@@ -1217,6 +1234,7 @@
 				00B4E76518B5B139009F275F /* ScoreCell.m in Sources */,
 				00BD7A9B18A077C900F35DF3 /* MonthScore.m in Sources */,
 				009CCB541890E096006DAB6F /* main.m in Sources */,
+				70A967F518D03D0100E26BC3 /* GroupWriteListCell.m in Sources */,
 				009CCC2A18910C94006DAB6F /* MyInfoViewController.m in Sources */,
 				00BD7AA418A0997F00F35DF3 /* WriteRecordViewController.m in Sources */,
 				00D979D018A1EDBB0078B24C /* BLGraphMonth.m in Sources */,
@@ -1378,8 +1396,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bowling300/Bowling300-Prefix.pch";
 				INFOPLIST_FILE = "Bowling300/Bowling300-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1395,8 +1415,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bowling300/Bowling300-Prefix.pch";
 				INFOPLIST_FILE = "Bowling300/Bowling300-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

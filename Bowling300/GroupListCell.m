@@ -39,4 +39,10 @@
     NSURL *imageURL = [NSURL URLWithString:inImageURL];
     [self.groupImage setImageWithURL:imageURL];
 }
+
+-(void)setValueWithName:(NSString *)inName withGroupName:(NSString *)inGroupName {
+    
+    self.nameLabel.text = inName;
+    self.groupNameLabel.text = inGroupName;
+}
 @end

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabe;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
--(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate withImageURL:(NSString *)inImageURL;
--(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate;
+@property (strong) NSString *bidx;
+-(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate withImageURL:(NSString *)inImageURL withBidx:(NSString *)inbidx;
+-(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate withBidx:(NSString *)inbidx;
 @end

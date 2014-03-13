@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GroupBoardReadViewController : UIViewController
-
+@property NSString *bidx;
 @end

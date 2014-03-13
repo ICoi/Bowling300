@@ -28,18 +28,20 @@
 }
 */
 
--(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate withImageURL:(NSString *)inImageURL{
+-(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate withImageURL:(NSString *)inImageURL withBidx:(NSString *)inbidx{
     self.titleLabe.text = inTitle;
     self.nameLabel.text = inName;
     self.dateLabel.text = inDate;
     NSURL *url = [NSURL URLWithString:inImageURL];
     [self.backgroundImg setImageWithURL:url];
+    self.bidx = inbidx;
 }
 
--(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate{
+-(void)setValueWithTitle:(NSString *)inTitle withName:(NSString *)inName withDate:(NSString *)inDate withBidx:(NSString *)inbidx{
     self.titleLabe.text = inTitle;
     self.nameLabel.text = inName;
     self.dateLabel.text = inDate;
+    self.bidx = inbidx;
 }
 
 @end

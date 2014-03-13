@@ -9,6 +9,7 @@
 #import "GroupBoardViewController.h"
 #import "AppDelegate.h"
 #import "GroupWriteListCell.h"
+#import "GroupBoardReadViewController.h"
 #import <AFNetworking.h>
 #define URLLINK @"http://bowling.pineoc.cloulu.com/user/group/board/list"
 
@@ -69,16 +70,24 @@
     [self.tabBarController setSelectedIndex:2];
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"BOARD_READ_SEAGUE"]){
+        GroupWriteListCell *cell = (GroupWriteListCell*)sender;
+        NSLog(@"%@",cell.bidx);
+        
+        GroupBoardReadViewController *gbrVC = (GroupBoardReadViewController *)segue.destinationViewController;
+        gbrVC.bidx = cell.bidx;
+    }
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GroupWriteListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LIST_CELL" forIndexPath:indexPath];
     NSDictionary *one = [listArr objectAtIndex:indexPath.row];
     NSString *tmp = [NSString stringWithFormat:@"%@",one[@"photo"]];
     if ([tmp isEqualToString:@"<null>"]) {
-        [cell setValueWithTitle:one[@"title"] withName:one[@"name"] withDate:one[@"writedate"]];
+        [cell setValueWithTitle:one[@"title"] withName:one[@"name"] withDate:one[@"writedate"]withBidx:one[@"bidx"]];
     }else{
-    [cell setValueWithTitle:one[@"title"] withName:one[@"name"] withDate:one[@"writedate"] withImageURL:one[@"photo"]];
+    [cell setValueWithTitle:one[@"title"] withName:one[@"name"] withDate:one[@"writedate"] withImageURL:one[@"photo"] withBidx:one[@"bidx"]];
     }
     return cell;
 }

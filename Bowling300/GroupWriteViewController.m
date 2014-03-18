@@ -36,6 +36,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self.contentLabel setTextColor:[UIColor greenColor]];
 }
 - (void)didReceiveMemoryWarning
 {

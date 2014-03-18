@@ -63,11 +63,11 @@
         NSString *result = responseObject[@"result"];
         if([result isEqualToString:@"SUCCESS"]){
             
-            self.textField.text = NULL;
             // 다썻다고 정보 보냄!!
-            NSDictionary *dic = @{[{]<#key#>: <#object, ...#>}
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"commentSendRecv" object:nil];
+            NSDictionary *dic = @{@"content": self.textField.text};
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"commentSendRecv" object:nil userInfo:dic];
             
+            self.textField.text = NULL;
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

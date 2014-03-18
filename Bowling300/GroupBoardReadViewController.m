@@ -105,7 +105,7 @@
                 // 코멘트가 없는 경우
             }else{
                 //코멘트가 있는 경우
-                commentDatas = responseObject[@"comment"];
+                commentDatas = [[NSMutableArray alloc]initWithArray:responseObject[@"comment"]];
                 self.commentCntLabel.text = [NSString stringWithFormat:@"Comments(%d)",commentDatas.count];
                 [self.tableView reloadData];
                 
@@ -217,7 +217,12 @@
 }
 - (void)commentSendRecv:(NSNotification *)notification{
     if([[notification name]isEqualToString:@"commentSendRecv"]){
+        NSLog(@"%@",commentDatas);
         [self.view endEditing:YES];
+        NSLog(@"%@",notification.userInfo);
+        NSDictionary *tmp = @{@"name_comm":@"me",@"comment":notification.userInfo[@"content"],@"writedate":@"now"};
+        NSLog(@"%@",tmp);
+        [commentDatas addObject:[tmp mutableCopy]];
         [self.tableView reloadData];
     }
 }

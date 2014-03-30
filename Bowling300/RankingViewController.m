@@ -18,6 +18,7 @@
 #import "DBGroupManager.h"
 #import "InfoPopupView.h"
 #import "Person.h"
+#import "iAd/iAd.h"
 #define GLOBAL_RANKING 0
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
@@ -27,8 +28,9 @@
 
 
 
-@interface RankingViewController ()<UITableViewDataSource, UITableViewDelegate>{
+@interface RankingViewController ()<UITableViewDataSource, UITableViewDelegate, ADBannerViewDelegate>{
     NSInteger selectedRanking;
+    ADBannerView *adView;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIButton *globalRankingBtn;
@@ -62,6 +64,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *averageScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gameCntLabel;
 
+@property(nonatomic, retain) IBOutlet ADBannerView *adView;
 @end
 
 @implementation RankingViewController{
@@ -97,6 +100,9 @@
     [self.view addSubview:popUpView];
     [popUpView setHidden:YES];
     peoples = [[NSMutableArray alloc]init];
+    
+    
+    self.adView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -485,4 +491,17 @@
         [popUpView setHidden:NO];
     }
 }
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
+}
+
 @end

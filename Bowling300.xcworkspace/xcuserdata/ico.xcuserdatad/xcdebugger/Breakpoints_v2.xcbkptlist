@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bowling300/RankingViewController.m"
-            timestampString = "416935571.686178"
+            timestampString = "417873879.170306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "-getRankingFromServerWithType:"
             landmarkType = "5">
          </BreakpointContent>

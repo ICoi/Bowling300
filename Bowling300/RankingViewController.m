@@ -22,7 +22,7 @@
 #define LOCAL_RANKING 1
 #define GROUP_RANKING 2
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/ranking"
+#define URLLINK @"http://bowling300.cafe24app.com/ranking"
 
 
 

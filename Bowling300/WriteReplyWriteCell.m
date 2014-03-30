@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 #import "AppDelegate.h"
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/group/board/commwrite"
+#define URLLINK @"http://bowling300.cafe24app.com/user/group/board/commwrite"
 @interface WriteReplyWriteCell()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;

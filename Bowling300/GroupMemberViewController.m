@@ -12,7 +12,7 @@
 #import <AFNetworking.h>
 #import <UIImageView+AFNetworking.h>
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupmember"
+#define URLLINK @"http://bowling300.cafe24app.com/user/groupmember"
 @interface GroupMemberViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *memberList;
 @property (weak, nonatomic) IBOutlet UILabel *memberCntLabel;

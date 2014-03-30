@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 #import <UIImageView+AFNetworking.h>
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/group/board/read"
+#define URLLINK @"http://bowling300.cafe24app.com/user/group/board/read"
 @interface GroupBoardReadViewController (){
     int dy;
 }
@@ -57,6 +57,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    self.userImageView.layer.masksToBounds = YES;
+    self.userImageView.layer.cornerRadius = 14.0f;
+    
 }
 - (void)didReceiveMemoryWarning
 {

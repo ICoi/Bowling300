@@ -11,8 +11,8 @@
 #import <AFNetworking.h>
 #import "AppDelegate.h"
 #import "DBGroupManager.h"
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/groupsearch"
-#define URLJOINLINK @"http://bowling.pineoc.cloulu.com/user/groupjoin"
+#define URLLINK @"http://bowling300.cafe24app.com/user/groupsearch"
+#define URLJOINLINK @"http://bowling300.cafe24app.com/user/groupjoin"
 #define GROUPCELL @"GROUP_LIST_CELL"
 
 @interface GroupSearchAndJoinViewController ()<UITableViewDelegate,UITableViewDataSource>

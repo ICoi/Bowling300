@@ -201,9 +201,8 @@
 		70523C6A18D897E100E9F9E5 /* WriteReplyWriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70523C6918D897E100E9F9E5 /* WriteReplyWriteCell.m */; };
 		70523C6D18D8A4AC00E9F9E5 /* WriteReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70523C6C18D8A4AC00E9F9E5 /* WriteReplyCell.m */; };
 		70523C6F18D8ABD800E9F9E5 /* group_board_reply_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 70523C6E18D8ABD800E9F9E5 /* group_board_reply_save.png */; };
+		7082032518E83CCB00FB1F12 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7082032418E83CCB00FB1F12 /* iAd.framework */; };
 		70A8DAB318CF5336001464F3 /* next_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A8DAB218CF5336001464F3 /* next_icon.png */; };
-		70A967F018D0210900E26BC3 /* group_board2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A967EF18D0210900E26BC3 /* group_board2.png */; };
-		70A967F218D0211100E26BC3 /* group_board_post2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A967F118D0211100E26BC3 /* group_board_post2.png */; };
 		70A967F518D03D0100E26BC3 /* GroupWriteListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A967F418D03D0100E26BC3 /* GroupWriteListCell.m */; };
 /* End PBXBuildFile section */
 
@@ -463,9 +462,8 @@
 		70523C6B18D8A4AC00E9F9E5 /* WriteReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteReplyCell.h; sourceTree = "<group>"; };
 		70523C6C18D8A4AC00E9F9E5 /* WriteReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteReplyCell.m; sourceTree = "<group>"; };
 		70523C6E18D8ABD800E9F9E5 /* group_board_reply_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group_board_reply_save.png; sourceTree = "<group>"; };
+		7082032418E83CCB00FB1F12 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		70A8DAB218CF5336001464F3 /* next_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_icon.png; sourceTree = "<group>"; };
-		70A967EF18D0210900E26BC3 /* group_board2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board2.png; path = ../../../Dropbox/Bowling/640_1136/group_board2.png; sourceTree = "<group>"; };
-		70A967F118D0211100E26BC3 /* group_board_post2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group_board_post2.png; path = ../../../Dropbox/Bowling/640_1136/group_board_post2.png; sourceTree = "<group>"; };
 		70A967F318D03D0100E26BC3 /* GroupWriteListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWriteListCell.h; sourceTree = "<group>"; };
 		70A967F418D03D0100E26BC3 /* GroupWriteListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWriteListCell.m; sourceTree = "<group>"; };
 		76BF10027DEB48AF917E7CC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -476,6 +474,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7082032518E83CCB00FB1F12 /* iAd.framework in Frameworks */,
 				7049E39C18919D6B00DF1063 /* libsqlite3.dylib in Frameworks */,
 				00DB21A61895F0E90011FDBE /* QuartzCore.framework in Frameworks */,
 				009CCB4A1890E096006DAB6F /* CoreGraphics.framework in Frameworks */,
@@ -501,8 +500,6 @@
 		0090CDCB18B0620700CC4435 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				70A967EF18D0210900E26BC3 /* group_board2.png */,
-				70A967F118D0211100E26BC3 /* group_board_post2.png */,
 				70523C6618D8974000E9F9E5 /* group_board_read.png */,
 				0090CDCC18B0622200CC4435 /* login.png */,
 			);
@@ -543,6 +540,7 @@
 		009CCB461890E096006DAB6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7082032418E83CCB00FB1F12 /* iAd.framework */,
 				7049E39B18919D6B00DF1063 /* libsqlite3.dylib */,
 				00DB21A51895F0E90011FDBE /* QuartzCore.framework */,
 				009CCB471890E096006DAB6F /* Foundation.framework */,
@@ -1047,7 +1045,6 @@
 				00A4833F18AC56A1006B6707 /* ranking_hander_r.png in Resources */,
 				00A4833D18AC56A1006B6707 /* ranking_flag_bg.png in Resources */,
 				00A482FB18AC56A1006B6707 /* board_profile.png in Resources */,
-				70A967F018D0210900E26BC3 /* group_board2.png in Resources */,
 				00A4834F18AC56A1006B6707 /* record_chart_topicon.png in Resources */,
 				701E093718CCBB17007E2311 /* group_league_noscore.png in Resources */,
 				008B8FDE18AB525700372F04 /* Roboto-Regular.ttf in Resources */,
@@ -1104,7 +1101,6 @@
 				00A4834C18AC56A1006B6707 /* record_chart_distribution.png in Resources */,
 				0090CDCD18B0622200CC4435 /* login.png in Resources */,
 				0099B69F18B437EE008E4F09 /* ranking_local_bg.png in Resources */,
-				70A967F218D0211100E26BC3 /* group_board_post2.png in Resources */,
 				0090CDE118B08CC300CC4435 /* ranking_myinfo.png in Resources */,
 				00A4831E18AC56A1006B6707 /* join_woman.png in Resources */,
 				00A4832818AC56A1006B6707 /* menu_ranking2.png in Resources */,
@@ -1407,14 +1403,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daun Joung (98QMQ884PC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bowling300/Bowling300-Prefix.pch";
 				INFOPLIST_FILE = "Bowling300/Bowling300-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2394A88A-28A4-4074-A659-2C6D96B96EE3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1426,14 +1422,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daun Joung (98QMQ884PC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bowling300/Bowling300-Prefix.pch";
 				INFOPLIST_FILE = "Bowling300/Bowling300-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2394A88A-28A4-4074-A659-2C6D96B96EE3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

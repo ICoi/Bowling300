@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import <AFNetworking.h>
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/group/board/write"
+#define URLLINK @"http://bowling300.cafe24app.com/user/group/board/write"
 #define IMAGESIZE 300
 
 @interface GroupWriteViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>

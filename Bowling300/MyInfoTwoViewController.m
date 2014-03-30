@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "DBMyInfoManager.h"
 
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/addsign"
+#define URLLINK @"http://bowling300.cafe24app.com/user/addsign"
 @interface MyInfoTwoViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *fromLabel;
 @property (weak, nonatomic) IBOutlet UITextField *ballPoundLabel;
@@ -106,25 +106,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
- 요청
- http://bowling.pineoc.cloulu.com/user/addsign
- {
- "aidx":"100",
- "name":"nn",
- "pwd":"123321",
- "hand":"1",
- "sex":"1",
- "year":"2005",
- "ballweight":"11",
- "style":"1",
- "step":"3",
- "series800":"1",
- "series300":"1",
- }
- 
- se
- */
 - (IBAction)pressSaveBtn:(id)sender {
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     

@@ -11,7 +11,7 @@
 #import "GroupWriteListCell.h"
 #import "GroupBoardReadViewController.h"
 #import <AFNetworking.h>
-#define URLLINK @"http://bowling.pineoc.cloulu.com/user/group/board/list"
+#define URLLINK @"http://bowling300.cafe24app.com/user/group/board/list"
 
 @interface GroupBoardViewController () <UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;

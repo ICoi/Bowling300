@@ -9,16 +9,17 @@
 #import "GroupWriteViewController.h"
 #import "AppDelegate.h"
 #import <AFNetworking.h>
+#import "iAd/iAd.h"
 
 #define URLLINK @"http://bowling300.cafe24app.com/user/group/board/write"
 #define IMAGESIZE 300
 
-@interface GroupWriteViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface GroupWriteViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate,ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
 @property (weak, nonatomic) IBOutlet UITextField *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentLabel;
-
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 @end
 
 @implementation GroupWriteViewController{
@@ -33,6 +34,8 @@
     
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
 	// Do any additional setup after loading the view.
+    self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -191,5 +194,18 @@
 }
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
 }
 @end

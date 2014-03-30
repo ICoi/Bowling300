@@ -420,7 +420,7 @@
                             </button>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vQh-eh-VUD">
                                 <rect key="frame" x="0.0" y="445" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -764,6 +764,10 @@
                                     <action selector="selectCountry:" destination="9wb-az-KQv" eventType="touchUpInside" id="WBU-8K-iKd"/>
                                 </connections>
                             </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sXh-5r-5Vb">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1021,11 +1025,16 @@
                                     <action selector="goBack:" destination="fMo-d8-Nh4" eventType="touchUpInside" id="ryS-8z-4XE"/>
                                 </connections>
                             </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="O9n-P8-rpy">
+                                <rect key="frame" x="1" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="BWI-bu-mlg"/>
                     <connections>
+                        <outlet property="adView" destination="O9n-P8-rpy" id="wiq-NN-bX8"/>
                         <outlet property="ballPoundLabel" destination="Oug-Mk-eti" id="94K-4g-zTW"/>
                         <outlet property="fromLabel" destination="xfG-DM-JOB" id="aDV-j4-lWv"/>
                         <outlet property="n800Btn" destination="hsv-vI-4C4" id="AwK-vT-ZIP"/>
@@ -1433,7 +1442,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="cXd-d2-UrY">
-                                <rect key="frame" x="0.0" y="139" width="320" height="429"/>
+                                <rect key="frame" x="0.0" y="139" width="320" height="380"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" red="0.090196080505847931" green="0.70588237047195435" blue="0.60784316062927246" alpha="1" colorSpace="deviceRGB"/>
@@ -1503,11 +1512,16 @@
                                     <outlet property="delegate" destination="ESB-Zv-Pnd" id="s9D-Oe-j88"/>
                                 </connections>
                             </textField>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="g7S-es-nwU">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="FMs-DA-LRs"/>
                     <connections>
+                        <outlet property="adView" destination="g7S-es-nwU" id="ctE-Zf-2cE"/>
                         <outlet property="listTable" destination="cXd-d2-UrY" id="8Do-Zk-aap"/>
                         <outlet property="searchTextField" destination="dwV-YD-2W4" id="r93-H0-d4j"/>
                         <outlet property="titleLabel" destination="FeF-JP-TTs" id="bSu-gC-NgL"/>
@@ -2306,6 +2320,10 @@
                                 <rect key="frame" x="89" y="220" width="143" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nPQ-zh-GAP">
+                                <rect key="frame" x="0.0" y="447" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -2316,6 +2334,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="adView" destination="nPQ-zh-GAP" id="9gi-PJ-aa1"/>
                         <outlet property="membersCntLabel" destination="9Ti-TR-Edk" id="ou0-ce-W6f"/>
                         <outlet property="noScoreImg" destination="LBr-lO-Whl" id="b9y-L5-KQJ"/>
                     </connections>
@@ -2426,7 +2445,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="ioM-Xe-tvW">
-                                                            <rect key="frame" x="-1" y="0.0" width="81" height="81"/>
+                                                            <rect key="frame" x="-0.99999971742984894" y="0.0" width="81" height="81"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julia K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="inZ-vq-xBj">
@@ -2728,11 +2747,16 @@
                                     <action selector="clickecSave:" destination="AAO-6u-x5b" eventType="touchUpInside" id="F0e-Sw-cuo"/>
                                 </connections>
                             </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aml-QW-Un1">
+                                <rect key="frame" x="0.0" y="447" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="trg-NH-rju"/>
                     <connections>
+                        <outlet property="adView" destination="aml-QW-Un1" id="21A-d2-ish"/>
                         <outlet property="cameraBtn" destination="AQF-5C-5AT" id="j4b-iY-gnz"/>
                         <outlet property="contentLabel" destination="doa-tk-Vdx" id="CHT-NG-PPx"/>
                         <outlet property="imageView" destination="dHz-PF-FEY" id="bGu-q1-xNa"/>
@@ -3358,14 +3382,14 @@
                                 <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All of your score is saved in your phone only." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QST-QX-qy4">
-                                <rect key="frame" x="6" y="524" width="312" height="21"/>
+                                <rect key="frame" x="6" y="481" width="312" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only one week's score will be sent to Server." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kti-1I-O4T">
-                                <rect key="frame" x="6" y="539" width="312" height="21"/>
+                                <rect key="frame" x="6" y="496" width="312" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3378,6 +3402,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="68c-bQ-Zih">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -3386,6 +3414,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="adView" destination="68c-bQ-Zih" id="msP-cW-HsP"/>
                         <outlet property="collectionView" destination="1jO-kt-ErZ" id="wsB-P1-5Cz"/>
                         <outlet property="dateLabel" destination="2e3-8g-CDa" id="KUB-7t-kCd"/>
                         <outlet property="groupLabel" destination="SMg-ao-ePP" id="plq-yN-kIj"/>

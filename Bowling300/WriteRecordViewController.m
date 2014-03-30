@@ -15,6 +15,7 @@
 #import <AFNetworking.h>
 #import "WriteScoreView.h"
 #import "ScoreCell.h"
+#import "iAd/iAd.h"
 #define URLLINK @"http://bowling300.cafe24app.com/user/score"
 
 
@@ -26,7 +27,7 @@
 #define MARGINWIDTH 7
 #define MARGINHIEGHT 3
 
-@interface WriteRecordViewController ()<UIActionSheetDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface WriteRecordViewController ()<UIActionSheetDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *handyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *scoreLabel;
 @property (weak, nonatomic) IBOutlet UITextField *groupLabel;
@@ -37,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (strong) UIButton *button;
+
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 @end
 
 @implementation WriteRecordViewController{
@@ -74,6 +77,8 @@
     
     selectedGroupIdx = -1;
     
+    self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -276,6 +281,19 @@
         [self.collectionView reloadData];
         
     }
+}
+
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
 }
 
 /*

@@ -12,6 +12,7 @@
 #import <AFNetworking.h>
 #import "AppDelegate.h"
 #import <UIImageView+AFNetworking.h>
+#import "iAd/iAd.h"
 #define TOPX 25
 #define TOPY 61
 #define BOTTOMY 485
@@ -20,12 +21,12 @@
 
 #define URLLINK @"http://bowling300.cafe24app.com/user/groupLeague"
 
-@interface GroupLeagueViewController ()
+@interface GroupLeagueViewController () <ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *testPeople;
 @property (nonatomic, strong) UIView *testView;
 @property (weak, nonatomic) IBOutlet UILabel *membersCntLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *noScoreImg;
-
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 
 @end
 
@@ -53,6 +54,9 @@
     holdingAirBalloon = -1;
     
     [self.tabBarController.tabBar setHidden:YES];
+    
+    self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 
 
@@ -189,5 +193,18 @@
 }
 - (void)drawPersonWithScore:(NSInteger)score{
     
+}
+
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
 }
 @end

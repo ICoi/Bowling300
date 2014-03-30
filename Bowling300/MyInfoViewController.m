@@ -10,8 +10,9 @@
 #import "MyInfoTwoViewController.h"
 #import "DBMyInfoManager.h"
 #import "Person.h"
+#import "iAd/iAd.h"
 
-@interface MyInfoViewController ()
+@interface MyInfoViewController () <ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *countryLabel;
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *manBtn;
 @property (weak, nonatomic) IBOutlet UIButton *girlBtn;
 
+@property (nonatomic ,retain) IBOutlet ADBannerView *adView;
 @end
 
 @implementation MyInfoViewController{
@@ -39,6 +41,9 @@
     [super viewDidLoad];
     dbManager = [DBMyInfoManager sharedModeManager];
 	// Do any additional setup after loading the view.
+    
+    self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -160,4 +165,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
+}
 @end

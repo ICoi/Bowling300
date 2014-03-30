@@ -30,7 +30,6 @@
 
 @interface RankingViewController ()<UITableViewDataSource, UITableViewDelegate, ADBannerViewDelegate>{
     NSInteger selectedRanking;
-    ADBannerView *adView;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIButton *globalRankingBtn;
@@ -103,6 +102,7 @@
     
     
     self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

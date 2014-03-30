@@ -10,9 +10,10 @@
 #import <AFNetworking.h>
 #import "AppDelegate.h"
 #import "DBMyInfoManager.h"
+#import "iAd/iAd.h"
 
 #define URLLINK @"http://bowling300.cafe24app.com/user/addsign"
-@interface MyInfoTwoViewController ()
+@interface MyInfoTwoViewController ()<ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *fromLabel;
 @property (weak, nonatomic) IBOutlet UITextField *ballPoundLabel;
 @property (weak, nonatomic) IBOutlet UIButton *y800Btn;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *styleCurve;
 @property (weak, nonatomic) IBOutlet UIButton *styleBackup;
 
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 @end
 
 @implementation MyInfoTwoViewController{
@@ -50,6 +52,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     dbManager = [DBMyInfoManager sharedModeManager];
+    
+    self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 -(void)viewWillAppear:(BOOL)animated{
     //초기 값 설정하기
@@ -223,5 +228,17 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
 }
 @end

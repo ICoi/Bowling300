@@ -11,17 +11,19 @@
 #import <AFNetworking.h>
 #import "AppDelegate.h"
 #import "DBGroupManager.h"
+#import "iAd/iAd.h"
+
 #define URLLINK @"http://bowling300.cafe24app.com/user/groupsearch"
 #define URLJOINLINK @"http://bowling300.cafe24app.com/user/groupjoin"
 #define GROUPCELL @"GROUP_LIST_CELL"
 
-@interface GroupSearchAndJoinViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface GroupSearchAndJoinViewController ()<UITableViewDelegate,UITableViewDataSource,ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (weak, nonatomic) IBOutlet UITableView *listTable;
-
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 @end
 
 @implementation GroupSearchAndJoinViewController{
@@ -48,6 +50,9 @@
     ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     selectGroupName = @"";
     dbManager = [DBGroupManager sharedModeManager];
+    
+    self.adView.delegate = self;
+    self.adView.hidden = true;
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -163,5 +168,18 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+
+
+// About IAD
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    self.adView.hidden = false;
+    NSLog(@"Has ad, showing");
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    self.adView.hidden = true;
+    NSLog(@"No ad To Display");
 }
 @end

@@ -768,12 +768,39 @@
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </adBannerView>
+                            <view hidden="YES" alpha="0.69999999999999973" contentMode="scaleToFill" id="uCG-cc-Kwm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" id="X4W-qL-8BI">
+                                        <rect key="frame" x="0.0" y="203" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="9wb-az-KQv" id="0uV-b9-Mdh"/>
+                                            <outlet property="delegate" destination="9wb-az-KQv" id="mdS-pC-pmH"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pel-Ws-X5I">
+                                        <rect key="frame" x="144" y="373" width="32" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endSelectCountry:" destination="9wb-az-KQv" eventType="touchUpInside" id="6G0-Ie-50d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZo-TD-uRr"/>
                     <connections>
                         <outlet property="countryLabel" destination="Ytt-CV-Xdy" id="Cw4-nO-RFQ"/>
+                        <outlet property="countryPickView" destination="uCG-cc-Kwm" id="hXf-00-wpv"/>
                         <outlet property="emailLabel" destination="DBV-se-qfF" id="JPA-Yv-ltU"/>
                         <outlet property="girlBtn" destination="EiJ-f0-MxZ" id="SMs-AO-Ock"/>
                         <outlet property="handerLabel" destination="i8T-GV-x7g" id="ULT-2K-1Li"/>
@@ -2445,7 +2472,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board_profile.png" id="ioM-Xe-tvW">
-                                                            <rect key="frame" x="-0.99999971742984894" y="0.0" width="81" height="81"/>
+                                                            <rect key="frame" x="-1" y="0.0" width="81" height="81"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julia K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="inZ-vq-xBj">
@@ -3181,6 +3208,32 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" alpha="0.69999999999999973" contentMode="scaleToFill" id="4hQ-cC-wbF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" id="59Y-aE-0tk">
+                                        <rect key="frame" x="5" y="203" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="W9S-Ib-Upb" id="6R0-Jb-e6x"/>
+                                            <outlet property="delegate" destination="W9S-Ib-Upb" id="22m-rF-kg1"/>
+                                        </connections>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qkh-59-e22">
+                                        <rect key="frame" x="137" y="379" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endSelectCountry:" destination="W9S-Ib-Upb" eventType="touchUpInside" id="V4A-nR-yoI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -3188,6 +3241,8 @@
                     <connections>
                         <outlet property="ProfileImageView" destination="hDN-b7-dbT" id="RLo-sh-g0L"/>
                         <outlet property="countryField" destination="rzP-KI-Isk" id="ZWn-bX-pPs"/>
+                        <outlet property="countryPickView" destination="4hQ-cC-wbF" id="TMP-5v-ByD"/>
+                        <outlet property="countryPicker" destination="59Y-aE-0tk" id="Gpi-Ii-PGB"/>
                         <outlet property="emailField" destination="WAd-Xm-vXX" id="tV1-np-W7E"/>
                         <outlet property="femaleButton" destination="DtY-Lp-yHm" id="t7m-Qc-lEu"/>
                         <outlet property="maleButton" destination="YIq-xr-1zR" id="K6O-cX-hbd"/>

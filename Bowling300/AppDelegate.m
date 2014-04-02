@@ -16,6 +16,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    self.countryNameArray = @[@"Argentian",@"America",@"Belgium",@"Brazil",@"Canada",@"China",@"Czech",@"Denmark",@"Egypt",@"Finland",@"France",@"Germany",@"Ghana",@"Greece",@"Ireland",@"Island",@"Italy",@"Japan",@"Korea",@"Latvia",@"Mexico",@"Neterlands",@"Norway",@"Poland",@"Russia",@"Southafrica",@"Spain",@"Sweden",@"United kingdom",@"Ukraine"];
+    self.countyrCodeArray = @[@"ARG",@"USA",@"BEL",@"BRA",@"CAN",@"CHN",@"CZE",@"DEN",@"EGY",@"FIN",@"FRA",@"GER",@"GHA",@"GRE",@"IRL",@"ISL",@"ITA",@"JPN",@"KOR",@"LAT",@"MEX",@"NED",@"NOR",@"POL",@"RUS",@"RSA",@"ESP",@"SWE",@"GBR",@"UKR"];
+    
+    
     dbInfoManager = [DBMyInfoManager sharedModeManager];
     
     dbRecordManager = [DBPersonnalRecordManager sharedModeManager];

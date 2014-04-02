@@ -14,7 +14,7 @@
 #define IMAGESIZE 300
 
 
-@interface JoinViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface JoinViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *countryField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *maleButton;
 @property (weak, nonatomic) IBOutlet UIButton *femaleButton;
 
+@property (weak, nonatomic) IBOutlet UIView *countryPickView;
+@property (weak, nonatomic) IBOutlet UIPickerView *countryPicker;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
@@ -37,6 +39,9 @@
     UIAlertView *countryAlert;
     UIAlertView *cameraAlert;
     NSString *selectCountryCode;
+    
+    NSArray *countryCodeArray;
+    NSArray *countryNameArray;
 }
 
 - (void)viewDidLoad
@@ -50,6 +55,8 @@
     hander = 0;
     gender = 0;
     
+    countryCodeArray = ad.countyrCodeArray;
+    countryNameArray = ad.countryNameArray;
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20.0];
@@ -166,19 +173,6 @@
             [self getImage];
         }
     } else if(alertView == countryAlert){
-        if(buttonIndex == alertView.firstOtherButtonIndex){
-            self.countryField.text = @"Korea";
-            selectCountryCode = @"KOR";
-        }else if(buttonIndex == (alertView.firstOtherButtonIndex+1)){
-            self.countryField.text = @"Japan";
-            selectCountryCode = @"JPN";
-        }else if(buttonIndex == (alertView.firstOtherButtonIndex+2)){
-            self.countryField.text = @"America";
-            selectCountryCode = @"USA";
-        }else if(buttonIndex == (alertView.firstOtherButtonIndex+3)){
-            self.countryField.text = @"China";
-            selectCountryCode = @"CHN";
-        }
     }
 }
 
@@ -235,8 +229,26 @@
     return newImage;
 }
 - (IBAction)selectCountry:(id)sender {
-    countryAlert = [[UIAlertView alloc]initWithTitle:@"Country" message:@"Select country" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Korea",@"Japan",@"America",@"China", nil];
-    [countryAlert show];
+    [self.countryPickView setHidden:NO];
+    
+}
+- (IBAction)endSelectCountry:(id)sender {
+    [self.countryPickView setHidden:YES];
+}
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return countryCodeArray.count;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [countryNameArray objectAtIndex:row];
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    self.countryField.text = [countryNameArray objectAtIndex:row];
+    selectCountryCode = [countryCodeArray objectAtIndex:row];
+    
+    NSLog(@"select country : %@, code : %@",self.countryField.text,selectCountryCode);
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

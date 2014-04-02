@@ -11,6 +11,7 @@
 #import "DBMyInfoManager.h"
 #import "Person.h"
 #import "iAd/iAd.h"
+#import "AppDelegate.h"
 
 @interface MyInfoViewController () <ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *manBtn;
 @property (weak, nonatomic) IBOutlet UIButton *girlBtn;
 
+@property (weak, nonatomic) IBOutlet UIView *countryPickView;
+
 @property (nonatomic ,retain) IBOutlet ADBannerView *adView;
 @end
 
@@ -34,6 +37,9 @@
     NSString *selectCountryCode;
     UIAlertView *countryAlert;
     UIAlertView *handAlert;
+    AppDelegate *ad;
+    NSArray *countryCodeArray;
+    NSArray *countryNameArray;
 }
 
 - (void)viewDidLoad
@@ -42,8 +48,13 @@
     dbManager = [DBMyInfoManager sharedModeManager];
 	// Do any additional setup after loading the view.
     
+    ad = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.adView.delegate = self;
     self.adView.hidden = true;
+    
+    
+    countryCodeArray = ad.countyrCodeArray;
+    countryNameArray = ad.countryNameArray;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -126,26 +137,32 @@
     gender = 1;
 }
 
+
 - (IBAction)selectCountry:(id)sender {
-    countryAlert = [[UIAlertView alloc]initWithTitle:@"Country" message:@"Select country" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Korea",@"Japan",@"America",@"China", nil];
-    [countryAlert show];
+    [self.countryPickView setHidden:NO];
+    
 }
+- (IBAction)endSelectCountry:(id)sender {
+    [self.countryPickView setHidden:YES];
+}
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return countryCodeArray.count;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [countryNameArray objectAtIndex:row];
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    self.countryLabel.text = [countryNameArray objectAtIndex:row];
+    selectCountryCode = [countryCodeArray objectAtIndex:row];
+    
+    NSLog(@"select country : %@, code : %@",self.countryLabel.text,selectCountryCode);
+}
+
 //alertView 선택시
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if([alertView isEqual:countryAlert]){
-        if(buttonIndex == alertView.firstOtherButtonIndex){
-            selectCountryCode = @"KOR";
-        }else if(buttonIndex == (alertView.firstOtherButtonIndex+1)){
-            selectCountryCode = @"JPN";
-        }else if(buttonIndex == (alertView.firstOtherButtonIndex+2)){
-            selectCountryCode = @"USA";
-        }else if(buttonIndex == (alertView.firstOtherButtonIndex+3)){
-            selectCountryCode = @"CHN";
-        }
-    
-    
-    [self showCountryNameWithCountryCode:selectCountryCode];
-    }else if([alertView isEqual:handAlert]){
         if(buttonIndex == (alertView.firstOtherButtonIndex)){
             hand = 0;
             self.handerLabel.text = @"Left";
@@ -153,8 +170,7 @@
             hand = 1;
             self.handerLabel.text = @"Right";
         }
-        
-    }
+    
 }
 - (IBAction)selectHander:(id)sender {
     handAlert = [[UIAlertView alloc]initWithTitle:@"Handler" message:@"Select Hand" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Left",@"Right", nil];

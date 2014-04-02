@@ -26,4 +26,7 @@
 @property (nonatomic) NSString *myName;
 
 @property (nonatomic) NSInteger selectedGroupIdx;
+
+@property (nonatomic) NSArray *countryNameArray;
+@property (nonatomic) NSArray *countyrCodeArray;
 @end
